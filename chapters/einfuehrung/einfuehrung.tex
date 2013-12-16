@@ -1,29 +1,57 @@
 \chapter{Einführung}
+In diesem einführenden Kapitel wird der aktuelle Zustand bezüglich \acs{WuNDa} und seinen externen Benutzern beschrieben. Danach wird das, sich durch eine gewünschte Rationalisierung stellende, Problem erläutert und ein Lösungsvorschlag für dieses Problem wird vorgestellt.
 \section{Überblick über den aktuellen Zustand}
-\begin{itemize}
-	\item Wunda, ein System zum Verwalten von Katasterdaten
-	\item Auf die Katasterdaten greifen viele Benutzer zu
-	\item Dies sind Beamte des Katatsteramtes
-	\item Aber auch externe Benutzer
-	\item Ext Benutzer sind u.a. Sparkasse, Polizei, \ac{ÖbVI}
-	\item Diese 3 brauchen Zugriff auf Wunda aus diversen Gründen...
-	\item \ac{ÖbVI} brauchen den Zugriff da sie Leute sind die das Land vermessen
-	\item Sie greifen Daten ab, geben Daten rein und verarbeiten Daten
-	\item Sie sind dazu rechtlich befähigt
-	\item Um die Daten zu erhalten sie die ext Benutzer auf die Beamten des Katatseramtes angewiesen
-	\item Die erste Aufgaben war das Herausgeben der Daten in Form von Produkten, dies wurde allerdings bereits geändert. Direkt Zugriff der ext. Benutzer.
-	\item Die zweite Aufgabe ist die Berechnung der angefallenen Kosten durch die bezogenen Produkte
-	\item Jedes Produkt hat nämlich einen bestimmten Preis, der vom Verwendungszweck etc... abhängt
-	\item Die Kostenermittlung wird manuell von den Beamten durchgeführt mit Excel. ???
-\end{itemize}
+Bei dem \ac{WuNDa} handelt es sich um ein Softwaresystem, das es der wuppertaler Stadtverwaltung ermöglicht auf geographisch-räumliche Informationen zuzugreifen \autocite[vgl.][]{cismet-wunda}. Durch diesen Schwerpunkt findet \ac{WuNDa} häufig Anwendung im Ressort 102, dem Ressort für Vermessung, Katasteramt und Geodaten.
+
+Weiterhin stellt die Stadtverwaltung einen Online-Zugriff auf \ac{WuNDa} bereit, so dass auch Benutzer, die keine Beamten der Stadtverwaltung sind, auf dieses System zugreifen können. Diese Gruppe von Benutzern wird im Folgenden externe Benutzer genannt.
+Zu diesen externen Benutzer gehören u.a. die Polizei, Sparkasse, Notare und insbesondere \acp{ÖbVI}.
+
+Die, für diese Arbeit wichtigste, Funktionalität des Online-Zugriffs ist die sogenannte Selbstentnahme von Produkten. Dabei können externen Benutzer amtliche Auszüge aus dem Liegenschaftskataster selbst beziehen. Dies bedeutet einerseits für die externen Benutzer, dass der Weg zum Katasteramt gespart wird und andererseits bedeutet es für das Katasteramt, dass die ansonsten benötigte Bearbeitungszeit eingespart wird \autocite[vgl.][]{wupp-wunda}.
+
+Am Beispiel der \acp{ÖbVI} zeigt sich, dass es gebührenfreie und gebührenpflichtige Produkte gibt.
+So können die \acp{ÖbVI} bestimmte Produkte, die im Rahmen von der Anfertigung von Amtlichen Lageplänen und der Durchführung hoheitlicher Vermessungen benötigt werden, kostenfrei anfordern.
+Besteht allerdings Bedarf nach anderen Produkten so sind diese kostenpflichtig \autocite[vgl.][]{wupp-wunda-oebvi}. Details hierzu befinden sich im Kapitel \todo{Ref setzen. }.
+
+Die Selbstentnahme unterstützt neben den kostenfreien Produkten auch kostenpflichtige Produkte. Dadurch wird es erforderlich, dass jedes bezogene Produkt protokolliert wird.
+Somit kann nach einem, vom Benutzer abhängigen, Abrechnungsturnus eine Abrechnung an die jeweiligen externen Benutzer gestellt werden.
+Eine solche Abrechnung für einen Benutzer enthält eine Auflistung seiner Produkte, die er während eines Abrechnungsturnus bezogen hat, und den entsprechend anfallenden Gebühren.
+Das Erstellen der Abrechnungen geschieht manuell durch einen Beamten des Katasteramtes, in dem sämtliche Produktprotokolle mit einem Tabellenkalkulationsprogramms so gefiltert werden, dass ausschließlich die gewünschten Protokolle für die Abrechnung eines bestimmten externen Benutzer und einen Abrechnungsturnus übrig sind.
+Durch dieses Verfahren ist das Erstellen der Abrechnungen arbeitsaufwändig und fehleranfällig \autocite[vgl.][]{sander-abrechnung}.
+
+
+%\begin{itemize}
+%	\item Wunda, ein System zum Verwalten von Katasterdaten
+%	\item Auf die Katasterdaten greifen viele Benutzer zu
+%	\item Dies sind Beamte des Katatsteramtes
+%	\item Aber auch externe Benutzer
+%	\item Ext Benutzer sind u.a. Sparkasse, Polizei, \ac{ÖbVI}
+%	\item Diese 3 brauchen Zugriff auf Wunda aus diversen Gründen...
+%	\item \ac{ÖbVI} brauchen den Zugriff da sie Leute sind die das Land vermessen
+%	\item Sie greifen Daten ab, geben Daten rein und verarbeiten Daten
+%	\item Sie sind dazu rechtlich befähigt
+%	\item Um die Daten zu erhalten sie die ext Benutzer auf die Beamten des Katatseramtes angewiesen
+%	\item Die erste Aufgaben war das Herausgeben der Daten in Form von Produkten, dies wurde allerdings bereits geändert. Direkt Zugriff der ext. Benutzer.
+%	\item Die zweite Aufgabe ist die Berechnung der angefallenen Kosten durch die bezogenen Produkte
+%	\item Jedes Produkt hat nämlich einen bestimmten Preis, der vom Verwendungszweck etc... abhängt
+%	\item Die Kostenermittlung wird manuell von den Beamten durchgeführt mit Excel. ???
+%\end{itemize}
 
 \section{Rationalisierung}
-\begin{itemize}
-	\item Das Amt will Beamten abbauen. Stichwort Rationalisierung
-	\item Die Rationalisierung kann nicht durchgeführt werden solange die ext. Benutzer auf die Beamten angewiesen sind.
-	\item Die Ermittlung der Kosten ist zeitintensiv
-	\item Problem das gelöst werden muss
-\end{itemize}
+Die Selbstentnahme wurde einerseits wegen des Erlass zur Online-Bereitstellung vom 2.2.2011 für die \acp{ÖbVI} eingeführt \autocite[vgl.][]{wupp-wunda-oebvi}, andererseits wegen eines Rationalisierungsplans, der zwischen dem Ressort 102 und dem Wuppertaler Stadtdirektor vereinbart wurde.
+Dieser Plan schreibt vor, dass bis Ende 2014 etwa zweieinhalb  Vollzeitkräfte wegfallen und nicht wieder besetzt werden.
+
+Der geplanten Rationalisierung steht allerdings im Weg, dass die Methode zur Erstellung der Abrechnungen arbeits- und zeitintensiv ist.
+Nichtsdestotrotz werden erhebliche Anstrengungen unternommen, um die Gruppe der externen Benutzer zu vergrößern.
+Durch das Wachsen dieser Gruppe, wächst allerdings auch der Aufwand der mit dem Erstellen der Abrechnungen einhergeht, folglich wird dieser noch zeitintensiver.
+
+Dies führt zum Schluß, dass die Methode zur Erstellung der Abrechnungen verändert werden muss, so dass sie weniger zeitaufwändig ist, um die Rationalisierung durchführen zu können \autocite[vgl.][]{sander-abrechnung}. 
+
+%\begin{itemize}
+%	\item Das Amt will Beamten abbauen. Stichwort Rationalisierung
+%	\item Die Rationalisierung kann nicht durchgeführt werden solange die ext. Benutzer auf die Beamten angewiesen sind.
+%	\item Die Ermittlung der Kosten ist zeitintensiv
+%	\item Problem das gelöst werden muss
+%\end{itemize}
 
 \section{Lösungsansatz}
 \begin{itemize}
