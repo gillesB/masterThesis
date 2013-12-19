@@ -1,6 +1,8 @@
 
 \include{preamble/preamble}
 
+\newcommand{\incgraph}[2]{\IfFileExists{#2}{\includegraphics[#1]{#2}}{\includegraphics[width=0.7\textwidth]{./img/dummy.png}}}
+
 \begin{document}
 
 \include{preamble/titlepages}
@@ -15,6 +17,7 @@
 \include{chapters/umsetzung/umsetzung}
 \include{chapters/ausblick/ausblick}
 
+\nocite{bezk-alkis}
 
 \printbibliography
 

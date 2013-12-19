@@ -6,89 +6,145 @@
 \end{itemize}
 
 \section{Auflistung der Produkte}
+In diesem Kapitel werden die Produkte aufgelistet, welche die externen Benutzer selbst beziehen können. Diese Produkte sind in vier Produktklassen eingeteilt:
 \begin{itemize}
-	\item Die Produkte sind in verschiedene Kategorien eingeteilt
-	\item Die Kategorien sind wichtig weil...
-	\item Tabelle
+	\item ALKIS-Standardausgaben
+	\item Standardausgaben WUP-kommunal
+	\item WuNDa-Berichte
+	\item Daten Liegenschaftskataster
 \end{itemize}
+Diese Produktklassen unterteilen die Produkte logisch und geben an von welcher Stelle diese definiert wurden. \todo{ausbauen und stimmt das?}
+
+%\begin{itemize}
+%	\item Die Produkte sind in verschiedene Produktklassen eingeteilt
+%	\item Die Produktklassen sind wichtig weil...
+%	\item Tabelle
+%\end{itemize}
+\subsection{ALKIS-Standardausgaben}
+
+Die Produkte dieser Produktklasse sind in \acs{ALKIS} landesweit standardisiert und beschrieben oder es sind kommunale Erweiterungen davon.
+
+Das \acf{ALKIS} ersetzt das \acf{ALB} und die \acf{ALK}, indem es die Daten beider Systeme vereint. Die \acs{AdV} hat \acs{ALKIS} entwickelt und organisiert die Pflege des Datenmodells \autocite[vgl.][]{adv-alkis}.
+
+Das Datenmodell ist stufenweise aufgebaut. Die unterste Stufe bildet der Grunddatenbestand AdV, dieser ist bundesweit gültig. Die nächste Stufe bildet ein Grunddatenbestand der landesweit gültig ist.
+So zum Beispiel der Grunddatenbestand NRW. Dieser Grunddatenbestand NRW wird wiederum vom Maximalprofil NRW erweitert.
+Welche Daten aus dem Maximalprofil NRW benutzt werden, kann jedes Katasteramt selbst entscheiden.
+Weiterhin haben die Katasterämter die Möglichkeit eine eigene Stufe zu diesem Stufenkonzept hinzuzufügen, diese gehört im Gegensatz zu den vorherigen Stufen nicht mehr zum amtlichen Liegenschaftskataster \autocite[vgl.][1-4]{bezk-grunddaten}. Eine Übersicht der einzelnen Datenbeständen kann der \myfig{fig:prod-stufen} entnommen werden. \todo{Stimmt das alles. Antwort von Frau Hähner.}
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.8\textwidth}{./img/prod-stufen.png}
+	\caption{Erweiterungen der Datenbestände}
+	\label{fig:prod-stufen}
+\end{figure}
+
+In der Produktklasse wird weiterhin zwischen landesweit einheitliche Standardausgaben und kommunalen Produkten unterschieden. Bei den Standardausgaben handelt es sich um Auszüge aus dem Liegenschaftskataster deren Inhalt und Form landesweit festgelegt ist. Diese Ausgaben beinhalten nur Daten die im Grunddatenbestand NRW definiert sind \autocite[vgl.][8]{bezk-grunddaten}. Die landesweite Festlegung erklärt den Anhang \textit{(NRW)}, der sich hinter den Produktnamen befindet.
+
+Bei den kommunalen Produkten handelt es sich um Auszüge aus dem Liegenschaftskataster, allerdings dürfen auch Daten verwendet werden, die nicht im Grunddatenbestand NRW definiert sind. Ein Beispiel eines kommunalen Produktes wäre eine modifizierte Standardausgabe, die mit Daten aus dem Maximalprofil NRW erweitert wurde. Weiterhin muss die Bezeichnung bzw. Beschriftung deutlich gekennzeichnet sein, so dass eine Verwechslung mit den Standardausgaben ausgeschlossen ist \autocite[vgl.][9]{bezk-grunddaten}. Dies wird durch den Anhang \textit{(kommunal)} garantiert.
+
+Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{tab-alkis-standard} entnommen werden.
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\caption{Produkte der Produktklasse ALKIS-Standardausgaben} \label{tab-alkis-standard} \\
 	\hline 
-	Produktname & Beschreibung \\ 
+	\head{Produktname} & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endhead
 	Flurstücksnachweis
 	&
-	Im „Flurstücksnachweis“ werden alle flurstücksrelevanten Angaben beschrieben. Dies sind
-	neben der „katastertechnischen Bezeichnung des Flurstücks“ „Gebietszugehörigkeit“, „Lage“,
-	„Fläche“, „Tatsächliche Nutzung“, „Klassifizierung nach Straßen- oder Wasserrecht“, „Gebäude“, „Hinweise zum Flurstück“, „Buchungsart“ und „Buchung“. \autocite{adv-alkis-erlaeuterung} \\ 
+	"`Im "`Flurstücksnachweis"' werden alle flurstücksrelevanten Angaben beschrieben.
+	Dies sind neben der "`katastertechnischen Bezeichnung des Flurstücks"' "`Gebietszugehörigkeit"', "`Lage"',
+	"`Fläche"', "`Tatsächliche Nutzung"', "`Klassifizierung nach Straßen- oder Wasserrecht"', "`Gebäude"', "`Hinweise zum Flurstück"', "`Buchungsart"' und "`Buchung"'."' \autocite[269]{adv-alkis-erlaeuterung}
+	\\ 
 	\hline
 	Flurstücks- und Eigentumsnachweis (NRW)
 	&
-	foo \\
+	"`Der "`Flurstücks- und Eigentumsnachweis"' enthält alle Angaben des "`Flurstücksnachweises"'
+	und darüber hinaus die "`Eigentümer"' ("`Name"', "`Adresse"',) und die "`Angaben zu den Berechtigten."' \autocite[269]{adv-alkis-erlaeuterung} \\
 	\hline
 	Flurstücks- und Eigentumsnachweis (kommunal)
 	&
-	Einzelobjektrenderer ALKIS-Flurstücke / Produkte / PDF-Produkte / Flurstücks- und Eigentumsnachweis (kommunal) und Aggregierender Renderer ALKIS-Flurstücke / PDF-Produkte / Flurstücks- und Eigentumsnachweis (kommunal) \\
+	Erweiterung des Flurstücks- und Eigentumsnachweis (NRW)\\
 	\hline
 	Bestandsnachweis (NRW)
 	&
-	foo \\
+	"`Der "`Bestandsnachweis"' enthält alle Grundstücke, die auf einem Buchungsblatt gebucht sind."' \autocite[269]{adv-alkis-erlaeuterung}  \\
 	\hline
 	Bestandsnachweis (kommunal)
 	&
-	Der „Bestandsnachweis“ enthält alle Grundstücke, die auf einem Buchungsblatt gebucht sind. \\
+	Erweiterung von Bestandsnachweis (NRW) \\
 	\hline
 	Grundstücksnachweis (NRW)
 	&
-	Im „Grundstücksnachweis“ wird das unter einer laufenden Nummer im Buchungsblatt geführte Grundstück beschrieben. Neben den im Grundbuch gebuchten Grundstücken können
+	"`Im "`Grundstücksnachweis"' wird das unter einer laufenden Nummer im Buchungsblatt geführte Grundstück beschrieben. Neben den im Grundbuch gebuchten Grundstücken können
 	dies auch von der Buchungspflicht befreite Grundstücke (§ 3 Abs. 2 GBO) und Grundstücke
 	sein, die noch nicht im Grundbuch gebucht sind (Verzeichnis der Bodenordnung ersetzt den
-	Grundbuchnachweis). \autocite{adv-alkis-erlaeuterung}\\
+	Grundbuchnachweis)."' \autocite[269]{adv-alkis-erlaeuterung}\\
 	\hline
 	Flurkarte (NRW)
 	&
-	Der „Auszug aus dem Liegenschaftskataster - Flurkarte NRW“  ist eine landesweit einheitliche Ausgabe aus dem Grunddatenbestand. Er enthält alle Flurstücke, Gebäude und Nutzungsarten ohne weitere topographische Inhalte. Die Flurkarte NRW ist zum Beispiel für Beleihungszwecke ausreichend. \autocite{wupp-alkis} \\
+	"`Der "`Auszug aus dem Liegenschaftskataster - Flurkarte NRW"'  ist eine landesweit einheitliche Ausgabe aus dem Grunddatenbestand. Er enthält alle Flurstücke, Gebäude und Nutzungsarten ohne weitere topographische Inhalte. Die Flurkarte NRW ist zum Beispiel für Beleihungszwecke ausreichend."' \autocite{wupp-alkis} \\
 	\hline
 	Stadtgrundkarte (kommunal)
 	&
-	Umfangreiche, das Stadtbild prägende Inhalte, die über den Grunddatenbestand hinausgehen - vorwiegend topographischer Art - sind zusätzlich in dem „Auszug aus dem Liegenschaftskataster mit kommunalen Ergänzungen - Stadtgrundkarte enthalten“.
+	"`Umfangreiche, das Stadtbild prägende Inhalte, die über den Grunddatenbestand hinausgehen - vorwiegend topographischer Art - sind zusätzlich in dem "`Auszug aus dem Liegenschaftskataster mit kommunalen Ergänzungen - Stadtgrundkarte enthalten"'.
 	Dies sind zum Beispiel Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balkone oder die Geschosszahl von Gebäuden. 
-			
-	Für alle Bürger und Fachkunden, die diese gewohnten Inhalte auch weiterhin benötigen, beispielsweise für Planungen, ist diese Ausgabe die richtige Wahl, denn sie entspricht weitgehend der bisherigen Wuppertaler Liegenschaftskarte. \autocite{wupp-alkis} \\
-	\hline
-	Stadtgrundkarte
-	&
-	Stadtgrundkarte ohne kommunale Ergänzungen. \\
-	\hline
-	Stadtgrundkarte mit Höhenlinien
-	&
-	Stadtgrundkarte mit zusätzlichen Höhenlinien. \\
+						
+	Für alle Bürger und Fachkunden, die diese gewohnten Inhalte auch weiterhin benötigen, beispielsweise für Planungen, ist diese Ausgabe die richtige Wahl, denn sie entspricht weitgehend der bisherigen Wuppertaler Liegenschaftskarte."' \autocite{wupp-alkis} \\
 	\hline
 	Schätzungskarte (NRW)
 	&
-	Die Schätzungskarte ist „eine auf der Grundlage der Flurkarte hergestellte Einzelkarte, in der zusätzlich die Schätzungsergebnisse der Reichsbodenschätzung eingetragen sind.“  \autocite{gg-schaetzungskarte}
-			
-	Die Kennzeichnung aller landwirtschaftlich nutzbaren Bodenflächen nach der Bodenbeschaffenheit durch Einteilung in Klassen (Bestandsaufnahme) und die Feststellung ihrer Ertragsfähigkeit aufgrund der natürlichen Ertragsbedingungen durch Ermittlung von Wertzahlen (eigentliche Schätzung). Gestartet im Jahr 1934. Auch heute noch wertvolle Datenquelle in ökologischen und Landwirtschaftsanwendungen von GIS. \autocite{gg-reichsbodenschaetzung} \\
-			
+	Die Schätzungskarte ist "`eine auf der Grundlage der Flurkarte hergestellte Einzelkarte, in der zusätzlich die Schätzungsergebnisse der Reichsbodenschätzung eingetragen sind."'  \autocite{gg-schaetzungskarte}
+						
+	"`Die Kennzeichnung aller landwirtschaftlich nutzbaren Bodenflächen nach der Bodenbeschaffenheit durch Einteilung in Klassen (Bestandsaufnahme) und die Feststellung ihrer Ertragsfähigkeit aufgrund der natürlichen Ertragsbedingungen durch Ermittlung von Wertzahlen (eigentliche Schätzung). Gestartet im Jahr 1934. Auch heute noch wertvolle Datenquelle in ökologischen und Landwirtschaftsanwendungen von GIS."' \autocite{gg-reichsbodenschaetzung} \\
+						
 	\hline
 	Amtliche Basiskarte (NRW)
 	&
-	Die Amtliche Basiskarte NRW (ABK NRW oder nur ABK) ist eine Übersichtskarte, die eine Verbindung zwischen der großmaßstäbigen Liegenschaftskarte und der Topographischen Karte 1:25000 (TK25) herstellt. (wikipedia) \\
+	"`Die Amtliche Basiskarte NRW (ABK NRW oder nur ABK) ist eine Übersichtskarte, die eine Verbindung zwischen der großmaßstäbigen Liegenschaftskarte und der Topographischen Karte 1:25000 (TK25) herstellt."' \todo{quelle:(wikipedia)} \\
 	\hline
 	Punktliste (TEXT)
 	&
 	ALKIS-Lagefestpunkte als Textdokument.
-			
-	Die Lagefestpunkte bilden in ihrer Gesamtheit das Lagefestpunktfeld mit einer Punktdichte je nach Bundesland von 1 Festpunkt auf 1 - 5 $km^2$. Das Lagefestpunktfeld dient heute noch überwiegend als Grundlage für alle amtlichen Vermessungen, insbesondere der Katastervermessung und der topographischen Landesaufnahme. \autocite{adv-lagefestpunkte}\\
+						
+	"`Die Lagefestpunkte bilden in ihrer Gesamtheit das Lagefestpunktfeld mit einer Punktdichte je nach Bundesland von 1 Festpunkt auf 1 - 5 $km^2$. Das Lagefestpunktfeld dient heute noch überwiegend als Grundlage für alle amtlichen Vermessungen, insbesondere der Katastervermessung und der topographischen Landesaufnahme."' \autocite{adv-lagefestpunkte}\\
 	\hline
 	Punktnachweis (PDF)
 	&
 	ALKIS-Lagefestpunkte als PDF-Dokument. \\
 	\hline
+\end{longtable} 
+	
+\subsection{Standardausgaben WUP-kommunal}
+
+Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden. Aus diesem Grund musste die Stadtverwaltung Wuppertal weitere Produkte selbst definieren.
+Bei diesen Eigendefinition werden keine ALKIS-Objekte dargestellt und somit handelt es sich nicht um Auszüge aus dem Liegenschaftskataster.
+Der Inhalt der Produkte wird aus Rasterdatenbeständen bezogen und zeigen demnach Geodaten mit Bild.
+Obwohl es sich nicht um Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Situation für den ÖbVI gebührenfrei.
+\todo{vermessungsrelevant definieren und erklären. Dann braucht das mit dem "für ÖbVI gebührenfrei" nicht immer erwähnt zu werden. Ausserdem ist dies vollständiger.}
+
+Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle \ref{tab-wupp} entnommen werden.
+
+%\begin{itemize}
+%\item von der Stadtverwaltung selbst definiert
+%\item keine ALKIS-Standardausgaben
+%\item Inhalt sind keine ALKIS-Objekte
+%\item Ausgaben von speziellen eigens definierten Rasterdatenbeständen
+%\item Werden trotzdem benötigt (auch wenn kein Alkis)
+%\item da teils vermessungsrelevant, teils gebührenfrei für ÖbVI
+%\item teils eigene Preisvorschriften
+%\item siehe Mail für mehr Details
+%\end{itemize}
+
+\begin{longtable}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\caption{Produkte der Produktklasse Standardausgaben WUP-kommunal} \label{tab-wupp} \\
+	\hline 
+	\head{Produktname}  & \head{Beschreibung} \tabularnewline
+	\hline 
+	\endhead
 	\ac{DGK}
 	&
-	Die \ac{DGK} ist eine aus der Liegenschaftskarte/Stadtgrundkarte abgeleitete topografische Karte, welche die Deutsche Grundkarte (DGK5 im Maßstab 1:5.000) abgelöst hat. \autocite{wupp-digitale-grundkarte} \\
+	"`Die \ac{DGK} ist eine aus der Liegenschaftskarte/Stadtgrundkarte abgeleitete topografische Karte, welche die Deutsche Grundkarte (DGK5 im Maßstab 1:5.000) abgelöst hat."' \autocite{wupp-digitale-grundkarte} \\
 	\hline
 	Digitale Grundkarte mit Höhenlinien
 	&
@@ -96,31 +152,45 @@
 	\hline
 	Orthofoto
 	&
-	Orthofotos sind vereinfacht gesagt Luftbild und Karte in einem: Sie bieten kartenähnliche Genauigkeit und Maßstäbigkeit auf der Grundlage einer fotorealistischen Abbildung der Erdoberfläche.  \autocite{wupp-orthofoto}\\
+	"`Orthofotos sind vereinfacht gesagt Luftbild und Karte in einem: Sie bieten kartenähnliche Genauigkeit und Maßstäbigkeit auf der Grundlage einer fotorealistischen Abbildung der Erdoberfläche."'  \autocite{wupp-orthofoto}\\
 	\hline
 	Orthofoto mit Katasterdarstellung
 	&
 	Orthofoto mit zusätzlicher Katasterdarstellung. \\
 	\hline
-	Nivellement-Punkt
-	&
-	Darstellung eines einzlnen \acf{NivP}. \\
-	\hline
 	NivP-Übersicht
 	&
-	Übersicht über \acp{NivP}. \acp{NivP} werden auch Höhenfestpunkte genannt. Auf der Grundlage topographischer Karten 1:25 000 geben NivP-Übersichten den großräumigen Überblick auf die Nummerierung und die Lage der NivP im Gelände an \autocite{adv-nivp} \\
-	\hline
-	AP-Karte
-	&
-	Formular zur Erhebung von ALKIS-Punkten (für \acp{AP} und sonstige Vermessungspunkte) \\
+	Übersicht über \acp{NivP}. \acp{NivP} werden auch Höhenfestpunkte genannt. "`Auf der Grundlage topographischer Karten 1:25000 geben NivP-Übersichten den großräumigen Überblick auf die Nummerierung und die Lage der NivP im Gelände an."' \autocite{adv-nivp} \\
 	\hline
 	AP-Übersicht
 	&
-	\aclp{AP} sind Lagefestpunkte, die das \acs{TP}-Netz unterster Ordnung (im Regelfall 4. Ordnung) verdichten und – gemeinsam mit diesen Trigonometrischen Punkten – einen koordinatenmäßigen Anschluss von Messungen an das übergeordnete Bezugssystem der Landesvermessung ermöglichen. \autocite{wiki-aufnahmepunkt} \\
+	"`\aclp{AP} sind Lagefestpunkte, die das \acs{TP}-Netz unterster Ordnung (im Regelfall 4. Ordnung) verdichten und -- gemeinsam mit diesen Trigonometrischen Punkten -- einen koordinatenmäßigen Anschluss von Messungen an das übergeordnete Bezugssystem der Landesvermessung ermöglichen."' \autocite{wiki-aufnahmepunkt} \\
 	\hline
 	\ac{PNÜ}
 	&
 	Eine Karte, die die Punktnummer eines Flurstückes zeigt.\\
+	\hline
+	Stadtgrundkarte mit Höhenlinien
+	&
+	Stadtgrundkarte mit zusätzlichen Höhenlinien. \\
+	\hline
+\end{longtable} 	
+
+\subsection{WuNDa-Berichte}
+Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabelle \ref{tab-wunda-berichte} entnommen werden.
+\begin{longtable}{|p{0.3\textwidth}|p{0.7\textwidth}|}	
+	\caption{Produkte der Produktklasse WuNDa-Berichte} \label{tab-wunda-berichte} \\
+	\hline 
+	\head{Produktname}  & \head{Beschreibung} \tabularnewline
+	\hline 
+	\endhead
+	AP-Karte
+	&
+	Formular zur Erhebung von ALKIS-Punkten (für \acp{AP} und sonstige Vermessungspunkte) \\
+	\hline
+	Nivellement-Punkt
+	&
+	Darstellung eines einzlnen \acf{NivP}. \\
 	\hline
 	Vermessungsriss
 	&
@@ -130,6 +200,17 @@
 	&
 	foo \\
 	\hline
+\end{longtable} 
+	
+\subsection{Daten Liegenschaftskataster}
+Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabelle \ref{tab-daten-kataster} entnommen werden.
+\begin{longtable}{|p{0.3\textwidth}|p{0.7\textwidth}|}
+	\caption{Produkte der Produktklasse Daten Liegenschaftskataster} \label{tab-daten-kataster} \\
+	\hline 
+	\head{Produktname}  & \head{Beschreibung} \tabularnewline
+	\hline 
+	\endhead	
+				
 	\acs{NAS}-Daten (mit Eigentümern)
 	&
 	Vollständiger \acs{NAS}-Datensatz, wird als \acs{XML}-Datei ausgegeben. \\
@@ -150,7 +231,10 @@
 	&
 	Die Stadtgrundkarte (kommunal) als GEOTIFF-Datei. \\
 	\hline
-			
+	Stadtgrundkarte
+	&
+	Stadtgrundkarte ohne kommunale Ergänzungen. \\
+	\hline		
 \end{longtable} 
 
 \section{Beleuchtung typischer Workflows der externen Benutzer}
@@ -159,6 +243,99 @@
 	\item typische Workflows aufzeichnen...
 	\item Aufzeigen dass Arbeitsaufwand vorhanden ist und Rationalisierung tatsächlich nicht sofort durchgeführt werden kann
 \end{itemize}
+
+\subsection{Teilungsvermessung}
+Ein solcher Workflow ist die Teilungsvermessung, die durch einen \ac{ÖbVI} durchgeführt wird. Durch die Teilungsvermessung wird ein neues Grundstück aus einem abgetrennten Teil eines bestehenden Grundstücks erstellt. Die folgende Beschreibung wurde nach \autocite{klein-vermessung} und \autocite{jungemann-alltag} erstellt.
+
+Die Teilungsvermessung kann aus Sicht des \ac{ÖbVI} in drei Teile zerlegt werden:
+\begin{itemize}
+	\item Messungsvorbereitung
+	\item Örtliche Vermessungsarbeiten
+	\item Auswertung
+\end{itemize}
+
+Auf jeden dieser drei Schritte wird im folgenden eingegangen.
+
+\subsubsection{Messungsvorbereitung}
+
+Nachdem der \ac{ÖbVI} die Auftragserteilung zur einer Teilungsvermessung durch den Eigentümer, Erwerber oder Bauträger erhalten hat, bezieht er die erforderlichen Katasterunterlagen vom Katasteramt und die Teilungsgenehmigung von der für das Baurecht zuständigen Baugenehmigungsbehörde.
+Die notwendigen Katasterunterlagen sind folgende Produkte:
+\begin{itemize}
+	\item Punktnummernreservierung
+	\item Eigentümerangaben
+	\item Flurkarte
+	\item NAS-Bestandsdaten
+	\item Fortführungsrisse
+	\item AP-Karten
+	\item AP-Übersichten
+	\item Punktnummernübersichten
+\end{itemize}
+Sobald sämtliche Unterlagen vorhanden sind kann die eigentliche Vorbereitung der Teilungsvermessung beginnen. So müssen die zuvor erhaltenen NAS"=Bestandsdaten in ein CAD-System sowie in ein Berechnungsprogramm importiert werden.
+\todo{folgendes Fachchinesisch verstehen}
+\begin{itemize}
+	\item Einlesen in Tachymeter und GPS
+	\item Übernahme CAD- und Berechnungsauftrag auf Außendienstrechner
+	\item CODE-Liste für die automationsgerechte Erfassung der Vermessungspunkte im Außendienst
+\end{itemize}
+
+%\begin{itemize}
+%\item nach der Auftragserteilung
+%\item erforderlichen Katasterunterlagen und Teilungsgenehmigung beim Kat.Amt und für das Baurecht zuständigen Baugenehmigungsbehörde
+%\item Produkte sind: ...
+%\item alles zusammen, vorbereitung
+%\item Importieren der NAS Bestandsdaten CAD und Berechnungsprogramm
+%\item Ausgabe von Koordinatendateien für den Außendienst
+%\begin{itemize}
+%\item Einlesen in Tachymeter und GPS
+%\item Übernahme CAD- und Berechnungsauftrag auf Außendienstrechner
+%\item CODE-Liste für die automationsgerechte Erfassung der Vermessungspunkte im Außendienst
+%\end{itemize}
+%\item dann erfolgt örtliche Vermessung
+%\end{itemize}
+
+\subsubsection{Örtliche Vermessungsarbeiten}
+
+Die erste Aufgabe an Ort und Stelle ist das Untersuchen der alten Grenzen und dem Aufsuchen der bereits vorhandenen Abmarkungen (Grenzsteine etc.).
+Danach kann der Lageanschluss über \acs{SAPOS} durchgeführt werden. Beim handelt es sich um einen "`Anschluss einer Vermessung an das amtliche Bezugskoordinatensystem"', dieser "`wird durch differenzielle Beobachtung von Navigationssatelliten realisiert"'.
+\acs{SAPOS} steht für \acl{SAPOS} und ermöglicht eine deutschlandweite Positionsbestimmung mittels Satelliten \autocite[vgl.][2]{sapos-prospekt}. \todo{AP-Karten und AP-Übersichten werden normalerweise nur für Kontrollpunkte benötigt, ggfls. für die örtliche Grenzuntersuchung.}
+Danach kann der Aufmaß der neuen Vermessungspunkte \todo{mit Codierung} erfolgen und 
+die neue Grenze kann, wie gewünscht, durch neue Abmarkungen gekennzeichnet werden um den neuen Grenzverlauf festzulegen. Zu Schluss werden die Rohmessdaten zur weiteren Verarbeitung ausgegeben.
+
+%\begin{itemize}
+%\item untersuchen der alten Grenzen
+%\item Lageanschluss über SAPOS (Normalfall) (AP-Karten und AP-Übersichten werden normalerweise nur für Kontrollpunkte benötigt, ggfls. für die örtliche Grenzuntersuchung.)
+%\item aufsuchen der Abmarkungen
+%\item neue Abmarkungen für neuen Grenzverlauf setzen
+%\item Aufmaß der Vermessungspunkte mit Codierung
+%\item Ausgabe der Rohmessdaten zur Weiterverarbeitung
+%\end{itemize}
+
+\subsubsection{Auswertung}
+
+Nach der örtlichen Arbeit folgt die Auswertung der ermittelten Rohmessdaten. Hierzu gehört es die Protokolle z.B. die Risse anzufertigen und die Berechnungen z.B. der neuen Flächen durchzuführen. 
+
+Der erste Schritt hierfür ist das Einlesen der Rohmessdaten. \todo{wohin?} Danach wird die Dokumentation gem. Anlage 6 erstellt. \todo{Welche Anlage?} Nach diesen zwei Schritten kann der Fortführungsriss und die Skizze zur Grenzniederschrift automatisch erzeugt wird. \todo{Magie?} Danach folgen Berechnungen:
+\begin{itemize}
+	\item Hierarchische Berechnung der Polaraufnahme
+	\item Flächenhafte Ausgleichung
+	\item VP Liste
+\end{itemize}
+
+%\begin{itemize}
+%\item Im Büro werden nun die Protokolle (Risse) und Berechnungen (neue Flächen) angefertigt
+%\item Einlesen der Rohmessdaten
+%\item Erstellung der Dokumentation gem. Anlage 6
+%\item Automatisierte Erzeugung von Fortführungsriss und Skizze zur Grenzniederschrift
+%\item Berechnung
+%\begin{itemize}
+%\item Hierarchische Berechnung der Polaraufnahme
+%\item Flächenhafte Ausgleichung
+%\item VP Liste
+%\end{itemize}
+%\item Mindestumfang der Erhebungsdaten für neue Punkte in der NAS-ERH Stufe 1
+%\item Unterschiedliche ALKIS-Datenbestände bei den Katasterämtern in NRW am Beispiel der Attributart abmarkung\_Marke zur Objektart AX\_Grenzpunkt
+%\item Die Messung wird nun dem Katasteramt eingereicht und in die öffentlichen Karten und Verzeichnisse übernommen.
+%\end{itemize}
 
 \section{Aktuelle Unterstützung der Workflows durch das System}
 \begin{itemize}
