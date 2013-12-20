@@ -72,7 +72,7 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 	\hline
 	Bestandsnachweis (kommunal)
 	&
-	Erweiterung von Bestandsnachweis (NRW) \\
+	Erweiterung vom Bestandsnachweis (NRW) \\
 	\hline
 	Grundstücksnachweis (NRW)
 	&
@@ -91,6 +91,10 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 	Dies sind zum Beispiel Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balkone oder die Geschosszahl von Gebäuden. 
 						
 	Für alle Bürger und Fachkunden, die diese gewohnten Inhalte auch weiterhin benötigen, beispielsweise für Planungen, ist diese Ausgabe die richtige Wahl, denn sie entspricht weitgehend der bisherigen Wuppertaler Liegenschaftskarte."' \autocite{wupp-alkis} \\
+	\hline			
+	Stadtgrundkarte
+	&
+	Stadtgrundkarte ohne kommunale Ergänzungen. Wird nicht vertrieben. \\
 	\hline
 	Schätzungskarte (NRW)
 	&
@@ -120,7 +124,7 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden. Aus diesem Grund musste die Stadtverwaltung Wuppertal weitere Produkte selbst definieren.
 Bei diesen Eigendefinition werden keine ALKIS-Objekte dargestellt und somit handelt es sich nicht um Auszüge aus dem Liegenschaftskataster.
 Der Inhalt der Produkte wird aus Rasterdatenbeständen bezogen und zeigen demnach Geodaten mit Bild.
-Obwohl es sich nicht um Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Situation für den ÖbVI gebührenfrei.
+Obwohl es sich nicht um ALKIS-Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Situation für den ÖbVI gebührenfrei.
 \todo{vermessungsrelevant definieren und erklären. Dann braucht das mit dem "für ÖbVI gebührenfrei" nicht immer erwähnt zu werden. Ausserdem ist dies vollständiger.}
 
 Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle \ref{tab-wupp} entnommen werden.
@@ -198,11 +202,22 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 	\hline
 	Dokument Liegenschaftskatasterakte
 	&
-	foo \\
+	\todo{Was ist das?} \\
 	\hline
 \end{longtable} 
 	
 \subsection{Daten Liegenschaftskataster}
+
+Die Produkte der Produktklasse Daten Liegenschaftskataster sind einzelne Dateien, die einen Teil des Liegenschaftskatasters abbilden. Die folgenden Dateiformate können ausgewählt werden:
+\begin{description}
+\item[NAS] Die \ac{NAS} ist das Datenaustauschformat von Alkis und umfasst neben den Fachobjekten auch Operationen zur Haltung von Bestandsdaten. \ac{NAS} basiert auf \ac{XML}, \ac{GML} und \ac{WFS} \autocite[vgl.][]{sachsen-nas}.
+
+\item[DXF] Das \ac{DXF} ist ein Dateiformat das von dem Unternehmen Autodesk entwickelt wurde und in \ac{CAD}-Applikationen (z.B. AutoCAD) als vektorbasierte Bilddatei Verwendung findet.
+\ac{DXF} wurde mit dem Hintergrund entwickelt, dass es möglich sein soll AutoCAD Dokumente mit Programmen öffnen zu können, die nicht von Autodesk entwickelt wurden. Aus diesem Grund ist \ac{DXF} eine ASCII-Textdatei \autocite[vgl.][]{fileinfo-dxf}.
+
+\item[GEOTIFF] "`Ein GeoTIFF ist eine spezielle Form eines TIFF-Bildes, also ein Dateiformat zur Speicherung von Bilddaten (Dateinamenserweiterung .geotiff, oft auch nur .tif). Da das TIF-Format eine verlustfreie Speicherung zulässt, eignet es sich gut zur Verarbeitung von geographischen Daten, da es bei Satelliten- und Luftbildern bzw. anderen Rasterdaten oft auf hohe Abbildungsgenauigkeit ankommt."' \autocite{wiki-geotiff} Weiterhin sind die "`Bildinformationen [.] in jedem Programm darstellbar, welches den normalen TIFF-Standard unterstützt."' \autocite{wiki-geotiff}
+\end{description}
+
 Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabelle \ref{tab-daten-kataster} entnommen werden.
 \begin{longtable}{|p{0.3\textwidth}|p{0.7\textwidth}|}
 	\caption{Produkte der Produktklasse Daten Liegenschaftskataster} \label{tab-daten-kataster} \\
@@ -230,11 +245,7 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 	GEOTIFF-Daten (Stadtgrundkarte kommunal)
 	&
 	Die Stadtgrundkarte (kommunal) als GEOTIFF-Datei. \\
-	\hline
-	Stadtgrundkarte
-	&
-	Stadtgrundkarte ohne kommunale Ergänzungen. \\
-	\hline		
+	\hline	
 \end{longtable} 
 
 \section{Beleuchtung typischer Workflows der externen Benutzer}
@@ -261,7 +272,7 @@ Auf jeden dieser drei Schritte wird im folgenden eingegangen.
 Nachdem der \ac{ÖbVI} die Auftragserteilung zur einer Teilungsvermessung durch den Eigentümer, Erwerber oder Bauträger erhalten hat, bezieht er die erforderlichen Katasterunterlagen vom Katasteramt und die Teilungsgenehmigung von der für das Baurecht zuständigen Baugenehmigungsbehörde.
 Die notwendigen Katasterunterlagen sind folgende Produkte:
 \begin{itemize}
-	\item Punktnummernreservierung
+	\item Punktnummernreservierung \todo{Kein Produkt das man bezahlen muss}
 	\item Eigentümerangaben
 	\item Flurkarte
 	\item NAS-Bestandsdaten
@@ -295,9 +306,9 @@ Sobald sämtliche Unterlagen vorhanden sind kann die eigentliche Vorbereitung de
 
 \subsubsection{Örtliche Vermessungsarbeiten}
 
-Die erste Aufgabe an Ort und Stelle ist das Untersuchen der alten Grenzen und dem Aufsuchen der bereits vorhandenen Abmarkungen (Grenzsteine etc.).
-Danach kann der Lageanschluss über \acs{SAPOS} durchgeführt werden. Beim handelt es sich um einen "`Anschluss einer Vermessung an das amtliche Bezugskoordinatensystem"', dieser "`wird durch differenzielle Beobachtung von Navigationssatelliten realisiert"'.
-\acs{SAPOS} steht für \acl{SAPOS} und ermöglicht eine deutschlandweite Positionsbestimmung mittels Satelliten \autocite[vgl.][2]{sapos-prospekt}. \todo{AP-Karten und AP-Übersichten werden normalerweise nur für Kontrollpunkte benötigt, ggfls. für die örtliche Grenzuntersuchung.}
+Die erste Aufgabe an Ort und Stelle ist das Untersuchen der alten Grenzen und das Aufsuchen der bereits vorhandenen Abmarkungen (Grenzsteine etc.).
+Danach kann der Lageanschluss über \acs{SAPOS} durchgeführt werden. Beim Lageanschluss handelt es sich um einen "`Anschluss einer Vermessung an das amtliche Bezugskoordinatensystem,[ dieser] wird durch differenzielle Beobachtung von Navigationssatelliten realisiert"' \autocite{bier-lage}.
+Diese Beobachtung erfolgt über \acs{SAPOS}, dieses steht für \acl{SAPOS} und ermöglicht eine deutschlandweite Positionsbestimmung mittels Satelliten \autocite[vgl.][2]{sapos-prospekt}. \todo{AP-Karten und AP-Übersichten werden normalerweise nur für Kontrollpunkte benötigt, ggfls. für die örtliche Grenzuntersuchung.}
 Danach kann der Aufmaß der neuen Vermessungspunkte \todo{mit Codierung} erfolgen und 
 die neue Grenze kann, wie gewünscht, durch neue Abmarkungen gekennzeichnet werden um den neuen Grenzverlauf festzulegen. Zu Schluss werden die Rohmessdaten zur weiteren Verarbeitung ausgegeben.
 
