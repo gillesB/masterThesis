@@ -13,6 +13,13 @@ Danach werden einige Workflows von externen Benutzern beleuchtet, woraufhin übe
 %\end{itemize}
 
 \section{Fachliche Erläuterungen}
+\begin{itemize}
+\item Gebühren
+\item was ist alkis
+\item ÖbVI
+\item Punktnummerreservierung
+\end{itemize}
+
 
 \section{Auflistung der Produkte}
 In diesem Abschnitt werden die Produkte aufgelistet, welche die externen Benutzer selbst beziehen können. Diese Produkte sind in vier Produktklassen eingeteilt:
@@ -35,10 +42,8 @@ Die Produkte dieser Produktklasse sind in \acs{ALKIS} landesweit standardisiert 
 
 Das \acf{ALKIS} ersetzt das \acf{ALB} und die \acf{ALK}, indem es die Daten beider Systeme vereint. Die \acs{AdV} hat \acs{ALKIS} entwickelt und organisiert die Pflege des Datenmodells \autocite[vgl.][]{adv-alkis}.
 
-Das Datenmodell ist stufenweise aufgebaut. Die unterste Stufe bildet der Grunddatenbestand AdV, dieser ist bundesweit gültig. Die nächste Stufe bildet ein Grunddatenbestand der landesweit gültig ist.
-So zum Beispiel der Grunddatenbestand NRW. Dieser Grunddatenbestand NRW wird wiederum vom Maximalprofil NRW erweitert.
-Welche Daten aus dem Maximalprofil NRW benutzt werden, kann jedes Katasteramt selbst entscheiden.
-Weiterhin haben die Katasterämter die Möglichkeit eine eigene Stufe zu diesem Stufenkonzept hinzuzufügen, diese gehört im Gegensatz zu den vorherigen Stufen nicht mehr zum amtlichen Liegenschaftskataster \autocite[vgl.][1-4]{bezk-grunddaten}. Eine Übersicht der einzelnen Datenbeständen kann der \myfig{fig:prod-stufen} entnommen werden. \todo{Stimmt das alles. Antwort von Frau Hähner.}
+Das Datenmodell ist stufenweise aufgebaut. Die oberste Stufe ist das ALKIS-Fachschema der AdV, dieses Fachschema bildet eine Grundlage mit der sämtliche Objekte, Attribute und Attributwerte aller Katasterbehörden Deutschlands abgebildet werden können.
+Die folgenden Stufen sind Reduktionen dieses Fachschema, d.h. sie benutzen nur einen Teil dieser Grundlage. Weiterhin ist die jeweils folgende Stufe eine Reduktion der vorhergegangenen Stufe. Eine Übersicht der einzelnen Stufen kann der \myfig{fig:prod-stufen} entnommen werden. 
 
 \begin{figure}[htbp]
 	\centering
@@ -47,14 +52,21 @@ Weiterhin haben die Katasterämter die Möglichkeit eine eigene Stufe zu diesem 
 	\label{fig:prod-stufen}
 \end{figure}
 
+In \ac{NRW} wurde das Maximalprofil NRW festgelegt, da hier einige Objekte nicht benötigt werden. Alle Informationen die im Maximalprofil NRW geführt werden gehören zum amtlichen Liegenschaftskataster.
+Weiterhin dürfen in NRW nur diese Informationen innerhalb ALKIS geführt werden. Jedes Katasteramt darf frei wählen welche Informationen es aus dieser Stufe führen will, vorausgesetzt diese Informationen gehören nicht zu einer unteren Stufe.
+Die nächste Stufe bildet der Grunddatenbestand NRW dieser ist landesweit gültig und muss von jedem Katasteramt in NRW geführt werden.
+Die unterste Stufe bildet der Grunddatenbestand AdV, dieser ist bundesweit gültig und muss von jedem Katasteramt in Deutschland geführt werden.
+
+Weiterhin haben die Katasterämter die Möglichkeit eine eigene Stufe zu diesem Stufenkonzept hinzuzufügen, diese gehört im Gegensatz zu den vorherigen Stufen nicht mehr zum amtlichen Liegenschaftskataster \autocite[vgl.][1-4]{bezk-grunddaten}. In Wuppertal ist dies ALWIS. \todo{Umformulieren und erweitern.}
+
 In der Produktklasse wird weiterhin zwischen landesweit einheitliche Standardausgaben und kommunalen Produkten unterschieden. Bei den Standardausgaben handelt es sich um Auszüge aus dem Liegenschaftskataster deren Inhalt und Form landesweit festgelegt ist. Diese Ausgaben beinhalten nur Daten die im Grunddatenbestand NRW definiert sind \autocite[vgl.][8]{bezk-grunddaten}. Die landesweite Festlegung erklärt den Anhang \textit{(NRW)}, der sich hinter den Produktnamen befindet.
 
 Bei den kommunalen Produkten handelt es sich um Auszüge aus dem Liegenschaftskataster, allerdings dürfen auch Daten verwendet werden, die nicht im Grunddatenbestand NRW definiert sind. Ein Beispiel eines kommunalen Produktes wäre eine modifizierte Standardausgabe, die mit Daten aus dem Maximalprofil NRW erweitert wurde. Weiterhin muss die Bezeichnung bzw. Beschriftung deutlich gekennzeichnet sein, so dass eine Verwechslung mit den Standardausgaben ausgeschlossen ist \autocite[vgl.][9]{bezk-grunddaten}. Dies wird durch den Anhang \textit{(kommunal)} garantiert.
 
-Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{tab-alkis-standard} entnommen werden.
+Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{tab-alkis-standard-start} \vpagerefrange{tab-alkis-standard-start}{tab-alkis-standard-end} entnommen werden.
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}
-	\caption{Produkte der Produktklasse ALKIS-Standardausgaben} \label{tab-alkis-standard} \\
+	\caption{Produkte der Produktklasse ALKIS-Standardausgaben} \label{tab-alkis-standard-start} \\
 	\hline 
 	\head{Produktname} & \head{Beschreibung} \tabularnewline
 	\hline 
@@ -134,6 +146,7 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 	ALKIS-Lagefestpunkte als PDF-Dokument. \\
 	\hline
 \end{longtable} 
+\label{tab-alkis-standard-end}
 	
 \subsection{Standardausgaben WUP-kommunal}
 
