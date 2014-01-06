@@ -167,8 +167,7 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden. Aus diesem Grund musste die Stadtverwaltung Wuppertal weitere Produkte selbst definieren.
 Bei diesen Eigendefinition werden keine ALKIS-Objekte dargestellt und somit handelt es sich nicht um Auszüge aus dem Liegenschaftskataster.
 Der Inhalt der Produkte wird aus Rasterdatenbeständen bezogen und zeigen demnach Geodaten mit Bild.
-Obwohl es sich nicht um ALKIS-Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Situation für den ÖbVI gebührenfrei.
-\todo{vermessungsrelevant definieren und erklären. Dann braucht das mit dem "für ÖbVI gebührenfrei" nicht immer erwähnt zu werden. Ausserdem ist dies vollständiger.}
+Obwohl es sich nicht um ALKIS-Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Fällen für den ÖbVI gebührenfrei.
 
 Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle \ref{tab-wupp} entnommen werden.
 
@@ -411,6 +410,42 @@ Der erste Schritt hierfür ist das Einlesen der Rohmessdaten. \todo{wohin?} Dana
 	\item Möglich da: Protokollierung der bezogenen Produkte funktioniert bereits
 	\item Da sich die benötigten Änderungen vor allem auf das Erstellen der Rechnungen bezieht ändert sich für den ext. Benutzer nicht so viel.
 \end{itemize}
+
+\subsection{Manuelles Erstellen der Abrechnung}
+Im Folgenden wird die bisherige Erstellung der Abrechnungen an die externen Benutzer beschrieben. Die Abrechnungen werden von einem Beamten des Katasteramts nach jedem Abrechnungsturnus (z.B. Quartal, jährlich) manuell erstellt, wobei jeder externe Benutzer zu einen anderen Abrechnungsturnus gehören kann.
+Weiterhin muss für jeden Benutzer eine eigene Abrechnung erstellt werden.
+Zum Erstellen der einzelnen Abrechnungen müssen die Protokolle der Downloads aus der Datenbank bezogen werden um weiterverarbeitet zu werden. Dies geschieht indem die Protokolle sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
+Demnach befindet sich in einer Spalte dieser Datei Informationen wie z.B. der Benutzername, der Download-Name und die zu bezahlende Gebühr.
+
+Im folgenden Arbeitsschritt muss der Beamte die einzelnen Protokolle für jeden Benutzer von dieser Excel-Datei in eine jeweils eigene Excel-Datei kopieren. Eine solche Excel-Datei repräsentiert die Abrechnung an eben jenen Kunden.
+
+Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit benötigt wird. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
+Ein weiterer Nachteil ist, dass die Protokolle nur auf Login-Ebene angelegt werden, d.h. es wird nur der Name gespeichert, mit dem sich der externe Benutzer in \ac{WuNDa} anmeldet.
+Im Workflow \todo{xy hat man gesehen, dass die Polizei mehrere externe Benutzer besitzt}, die Abrechnung soll allerdings an die Polizei gestellt werden und nicht an die einzelnen Benutzer. Demnach muss sich der Beamte merken welche Benutzer zu welchem Kunden gehören um die entsprechende Abrechnung zu erstellen. Dies ist zwar machbar, verkompliziert den Arbeitsschritt ungemein.
+Ein weiterer Nachteil ist, dass keine Bearbeitungen der Protokolle selbst vorgenommen werden. Somit werden bereits abgerechnete Downloads nicht als abgerechnet markiert. Weiterhin können keine Änderungen z.B. am Auftragsnamen des Protokolls vorgenommen werden und das Protokoll kann nicht als storniert markiert werden. Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der Abrechnungen berücksichtigt werden.
+
+Kurzum die Vorgehensweise ist durch die manuelle Bearbeitung und den aufgeführten Nachteilen sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
+
+
+
+%Bisheriges Erstellen der Abrechnung.
+%\begin{itemize}
+%	\item für jeden Kunden in dem entsprechenden Abrechnungsturnus (z.B. Quartal)
+%	\item DB -> Excel (vorgefiltert nach Zeit, kein Kundenfilter)
+%	\item Kopieren von großer Excel zur kleinen
+%	\item Abrechnung nicht gekennzeichnet
+%	\item alles manuell
+%	\item sehr lange Bearbeitungszeit
+%	\item nur Login-Ebene, bis jetzt 1 Login = 1 Kunde
+%	\item bis jetzt machbar, Kundenzahl steigt aber, d.h. Anfangs Excel wird immer größer
+%\end{itemize}
+%
+%Fehlanfälligkeit:
+%\begin{itemize}
+%	\item Stornierungen, Änderungen der Buchungen muss vom Kunden gemeldet werden
+%	\item kommt wegen fehlerhaftem Download häufiger vor
+%	\item die muss notiert werden und Buchungen werden bei Abrechnungen ignoriert
+%\end{itemize}
 
 
 
