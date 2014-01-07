@@ -50,7 +50,7 @@ Eine Reglung die insbesondere die \acp{ÖbVI} betrifft ist in der \ac{VermWertGe
 
 Weitere Informationen können dem Dokument "`Entgeltordnung Ressort 102"' \autocite{wupp-entgelt} entnommen werden.
 
-\section{Auflistung der Produkte}
+\section{Auflistung der Produkte} \label{sec:produktliste}
 In diesem Abschnitt werden die Produkte aufgelistet, welche die externen Benutzer selbst beziehen können. Diese Produkte sind in vier Produktklassen eingeteilt:
 \begin{itemize}
 	\item ALKIS-Standardausgaben
@@ -428,10 +428,50 @@ Im Augenblick ist es nur möglich die NAS-Dateien der Stadt Wuppertal zu beziehe
 In diesem Abschnitt wird beschrieben wie \ac{WuNDa} die oben beschriebenen Workflows prinzipiell unterstützt.
 Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese in drei Phasen abstrahiert:
 \begin{itemize}
- \item Beschaffungsphase
+ \item Beschaffung
  \item Verarbeitung
  \item Fortführung
 \end{itemize} 
+
+\subsection{Beschaffung}
+\ac{WuNDa} unterstützt die externen Benutzer bei der Selbstentnahme der Produkte die im Abschnitt \ref{sec:produktliste} aufgelistet sind.
+Die Benutzer können je nach Produkt verschiedene Einstellungen treffen. So können Sie etwa einen Bereich in der Karte oder Objekte auswählen, die in dem jeweiligen Produkt angezeigt werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/alkis-print-dialog.png}
+	\caption{ALKIS-Druckdialog}
+	\label{fig:alkis-druck}
+\end{figure}
+
+Die Selbstentnahme soll am sogenannten ALKIS-Druckdialog (siehe \myfig{fig:alkis-druck}) exemplarisch vorgeführt werden.
+Nach dem Öffnen des Dialogs kann der Benutzer die Produktklasse auswählen in diesem Fall ist dies "`Gdb-NRW-Amtlich"' welche eine Teilmenge der ALKIS-Standardausgaben darstellt. 
+Je nach dem welche Produktklasse ausgewählt wurde, ändern sich auch die Auswahlmöglichkeiten der Produkte. In diesem Fall wurde eine farbige Liegenschaftskarte ausgewählt.
+Eine weitere wichtige Eingabe ist das Flurstück-Feld, hier können ein oder mehrere Flurstücke per drag-and-drop reingezogen werden, diese werden dann später im Produkt dargestellt.
+Weitere Eingabefelder sind das Format (z.B. DINA4), den  Maßstab (hier 1:500), die Auftragsnummer und ein Kommentarfeld. Die Option "`Drehwinkel vorschlagen"' beeinflusst den später angezeigten Druckbereich. \todo{Bild neu machen}
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/alkis-auswahl.png}
+	\caption{ALKIS-Druckdialog}
+	\label{fig:alkis-auswahl}
+\end{figure}
+
+Bestätigt der Benutzer mit "`Ok"' seine Eingabe so gelangt er zur Karte in \ac{WuNDa}, wobei der Druckbereich angezeigt wird (siehe \myfig{fig:alkis-auswahl}).
+Dieser Druckbereich befindet sich über den zuvor ausgewählten Flurstücken und kann verschoben, in der Größe verändert und rotiert werden.
+Mit einem Doppelklick auf den Druckbereich gelangt er zum Downloadprotokoll (siehe \myfig{fig:alkis-protocol}).  
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/alkis-download-protocol.png}
+	\caption{ALKIS-Druckdialog}
+	\label{fig:alkis-protocol}
+\end{figure}
+
+Im Downloadprotokoll muss der externe Benutzer eine Geschäftsbuchnummer angeben, die Angabe der Projektbezeichnung ist allerdings optional.
+Weiterhin ist die Angabe des Verwendungszweckes interessant, für einen \ac{ÖbVI} stehen hier z.B. "`Vermessungsunterlagen (amtlicher Lageplan TS3)"' und "`Vermessungsunterlagen (hoheitliche Vermessung TS4)"' zur Verfügung.
+In dem Berechnungsfeld sieht der Benutzer wie hoch die Gebühr für das bezogene Produkt sein wird. In diesem Fall handelt es sich um eine Gebühr von \EUR{0} da es sich bei dem Benutzer um ein \ac{ÖbVI} handelt der ein vermessungsrelevantes Dokument bezieht.
+Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Download des Produktes wird gestartet. \todo{Abschluss finden. Auch wenn Gebühr = 0. es wird trotzdem protokolliert...}
 
 \begin{itemize}
 	\item fachlicher IST-Zustand
