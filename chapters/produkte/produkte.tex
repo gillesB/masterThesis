@@ -383,6 +383,29 @@ Der erste Schritt hierfür ist das Einlesen der Rohmessdaten. \todo{wohin?} Dana
 	\item VP Liste
 \end{itemize}
 
+Nachdem Fertigstellen der Berechnungen müssen die Daten aufbereitet werden ehe diese zurück an das Katasteramt gegeben werden können. An dieser Stelle muss zwischen der vorgesehen ALKIS-Vorgehensweise und der Zurzeit benutzten Vorgehensweise in Wuppertal unterschieden werden. Nach der Abgabe der Informationen ist die Teilungsvermessung abgeschlossen. \todo{Gehören die beiden Vorgehensweisen wirklich hierhin?}
+
+\paragraph{ALKIS}
+
+Laut \autocite{jungemann-alltag} ist mit ALKIS vorgesehen dass die Punktendaten in einer Erhebungsdatei der Form NAS-ERH Stufe 1 zurückgegeben werden können.
+Bei NAS-Erhebungsdaten (NAS-ERH) Stufe 1 handelt es sich um einen Mindestumfang an Informationen der zu Vermessungspunkten bekannt sein muss \autocite[vgl.][]{bezk-nas-erh}.
+
+Ehe die Datei erstellt werden kann muss darauf geachtet werden, dass jedes Katasteramt in \ac{NRW} andere ALKIS-Datenbestände benutzen kann. Dies kann an der Attributart "`abmarkung\_Marke"' zur Objektart AX\_Grenzpunkt verdeutlicht werden. Für diese Attributart gibt es im  Grunddatenbestand NRW drei mögliche Werte:
+\begin{description}
+\item[1000] Marke, allgemein
+\item[9500] Ohne Marke
+\item[9998] nach Quellenlage nicht zu spezifizieren 
+\end{description}
+Das Maximalprofil NRW lässt allerdings weitere Werte zu, so z.B. "`Stein, Grenzstein"' (1110) oder "`Rohr mit Schutzkappe"' (1201) \autocite[vgl.][]{bezk-schluessel}. Kennt das Katasteramt die benutzten Werte nicht so müssen diese umgeschlüsselt werden, dies bedeutet dass im Zweifelsfall einer der drei Werte des Grunddatenbestandes NRW benutzt wird. 
+
+\todo{Automatisierte Umsetzung der bürospezifischen Codierung in ALKIS Attribute ???}
+
+Nach dem Abschließen der beiden Schritte kann die Erhebungsdatei nach NAS-ERH Stufe 1  erstellt werden und an das Katasteramt weitergegeben werden. 
+
+\paragraph{Wuppertal}
+Im Augenblick ist es nur möglich die NAS-Dateien der Stadt Wuppertal zu beziehen. Demnach funktioniert das, oben beschriebene, Zurückgeben der NAS-Erhebungsdaten nicht. Aus diesem Grund erstellt der \ac{ÖbVI} Dokumente zu seinen ausgewerteten Daten und den ermittelten Punkten und gibt diese an das Katasteramt weiter. Dort müssen diese manuell von Beamten mittels des 3A Editors eingepflegt werden. Bei dem 3A Editor handelt es sich um eine Anwendung von AED-SICAD, mit der es möglich ist ALKIS-Daten fortzuführen \autocite[vgl.][]{sicad-3a}.
+
+
 %\begin{itemize}
 %\item Im Büro werden nun die Protokolle (Risse) und Berechnungen (neue Flächen) angefertigt
 %\item Einlesen der Rohmessdaten
@@ -400,6 +423,16 @@ Der erste Schritt hierfür ist das Einlesen der Rohmessdaten. \todo{wohin?} Dana
 %\end{itemize}
 
 \section{Aktuelle Unterstützung der Workflows durch das System}
+\todo{Bisher nur ein Workflow beschrieben. Deshalb stimmt das untere?}
+
+In diesem Abschnitt wird beschrieben wie \ac{WuNDa} die oben beschriebenen Workflows prinzipiell unterstützt.
+Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese in drei Phasen abstrahiert:
+\begin{itemize}
+ \item Beschaffungsphase
+ \item Verarbeitung
+ \item Fortführung
+\end{itemize} 
+
 \begin{itemize}
 	\item fachlicher IST-Zustand
 	\item Der Arbeitsschritt xy und andere bereits durch das System unterstützt in dem der ext. Benutzer die Produkte aus seinem Büro heraus beziehen kann.
