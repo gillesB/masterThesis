@@ -372,7 +372,7 @@ die neue Grenze kann, wie gewünscht, durch neue Abmarkungen gekennzeichnet werd
 %\item Ausgabe der Rohmessdaten zur Weiterverarbeitung
 %\end{itemize}
 
-\subsubsection{Auswertung}
+\subsubsection{Auswertung} \label{subsubsec:auswertung}
 
 Nach der örtlichen Arbeit folgt die Auswertung der ermittelten Rohmessdaten. Hierzu gehört es die Protokolle z.B. die Risse anzufertigen und die Berechnungen z.B. der neuen Flächen durchzuführen. 
 
@@ -486,9 +486,16 @@ Die auswählbare Verwendungszwecke eines \ac{ÖbVI} sind u.a. "`Vermessungsunter
 Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Download des Produktes wird gestartet. Nach dem Abschluss des Downloads kann der Benutzer die heruntergeladene Datei wie gewohnt benutzen. Im Falle der Liegenschaftskarte wird eine PDF-Datei heruntergeladen, ein Beispiel hiervon ist auf Seite \pageref{fig:flurkarte} zu finden.
 
 Zeitgleich mit dem Starten des Downloads wird dieser protokolliert. Dies bedeutet dass relevante Informationen zu dem Download abgespeichert werden. Der Abspeichern erfolgt in jedem Fall, also auch wenn die Gebühr \EUR{0} beträgt oder der Download fehlschlägt. Insbesondere der letzte Fall bereitet beim Erstellen der Abrechnung Probleme, wie dies dem Abschnitt \vref{subsec:erstellen_abrechnung} zu entnehmen ist, da diese Protokolle storniert werden müssen.
- \todo{Abschluss finden. Auch wenn Gebühr = 0. es wird trotzdem protokolliert...}
  
-Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit die benötigten Produkte, von seinem Rechner aus, selbst zu beziehen und entlastet das Katasteramt in dem Sinne, dass die Produkte nicht mehr dort angefertigt werden müssen.
+Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit die benötigten Produkte, von seinem Rechner aus, selbst zu beziehen und entlastet das Katasteramt in dem Sinne, dass die Bearbeitungszeit zum Erstellen der Produkte eingespart wird.
+
+\subsection{Verarbeitung}
+Bei der Verarbeitung der Produkte oder sonstigen weiteren Tätigkeiten unterstützt \ac{WuNDa} den externen Benutzer nicht.
+
+\subsection{Fortführung}
+Auch bei der Fortführung unterstützt \ac{WuNDa} den externen Benutzer nicht, obwohl dies ähnlich wie in Abschnitt \ref{subsubsec:auswertung} beschrieben denkbar wäre.
+
+Welche Erweiterungen von \ac{WuNDa} denkbar und sinnvoll sind wird im Kapitel \todo{Ref} ausführlich beschrieben. Zu Schluss dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
 
 \begin{itemize}
 	\item fachlicher IST-Zustand
@@ -498,21 +505,30 @@ Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit di
 	\item Da sich die benötigten Änderungen vor allem auf das Erstellen der Rechnungen bezieht ändert sich für den ext. Benutzer nicht so viel.
 \end{itemize}
 
+\section{Hohe Bearbeitungszeit}
+
+Bislang wurde angegeben, dass die geplante Rationalisierung auf Grund der hohen Bearbeitungszeit die durch die Selbstentnahme entsteht nicht durchgeführt werden kann. Um dies zu verdeutlichen wird im nächsten Abschnitt die Erstellung der Abrechnung beschrieben. 
+
 \subsection{Manuelles Erstellen der Abrechnung} \label{subsec:erstellen_abrechnung}
-Im Folgenden wird die bisherige Erstellung der Abrechnungen an die externen Benutzer beschrieben. Die Abrechnungen werden von einem Beamten des Katasteramts nach jedem Abrechnungsturnus (z.B. Quartal, jährlich) manuell erstellt, wobei jeder externe Benutzer zu einen anderen Abrechnungsturnus gehören kann.
+Die bisherige Erstellung der Abrechnungen an die externen Benutzer beschrieben. Die Abrechnungen werden von einem Beamten des Katasteramts nach jedem Abrechnungsturnus (z.B. Quartal, jährlich) manuell erstellt, wobei jeder externe Benutzer zu einen anderen Abrechnungsturnus gehören kann.
 Weiterhin muss für jeden Benutzer eine eigene Abrechnung erstellt werden.
-Zum Erstellen der einzelnen Abrechnungen müssen die Protokolle der Downloads aus der Datenbank bezogen werden um weiterverarbeitet zu werden. Dies geschieht indem die Protokolle sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
+
+Zum Erstellen der einzelnen Abrechnungen müssen die Protokolle der Downloads aus der Datenbank bezogen werden um weiterverarbeitet zu werden.
+Dies geschieht indem die Protokolle sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
 Demnach befindet sich in einer Spalte dieser Datei Informationen wie z.B. der Benutzername, der Download-Name und die zu bezahlende Gebühr.
 
-Im folgenden Arbeitsschritt muss der Beamte die einzelnen Protokolle für jeden Benutzer von dieser Excel-Datei in eine jeweils eigene Excel-Datei kopieren. Eine solche Excel-Datei repräsentiert die Abrechnung an eben jenen Kunden.
+Im folgenden Arbeitsschritt muss der Beamte die einzelnen Protokolle für jeden Benutzer von dieser Excel-Datei in eine jeweils eigene Excel-Datei kopieren. Eine solche Excel-Datei repräsentiert die Abrechnung an die einzelnen Kunden des Katasteramtes.
 
-Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit benötigt wird. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
+Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit anfällt. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
+
 Ein weiterer Nachteil ist, dass die Protokolle nur auf Login-Ebene angelegt werden, d.h. es wird nur der Name gespeichert, mit dem sich der externe Benutzer in \ac{WuNDa} anmeldet.
-Im Workflow \todo{xy hat man gesehen, dass die Polizei mehrere externe Benutzer besitzt}, die Abrechnung soll allerdings an die Polizei gestellt werden und nicht an die einzelnen Benutzer. Demnach muss sich der Beamte merken welche Benutzer zu welchem Kunden gehören um die entsprechende Abrechnung zu erstellen. Dies ist zwar machbar, verkompliziert den Arbeitsschritt ungemein.
-Ein weiterer Nachteil ist, dass keine Bearbeitungen der Protokolle selbst vorgenommen werden. Somit werden bereits abgerechnete Downloads nicht als abgerechnet markiert. Weiterhin können keine Änderungen z.B. am Auftragsnamen des Protokolls vorgenommen werden und das Protokoll kann nicht als storniert markiert werden. Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der Abrechnungen berücksichtigt werden.
+Im Workflow \todo{xy hat man gesehen, dass die Polizei mehrere externe Benutzer besitzt}, die Abrechnung soll allerdings an den eigentlichen Kunden, also die Polizei, gestellt werden und nicht an die einzelnen Benutzer. Demnach muss sich der Beamte merken welche Benutzer zu welchem Kunden gehören um die entsprechende Abrechnung zu erstellen. Dies ist zwar machbar, verkompliziert den Arbeitsschritt ungemein.
+
+Ein weiterer Nachteil ist, dass keine Bearbeitungen der Protokolle selbst vorgenommen werden kann. Somit werden bereits abgerechnete Downloads nicht als abgerechnet markiert. Weiterhin können keine Änderungen z.B. am Auftragsnamen des Protokolls vorgenommen werden und das Protokoll kann nicht als storniert markiert werden. Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der Abrechnungen berücksichtigt werden.
 
 Kurzum die Vorgehensweise ist durch die manuelle Bearbeitung und den aufgeführten Nachteilen sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
 
+Aus diesen Gründen soll \ac{WuNDa} um eine Verwaltung der Downloadprotokolle, eine automatisierte Erstellung der Abrechnungen, sowie anderen verwandten Funktionalitäten erweitert werden, die den externen Benutzer und dem Katasteramt Zeitersparnisse bringen sollen. Die gewünschten Erweiterungen werden im nächsten Kapitel spezifiziert.
 
 
 %Bisheriges Erstellen der Abrechnung.
