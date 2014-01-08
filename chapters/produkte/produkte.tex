@@ -41,7 +41,7 @@ Weiterhin haben die Katasterämter die Möglichkeit eine eigene Stufe zu diesem 
 \subsubsection{ALWIS}
 Um sämtliche Datenbestände, die für die Katasterbenutzung benötigt werden, abzubilden wurde in Wuppertal eine weitere Schicht eingeführt die \acf{ALWIS} genannt wird. Diese umfasst sämtliche Informationen, die in ALKIS zur Verfügung stehen und wurde um die fehlenden Informationen erweitert. Hier kann insbesondere das Vermessungsregister als Beispiel genannt werden.
 
-\subsection{Gebühren der Produkte}
+\subsection{Gebühren der Produkte} \label{subsec:gebuehren}
 Im Folgenden wird das Zustandekommen der Gebühren der Produkte kurz beschrieben. Da die genaue Ermittlung der Gebühren nicht Bestandteil dieser Arbeit ist, wird hier nicht auf die Details eingegangen. 
 
 Die Gebühren der einzelnen Produkten werden durch eine Grundgebühr festgelegt wobei verschiedene Rabatte und Reglungen beachtet werden müssen. So können z.B. ein Mengenrabatt oder ein Selbst-Entnahme-Rabatt anfallen. 
@@ -431,10 +431,11 @@ Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese
  \item Beschaffung
  \item Verarbeitung
  \item Fortführung
-\end{itemize} 
+\end{itemize}
+Weiterhin wird sich vor allem auf die Schritte konzentriert die schlussendlich zum Erstellen der Abrechnungen führen. Somit wird hier nicht beschrieben wie jedes einzelne Produkt in in \ac{WuNDa} erstellt werden kann.
 
 \subsection{Beschaffung}
-\ac{WuNDa} unterstützt die externen Benutzer bei der Selbstentnahme der Produkte die im Abschnitt \ref{sec:produktliste} aufgelistet sind.
+\ac{WuNDa} unterstützt die externen Benutzer bei der Beschaffung der, für seinen Arbeitsschritt benötigten, Produkten. Durch die Selbstentnahme der Produkte spart er sich das Anfragen der Produkte beim Katasteramt, die vorher die eigentliche Beschaffung übernehmen musste. Mittels der Selbstentnahme können die Produkte die im Abschnitt \ref{sec:produktliste} aufgelistet sind bezogen werden.
 Die Benutzer können je nach Produkt verschiedene Einstellungen treffen. So können Sie etwa einen Bereich in der Karte oder Objekte auswählen, die in dem jeweiligen Produkt angezeigt werden.
 
 \begin{figure}[htbp]
@@ -448,7 +449,7 @@ Die Selbstentnahme soll am sogenannten ALKIS-Druckdialog (siehe \myfig{fig:alkis
 Nach dem Öffnen des Dialogs kann der Benutzer die Produktklasse auswählen in diesem Fall ist dies "`Gdb-NRW-Amtlich"' welche eine Teilmenge der ALKIS-Standardausgaben darstellt. 
 Je nach dem welche Produktklasse ausgewählt wurde, ändern sich auch die Auswahlmöglichkeiten der Produkte. In diesem Fall wurde eine farbige Liegenschaftskarte ausgewählt.
 Eine weitere wichtige Eingabe ist das Flurstück-Feld, hier können ein oder mehrere Flurstücke per drag-and-drop reingezogen werden, diese werden dann später im Produkt dargestellt.
-Weitere Eingabefelder sind das Format (z.B. DINA4), den  Maßstab (hier 1:500), die Auftragsnummer und ein Kommentarfeld. Die Option "`Drehwinkel vorschlagen"' beeinflusst den später angezeigten Druckbereich. \todo{Bild neu machen}
+Weitere Eingabefelder sind das Format (z.B. DINA4), den  Maßstab (hier 1:500), die Auftragsnummer und ein Kommentarfeld. Die Option "`Drehwinkel vorschlagen"' beeinflusst die Rotation des später angezeigten Druckbereiches.
 
 \begin{figure}[htbp]
 	\centering
@@ -468,10 +469,26 @@ Mit einem Doppelklick auf den Druckbereich gelangt er zum Downloadprotokoll (sie
 	\label{fig:alkis-protocol}
 \end{figure}
 
-Im Downloadprotokoll muss der externe Benutzer eine Geschäftsbuchnummer angeben, die Angabe der Projektbezeichnung ist allerdings optional.
-Weiterhin ist die Angabe des Verwendungszweckes interessant, für einen \ac{ÖbVI} stehen hier z.B. "`Vermessungsunterlagen (amtlicher Lageplan TS3)"' und "`Vermessungsunterlagen (hoheitliche Vermessung TS4)"' zur Verfügung.
-In dem Berechnungsfeld sieht der Benutzer wie hoch die Gebühr für das bezogene Produkt sein wird. In diesem Fall handelt es sich um eine Gebühr von \EUR{0} da es sich bei dem Benutzer um ein \ac{ÖbVI} handelt der ein vermessungsrelevantes Dokument bezieht.
-Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Download des Produktes wird gestartet. \todo{Abschluss finden. Auch wenn Gebühr = 0. es wird trotzdem protokolliert...}
+Das Downloadprotokoll hat mehrere Aufgaben, so 
+\begin{itemize}
+\item nimmt es weitere Eingaben entgegen,
+\item es zeigt die fällige Gebühr des Downloads an,
+\item und der Benutzer kann die Gebühr bestätigen.
+\end{itemize}
+
+Die Eingaben bestehen aus dem Pflichtfeld der Geschäftsbuchnummer, dem optionalen Feld der Projektbezeichnung und der Auswahl des Verwendungszwecks.
+Für die Abrechnungen ist der Verwendungszweck besonders relevant, da dieser verschiedene Rabatte nach sich ziehen kann. Mehr Informationen zum Zustandekommen der Rabatte kann dem Abschnitt \ref{subsec:gebuehren} entnommen werden.
+
+Im Berechnungsfeld kann der Benutzer nachvollziehen wie die Gebühr zu seinem Download zustande kommt. Hier wird das gewählte Produkt und dessen Grundpreis angegeben, woraufhin der Rabatt abgezogen wird, um schließlich die fällige Gebühr anzuzeigen.
+
+Die auswählbare Verwendungszwecke eines \ac{ÖbVI} sind u.a. "`Vermessungsunterlagen (amtlicher Lageplan TS3)"' und "`Vermessungsunterlagen (hoheitliche Vermessung TS4)"'. In diesem Beispiel ist der Benutzer ein \ac{ÖbVI} der ein vermessungsrelevantes Dokument bezieht, somit fällt, nach Abzug der Rabatte, eine Gebühr von \EUR{0} an.
+
+Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Download des Produktes wird gestartet. Nach dem Abschluss des Downloads kann der Benutzer die heruntergeladene Datei wie gewohnt benutzen. Im Falle der Liegenschaftskarte wird eine PDF-Datei heruntergeladen, ein Beispiel hiervon ist auf Seite \pageref{fig:flurkarte} zu finden.
+
+Zeitgleich mit dem Starten des Downloads wird dieser protokolliert. Dies bedeutet dass relevante Informationen zu dem Download abgespeichert werden. Der Abspeichern erfolgt in jedem Fall, also auch wenn die Gebühr \EUR{0} beträgt oder der Download fehlschlägt. Insbesondere der letzte Fall bereitet beim Erstellen der Abrechnung Probleme, wie dies dem Abschnitt \vref{subsec:erstellen_abrechnung} zu entnehmen ist, da diese Protokolle storniert werden müssen.
+ \todo{Abschluss finden. Auch wenn Gebühr = 0. es wird trotzdem protokolliert...}
+ 
+Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit die benötigten Produkte, von seinem Rechner aus, selbst zu beziehen und entlastet das Katasteramt in dem Sinne, dass die Produkte nicht mehr dort angefertigt werden müssen.
 
 \begin{itemize}
 	\item fachlicher IST-Zustand
@@ -481,7 +498,7 @@ Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Do
 	\item Da sich die benötigten Änderungen vor allem auf das Erstellen der Rechnungen bezieht ändert sich für den ext. Benutzer nicht so viel.
 \end{itemize}
 
-\subsection{Manuelles Erstellen der Abrechnung}
+\subsection{Manuelles Erstellen der Abrechnung} \label{subsec:erstellen_abrechnung}
 Im Folgenden wird die bisherige Erstellung der Abrechnungen an die externen Benutzer beschrieben. Die Abrechnungen werden von einem Beamten des Katasteramts nach jedem Abrechnungsturnus (z.B. Quartal, jährlich) manuell erstellt, wobei jeder externe Benutzer zu einen anderen Abrechnungsturnus gehören kann.
 Weiterhin muss für jeden Benutzer eine eigene Abrechnung erstellt werden.
 Zum Erstellen der einzelnen Abrechnungen müssen die Protokolle der Downloads aus der Datenbank bezogen werden um weiterverarbeitet zu werden. Dies geschieht indem die Protokolle sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
