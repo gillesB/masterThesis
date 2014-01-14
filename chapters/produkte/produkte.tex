@@ -156,7 +156,7 @@ Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balk
 	\hline
 	Amtliche Basiskarte (NRW)
 	&
-	\enquote{Die Amtliche Basiskarte NRW (ABK NRW oder nur ABK) ist eine Übersichtskarte, die eine Verbindung zwischen der großmaßstäbigen Liegenschaftskarte und der Topographischen Karte 1:25000 (TK25) herstellt.} \todo{quelle:(wikipedia)} \\
+	\enquote{Die Amtliche Basiskarte NRW (ABK NRW oder nur ABK) ist eine Übersichtskarte, die eine Verbindung zwischen der großmaßstäbigen Liegenschaftskarte und der Topographischen Karte 1:25000 (TK25) herstellt.} \autocite{wiki-abk} \\
 	\hline
 	Punktnachweis (PDF)
 	&
@@ -318,11 +318,13 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 \end{longtable} 
 
 \section{Beleuchtung typischer Workflows der externen Benutzer}
-\begin{itemize}
-	\item Um einen noch besseren Einblick in die Arbeit zu erhalten werden typische Arbeitsschritte der externen Benutzer aufgezeigt
-	\item typische Workflows aufzeichnen...
-	\item Aufzeigen dass Arbeitsaufwand vorhanden ist und Rationalisierung tatsächlich nicht sofort durchgeführt werden kann
-\end{itemize}
+Nachdem die einzelnen Produkte aufgelistet wurden, werden in diesem Abschnitt verschiedene Workflows von externen Benutzer beleuchtet und es wird gezeigt wie verschiedene Produkte verwendet werden. Im nächsten Abschnitt wird dann erläutert wie \ac{WuNDa} diese Workflows im Augenblick unterstützt.
+
+%\begin{itemize}
+%	\item Um einen noch besseren Einblick in die Arbeit zu erhalten werden typische Arbeitsschritte der externen Benutzer aufgezeigt
+%	\item typische Workflows aufzeichnen...
+%	\item Aufzeigen dass Arbeitsaufwand vorhanden ist und Rationalisierung tatsächlich nicht sofort durchgeführt werden kann
+%\end{itemize}
 
 \subsection{\ac{ÖbVI} - Teilungsvermessung}
 Ein solcher Workflow ist die Teilungsvermessung, die durch einen \ac{ÖbVI} durchgeführt wird. Durch die Teilungsvermessung wird ein neues Grundstück aus einem abgetrennten Teil eines bestehenden Grundstücks erstellt. Die folgende Beschreibung wurde nach \autocite{klein-vermessung} und \autocite{jungemann-alltag} erstellt.
@@ -340,7 +342,7 @@ Auf jeden dieser drei Schritte wird im Folgenden eingegangen.
 
 Nachdem der \ac{ÖbVI} die Auftragserteilung zur einer Teilungsvermessung durch den Eigentümer, Erwerber oder Bauträger erhalten hat, bezieht er die erforderlichen Katasterunterlagen vom Katasteramt und die Teilungsgenehmigung von der für das Baurecht zuständigen Baugenehmigungsbehörde.
 
-Die zur Vermessung neu zu erstellenden Punkte müssen beim Katasteramt reserviert werden, so dass diese später eine eindeutige Kennung besitzen. Dieser Vorgang wird Punktnummernreservierung genannt. Weiterhin müssen die folgenden Katasterunterlagen bezogen werden:
+Die zur Vermessung neu zu erstellenden Punkte müssen beim Katasteramt reserviert werden, so dass diese später eine eindeutige Kennung besitzen. Dieser Vorgang wird Punktnummernreservierung genannt. Weiterhin müssen die folgenden Katasterunterlagen, in Form von Produkten, bezogen werden:
 \begin{itemize}
 	\item Eigentümerangaben
 	\item Flurkarte
@@ -453,16 +455,15 @@ Demnach benutzt die Sparkasse Wuppertal ihren Zugang zu \ac{WuNDa} zum Beziehen 
 %\end{itemize}
 
 \section{Aktuelle Unterstützung der Workflows durch das System}
-\todo{Bisher nur ein Workflow beschrieben. Deshalb stimmt das untere?}
 
 In diesem Abschnitt wird beschrieben wie \ac{WuNDa} die oben beschriebenen Workflows prinzipiell unterstützt.
-Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese in drei Phasen abstrahiert:
+Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese in drei Phasen eingeteilt:
 \begin{itemize}
  \item Beschaffung
  \item Verarbeitung
  \item Fortführung
 \end{itemize}
-Weiterhin wird sich vor allem auf die Schritte konzentriert die schlussendlich zum Erstellen der Abrechnungen führen. Somit wird hier nicht beschrieben wie jedes einzelne Produkt in \ac{WuNDa} erstellt werden kann.
+Weiterhin werden vor allem die Schritte erläutert die eine Erstellung einer Abrechnung nach sich ziehen. Somit wird hier nicht beschrieben wie jedes einzelne Produkt in \ac{WuNDa} erstellt werden kann.
 
 \subsection{Beschaffung}
 \ac{WuNDa} unterstützt die externen Benutzer bei der Beschaffung der, für ihren Arbeitsschritt benötigten, Produkte. Durch die Selbstentnahme der Produkte wird das Anfragen der Produkte beim Katasteramt erspart, welches vorher die eigentliche Beschaffung übernehmen musste. Mittels der Selbstentnahme können die Produkte, die im Abschnitt \ref{sec:produktliste} aufgelistet sind, bezogen werden.
@@ -475,9 +476,13 @@ Die Benutzer können je nach Produkt verschiedene Einstellungen treffen. So kön
 	\label{fig:alkis-druck}
 \end{figure}
 
-Die Selbstentnahme soll am sogenannten ALKIS-Druckdialog (siehe \myfig{fig:alkis-druck}) exemplarisch vorgeführt werden.
+Die Selbstentnahme wird im Folgenden examplarisch vorgeführt, indem ein \ac{ÖbVI} eine farbige Liegenschaftskarte bezieht. Ein Beispielprodukt der Liegenschaftskarte kann unter \ref{fig:flurkarte} gefunden werden. 
+Hier sei daran erinnert, dass es sich bei der Liegenschaftskarte um das  Produkt der Flurkarte handelt. 
+
+Zum Beziehen der Liegenschaftskarte muss in \ac{WuNDa} der sogenannten ALKIS-Druckdialog (siehe \myfig{fig:alkis-druck}) geöffnet werden.
 Nach dem Öffnen des Dialogs kann der Benutzer die Produktklasse auswählen. In diesem Fall ist dies "`Gdb-NRW-Amtlich"', welches eine Teilmenge der ALKIS-Standardausgaben darstellt. 
-Je nachdem welche Produktklasse ausgewählt wurde, ändern sich die Auswahlmöglichkeiten der Produkte. In diesem Fall wurde eine farbige Liegenschaftskarte ausgewählt.
+Je nachdem welche Produktklasse ausgewählt wurde, ändern sich die Auswahlmöglichkeiten der Produkte.
+Wie bereits erwähnt, wird hier die farbige Liegenschaftskarte ausgewählt.
 Eine weitere wichtige Eingabe ist das Flurstück-Feld, hier können ein oder mehrere Flurstücke per drag-and-drop hereingezogen werden, diese werden dann später im Produkt dargestellt.
 Weitere Eingabefelder sind das Format (z.B. DINA4), den  Maßstab (hier 1:500), die Auftragsnummer und ein Kommentarfeld. Die Option "`Drehwinkel vorschlagen"' beeinflusst die Rotation des später angezeigten Druckbereiches.
 
@@ -492,13 +497,6 @@ Bestätigt der Benutzer mit "`Ok"' seine Eingabe so gelangt er zur Karte in \ac{
 Dieser Druckbereich befindet sich über den zuvor ausgewählten Flurstücken und kann verschoben, in der Größe verändert und rotiert werden.
 Mit einem Doppelklick auf den Druckbereich, wird gelangt er zum Downloadprotokoll-Dialog (siehe \myfig{fig:alkis-protocol}).  
 
-\begin{figure}[htbp]
-	\centering
-	\incgraph{width=0.9\textwidth}{./rimg/alkis-download-protocol.png}
-	\caption{ALKIS-Druckdialog}
-	\label{fig:alkis-protocol}
-\end{figure}
-
 Das Downloadprotokoll-Dialog hat mehrere Aufgaben, so 
 \begin{itemize}
 \item nimmt er weitere Eingaben entgegen,
@@ -508,6 +506,13 @@ Das Downloadprotokoll-Dialog hat mehrere Aufgaben, so
 
 Die Eingaben bestehen aus dem Pflichtfeld der Geschäftsbuchnummer, dem optionalen Feld der Projektbezeichnung und der Auswahl des Verwendungszwecks.
 Für die Abrechnungen ist der Verwendungszweck besonders relevant, da dieser verschiedene Rabatte nach sich ziehen kann. Mehr Informationen zum Zustandekommen der Rabatte kann dem Abschnitt \ref{subsec:gebuehren} entnommen werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/alkis-download-protocol.png}
+	\caption{ALKIS-Druckdialog}
+	\label{fig:alkis-protocol}
+\end{figure}
 
 Im Berechnungsfeld kann der Benutzer nachvollziehen wie die Gebühr zu seinem Download zustande kommt. Hier wird das gewählte Produkt und dessen Grundpreis angegeben, woraufhin der Rabatt abgezogen wird, um schließlich die fällige Gebühr anzuzeigen.
 
