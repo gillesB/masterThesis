@@ -1,9 +1,16 @@
 \chapter{Spezifikation}
-In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert. Im ersten Teil des Kapitels werden diese der Übersicht halber aufgelistet und im zweiten Teil werden die einzelnen Erweiterungen detaillierter beschrieben.
+In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert. Im ersten Teil des Kapitels werden diese der Übersicht halber aufgelistet und im zweiten Teil werden die einzelnen Erweiterungen detaillierter beschrieben. Im Folgenden werden die bis jetzt genannten Download-Protokolle auch Buchungen genannt. \todo{Immer einheitlicher Name verwenden? Bzw. begründung warum mal das eine bzw. das andere verwendet wird.}
 
 Die Informationen zu diesem Kapitel sind aus einer Zusammenarbeit zwischen dem Ressort 102 und Cismet entstanden. \todo{Evt. beschreiben wie dies geschah.}
 \section{Gewünschte Erweiterungen}
-Die gewünschten Erweiterungen sind:
+Die folgenden neuen Objekte mussten hinzugefügt werden.
+\begin{itemize}
+\item Kunde
+\item Kunden-Login
+\item Kundengruppe
+\end{itemize}
+
+Die gewünschten Erweiterungen sind in der folgenden Liste aufgeführt, wobei sie in verschiedene Kategorien eingeteilt sind. \todo{Erweitern, oder wegmachen da die Informationen dem TOC zu entnehmen sind.}
 \begin{itemize}
 	\item Allgemeines
 	\begin{itemize}
@@ -11,7 +18,7 @@ Die gewünschten Erweiterungen sind:
 	\end{itemize}
 	\item Kunde
 	\begin{itemize}
-		\item Kunderenderer und Editor
+		\item Kundenrenderer und Editor
 		\item Erneutes Herunterladen von Produkten
 		\item Ansicht der eigenen Buchungen durch externe Benutzer
 	\end{itemize}
@@ -23,16 +30,80 @@ Die gewünschten Erweiterungen sind:
 	\item Buchungen
 	\begin{itemize}
 		\item Buchungrenderer und Editor
+		\item Stornieren und Ändern einzelner Buchungen
 		\item Suchdialog zu den Buchungen
-	\end{itemize}    
+	\end{itemize}
+	\item Berichte
+	\begin{itemize}
+		\item Buchungsbeleg
+		\item Rechnungsanlage
+		\item Geschäftsstatistik
+	\end{itemize}	 
 	\item Renderer und Editoren für sonstige neue Objekte
 \end{itemize}
 
-
-
-
 \section{Spezifizieren der Erweiterungen}
 Einzeln bedeutet jede Erweiterung
+\subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
+Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist jedoch der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten.
+
+Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden.
+\subsection{Kunde}
+Die neue Objektart Kunde soll eingeführt werden und repräsentiert einen Kunden des Ressort 102.
+Ein Kunde soll folgende Informationen enthalten:
+\begin{itemize}
+\item Name
+\item Vermessungsstellennummer
+\item Vertragskennzeichen
+\item Vertragsende
+\item Abrechnungsturnus
+\item Direktkontakt
+\item Weiterverkaufsvertragskennzeichen
+\item Weiterverkaufsvertragsende
+\item Branche
+\item Produkte
+\end{itemize}
+Eine andere neue Objektart soll das Kunden-Login sein, diese repräsentieren die externen Kunden. Ein Kunden-Login soll genau einem Kunden zugeordnet sein und beinhaltet folgende Informationen:
+\begin{itemize}
+\item Kunde
+\item Name
+\item Kontakt
+\end{itemize}
+\subsubsection{Kundenrenderer}
+Der Kundenrenderer soll Buchungen eines Kunden darstellen.
+Dabei sollen verschiedene Filtermöglichkeiten angegeben werden können, so dass nur verschiedene Buchungen angezeigt werden.
+Die Buchungen sollen in einer Tabelle angezeigt werden, weiterhin soll ein kurzer Satz die angezeigten Buchungen zusammenfassen.
+Für die angezeigten Buchungen soll es möglich sein den Bericht Rechnungsanlage und Buchungsbeleg zu erstellen.
+
+Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up des Kundenrenderers \vref{fig:mockup-kunderenderer} entnommen werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=\textwidth}{./rimg/gui-kunderenderer.png}
+	\caption{Mockup des Kundenrendereres}
+	\label{fig:mockup-kunderenderer}
+\end{figure}
+
+\subsubsection{Ansicht der eigenen Buchungen durch externe Benutzer}
+Die externen Benutzer sollen ebenfalls Zugriff auf den Kundenrenderer bekommen. Hierbei müssen allerdings verschiedene Einschränkungen gemacht werden.
+So dürfen externe Benutzer nur den Kundenrenderer sehen, der ihrem Kunde zugeordnet ist. Weiterhin dürfen sie auch den Bericht Rechnungsanlage nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
+
+Demnach sollen externen Benutzer nur den eigenen Kundenrenderer öffnen können und es soll ihnen nicht möglich sein den Bericht Rechnungsanlage zu erstellen.
+
+\subsubsection{Erneutes Herunterladen von Produkten}
+Die Produkte, die über den ALKIS-Druckdialog erzeugt werden, werden von einem externen Server bezogen.
+Durch dessen längere Initialisierungsphase passiert es häufiger, dass Produkte fehlerhaft heruntergeladen werden.
+Da der Download dieser Produkte trotzdem protokolliert wird, wie im Abschnitt \vref{subsec:beschaffung-download} bereits erwähnt wurde, muss der externe Benutzer diese Buchung stornieren lassen und den Download erneut durchführen.
+Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein ein Download nochmals anzufordern, ohne dass eine Buchung storniert wird und eine neue Buchung erstellt wird.
+
+Diese Erweiterung soll wie folgt umgesetzt werden. Bei einer Buchung, die am gleichen Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser des  erneuten Herunterladen des Produkts erhalten.
+Das Datumsfeld soll in dem Fall blau und unterstrichen sein, wie dies \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
+Bei einem Klick soll das bereits protokollierte Produkt erneut heruntergeladen werden.
+
+\subsubsection{Kundeneditor}
+
+
+
 \subsection{Auflisten der Buchungen der Benutzer}
 \subsection{Kundengruppen}
 \subsection{Erstellen von E-Mails an Kundengruppen}
