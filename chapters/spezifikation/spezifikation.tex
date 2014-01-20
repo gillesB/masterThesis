@@ -176,7 +176,7 @@ Bei den Buchungen handelt es sich um die in \todo{ref} bereits erwähnten Downlo
 
 \subsubsection{Suchdialog zu den Buchungen}
 Der Suchdialog soll es ermöglichen Buchungen über verschiedene Suchkriterien zu finden und anschließend im Buchungsrenderer oder -editor zu öffnen.
-Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffnen. Die Suchkriterien, die angegeben werden können, können dem Mock-up \myfig{fig:mockup-buchungssuchdialog} entnommen werden. In diesem Mock-up fehlen allerdings die Angabe des Abrechnungsturnus und der Markierung von stornierten und abrechneten Buchungen.  
+Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffnen. Die Suchkriterien, die angegeben werden können, können dem Mock-up \myfig{fig:mockup-buchungssuchdialog} entnommen werden. In diesem Mock-up fehlen allerdings die Angabe des Abrechnungsturnus und der Markierung von stornierten und abrechneten Buchungen, diese sollen im fertigen Dialog ebenfalls enthalten sein.  
 \begin{figure}[htbp]
 	\centering
 	\incgraph{width=0.95\textwidth}{./rimg/gui-buchung_suchdialog.png}
@@ -187,8 +187,8 @@ Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffne
 \subsubsection{Buchungseditor und Buchungsrenderer}
 Beim Buchungseditor und dem Buchungsrenderer soll es sich um die gleiche Ansicht handeln, wobei der Renderer keine Benutzereingabe entgegen nimmt.
 Der Buchungseditor soll es nicht erlauben neue Buchungen zu erstellen, da diese nur über den Downloadprotokoll-Dialog nach dem Beziehen eines Produktes angelegt werden.
-Weiterhin soll es im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern, siehe auch \ref{subsubsec:aendern_buchung}.
-Außerdem soll eine Buchung storniert werden können, siehe auch \ref{subsubsec:storno_buchung}.
+Weiterhin soll es im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern, siehe unten.
+Außerdem soll eine Buchung storniert werden können, siehe ebenfalls unten.
 
 \subsubsection{Ändern einzelner Buchungen} \label{subsubsec:aendern_buchung}
 Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
@@ -208,11 +208,39 @@ Wie oben bereits erwähnt soll es über den Buchungseditor möglich sein Buchung
 
 Bei diesem Vorgang soll ein Beamte ein Storno-Grund auswählen können und die Buchung stornieren. Daraufhin soll die betroffene Buchung als storniert markiert werden und das Datum und der Benutzer, der die Stornierung vorgenommen hat, sollen abgespeichert werden.
 
-
-
 \subsection{Berichte}
+Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet. 
 \subsubsection{Buchungsbeleg}
+Dieser Bericht soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
+Dabei ist der Bericht in einen Kopfbereich und eine Tabelle mit den Buchungen eingeteilt.
+
+Im Kopfbereich des Berichts sollen sich folgende Basisinformationen befinden:
+\begin{itemize}
+  \item Kundename 
+  \item Vertragsnummer
+  \item Abrechnungszeitraum
+\end{itemize}  
+Die Tabelle soll folgende Felder der Buchungen enthalten: \todo{MwSt?}
+\begin{itemize}
+ \item Gebühr
+ \item Geschäftsbuchnummer 
+ \item Projektbezeichnung
+ \item Zeit
+ \item Verwendungszweck
+ \item Produktbezeichnung
+\end{itemize}
+
+In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden sollen oder nicht.
+Falls im Renderer keine Buchungen ausgewählt sind, so soll der Bericht nicht erstellt werden.
+
 \subsubsection{Rechnungsanlage}
+Die Rechnungsanlage ist eine Erweiterung des Buchungsbeleg.
+Diese besitzt zwischen dem Kopfbereich und der Tabelle ein zusätzliches Statistikfeld.
+Weiterhin ist die Rechnungsanlage ein Teil der Abrechnung, so dass die angezeigten Buchungen, beim Erstellen des Berichts, als abgerechnet markiert werden. Dies ist auch der Grund weshalb der Bericht im Kundenrenderer nicht von den externen Benutzern erstellt werden darf.
+Eine Vorlage eines solchen Berichts kann der Abbildung \vref{fig:vorlage_rechnungsanlage} entnommen werden.
+
+In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden sollen oder nicht. Weiterhin soll festgelegt werden können, ob die Buchungen tatsächlich als abgerechnet markiert werden sollen, oder nicht.
+
 \subsubsection{Geschäftsstatistik}
 
 \subsection{sonstige neu benötigte Objektarten}
