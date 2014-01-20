@@ -1,16 +1,24 @@
 \chapter{Spezifikation}
-In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert. Im ersten Teil des Kapitels werden diese der Übersicht halber aufgelistet und im zweiten Teil werden die einzelnen Erweiterungen detaillierter beschrieben. Im Folgenden werden die bis jetzt genannten Download-Protokolle auch Buchungen genannt. \todo{Immer einheitlicher Name verwenden? Bzw. begründung warum mal das eine bzw. das andere verwendet wird.}
+In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert.
+Diese Erweiterungen werden der Übersicht halber zuerst aufgelistet und anschließend detaillierter beschrieben.
+Im Folgenden werden die bis jetzt genannten Download-Protokolle auch Buchungen genannt. \todo{Immer einheitlicher Name verwenden? Bzw. begründung warum mal das eine bzw. das andere verwendet wird.}
 
 Die Informationen zu diesem Kapitel sind aus einer Zusammenarbeit zwischen dem Ressort 102 und Cismet entstanden. \todo{Evt. beschreiben wie dies geschah.}
 \section{Gewünschte Erweiterungen}
-Die folgenden neuen Objekte mussten hinzugefügt werden.
-\begin{itemize}
-\item Kunde
-\item Kunden-Login
-\item Kundengruppe
-\end{itemize}
+Dieser Abschnitt zeigt eine Übersicht über die gewünschten Erweiterungen. Dabei werden zunächst die wichtigsten, neu benötigten Objektarten aufgelistet, die in \ac{WuNDa} noch nicht  vorhanden sind. Danach erfolgt eine Auflistung der eigentlichen Erweiterungen.
 
-Die gewünschten Erweiterungen sind in der folgenden Liste aufgeführt, wobei sie in verschiedene Kategorien eingeteilt sind. \todo{Erweitern, oder wegmachen da die Informationen dem TOC zu entnehmen sind.}
+Zu den neu benötigten Objektarten gehören
+\begin{itemize}
+\item die Kunden,
+\item die Kunden-Logins
+\item und die Kundengruppen.
+\end{itemize}
+Diese drei Objektarten sind am wichtigsten für das automatische Erstellen der Abrechnungen und werden im nächsten Abschnitt stärker beleuchtet.
+Die restlichen neuen Objektarten werden in \todo{ref} aufgeführt und beschrieben. 
+
+Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
+Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die "`Beschaffenheit"' der Erweiterung darstellt. So finden sich unter den Kategorien die neuen Objektarten Kunde und Kundengruppe, aber auch die bereits bestehende Objektart Buchung. 
+\todo{Erweitern, oder wegmachen da die Informationen dem TOC zu entnehmen sind.}
 \begin{itemize}
 	\item Allgemeines
 	\begin{itemize}
@@ -43,14 +51,16 @@ Die gewünschten Erweiterungen sind in der folgenden Liste aufgeführt, wobei si
 \end{itemize}
 
 \section{Spezifizieren der Erweiterungen}
+In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert.  
+
 Einzeln bedeutet jede Erweiterung
 \subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
 Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist jedoch der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten.
 
-Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden.
+Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden. \todo{erweitern}
 \subsection{Kunde}
 Die neue Objektart Kunde soll eingeführt werden und repräsentiert einen Kunden des Ressort 102.
-Ein Kunde soll folgende Informationen enthalten:
+Ein Kunde soll folgende Informationen enthalten: \todo{Was bedeuten die einzelnen Felder? Evt. descpition benutzen}
 \begin{itemize}
 \item Name
 \item Vermessungsstellennummer
@@ -63,7 +73,9 @@ Ein Kunde soll folgende Informationen enthalten:
 \item Branche
 \item Produkte
 \end{itemize}
-Eine andere neue Objektart soll das Kunden-Login sein, diese repräsentieren die externen Kunden. Ein Kunden-Login soll genau einem Kunden zugeordnet sein und beinhaltet folgende Informationen:
+Eine andere neue Objektart soll das Kunden-Login sein, diese repräsentieren die externen Benutzer.
+Dies bedeutet dass ein Kunden-Login einem \ac{WuNDa}-Benutzer entspricht.
+Weiterhin soll ein Kunden-Login genau einem Kunden zugeordnet sein und beinhaltet folgende Informationen: \todo{Benutzer in WUnda}
 \begin{itemize}
 \item Kunde
 \item Name
@@ -71,7 +83,7 @@ Eine andere neue Objektart soll das Kunden-Login sein, diese repräsentieren die
 \end{itemize}
 \subsubsection{Kundenrenderer}
 Der Kundenrenderer soll Buchungen eines Kunden darstellen.
-Dabei sollen verschiedene Filtermöglichkeiten angegeben werden können, so dass nur verschiedene Buchungen angezeigt werden.
+Dabei sollen verschiedene Filtermöglichkeiten angegeben werden können, so dass nur Buchungen angezeigt werden, die die Kriterien erfüllen.
 Die Buchungen sollen in einer Tabelle angezeigt werden, weiterhin soll ein kurzer Satz die angezeigten Buchungen zusammenfassen.
 Für die angezeigten Buchungen soll es möglich sein den Bericht Rechnungsanlage und Buchungsbeleg zu erstellen.
 
@@ -94,19 +106,42 @@ Demnach sollen externen Benutzer nur den eigenen Kundenrenderer öffnen können 
 Die Produkte, die über den ALKIS-Druckdialog erzeugt werden, werden von einem externen Server bezogen.
 Durch dessen längere Initialisierungsphase passiert es häufiger, dass Produkte fehlerhaft heruntergeladen werden.
 Da der Download dieser Produkte trotzdem protokolliert wird, wie im Abschnitt \vref{subsec:beschaffung-download} bereits erwähnt wurde, muss der externe Benutzer diese Buchung stornieren lassen und den Download erneut durchführen.
-Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein ein Download nochmals anzufordern, ohne dass eine Buchung storniert wird und eine neue Buchung erstellt wird.
+Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein ein Download nochmals anzufordern, ohne dass er eine Buchung stornieren lassen muss und dass auch keine neue Buchung erstellt werden muss.
+Aus diesem Grund soll es für den Benutzer möglich sein, Produkte die bereits heruntergeladen wurden, erneut herunterzuladen. Dies soll allerdings nur für Produkte möglich sein, die am gleichen Tag bezogen wurden. 
 
-Diese Erweiterung soll wie folgt umgesetzt werden. Bei einer Buchung, die am gleichen Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser des  erneuten Herunterladen des Produkts erhalten.
-Das Datumsfeld soll in dem Fall blau und unterstrichen sein, wie dies \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
+Dieses erneute Herunterladen soll wie folgt umgesetzt werden. Bei einer Buchung, die am gleichen Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser des  erneuten Herunterladen des Produkts erhalten.
+Das Datumsfeld soll in dem Fall blau und unterstrichen sein, wie dies der \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
 Bei einem Klick soll das bereits protokollierte Produkt erneut heruntergeladen werden.
 
 \subsubsection{Kundeneditor}
+Mit Hilfe des Kundeneditors soll es möglich sein einen neuen Kunden anzulegen, bzw. Informationen zu einem bereits existierenden Kunden zu ändern.
 
-
-
-\subsection{Auflisten der Buchungen der Benutzer}
 \subsection{Kundengruppen}
-\subsection{Erstellen von E-Mails an Kundengruppen}
+Bei den Kundengruppe handelt es sich um Mengen von Kunden und werden benötigt um Kunden mit ähnlichen Eigenschaften zu gruppieren.
+Diese Kundengruppen besitzen kein Wissen über ihren Inhalt, sondern müssen manuell erstellt und verwaltet werden.
+
+Ein Beispiel wäre eine Gruppe, die sämtliche Kunden zusammenfasst, die den Abrechnungsturnus "`Quartalsweise"' besitzen. Wird ein neuer Kunde erstellt, mit eben dem Abrechnungsturnus, so muss dieser manuell der Kundengruppe hinzugefügt werden.
+Diese Kundegruppe hätte den Nutzen, dass beim Erstellen der Abrechnung für ein Quartal die benötigten Kunden nicht zusammengesucht werden müssen, sondern bereits in dieser Gruppe vorhanden sind.
+
+Kurzum eine Kundengruppe soll eine Menge von Kunden sein, die manuell erstellt und verwaltet werden muss.
+ 
+\subsubsection{Kundengruppenrenderer}
+Der Kundengruppenrenderer hat einen ähnlichen Aufbau und Funktionsweise wie der Kundenrenderer.
+Demnach können wieder verschiedene Filter angegeben werden \todo{Welche Filter?} und die Berichte Rechnungsanlage, Buchungsbeleg und Geschäftsstatistik können erstellt werden.
+
+Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird, sondern mehrere, werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
+
+Eine frühes Mock-up des Kundengruppenrenderer kann in \myfig{fig:mockup-kunderenderer} betrachtet werden.
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=\textwidth}{./rimg/gui-kundengruppenrenderer.png}
+	\caption{Mockup des Kundengruppenrenderer}
+	\label{fig:mockup-kunderenderer}
+\end{figure}
+
+\subsubsection{Kundengruppeneditor}
+
+\subsubsection{Erstellen von E-Mails an Kundengruppen}
 \begin{itemize}
 	\item E-Mail an Kundengruppe
 	\item immer aktueller Verteiler
