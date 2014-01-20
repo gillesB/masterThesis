@@ -51,7 +51,7 @@ Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die "`Beschaffenhei
 \end{itemize}
 
 \section{Spezifizieren der Erweiterungen}
-In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert.
+In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert. \todo{Nur verschieden Beamte des Amtes haben berechtigungen aus falls dies anders beschrieben wird.}
 
 \subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
 Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist jedoch der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten.
@@ -170,9 +170,45 @@ Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.B. den berei
 %\end{itemize}
 
 \subsection{Buchungen}
-\subsubsection{Buchungseditor und Buchungsrenderer}
-\subsubsection{Stornieren und Ändern einzelner Buchungen}
+Bei den Buchungen handelt es sich um die in \todo{ref} bereits erwähnten Download-Protokolle. Im Augenblick können die Buchungen nicht in \ac{WuNDa} dargestellt oder bearbeitet werden.
+\todo{Änderungen nur über den Suchdialog zu öffnen. Sämtliche Werte von Buchungen}
+
+
 \subsubsection{Suchdialog zu den Buchungen}
+Der Suchdialog soll es ermöglichen Buchungen über verschiedene Suchkriterien zu finden und anschließend im Buchungsrenderer oder -editor zu öffnen.
+Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffnen. Die Suchkriterien, die angegeben werden können, können dem Mock-up \myfig{fig:mockup-buchungssuchdialog} entnommen werden. In diesem Mock-up fehlen allerdings die Angabe des Abrechnungsturnus und der Markierung von stornierten und abrechneten Buchungen.  
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.95\textwidth}{./rimg/gui-buchung_suchdialog.png}
+	\caption{Mockup des Buchungssuchdialog}
+	\label{fig:mockup-buchungssuchdialog}
+\end{figure}
+
+\subsubsection{Buchungseditor und Buchungsrenderer}
+Beim Buchungseditor und dem Buchungsrenderer soll es sich um die gleiche Ansicht handeln, wobei der Renderer keine Benutzereingabe entgegen nimmt.
+Der Buchungseditor soll es nicht erlauben neue Buchungen zu erstellen, da diese nur über den Downloadprotokoll-Dialog nach dem Beziehen eines Produktes angelegt werden.
+Weiterhin soll es im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern, siehe auch \ref{subsubsec:aendern_buchung}.
+Außerdem soll eine Buchung storniert werden können, siehe auch \ref{subsubsec:storno_buchung}.
+
+\subsubsection{Ändern einzelner Buchungen} \label{subsubsec:aendern_buchung}
+Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
+Diese beiden Felder werden händisch eingegeben und deshalb sind Fehleingaben vorstellbar.
+
+Weiterhin soll die jeweils letzte Änderung protokolliert werden. In dieser Protokollierung  sollen folgende Werte erfasst werden:
+\begin{itemize}
+\item Veränderter Wert (Geschäftsbuchnummer oder Projektbezeichnung)
+\item alter Wert
+\item neuer Wert
+\item Benutzer
+\item Zeitstempel
+\end{itemize}
+
+\subsubsection{Stornieren einzelner Buchungen} \label{subsubsec:storno_buchung}
+Wie oben bereits erwähnt soll es über den Buchungseditor möglich sein Buchungen zu stornieren.
+
+Bei diesem Vorgang soll ein Beamte ein Storno-Grund auswählen können und die Buchung stornieren. Daraufhin soll die betroffene Buchung als storniert markiert werden und das Datum und der Benutzer, der die Stornierung vorgenommen hat, sollen abgespeichert werden.
+
+
 
 \subsection{Berichte}
 \subsubsection{Buchungsbeleg}
