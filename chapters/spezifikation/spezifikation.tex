@@ -47,13 +47,12 @@ Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die "`Beschaffenhei
 		\item Rechnungsanlage
 		\item Geschäftsstatistik
 	\end{itemize}	 
-	\item Renderer und Editoren für sonstige neue Objekte
+	\item Renderer und Editoren für sonstige neue Objektarten
 \end{itemize}
 
 \section{Spezifizieren der Erweiterungen}
-In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert.  
+In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert.
 
-Einzeln bedeutet jede Erweiterung
 \subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
 Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist jedoch der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten.
 
@@ -89,7 +88,7 @@ Für die angezeigten Buchungen soll es möglich sein den Bericht Rechnungsanlage
 
 Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up des Kundenrenderers \vref{fig:mockup-kunderenderer} entnommen werden.
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 	\centering
 	\incgraph{width=\textwidth}{./rimg/gui-kunderenderer.png}
 	\caption{Mockup des Kundenrendereres}
@@ -97,10 +96,12 @@ Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up d
 \end{figure}
 
 \subsubsection{Ansicht der eigenen Buchungen durch externe Benutzer}
-Die externen Benutzer sollen ebenfalls Zugriff auf den Kundenrenderer bekommen. Hierbei müssen allerdings verschiedene Einschränkungen gemacht werden.
-So dürfen externe Benutzer nur den Kundenrenderer sehen, der ihrem Kunde zugeordnet ist. Weiterhin dürfen sie auch den Bericht Rechnungsanlage nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
+Die Funktionalität des Kundenrenderers soll dem Kunden selbst nicht vorenthalten werden.
+Aus diesem Grund soll es für die externen Benutzer eines Kunden möglich sein auf den eigenen Kundenrenderer zuzugreifen.
+Hierbei muss sichergestellt werden, dass die externen Benutzer nur den Kundenrenderer des eigenen Kunden öffnen können und somit keine Einsicht in die Buchungen der anderen Kunden erhalten. 
+Weiterhin dürfen sie den Bericht Rechnungsanlage nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
 
-Demnach sollen externen Benutzer nur den eigenen Kundenrenderer öffnen können und es soll ihnen nicht möglich sein den Bericht Rechnungsanlage zu erstellen.
+Demnach sollen externe Benutzer nur den eigenen Kundenrenderer öffnen können und es soll ihnen nicht möglich sein den Bericht Rechnungsanlage zu erstellen.
 
 \subsubsection{Erneutes Herunterladen von Produkten}
 Die Produkte, die über den ALKIS-Druckdialog erzeugt werden, werden von einem externen Server bezogen.
@@ -111,7 +112,7 @@ Aus diesem Grund soll es für den Benutzer möglich sein, Produkte die bereits h
 
 Dieses erneute Herunterladen soll wie folgt umgesetzt werden. Bei einer Buchung, die am gleichen Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser des  erneuten Herunterladen des Produkts erhalten.
 Das Datumsfeld soll in dem Fall blau und unterstrichen sein, wie dies der \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
-Bei einem Klick soll das bereits protokollierte Produkt erneut heruntergeladen werden.
+Bei einem Klick soll das bereits protokollierte Produkt erneut heruntergeladen werden, ohne dass eine neue Buchung erstellt wird.
 
 \subsubsection{Kundeneditor}
 Mit Hilfe des Kundeneditors soll es möglich sein einen neuen Kunden anzulegen, bzw. Informationen zu einem bereits existierenden Kunden zu ändern.
@@ -123,7 +124,12 @@ Diese Kundengruppen besitzen kein Wissen über ihren Inhalt, sondern müssen man
 Ein Beispiel wäre eine Gruppe, die sämtliche Kunden zusammenfasst, die den Abrechnungsturnus "`Quartalsweise"' besitzen. Wird ein neuer Kunde erstellt, mit eben dem Abrechnungsturnus, so muss dieser manuell der Kundengruppe hinzugefügt werden.
 Diese Kundegruppe hätte den Nutzen, dass beim Erstellen der Abrechnung für ein Quartal die benötigten Kunden nicht zusammengesucht werden müssen, sondern bereits in dieser Gruppe vorhanden sind.
 
-Kurzum eine Kundengruppe soll eine Menge von Kunden sein, die manuell erstellt und verwaltet werden muss.
+Kurzum eine Kundengruppe soll eine Menge von Kunden sein, die manuell erstellt und verwaltet werden muss. Weiterhin soll eine Kundengruppe folgende Informationen enthalten:
+\begin{itemize}
+\item Name
+\item Beschreibung
+\item Liste der Kunden
+\end{itemize}
  
 \subsubsection{Kundengruppenrenderer}
 Der Kundengruppenrenderer hat einen ähnlichen Aufbau und Funktionsweise wie der Kundenrenderer.
@@ -131,22 +137,49 @@ Demnach können wieder verschiedene Filter angegeben werden \todo{Welche Filter?
 
 Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird, sondern mehrere, werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
 
-Eine frühes Mock-up des Kundengruppenrenderer kann in \myfig{fig:mockup-kunderenderer} betrachtet werden.
-\begin{figure}[htbp]
+Eine frühes Mock-up des Kundengruppenrenderer kann in \myfig{fig:mockup-kundengruppenrenderer} betrachtet werden.
+\begin{figure}[htb]
 	\centering
 	\incgraph{width=\textwidth}{./rimg/gui-kundengruppenrenderer.png}
 	\caption{Mockup des Kundengruppenrenderer}
-	\label{fig:mockup-kunderenderer}
+	\label{fig:mockup-kundengruppenrenderer}
 \end{figure}
 
 \subsubsection{Kundengruppeneditor}
+Mittels des Kundengruppeneditor sollen neue Kundengruppen angelegt werden können und bereits bestehende Kundengruppen sollen bearbeitet werden können. Zu diesen Bearbeitungen gehört z.B. das Hinzufügen bzw. Entfernen eines Kunden aus der Kundengruppe.
 
 \subsubsection{Erstellen von E-Mails an Kundengruppen}
-\begin{itemize}
-	\item E-Mail an Kundengruppe
-	\item immer aktueller Verteiler
-	\item sonst pflegen der einzelnen E-Mail Verteiler. Änderung während Urlaub, Schon ist wer vergessen
-	\item benötigt bei Wartungsarbeiten, neue Funktionen,\\ oder sonstiges Neues (Kartenthemen)
-\end{itemize}
-\subsection{...}
+In verschiedenen Fällen müssen Benachrichtigung-E-Mails an alle oder verschiedene Kunden versendet werden.
+Dies muss u.a. bei geplanten Systemausfällen, die durch Wartungsarbeiten verursacht werden, beim Einführen von neuen Funktionen oder sonstigen neuen Funktionalitäten wie z.B. neue Kartenthemen erfolgen.
+Im Augenblick besitzt jeder Beamte, der solche E-Mails versenden soll, einen eigenen Verteiler, den er manuell aktuell halten muss.
+Nach dem Hinzufügen eines neuen Kunden oder dem Ändern einer E-Mail-Adresse kann es somit zu Unvollständigkeiten in den einzelnen Verteiler kommen, da diese noch nicht aktualisiert wurden.
+Mittels den Kundengruppen können diese, auf die Beamten verteilten, Verteilter durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
+
+Der gewünschte Lösungsansatz ist die Möglichkeit für eine Kundengruppe auszuwählen ob eine E-Mail an die jeweiligen Direktkontakte oder an jeden Kunden-Login der Kunden innerhalb der Gruppe erstellt werden soll.
+Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können. Diese Vorlage soll die To-Adressaten, den Betreff und den Text der Vorlage enthalten.
+Nach der Auswahl der Vorlage soll ein E-Mail-Erstellungsfenster des Standard-E-Mail-Programms des Benutzers geöffnet werden.
+In diesem Erstellungsfenster sollen die Daten der Vorlage eingesetzt werden. Weiterhin sollen die ausgewählten E-Mail-Adressen (sprich die Direktkontakte bzw. die Adressen aller Kunden-Logins) als BCC-Adressen hinzugefügt werden.
+
+Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.B. den bereits eingesetzten Text beliebig verändern und schlussendlich die E-Mail an sämtliche eingetragenen Kontakte versenden.
+
+%\begin{itemize}
+%	\item E-Mail an Kundengruppe
+%	\item immer aktueller Verteiler
+%	\item sonst pflegen der einzelnen E-Mail Verteiler. Änderung während Urlaub, Schon ist wer vergessen
+%	\item benötigt bei Wartungsarbeiten, neue Funktionen,\\ oder sonstiges Neues (Kartenthemen)
+%\end{itemize}
+
+\subsection{Buchungen}
+\subsubsection{Buchungseditor und Buchungsrenderer}
+\subsubsection{Stornieren und Ändern einzelner Buchungen}
+\subsubsection{Suchdialog zu den Buchungen}
+
+\subsection{Berichte}
+\subsubsection{Buchungsbeleg}
+\subsubsection{Rechnungsanlage}
+\subsubsection{Geschäftsstatistik}
+
+\subsection{sonstige neu benötigte Objektarten}
+
+
 
