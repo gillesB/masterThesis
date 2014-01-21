@@ -1,24 +1,20 @@
 \chapter{Spezifikation}
 In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert.
-Diese Erweiterungen werden der Übersicht halber zuerst aufgelistet und anschließend detaillierter beschrieben.
+Diese Erweiterungen werden der Übersicht halber zuerst aufgelistet, somit können diese bei der anschließenden detaillierteren Beschreibung untereinander referenziert werden, auch eine Erweiterung noch nicht beschrieben wurde.
 Im Folgenden werden die bis jetzt genannten Download-Protokolle auch Buchungen genannt. \todo{Immer einheitlicher Name verwenden? Bzw. begründung warum mal das eine bzw. das andere verwendet wird.}
 
 Die Informationen zu diesem Kapitel sind aus einer Zusammenarbeit zwischen dem Ressort 102 und Cismet entstanden. \todo{Evt. beschreiben wie dies geschah.}
 \section{Gewünschte Erweiterungen}
-Dieser Abschnitt zeigt eine Übersicht über die gewünschten Erweiterungen. Dabei werden zunächst die wichtigsten, neu benötigten Objektarten aufgelistet, die in \ac{WuNDa} noch nicht  vorhanden sind. Danach erfolgt eine Auflistung der eigentlichen Erweiterungen.
+%Dieser Abschnitt soll als Übersicht der gewünschten Erweiterungen dienen.
+%Dabei werden zunächst die wichtigsten, neu benötigten Objektarten aufgelistet, die in \ac{WuNDa} noch nicht  vorhanden sind. Danach erfolgt eine Auflistung der eigentlichen Erweiterungen.
 
-Zu den neu benötigten Objektarten gehören
-\begin{itemize}
-\item die Kunden,
-\item die Kunden-Logins
-\item und die Kundengruppen.
-\end{itemize}
-Diese drei Objektarten sind am wichtigsten für das automatische Erstellen der Abrechnungen und werden im nächsten Abschnitt stärker beleuchtet.
-Die restlichen neuen Objektarten werden in \todo{ref} aufgeführt und beschrieben. 
+Die drei neu eingeführten Klassen Kunden, Kunden-Logins und Kundenguppe sowie die bereits bestehende Klasse Buchungen sind am relevantesten für das automatische Erstellen der Abrechnungen und werden im \autoref{sec:spezifikation} stärker beleuchtet. 
+Die restlichen neuen Klassen werden gesondert im \autoref{subsec:neue_klassen} aufgeführt und beschrieben.
+
+\todo{Renderer und Editor erklären. Sowie Klassen}
 
 Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
-Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die "`Beschaffenheit"' der Erweiterung darstellt. So finden sich unter den Kategorien die neuen Objektarten Kunde und Kundengruppe, aber auch die bereits bestehende Objektart Buchung. 
-\todo{Erweitern, oder wegmachen da die Informationen dem TOC zu entnehmen sind.}
+Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordnung der Erweiterung darstellt. So finden sich unter den Kategorien die neuen Klassen Kunde und Kundengruppe, aber auch die bereits bestehende Klasse Buchung. 
 \begin{itemize}
 	\item Allgemeines
 	\begin{itemize}
@@ -47,46 +43,52 @@ Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die "`Beschaffenhei
 		\item Rechnungsanlage
 		\item Geschäftsstatistik
 	\end{itemize}	 
-	\item Renderer und Editoren für sonstige neue Objektarten
+	\item Renderer und Editoren für sonstige neue Klassen
 \end{itemize}
 
-\section{Spezifizieren der Erweiterungen}
-In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert. \todo{Nur verschieden Beamte des Amtes haben berechtigungen aus falls dies anders beschrieben wird.}
+Prinzipiell dürfen die gewünschten Erweiterungen nur von den \ac{WuNDa}"=Administratoren und einigen Beamten die für die Kundenverwaltung zuständig sind, benutzt werden. Falls es  Ausnahmen hiervon gibt, so werden diese bei den entsprechenden Erweiterungen erwähnt.
+
+\section{Spezifikation der Erweiterungen} \label{sec:spezifikation}
+In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert.
 
 \subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
-Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist jedoch der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten.
+Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist jedoch der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten. Weiterhin soll aus Gründen der Nachvollziehbarkeit ebenfalls der Brutto-Preis mit gespeichert werden.
 
 Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden. \todo{erweitern}
 \subsection{Kunde}
-Die neue Objektart Kunde soll eingeführt werden und repräsentiert einen Kunden des Ressort 102.
-Ein Kunde soll folgende Informationen enthalten: \todo{Was bedeuten die einzelnen Felder? Evt. descpition benutzen}
-\begin{itemize}
-\item Name
-\item Vermessungsstellennummer
-\item Vertragskennzeichen
-\item Vertragsende
-\item Abrechnungsturnus
-\item Direktkontakt
-\item Weiterverkaufsvertragskennzeichen
-\item Weiterverkaufsvertragsende
-\item Branche
-\item Produkte
-\end{itemize}
-Eine andere neue Objektart soll das Kunden-Login sein, diese repräsentieren die externen Benutzer.
-Dies bedeutet dass ein Kunden-Login einem \ac{WuNDa}-Benutzer entspricht.
-Weiterhin soll ein Kunden-Login genau einem Kunden zugeordnet sein und beinhaltet folgende Informationen: \todo{Benutzer in WUnda}
-\begin{itemize}
-\item Kunde
-\item Name
-\item Kontakt
-\end{itemize}
+Im aktuellen Stand werden die Kunden des Ressort 102 nicht in \ac{WuNDa} verwaltet, durch die gewünschten Erweiterungen wird dies jedoch zwingend notwendig. Daher wird eine Klasse  benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
+
+Für die Klasse Kunde sollen folgende Felder bereitstehen:
+\begin{description}
+\item[Name] Der Name des Kunden, dies kann z.B. eine Organisationsbezeichnung sein.
+\item[Vermessungsstellennummer] Dieses Feld enthält die Zulassungsnummer einer Vermessungsstelle. Eine Vermessungsstellen ist eine Behörde oder Person, die berechtigt ist Liegenschaftsvermessungen durchzuführen und Abmarkungen vorzunehmen. Zu den Vermessungsstellen zählen z.B. das Katasteramt oder ÖbVI \autocite[vgl.][]{recklinghausen-vermessungsstelle}.
+\item[Vertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunde die Benutzung von \ac{WuNDa} erlaubt.
+\item[Vertragsende] Das Auslaufdatum dieses Vertrages.
+\item[Abrechnungsturnus] Der zeitliche Abstand wann ein Kunde seine Abrechnung erhält. (z.B. quartalsweise, jährlich)
+\item[Direktkontakt] Eine E-Mail-Adresse mit der, der Kunde sofort erreicht werden kann. Dies kann zum Beispiel die Adresse des Geschäftsleiters sein.
+\item[Weiterverkaufsvertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden das Weiterverkaufen von bezogenen Produkten erlaubt.
+\item[Weiterverkaufsvertragsende] Das Auslaufdatum des Weiterverkaufsvertrags.
+\item[Branche] Die Branche in der der Kunde tätig ist. Ein Kunde kann in genau einer Branche tätig sein. Hierbei handelt es sich um eine neue Klasse.
+\item[Produkte] Die Softwareprodukte die ein Kunde benutzt. Ein Kunde kann mehrere Produkte besitzen. Hierbei handelt es sich ebenfalls um eine neue Klasse.
+\end{description}
+
+Neben den Kunden sollen die externen Benutzer in \ac{WuNDa} abgebildet werden, hierfür wird die Klasse Kunden-Login eingeführt.
+Somit repräsentiert ein Kunden-Login einen \ac{WuNDa}-Benutzer.
+Weiterhin soll ein Kunden-Login genau einem Kunden zugeordnet sein. 
+
+Zusammenfassend benötigt ein Kunden-Login folgende Felder:
+\begin{description}
+\item[Name] Der Name des Kunden-Logins. Dies ist ebenfalls der Name mit dem sich der externe Benutzer in \ac{WuNDa} anmeldet.
+\item[Kontakt] Die E-Mail-Adresse des externen Benutzers.
+\item[Kunde] Die Zuordnung des Kunden-Logins zu genau einem Kunden.
+\end{description}
 \subsubsection{Kundenrenderer}
-Der Kundenrenderer soll Buchungen eines Kunden darstellen.
+Der Kundenrenderer soll Buchungen eines Kunden tabellarisch darstellen.
 Dabei sollen verschiedene Filtermöglichkeiten angegeben werden können, so dass nur Buchungen angezeigt werden, die die Kriterien erfüllen.
-Die Buchungen sollen in einer Tabelle angezeigt werden, weiterhin soll ein kurzer Satz die angezeigten Buchungen zusammenfassen.
+Die Filterergebnisse sollen in einem kurzen Satz zusammengefasst werden.
 Für die angezeigten Buchungen soll es möglich sein den Bericht Rechnungsanlage und Buchungsbeleg zu erstellen.
 
-Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up des Kundenrenderers \vref{fig:mockup-kunderenderer} entnommen werden.
+Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up des Kundenrenderers \vref{fig:mockup-kunderenderer} entnommen werden. \todo{Sind das alle Filter?}
 
 \begin{figure}[htb]
 	\centering
@@ -107,22 +109,23 @@ Demnach sollen externe Benutzer nur den eigenen Kundenrenderer öffnen können u
 Die Produkte, die über den ALKIS-Druckdialog erzeugt werden, werden von einem externen Server bezogen.
 Durch dessen längere Initialisierungsphase passiert es häufiger, dass Produkte fehlerhaft heruntergeladen werden.
 Da der Download dieser Produkte trotzdem protokolliert wird, wie im Abschnitt \vref{subsec:beschaffung-download} bereits erwähnt wurde, muss der externe Benutzer diese Buchung stornieren lassen und den Download erneut durchführen.
-Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein ein Download nochmals anzufordern, ohne dass er eine Buchung stornieren lassen muss und dass auch keine neue Buchung erstellt werden muss.
-Aus diesem Grund soll es für den Benutzer möglich sein, Produkte die bereits heruntergeladen wurden, erneut herunterzuladen. Dies soll allerdings nur für Produkte möglich sein, die am gleichen Tag bezogen wurden. 
+Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein ein Download nochmals anzufordern, ohne dass er eine Buchung stornieren lassen muss.
+Weiterhin soll durch diesen Vorgang keine neue Buchung entstehen.
+Aus diesem Grund soll es für den Benutzer möglich sein, Produkte die bereits heruntergeladen wurden, erneut herunterzuladen. Einschränkend soll dies nur für Produkte möglich sein, die am gleichen Tag bezogen wurden. 
 
-Dieses erneute Herunterladen soll wie folgt umgesetzt werden. Bei einer Buchung, die am gleichen Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser des  erneuten Herunterladen des Produkts erhalten.
-Das Datumsfeld soll in dem Fall blau und unterstrichen sein, wie dies der \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
-Bei einem Klick soll das bereits protokollierte Produkt erneut heruntergeladen werden, ohne dass eine neue Buchung erstellt wird.
+Dieses erneute Herunterladen soll wie folgt umgesetzt werden. Bei einer Buchung, die am gleichen Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser zum erneuten Herunterladen des Produkts erhalten.
+Wenn das Datumsfeld ebenfalls als Auslöser dient, dann soll es blau unterstrichen sein, wie dies der \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
+Bei einem Klick auf ein solches Datumsfeld soll das bereits protokollierte Produkt erneut heruntergeladen werden, ohne dass eine neue Buchung erstellt wird.
 
 \subsubsection{Kundeneditor}
 Mit Hilfe des Kundeneditors soll es möglich sein einen neuen Kunden anzulegen, bzw. Informationen zu einem bereits existierenden Kunden zu ändern.
 
 \subsection{Kundengruppen}
-Bei den Kundengruppe handelt es sich um Mengen von Kunden und werden benötigt um Kunden mit ähnlichen Eigenschaften zu gruppieren.
-Diese Kundengruppen besitzen kein Wissen über ihren Inhalt, sondern müssen manuell erstellt und verwaltet werden.
+Bei den Kundengruppen handelt es sich um Mengen von Kunden. Diese Klasse wird benötigt um Kunden mit ähnlichen Eigenschaften zu gruppieren.
+Die Kundengruppen besitzen kein Wissen über ihren Inhalt, sondern müssen manuell erstellt und verwaltet werden.
 
-Ein Beispiel wäre eine Gruppe, die sämtliche Kunden zusammenfasst, die den Abrechnungsturnus "`Quartalsweise"' besitzen. Wird ein neuer Kunde erstellt, mit eben dem Abrechnungsturnus, so muss dieser manuell der Kundengruppe hinzugefügt werden.
-Diese Kundegruppe hätte den Nutzen, dass beim Erstellen der Abrechnung für ein Quartal die benötigten Kunden nicht zusammengesucht werden müssen, sondern bereits in dieser Gruppe vorhanden sind.
+Ein Beispiel einer solchen Gruppe, wäre die Zusammenfassung sämtlicher Kunden, die den Abrechnungsturnus "`Quartal"' besitzen. Wird ein neuer Kunde erstellt, mit eben dem Abrechnungsturnus, so muss dieser manuell der Kundengruppe hinzugefügt werden.
+Dennoch hätte diese Kundegruppe den Nutzen, dass beim Erstellen der Abrechnung für ein Quartal die benötigten Kunden nicht zusammengesucht werden müssen, sondern bereits in dieser Gruppe gesammelt sind.
 
 Kurzum eine Kundengruppe soll eine Menge von Kunden sein, die manuell erstellt und verwaltet werden muss. Weiterhin soll eine Kundengruppe folgende Informationen enthalten:
 \begin{itemize}
@@ -152,15 +155,15 @@ Mittels des Kundengruppeneditor sollen neue Kundengruppen angelegt werden könne
 In verschiedenen Fällen müssen Benachrichtigung-E-Mails an alle oder verschiedene Kunden versendet werden.
 Dies muss u.a. bei geplanten Systemausfällen, die durch Wartungsarbeiten verursacht werden, beim Einführen von neuen Funktionen oder sonstigen neuen Funktionalitäten wie z.B. neue Kartenthemen erfolgen.
 Im Augenblick besitzt jeder Beamte, der solche E-Mails versenden soll, einen eigenen Verteiler, den er manuell aktuell halten muss.
-Nach dem Hinzufügen eines neuen Kunden oder dem Ändern einer E-Mail-Adresse kann es somit zu Unvollständigkeiten in den einzelnen Verteiler kommen, da diese noch nicht aktualisiert wurden.
-Mittels den Kundengruppen können diese, auf die Beamten verteilten, Verteilter durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
+Nach dem Hinzufügen/Entfernen eines Kunden oder dem Ändern einer E-Mail-Adresse kann es somit zu Unvollständigkeiten in den einzelnen Verteiler kommen, da diese noch nicht aktualisiert wurden.
+Mittels der Kundengruppen können diese, von den Beamten einzeln verwalteten, Verteilter durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
 
 Der gewünschte Lösungsansatz ist die Möglichkeit für eine Kundengruppe auszuwählen ob eine E-Mail an die jeweiligen Direktkontakte oder an jeden Kunden-Login der Kunden innerhalb der Gruppe erstellt werden soll.
-Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können. Diese Vorlage soll die To-Adressaten, den Betreff und den Text der Vorlage enthalten.
+Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können. Diese Vorlage soll den Betreff und den Text der E-Mail enthalten. Weiterhin soll sie zusätzlich die To-Adressaten enthalten, dies sind in der Regel Adressen von Mitarbeiter aus dem Katasteramt. 
 Nach der Auswahl der Vorlage soll ein E-Mail-Erstellungsfenster des Standard-E-Mail-Programms des Benutzers geöffnet werden.
 In diesem Erstellungsfenster sollen die Daten der Vorlage eingesetzt werden. Weiterhin sollen die ausgewählten E-Mail-Adressen (sprich die Direktkontakte bzw. die Adressen aller Kunden-Logins) als BCC-Adressen hinzugefügt werden.
 
-Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.B. den bereits eingesetzten Text beliebig verändern und schlussendlich die E-Mail an sämtliche eingetragenen Kontakte versenden.
+Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.B. den bereits eingesetzten Text beliebig verändern und schlussendlich die E-Mail an sämtlich eingetragene Kontakte versenden.
 
 %\begin{itemize}
 %	\item E-Mail an Kundengruppe
@@ -171,12 +174,11 @@ Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.B. den berei
 
 \subsection{Buchungen}
 Bei den Buchungen handelt es sich um die in \todo{ref} bereits erwähnten Download-Protokolle. Im Augenblick können die Buchungen nicht in \ac{WuNDa} dargestellt oder bearbeitet werden.
-\todo{Änderungen nur über den Suchdialog zu öffnen. Sämtliche Werte von Buchungen}
-
 
 \subsubsection{Suchdialog zu den Buchungen}
-Der Suchdialog soll es ermöglichen Buchungen über verschiedene Suchkriterien zu finden und anschließend im Buchungsrenderer oder -editor zu öffnen.
-Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffnen. Die Suchkriterien, die angegeben werden können, können dem Mock-up \myfig{fig:mockup-buchungssuchdialog} entnommen werden. In diesem Mock-up fehlen allerdings die Angabe des Abrechnungsturnus und der Markierung von stornierten und abrechneten Buchungen, diese sollen im fertigen Dialog ebenfalls enthalten sein.  
+Dieser Suchdialog soll es ermöglichen Buchungen über verschiedene Suchkriterien zu finden und anschließend im Buchungsrenderer oder -editor zu öffnen.
+Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffnen. Die Suchkriterien, die angegeben werden können, können dem Mock-up \vref{fig:mockup-buchungssuchdialog} entnommen werden. In diesem Mock-up fehlen allerdings die Angabe des Abrechnungsturnus und ob stornierte und abgerechnete Buchungen gefunden werden sollen.
+Diese Angaben sollen im fertigen Dialog ebenfalls enthalten sein.  
 \begin{figure}[htbp]
 	\centering
 	\incgraph{width=0.95\textwidth}{./rimg/gui-buchung_suchdialog.png}
@@ -187,29 +189,30 @@ Der Suchdialog ist die einzige Möglichkeit diesen Renderer und Editor zu öffne
 \subsubsection{Buchungseditor und Buchungsrenderer}
 Beim Buchungseditor und dem Buchungsrenderer soll es sich um die gleiche Ansicht handeln, wobei der Renderer keine Benutzereingabe entgegen nimmt.
 Der Buchungseditor soll es nicht erlauben neue Buchungen zu erstellen, da diese nur über den Downloadprotokoll-Dialog nach dem Beziehen eines Produktes angelegt werden.
-Weiterhin soll es im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern, siehe unten.
-Außerdem soll eine Buchung storniert werden können, siehe ebenfalls unten.
+Weiterhin soll es im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern.
+Außerdem soll eine Buchung storniert werden können.
 
-\subsubsection{Ändern einzelner Buchungen} \label{subsubsec:aendern_buchung}
+\subsubsection{Änderung von einzelnen Buchungen} \label{subsubsec:aendern_buchung}
 Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
-Diese beiden Felder werden händisch eingegeben und deshalb sind Fehleingaben vorstellbar.
+Diese beiden Felder werden vom externen Benutzer händisch eingegeben und deshalb sind Fehleingaben vorstellbar.
 
 Weiterhin soll die jeweils letzte Änderung protokolliert werden. In dieser Protokollierung  sollen folgende Werte erfasst werden:
 \begin{itemize}
 \item Veränderter Wert (Geschäftsbuchnummer oder Projektbezeichnung)
 \item alter Wert
 \item neuer Wert
-\item Benutzer
+\item Benutzer der die Änderung vornimmt
 \item Zeitstempel
 \end{itemize}
 
-\subsubsection{Stornieren einzelner Buchungen} \label{subsubsec:storno_buchung}
-Wie oben bereits erwähnt soll es über den Buchungseditor möglich sein Buchungen zu stornieren.
+\subsubsection{Stornierung von einzelnen Buchungen} \label{subsubsec:storno_buchung}
+Wie oben bereits erwähnt soll es über den Buchungseditor möglich sein Buchungen zu stornieren. Beim Stornieren einer Buchung soll ein Grund ausgewählt werden können. Dieser gibt an, warum eine Buchung storniert werden musste. Um diese Auswahl darzustellen wird die Klasse Storno-Grund eingeführt, diese ist in \ref{subsec:neue_klassen} beschrieben.
 
-Bei diesem Vorgang soll ein Beamte ein Storno-Grund auswählen können und die Buchung stornieren. Daraufhin soll die betroffene Buchung als storniert markiert werden und das Datum und der Benutzer, der die Stornierung vorgenommen hat, sollen abgespeichert werden.
+Bei dem Vorgang der Stornierung soll ein Beamte ein Storno-Grund auswählen können und die Stornierung selbst anstoßen. Daraufhin soll die betroffene Buchung als storniert markiert werden und das aktuelle Datum, der Benutzer, der die Stornierung vornimmt, sowie der Storno-Grund sollen abgespeichert werden.
 
 \subsection{Berichte}
-Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet. 
+Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.  \todo{Müssen noch besser spezifiziert werden.}
+
 \subsubsection{Buchungsbeleg}
 Dieser Bericht soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
 Dabei ist der Bericht in einen Kopfbereich und eine Tabelle mit den Buchungen eingeteilt.
@@ -242,8 +245,24 @@ Eine Vorlage eines solchen Berichts kann der Abbildung \vref{fig:vorlage_rechnun
 In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden sollen oder nicht. Weiterhin soll festgelegt werden können, ob die Buchungen tatsächlich als abgerechnet markiert werden sollen, oder nicht.
 
 \subsubsection{Geschäftsstatistik}
+Die Geschäftsstatistik ist ein Bericht der Statistiken von den Downloads von verschiedenen Kunden darstellt.
+Durch die jeweilige Darstellung mehrerer Kunden, kann der Bericht nur im Kundengruppenrenderer erstellt werden.
+Die angezeigten Statistiken stellen Informationen zu der Aktivität der Benutzer, den Kostenarten der Produkte, den Verwendungszwecken, den Angaben für den Jahresbericht, sowie eine Übersicht über die bezogenen Produkte dar.
+Eine Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.
+ 
+\subsection{sonstige neu benötigte Klassen} \label{subsec:neue_klassen}
+Zum Einführen der Klasse Kunde und zum Erweitern der Buchungen werden folgende zusätzlichen Klassen benötigt:
+\begin{description}
+\item[Abrechnungsturnus] Der Abrechnungsturnus gibt an wie häufig ein Kunde eine Abrechnung erhält. Sein einziges Feld ist die Bezeichnung des Abrechnungsturnus (z.B. Jahr, Quartal)
+\item[Produkt] Ein Produkt repräsentiert die verschiedenen Softwareprodukte, die ein Kunde benutzen kann. Seine Felder sind eine Bezeichung des Produktes, eine Beschreibung sowie der konkrete Client, mit dem sich der Benutzer anmelden kann. Beim Client handelt es sich ebenfalls um eine Klasse.
+\begin{description}
+\item[Client] Ein Client kann von verschiedenen Produkten benutzt werden. Sein einziges Feld ist seine Bezeichnung.
+\end{description}
+\item[Stornogrund] Ein Stornogrund ist der Grund, warum eine Buchung storniert wurde. Sein einziges Feld ist die Bezeichnung des Grundes.
+\end{description}
 
-\subsection{sonstige neu benötigte Objektarten}
-
+Bei diesen Klassen sollen die sogenannten Standardrenderer und -editoren verwendet werden. Diese werden für jede Klasse automatisch erstellt und müssen nicht eigens implementiert werden.
+Mit dem Standardeditor ist es möglich neue Objekte einer Klasse anzulegen und sämtliche Felder der Klasse verändern.
+Diese Anforderungen genügen allerdings für die hier aufgelisteten Klassen.
 
 
