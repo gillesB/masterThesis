@@ -549,11 +549,12 @@ Bislang wurde angegeben, dass die geplante Rationalisierung auf Grund der hohen 
 Die Abrechnungen werden von einem Beamten des Katasteramts nach jedem Abrechnungsturnus (z.B. quartalsweise, jährlich) manuell erstellt, wobei jeder externe Benutzer zu einen anderen Abrechnungsturnus gehören kann.
 Weiterhin muss für jeden Benutzer eine eigene Abrechnung erstellt werden.
 
-Zum Erstellen der einzelnen Abrechnungen müssen die Protokolle der Downloads aus der Datenbank bezogen werden um weiterverarbeitet zu werden.
-Dies geschieht indem die Protokolle sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
+Im folgenden werden die Download-Protokolle auch Buchungen genannt, da sich die Sichtweise auf die Protokolle von der Sicht der externen Benutzer auf die Sicht des Rechnungswesens geändert hat.
+Zum Erstellen der einzelnen Abrechnungen müssen die Buchungen, also die Protokolle der Downloads, aus der Datenbank bezogen werden um weiterverarbeitet zu werden.
+Dies geschieht indem die Buchungen sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
 Demnach befindet sich in einer Spalte dieser Datei Informationen wie z.B. der Benutzername, der Download-Name und die zu bezahlende Gebühr.
 
-Im folgenden Arbeitsschritt muss der Beamte die einzelnen Protokolle für jeden Benutzer von dieser Excel-Datei in eine jeweils eigene Excel-Datei kopieren. Eine solche Excel-Datei repräsentiert die Abrechnung an die einzelnen Kunden des Katasteramtes.
+Im folgenden Arbeitsschritt muss der Beamte die einzelnen Buchungen für jeden Benutzer von dieser Excel-Datei in eine jeweils eigene Excel-Datei kopieren. Eine solche Excel-Datei repräsentiert die Abrechnung an die einzelnen Kunden des Katasteramtes.
 
 Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit anfällt. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
 
@@ -563,7 +564,7 @@ Demnach muss sich der Beamte merken welche Benutzer zu welchem Kunden gehören u
 Dies ist zwar machbar, verkompliziert den Arbeitsschritt aber ungemein.
 
 \label{subsec:erstellen_abrechnung_storno}
-Ein weiterer Nachteil ist, dass keine Bearbeitungen der Protokolle selbst vorgenommen werden kann. Somit werden bereits abgerechnete Downloads nicht als abgerechnet markiert. Weiterhin können keine Änderungen z.B. am Auftragsnamen des Protokolls vorgenommen werden und das Protokoll kann nicht als storniert markiert werden. Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der Abrechnungen berücksichtigt werden.
+Ein weiterer Nachteil ist, dass keine Bearbeitungen der Buchungen selbst vorgenommen werden kann. Somit werden bereits abgerechnete Buchungen nicht als abgerechnet markiert. Weiterhin können keine Änderungen z.B. am Auftragsnamen der Buchung vorgenommen werden und die Buchung kann nicht als storniert markiert werden. Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der Abrechnungen berücksichtigt werden.
 
 Kurzum die Vorgehensweise ist durch die manuelle Bearbeitung und den aufgeführten Nachteilen sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
 
