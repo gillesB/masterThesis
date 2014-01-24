@@ -1,9 +1,38 @@
-\chapter{Realisierung}
+\chapter{Realisierung} \label{ch:realisierung}
+
+In diesem Kapitel wird die Realisierung der oben beschriebenen Erweiterungen erläutert.
+Im ersten Teil wird der aktuelle technische Stand erläutert, anschließend wird der Realisierung der Erweiterungen beschrieben. 
 
 \section{Aktueller technischer Stand}
+
+In diesem Abschnitt soll der aktuelle technische Stand aufgezeigt, dies dient einerseits der Verständnis bezüglich des zweiten Abschnitts dieses Kapitels.
+Andererseits soll somit verdeutlicht werden von welcher Basis ausgegangen werden kann und welche Funktionalitäten implementiert werden mussten.
+
+\subsection{Cids}
+\ac{WuNDa} funktioniert im Cids-Umfeld. Zu diesem Umfeld gehören verschiedene Dienste, Anwendungen, Software-Komponenten, Verwaltungswerkzeuge, Entwicklungswerkzeuge und Programmierschnittstellen, die zur Verwaltung, Integration und Entwicklung von Informationssystemen verwendet werden können.
+Durch Cids werden somit bereits einige Funktionalitäten bereitgestellt, so etwa eine Benutzerverwaltung, Berechtigungen und die Suche nach Informationen. 
+
+Cids basiert auf der Client-Server Architektur, wobei es mehrere Clients und mehrere Serverarten geben kann. Die Hauptkomponenten sind der Navigator, dieser stellt den Client dar, den Kernel und verschiedene Verwaltungstools. Diese Komponenten sind in \vref{fig:cids-komponenten} abgebildet, wobei die in dieser Arbeit nicht relevanten Unterkomponenten ausgegraut sind. Die restlichen werden im Folgenden beschrieben.
+
+\begin{figure}[htb]
+	\centering
+	\incgraph{width=\textwidth}{./img/cids_components_modified.png}
+	\caption{Cids Komponenten}
+	\label{fig:cids-komponenten}
+\end{figure}
+
+\subsubsection{Navigator}
+Bei der graphischen Oberfläche von \ac{WuNDa} handelt es sich um eine Erweiterung des Navigators.
+Standardkomponenten die typisch für den Navigator sind, sind der Katalog und die Karte (cismap).
+
+Bei dem Katalog handelt es sich um einen Baum, mit dem der Benutzer die für ihn einsehbare Themen enthält. Der Baum ist nicht statisch, sondern kann dynamisch erstellt werden. Dies geschieht mittels sogenannten dynamische Knoten erstellt. Diese dynamische Knoten beziehen die Informationen zu ihren Unterknoten aus der Datenbank und erstellen diese anschließend.
+
+
+
+
 \begin{itemize}
-	\item Vor der Realisierung wurde der technische IST-Zusatnd ermittelt.
-	\item Datbei wurde festgestellt, dass folgendes bereits vorhanden ist:
+	\item Vor der Realisierung wurde der technische IST-Zustand ermittelt.
+	\item Dabei wurde festgestellt, dass folgendes bereits vorhanden ist:
 	\begin{itemize}
 		\item Cids- System (Renderer/Editoren, DB-Modell, Rechte...)
 		\item GUI: Buchungen erstellen

@@ -1,4 +1,4 @@
-\chapter{Spezifikation}
+\chapter{Spezifikation} \label{ch:spezi}
 In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert.
 Diese Erweiterungen werden der Übersicht halber zuerst aufgelistet und danach detaillierter beschrieben.
 
@@ -22,6 +22,7 @@ Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordn
 \begin{itemize}
 	\item Allgemeines
 	\begin{itemize}
+		\item Berechtigungen
 		\item Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren
 	\end{itemize}
 	\item Kunde
@@ -50,10 +51,17 @@ Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordn
 	\item Renderer und Editoren für sonstige neue Klassen
 \end{itemize}
 
-Prinzipiell dürfen die gewünschten Erweiterungen nur von den \ac{WuNDa}"=Administratoren und einigen Beamten die für die Kundenverwaltung zuständig sind, benutzt werden. Falls es  Ausnahmen hiervon gibt, so werden diese bei den entsprechenden Erweiterungen erwähnt.
-
 \section{Spezifikation der Erweiterungen} \label{sec:spezifikation}
 In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert.
+
+\subsection{Berechtigungen}
+Durch die Erweiterungen können vertrauliche Informationen betrachtet und verändert werden.
+Aus diesem Grund dürfen nur einige ausgewählte Benutzer Zugriff auf diese Erweiterungen erhalten.
+Bei den Benutzern handelt es sich um die \ac{WuNDa}"=Administratoren und einigen Beamten die für die Kundenverwaltung zuständig sind.
+Die einzige Ausnahme hiervon bildet die Ansicht der Kunden auf ihren eigenen Kundenrenderer.
+Siehe hierzu auch den Unterabschnitt "`\nameref{subsubsec:ansicht_externe_benutzer}"' im \autoref{subsubsec:ansicht_externe_benutzer}. 
+
+Demnach sollen nur die \ac{WuNDa}"=Administratoren und einige Beamten der Kundenverwaltung Zugriff auf die gewünschte Erweiterungen erhalten. Wie bereits erwähnt, soll es hiervon nur eine einzige Ausnahme geben.
 
 \subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
 Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten. Weiterhin soll aus Gründen der Nachvollziehbarkeit ebenfalls der Brutto-Preis mit gespeichert werden.
@@ -109,7 +117,7 @@ Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up d
 	\label{fig:mockup-kunderenderer}
 \end{figure}
 
-\subsubsection{Ansicht der eigenen Buchungen durch externe Benutzer}
+\subsubsection{Ansicht der eigenen Buchungen durch externe Benutzer} \label{subsubsec:ansicht_externe_benutzer}
 Die Funktionalität des Kundenrenderers soll dem Kunden selbst nicht vorenthalten werden.
 Aus diesem Grund soll es für die externen Benutzer eines Kunden möglich sein auf den eigenen Kundenrenderer zuzugreifen.
 Hierbei muss sichergestellt werden, dass die externen Benutzer nur den Kundenrenderer des eigenen Kunden öffnen können und somit keine Einsicht in die Buchungen der anderen Kunden erhalten. 
