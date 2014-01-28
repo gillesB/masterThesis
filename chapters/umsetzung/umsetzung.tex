@@ -6,11 +6,13 @@ Im ersten Teil wird der aktuelle technische Stand erläutert, anschließend wird
 \section{Aktueller technischer Stand}
 
 In diesem Abschnitt soll der aktuelle technische Stand aufgezeigt werden, dies dient einerseits der Verständnis bezüglich des zweiten Abschnitts dieses Kapitels.
-Andererseits soll somit verdeutlicht werden von welcher Basis ausgegangen wurde und welche Funktionalitäten implementiert werden mussten. \todo{Quellen}
+Andererseits soll somit verdeutlicht werden von welcher Basis ausgegangen wurde und welche Funktionalitäten implementiert werden mussten.
+
+Die Informationen zu den folgenden Abschnitten wurden aus \autocite{cismet-cids} und \autocite{cismet-readme} bezogen.
 
 \subsection{Cids-Umgebung}
-\ac{WuNDa} ist eine Erweiterung des Cids-Navigators. Bei dem Navigator handelt es sich um eine graphische Oberfläche eines Informationssystem und ist ein Hauptbestandteil der Cids-Umgebung. Die weiteren Hauptbestandteile dieser Umgebung sind  
-der Kernel und verschiedene Entwicklungswerkzeuge. Eine Übersicht der Cids-Umgebung kann der Abbildung \vref{fig:cids-komponenten} entnommen werden. Diese Hauptbestandteile sind in weitere Unterkomponenten eingeteilt. Die in der Abbildung \ref{fig:cids-komponenten} nicht ausgegrauten Komponenten sind für diese Arbeit relevant und werden im Folgenden detaillierter erläutert.
+In der bisherigen Arbeit wurde \ac{WuNDa} mehr oder weniger als einheitliches System betrachtet, aus technischer Sicht trifft dies jedoch nicht zu. Tatsächlich ist \ac{WuNDa} ein System, das sich aus mehreren Bestandteilen zusammensetzt und innerhalb der Cids-Umgebung realisiert wurde und diese auch erweitert. In dieser Umgebung gibt es drei Hauptbestandteile den Navigator, der Kernel und verschiedene Entwicklungswerkzeuge.
+Eine Übersicht der Cids-Umgebung kann der Abbildung \vref{fig:cids-komponenten} entnommen werden. Diese Hauptbestandteile sind in weitere Unterkomponenten eingeteilt. Die in der Abbildung \ref{fig:cids-komponenten} nicht ausgegrauten Komponenten sind für diese Arbeit relevant und werden im Folgenden detaillierter erläutert.
 
 \begin{figure}[htb]
 	\centering
@@ -21,32 +23,33 @@ der Kernel und verschiedene Entwicklungswerkzeuge. Eine Übersicht der Cids-Umge
 
 Zunächst wird der Hauptzweck und der Aufbau des Cids-Umfelds kurz beschrieben. So ist dieses Entwicklungsumfeld darauf ausgelegt Informationssysteme, insbesondere \acp{GIS}, zu erstellen.
 Dabei stehen verschiedene, häufig benötigte, Funktionalitäten bereits zur Verfügung. Dazu gehören eine Benutzerverwaltung, die Verwaltung der Berechtigungen die den Benutzern Zugriff auf Informationen erlauben bzw. verbieten, sowie das Anzeigen und Bearbeiten von Informationen. Weiterhin wird eine interaktive zweidimensionale Ansicht zu geographischen Daten, die sogenannte Cismap, bereit gestellt.
-Diese ist für den Implementierungsteil dieser Arbeit jedoch nicht relevant.
 
-Technisch gesehen ist das Cids-Umfeld ein verteiltes System das aus mehreren Clients, Server, sowie Datenbanken bestehen kann.
+Durch das Cids-Umfeld kann ein verteiltes System erstellt werden, dessen Architektur auf dem Client-Server-Prinzip basiert, wobei es aus mehreren Clients, Server, sowie Datenbanken bestehen kann.
 Diese Bestandteile können in verschiedenen Ausprägungen nebeneinander existieren.
-In Wuppertal steht so z.B. neben dem \ac{WuNDa}-Navigator auch die BELIS-Fachanwendung als Client zur Verfügung. BELIS dient zur Verwaltung des städtischen Beleuchtungskataster.
-Um die Logik dieser beiden Anwendungen zu trennen und um eine Skalierbarkeit zu gewährleisten, besitzen beide einen eigenen Domain Server und ihre eigene Integration Base.
-Bei einer solchen Integration Base handelt es sich um eine Datenbank mit zuzüglichen Meta-Daten.
-Somit kann eine Integration Base beliebige Objekte speichern sowie die Beziehung zwischen diesen Objekten und den Meta-Daten abbilden.
+In Wuppertal steht so z.B. neben dem \ac{WuNDa} auch die BELIS-Fachanwendung zur Verfügung. BELIS dient zur Verwaltung des städtischen Beleuchtungskataster.
+Um die Logik der Systeme zu trennen und um eine Skalierbarkeit zu gewährleisten, besitzt jedes System einen eigenen Domain Server und eine eigene Integration Base.
+Bei einer solchen Integration Base handelt es sich um eine Datenbank, in der neben den üblichen Daten auch Meta-Daten gespeichert werden.
+Durch diese Unterteilung der Daten können in der Integration Base beliebige Objekte abgebildet werden, weiterhin können dadurch auch Beziehungen zwischen sogenannten Meta-Klassen und Objekten abgebildet werden.
 Eine Integration Base erlaubt es zum Beispiel die Benutzer und Benutzergruppen eines Systems sowie deren Zugriffsrechte auf Objekte abzubilden.
 \todo{ref auf abschnitt mit ABF. bildliche darstellung}
-Bei einem Domain Server handelt sich um eine Schnittstelle zur Integration Base und hat die Aufgabe aus deren Daten konkrete Klasse und Objekte zu erstellen. Weiterhin ist der Domain Server auch für die Erstellung des Katalogs zuständig. \todo{ref setzen}
+Bei einem Domain Server handelt sich um eine Schnittstelle zur Integration Base und hat die Aufgabe aus deren Daten konkrete Klasse und Objekte zu erstellen. Weiterhin ist der Domain Server auch für die Erstellung des Katalogs zuständig.
+Eine Beschreibung des Katalogs kann im \autoref{subsubsec:katalog} gefunden werden.
 In der Cids-Umgebung gibt es weiterhin die sogenannten Broker. Diese dienen den Clients als Proxy zu den einzelnen Domain Servern. Sie verstecken somit die Komplexität des verteilten Systems, indem sie die Anfragen der Clients an die entsprechenden Domain Server weiterleiten.
 Darüber hinaus gibt es noch den Registry Server. Dieser gewährleistet das Zusammenspiel der einzelnen Server, indem er z.B. die Namensauflösung für die restlichen Server bereitstellt.
 
 \subsection{Navigator}
-Beim Navigator handelt es sich um eine erweiterbare graphische Benutzeroberfläche für \acp{GIS}. Die für diese Arbeit wichtigsten Unterkomponenten sind der Katalog, die Suche sowie der Renderer und der Editor.
+Beim Navigator handelt es sich um eine erweiterbare graphische Benutzeroberfläche für \acp{GIS}. So ist der Client von \ac{WuNDa} eine Erweiterung des Navigators. Die für diese Arbeit wichtigsten Unterkomponenten sind der Katalog, die Suche sowie der Renderer und der Editor.
 
-\subsubsection{Katalog}
+\subsubsection{Katalog} \label{subsubsec:katalog}
 Beim Katalog handelt es sich um die Hauptnavigationsmöglichkeit des Navigators.
 Dieser Baum wird in der Integration Base mittels Meta-Daten beschrieben und wird bei Bedarf erstellt und im Navigator angezeigt.
-Dieses Erstellen erfolgt dynamisch und ermöglicht es, dass im Katalog sämtliche Unterknoten aus der Datenbank, bis hin zur Objektebene, bezogen werden können.
-Um sein Aufbau zu verdeutlichen wird in \myfig{fig:katlog-oebvi} der Katlog eines \ac{ÖbVI} in \ac{WuNDa} gezeigt.
-Hierbei handelt es sich bei dem Knoten \ac{ALWIS} um einen dynamischen Knoten.
-Dies bedeutet, dass der Knoten eine SQL-Querie besitzt, mit der seine Unterknoten ermittelt und erstellt werden können.
-Die Unterknoten können ebenfalls solche SQL-Queries besitzen, so dass mehrere Ebenen im Katalog dynamisch erstellt werden können.
-Die unterste Ebene stellt dabei, in der Regel, die konkreten Objekte dar.
+Dieses Erstellen erfolgt dynamisch und ermöglicht es sämtliche Unterknoten, bis hin zur Objektebene, aus der Datenbank zu beziehen und zu erzeugen.
+Um den Aufbau des Katalogs mittels eines Beispiels zu verdeutlichen, kann der Katalog eines \ac{ÖbVI} in \ac{WuNDa} der \myfig{fig:katlog-oebvi} entnommen werden.
+Bei dem Knoten \ac{ALWIS} handelt es sich um einen sogenannten dynamischen Knoten.
+Ein solcher Knoten besitzt eine SQL-Querie, mit der seine Unterknoten ermittelt und erstellt werden können.
+Diese Unterknoten können ebenfalls solche Querie besitzen, so dass diese wiederum eigene Unterknoten mit eigenen Queries besitzen.
+Auf diese Weise kann der Baum dynamisch gefüllt werden, wobei seine Blätter, in der Regel, konkrete Objekte darstellen.
+Die Vorteile dieser Herangehensweise sind die Aktualität des Katalogs, da dieser zu jedem Zeitpunkt neu erstellt werden kann, sowie das Anzeigen sämtlicher relevanten Kategorien und Objekte.
 
 \begin{figure}[htb]
 	\centering
@@ -58,8 +61,8 @@ Die unterste Ebene stellt dabei, in der Regel, die konkreten Objekte dar.
 \subsubsection{Suche}
 Bei der Suche handelt es sich um eine Schnittstelle zum Kernel, die das Suchen von Objekten ermöglicht.
 Diese Suche kann an verschiedene Anwendungsfälle angepasst werden.
-Der Standardfall wäre die Eingabe von Suchkriterien in eine Maske, woraufhin nach passenden Objekten gesucht wird.
-Ein speziellerer Fall wäre das Einbeziehen der Karte als Suchkriterium. Ein Beispiel hiervon wäre das Festlegen eines Bereiches in der Karte, woraufhin nach sämtlichen Objekte, einer bestimmten Klasse, gesucht wird, die sich in diesem Bereich befinden.
+Eine Suche kann aus der Eingabe von Suchkriterien in einer Maske bestehen, woraufhin nach passenden Objekten gesucht wird.
+Eine andere Suche kann die Karte (cismap) Suchkriterium miteinbeziehen. Ein Beispiel einer solchen Suche wäre das Festlegen eines Bereiches in der Karte, woraufhin nach sämtlichen Objekte, einer bestimmten Klasse, gesucht wird, die sich in diesem Bereich befinden.
 
 \subsubsection{Renderer und Editor}
 Die Renderer und Editoren wurden bereits in \autoref{sec:gewuenschte-erweiterungen} beschrieben und werden deshalb hier nicht weiter erläutert.
@@ -70,17 +73,21 @@ Mit ihm können Klassen (vergleiche \autoref{sec:gewuenschte-erweiterungen}) und
 Weiterhin kann der Katalog hier erweitert und bearbeitet werden.
 
 \subsubsection{Rechte}
-In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingegangen. In dieser Arbeit werden zwei Arten von Rechte benötigt. Die Lese- und Schreibrechte auf Klassen, Attributen und Knoten des Katalogs sowie die Aktionsrechte.
+In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingegangen. In dieser Arbeit werden zwei Arten von Rechte benötigt. Die Lese- und Schreibrechte auf Klassen, Attribute und Knoten des Katalogs sowie die Aktionsrechte.
 
 \paragraph{Rechte auf Objekte}
-Für jede Klasse, Attribut oder Knoten lassen sich drei Standardverhalten festlegen, wobei immer ein Verhalten benutzt werden muss. Die verfügbaren Standardverhalten sind:
+Für jede Klasse, Attribut oder Knoten lassen sich drei Standardverhalten festlegen, wobei immer ein Verhalten benutzt werden muss.
+Damit nicht für jedes Objekt ein Verhalten explicit gesetzt werden muss, wurde die Fallback Strategie eingeführt.
+Diese Strategie ermöglicht es z.B. ein Verhalten als Standard-Server-Verhalten festzulegen, woraufhin jede Klasse ohne explizit gesetztes Verhalten auf dieses zurückgreift.
+Die verfügbaren Standardverhalten sind:
 \begin{description}
 \item[Standard] Besitzt ein Objekt dieses Verhalten so bedeutet dies, dass jeder Benutzer lesen und niemand schreiben darf.
 \item[Wiki] Bei diesem Standardverhalten darf jeder lesen und schreiben.
 \item[Secure] Bei diesem Standardverhalten darf niemand lesen und schreiben
 \end{description}
-Für jedes Objekt können diese Rechte erweitert oder eingeschränkt werden. Für eine Klasse mit dem Verhalten Secure kann z.B. festgelegt werden dass die Administratoren Lese- und Schreibrechte besitzen.
-Im Gegensatz hierzu kann einer Benutzergruppe für eine Klasse mit dem Verhalten Standard, die Leserechte entzogen werden. \todo{Quelle: Einführungspresi}
+Für jedes Objekt können diese Rechte für verschiedene Benutzergruppen erweitert oder eingeschränkt werden.
+Für eine Klasse mit dem Verhalten "`Secure"' kann z.B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
+Im Gegensatz hierzu kann einer Benutzergruppe für eine Klasse mit dem Verhalten "`Standard"', die Leserechte entzogen werden. \autocite[vgl.][]{cismet-workshop}
 
 \paragraph{Aktionsrecht}
 In manchen Fällen sind die Rechte auf Objekte zu grobkörnig und es müssen feinere Einschränkungen definiert werden können.
@@ -88,10 +95,16 @@ In diesen Fällen können die Aktionsrechte, auch Action Tags genannt, benutzt w
 Ein Aktionsrecht besitzt jeweils einen eindeutigen Namen sowie eine Liste mit Besitzern.
 In dieser Liste können sich ganze Benutzergruppen oder einzelne Benutzer aus einer Benutzergruppe befinden.
 
-Ehe im laufenden Programm eine sicherheitsrelevante Aktion durchgeführt wird, kann abgefragt werden, ob der aktuell angemeldete Benutzer ein Besitzer eines bestimmten Aktionsrechts ist.
-Ist dies der Fall, so kann die sicherheitsrelevante Aktion ausgeführt werden, andernfalls nicht.
+Ein Aktionsrecht kann benutzt werden um, im laufenden Programm, zu überprüfen, ob der aktuell angemeldete Benutzer das Recht hat eine bestimmte Aktion durchzuführen.
+Für jede solche Aktion muss es demnach jeweils ein solches konfiguriertes Aktionsrecht geben.
+Weiterhin hat der Benutzer das Recht die Aktion durchzuführen, falls er ein Besitzer des dazugehörigen Aktionsrechtes ist.
 Zu solchen Aktionen gehört zum Beispiel die Anzeige bestimmter Suchen oder das Aktivieren/Deaktivieren von Benutzungselementen in einem Renderer.
 
+\subsection{JPresso}
+JPresso ist ein ETL (Extraction, Transaction \& Loading)-Werkzeug das eine graphische Benutzeroberfläche besitzt und es ermöglicht verschiedene Datenbestände in eine Datenbank zu importieren.
+Bei diesem Importieren können die Zieltabellen und Spalten für die Datenquellen frei gewählt werden und es können beliebige Datenmanipulationen vorgenommen werden.
+Weiterhin bietet JPresso eine Normalisierungsfunktion an.
+Durch diese Funktion wird die Verbindung zwischen verschiedenen, bereits bestehenden Tabellen oder Datenquellen aufgedeckt und sie werden automatisch mittels ihrer entsprechenden ID referenziert. \autocite[vgl.][]{cismet-jpresso}
 
 %\begin{itemize}
 %	\item Vor der Realisierung wurde der technische IST-Zustand ermittelt.
@@ -106,6 +119,18 @@ Zu solchen Aktionen gehört zum Beispiel die Anzeige bestimmter Suchen oder das 
 
 
 \section{Technische Realisierung}
+Dieser Abschnitt beschreibt die Realisierung der in \autoref{ch:spezi} beschriebenen gewünschten Erweiterungen in \ac{WuNDa}.
+
+\subsection{Datenbankmodell}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[scale=0.8]{./rimg/db_model_billing.png}
+	\caption{Ausgangspunkt des Datenbankmodells}
+	\label{fig:katlog-oebvi}
+\end{figure}
+
+
+
 \begin{itemize}
 	\item Realisiert wurde
 	\begin{itemize}
