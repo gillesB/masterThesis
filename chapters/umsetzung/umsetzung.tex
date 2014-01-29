@@ -122,13 +122,87 @@ Durch diese Funktion wird die Verbindung zwischen verschiedenen, bereits bestehe
 Dieser Abschnitt beschreibt die Realisierung der in \autoref{ch:spezi} beschriebenen gewünschten Erweiterungen in \ac{WuNDa}.
 
 \subsection{Datenbankmodell}
+Um die in \autoref{ch:spezi} beschriebenen Anforderungen zu realisieren, muss in einem ersten Schritt das Datenbankmodell der verwendeten Datenbank angepasst werden.
+Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen. Zum anderen müssen aus den Daten, die im Client benötigten, CidsBeans erstellt werden können. Dies ist notwendig, da die verschiedenen Erweiterung quasi alle auf den Funktionalitäten der CidsBeans aufbauen.
+
+Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Klassen geredet. Dabei sind aber gleichwohl auch die Tabelle der Datenbank und ihr Aufbau gemeint, da sich deren Struktur nicht oder nur geringfügig von den erstellten Klassen.
+
+\subsubsection{Ausgangslage}
+In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Klasse der Buchungen, die Billing-Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} zu sehen.
+\todo{beschreiben}
 \begin{figure}[htb]
 	\centering
-	\includegraphics[scale=0.8]{./rimg/db_model_billing.png}
-	\caption{Ausgangspunkt des Datenbankmodells}
-	\label{fig:katlog-oebvi}
+	\incgraph{scale=0.8}{./rimg/db_model_billing.png}
+	\caption{Ausgangslage des Datenbankmodells}
+	\label{fig:db-billing}
 \end{figure}
 
+\subsubsection{Weitere Schritte}
+Wie bereits in \autoref{ch:spezi} beschrieben, waren sämtliche Anforderungen nicht von Anfang an bekannt, sondern wurden schrittweise erweitert. Dieser Prozess ist am deutlichsten am Datenbankmodell zu betrachten, welches mit den Anforderungen gewachsen ist.
+Da die einzelnen Schritte für das Verständnis der Arbeit nicht relevant sind, werden diese nicht im Detail erläutert. Um das Anwachsen des Datenbankmodells trotzdem verdeutlichen zu können wird eine der ersten Versionen kurz beschrieben, um anschließend die schlussendliche Version abzubilden und zu kommentieren.
+
+Für den ersten Schritt wurden die anfänglich existierenden Anforderungen analysiert und die erste Version des Datenbankmodells wurde erstellt. 
+Die \myfig{fig:db-two} zeigt einen recht frühen Stand des Datenbankmodells.
+Dennoch sind die meisten Klassen die in den Spezifikationen aufgeführt werden bereits vorhanden und die Verbindungen zwischen den einzelnen Klassen bestehen ebenfalls bereits. 
+
+\begin{sidewaysfigure}
+	\centering
+	\incgraph{width=\textwidth}{./rimg/db_model_two.png}
+	\caption{Zweiter Stand des Datenbankmodells}
+	\label{fig:db-two}
+\end{sidewaysfigure}
+
+\subsubsection{Letzter Stand}
+Der letzte Stand des Datenbankmodell kann in \myfig{fig:db-final} betrachtet werden.
+Im Vergleich zu der vorherigen Version haben sämtliche Klassen das Präfix "`BILLING\_"' erhalten.
+Die Buchungen-Klasse hat die Felder zum Speichern der letzten Änderung erhalten. Weiterhin wurde das Feld "`gebuhr"' in "`netto\_summe"' umbenannt und es hat die Felder "`brutto\_summe"' und "`mwst\_satz"' erhalten. Außerdem wurde das Feld "`abgerechnet"' hinzugefügt.
+Die Kunden-Login-Klasse hat ein eigens Kontaktfeld erhalten.
+Die Kunden-Klasse hat ein Feld "`name\_intern"' erhalten.
+In sämtlichen Klassen wurden die Bezeichnungsfelder in "`name"' umbenannt. Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
+Einige Felder wurden umbenannt, so dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt. Dies ist der Fall bei Array-Felder oder 1:n Felder. Siehe z.B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
+Weiterhin wurde die Kundengruppen-Klasse eingeführt, dies zeigt z.B. dass diese erst recht spät bei dem Ermitteln der Anforderungen aufgetreten ist. 
+\begin{sidewaysfigure}
+	\centering
+	\incgraph{width=\textwidth}{./rimg/db_model_final.png}
+	\caption{Letzter Stand des Datenbankmodells}
+	\label{fig:db-final}
+\end{sidewaysfigure}
+
+\subsection{Import von neuen Daten}
+Nachdem Erstellen des Datenbankmodell, musste die Datenbank entsprechend erweitert werden.
+Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
+
+Für die weitere Entwicklung der Funktionalitäten, wurden Initial-Daten benötigt die vom R102 in Form von Excel-Dateien geliefert wurden. Diese Datei wurde in mehrere CSV-Dateien aufgeteilt, die dann in eine neue Datenbank eingespielt wurden. In einem nächsten Schritt erfolgte das Importieren mittels JPresso. Mit diesem Werkzeug wurden die neu erstellten Tabellen gefüllt, wobei die neue Datenbank als Datenquelle diente. Daraufhin wurden, ebenfalls mit JPresso, die Buchungen aus der "`BILLING"'-Tabelle in die neue "'BILLING\_BILLING"'-Tabelle überführt. Dabei wurde vermehrt auf die Normalisierungsfunktion von JPresso zurückgegriffen um die Fremdschlüssel zwischen den Tabellen zu realisieren.
+
+\subsection{Anpassung des Downloadprotokoll-Dialoges}
+Durch die Änderung der Struktur der Buchungen-Klasse musste auch die Klasse des Downloadprotokoll"=Dialoges \lstinline|BillingPopup| angepasst werden.
+Diese Klasse soll dahin erweitert werden, dass auch die Netto und Brutto-Summen der anfallenden Gebühren sowie der MwSt-Satz für ein Produkt angezeigt werden. An der eigentlichen, im \autoref{subsec:beschaffung} bereits beschriebenen, Funktionalität wurde nichts verändert. Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig:alkis-protocol-new} gefunden werden.
+
+\begin{figure}[htb]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/alkis-download-protocol_neu.png}
+	\caption{Downloadprotokoll-Dialog mit MwSt.-Satz}
+	\label{fig:alkis-protocol-new}
+\end{figure}
+
+\subsection{Zeitliche Filter und Filter nach Verwendungszweck}
+Beim Betrachten der benötigten Filter in der Spezifikation fällt auf, dass ähnliche Filtermöglichkeiten in den verschiedenen Renderer und der Suche benötigt werden. Aus diesem Grund wurde der Zeitliche Filter und der Filter von Verwendungszwecken als eigene \lstinline|JPanel| angelegt, so dass diese mehrfach verwendet werden können.
+
+\subsubsection{Zeitlicher Filter}
+Das eigenständige \lstinline|JPanel TimeFilterPanel| gibt dem Benutzer die Möglichkeit keine Zeit, einen Tag oder einen Zeitspanne auszuwählen. Dabei werden ihm Schnellwahlmöglichkeiten für den aktuellen Tag, einen Monat oder ein Quartal angeboten. Weiterhin kann er mittels der Angabe von einem von-Datum und einem bis-Datum einen Zeitspanne festlegen. Bei Bedarf kann die aktuelle Einstellung des Panels abgefragt werden, wobei der Rückgabewert zwei \lstinline|Date|-Variablen sind. Sind beide Variablen \lstinline|null| so wurde keine Zeit ausgewählt. Ist nur das von-Datum belegt so wurde ein einzelner Tag ausgewählt. Sind beide Variablen belegt so wurde eine Zeitspanne festgelegt.
+
+Eine zusätzliche Anforderung die während dem Testen entstand besagt, dass die Datumsauswahl jeweils eine Schnellauswahl für das Jahr benötigt. Da die verwendete Komponente \lstinline|JXDatePicker| dies offiziell nicht anbietet musste ein Workaround gefunden werden. Dieses wurde unter \autocite{so-jxdatepicker} gefunden. Um diesen Workaround umzusetzen musste ein sogenanntes \lstinline|TakeoffHook| implementiert werden. Dies ist eine Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird. Somit wird in dem eigenen \lstinline|TakeoffHook JXDatePickerHeaderTakeoff| folgende zwei Zeilen ausgeführt:
+\begin{lstlisting}
+UIManager.put(CalendarHeaderHandler.uiControllerID, "org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler");
+UIManager.put(SpinningCalendarHeaderHandler.ARROWS_SURROUND_MONTH, Boolean.TRUE);
+\end{lstlisting}
+In der ersten Zeile wird angegeben dass für die \lstinline|JXDatePicker| eine Kopfzeile verwendet wird, die eine Schnellauswahl des Jahres zulässt. In der zweiten Zeile wird die Anordnung der Pfeile geändert. Soll die Kopfzeile einer \lstinline|JXDatePicker|-Instanz \lstinline|datePicker| entsprechend geändert werden so muss folgende Zeile ausgeführt werden:
+\begin{lstlisting}
+datePicker.getMonthView().setZoomable(true)
+\end{lstlisting}
+In genau dieser Zeile liegt das Workaround, da das Zoomable-Attribut der \lstinline|JXMonthView|, eine Anzeige von Monaten, über die ein Datum gewählt werden kann, nicht belegt ist und keine Auswirkungen haben dürfte \autocite[vgl.][]{swingx-jxdatepicker}. 
+
+\subsection{Anlegen der Berechtigungen}
 
 
 \begin{itemize}

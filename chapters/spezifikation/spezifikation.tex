@@ -3,17 +3,20 @@ In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifizi
 Diese Erweiterungen werden der Übersicht halber zuerst aufgelistet und danach detaillierter beschrieben.
 
 Die Informationen zu diesem Kapitel sind aus einer Zusammenarbeit zwischen dem Ressort 102 und Cismet entstanden.
-Dabei entstanden die Anforderungen nicht auf einen Schlag, sondern es wurde von den Grundideen ausgegangen, so dass ein erstes Datenmodell und erste Mock-Ups entstanden. Basierend auf diesen Dokumenten wurden die Ideen verfestigt und die konkreten Anforderungen an \ac{WuNDa} entstanden.
+Dabei entstanden die Anforderungen nicht auf Anhieb, sondern es wurde von den Grundideen ausgegangen, so dass ein erstes Datenmodell und erste Mock-Ups entstanden.
+Basierend auf diesen Dokumenten wurden die Ideen, in mehreren Schritten, verfestigt und die konkreten Anforderungen an \ac{WuNDa} entstanden.
 Dieses Kapitel fasst diese Anforderungen in ihrer schlussendlichen Form zusammen. 
- \todo{Evt. beschreiben wie dies geschah; rund ist das noch nicht}
 
 \section{Gewünschte Erweiterungen} \label{sec:gewuenschte-erweiterungen}
 Dieser Abschnitt soll als Übersicht der gewünschten Erweiterungen dienen.
 Dabei werden zunächst einige Begriffe kurz erklärt, die wichtigsten Klassen erwähnt und anschließend werden die gewünschten Erweiterungen aufgelistet.
 
-Bei der Spezifikation werden möglichst nur allgemein bekannte technische Begriffe verwendet, die wenigen spezifischeren Ausnahmen werden hier erklärt. \todo{ref zum technischen Umfeld?}
+Bei der Spezifikation werden möglichst nur allgemein bekannte technische Begriffe verwendet, die wenigen spezifischeren Ausnahmen werden hier erklärt. \todo{ref zum technischen Umfeld?; Gehört das hierhin Abschnitt mit dem Cids-Umfeld vor die Spezifikation ziehen? Dies bedeutet allerdings einen Bruch der Sicht. Kapitel 2,3 fachliche Sicht, Kapitel 4 technische Sicht.}
 \begin{description}
-\item[Klasse] Mit Klasse ist eine Cids-Klasse gemeint. Objekte von diesen Klassen werden in einer Datenbank gespeichert. Aus diesen Datenbankeinträgen lassen sich Java-Objekte erstellen, die in einem Java-Programm benutzt und verändert werden können und anschließend wieder in der Datenbank gespeichert werden können.
+\item[Klasse] Mit Klasse ist eine Cids-Klasse gemeint. Objekte von diesen Klassen werden in einer Datenbank gespeichert.
+Aus diesen Datenbankeinträgen lassen sich Java-Objekte erstellen, die auch CidsBean genannt werden.
+Diese Objekte können in einem Java-Programm benutzt und verändert werden.
+Anschließend können sie wieder in die Datenbank zurückgeführt werden.
 \item[Renderer] Eine solche Klasse kann einen Renderer besitzen. Bei einem Renderer handelt es sich um eine Beschreibungsseite in einem Java-Programm, die Informationen bezüglich eines Objektes dieser Klasse anzeigt.
 \item[Editor] Eine Cids-Klasse kann außerdem einen Editor besitzen. Ein Editor ist von dem Anzeigemechanismus ähnlich dem Renderer, im Gegensatz hierzu können die Informationen zu einem Objekt jedoch verändert und in der Datenbank gespeichert werden. Mit einem Editor ist es in der Regel auch möglich neue Objekte einer Cids-Klasse anzulegen. 
 \end{description}
@@ -108,7 +111,8 @@ Die Buchungen sollen zeitlich gefiltert werden können.
 Dabei soll es eine Schnellauswahl für die Buchungen des aktuellen Tages, eines beliebigen Monats und eines beliebigen Quartals geben.
 Weiterhin soll ein Datumsbereich als Filter benutzt werden können.
 Die Buchungen sollen auch nach ihrer Geschäftsbuchnummer, ihrem Projekt und dem Kunden-Login, der die Buchung angelegt hat, gefiltert werden können.
-Weitere Filter sind der Kostentyp, sprich ob eine Buchung kostenfrei oder kostenpflichtig ist, sowie der Verwendungszweck der Buchung. Zusätzliches besteht das Kriterium dass sämtliche Filter eine neutrale Einstellung haben müssen, bei der sie keine filternde Funktionalität übernehmen.
+Weitere Filter sind der Kostentyp, sprich ob eine Buchung kostenfrei oder kostenpflichtig ist, sowie der Verwendungszweck der Buchung.
+Zusätzlich besteht das Kriterium dass sämtliche Filter eine neutrale Einstellung haben müssen, bei der sie keine filternde Funktionalität übernehmen.
 
 In der Tabelle müssen die Geschäftsbuchnummer, die Projektbezeichnung, der Verwendungszweck, das Art des bezogenen Produktes, die Netto-Gebühr, der MwSt.-Satz, das Erstellungsdatum sowie der Kunden-Login der Buchung angezeigt werden.
 
