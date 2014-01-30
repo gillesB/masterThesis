@@ -125,10 +125,11 @@ Dieser Abschnitt beschreibt die Realisierung der in \autoref{ch:spezi} beschrieb
 Um die in \autoref{ch:spezi} beschriebenen Anforderungen zu realisieren, muss in einem ersten Schritt das Datenbankmodell der verwendeten Datenbank angepasst werden.
 Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen. Zum anderen müssen aus den Daten, die im Client benötigten, CidsBeans erstellt werden können. Dies ist notwendig, da die verschiedenen Erweiterung quasi alle auf den Funktionalitäten der CidsBeans aufbauen.
 
-Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Klassen geredet. Dabei sind aber gleichwohl auch die Tabelle der Datenbank und ihr Aufbau gemeint, da sich deren Struktur nicht oder nur geringfügig von den erstellten Klassen.
+Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Klassen geredet.
+Dabei sind auch die Tabelle der Datenbank und ihr Aufbau gemeint, da deren Struktur nicht oder nur geringfügig von der Struktur der erstellten Klassen abweicht.
 
 \subsubsection{Ausgangslage}
-In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Klasse der Buchungen, die Billing-Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} zu sehen.
+In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Klasse der Buchungen, die \inline{BILLING}-Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
 \todo{beschreiben}
 \begin{figure}[htb]
 	\centering
@@ -139,7 +140,8 @@ In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betr
 
 \subsubsection{Weitere Schritte}
 Wie bereits in \autoref{ch:spezi} beschrieben, waren sämtliche Anforderungen nicht von Anfang an bekannt, sondern wurden schrittweise erweitert. Dieser Prozess ist am deutlichsten am Datenbankmodell zu betrachten, welches mit den Anforderungen gewachsen ist.
-Da die einzelnen Schritte für das Verständnis der Arbeit nicht relevant sind, werden diese nicht im Detail erläutert. Um das Anwachsen des Datenbankmodells trotzdem verdeutlichen zu können wird eine der ersten Versionen kurz beschrieben, um anschließend die schlussendliche Version abzubilden und zu kommentieren.
+Da die einzelnen Schritte für das Verständnis der Arbeit nicht relevant sind, werden diese nicht im Detail erläutert.
+Um das Anwachsen des Datenbankmodells trotzdem zu verdeutlichen, wird eine der ersten Versionen kurz beschrieben, um anschließend die schlussendliche Version abzubilden und zu kommentieren.
 
 Für den ersten Schritt wurden die anfänglich existierenden Anforderungen analysiert und die erste Version des Datenbankmodells wurde erstellt. 
 Die \myfig{fig:db-two} zeigt einen recht frühen Stand des Datenbankmodells.
@@ -154,8 +156,10 @@ Dennoch sind die meisten Klassen die in den Spezifikationen aufgeführt werden b
 
 \subsubsection{Letzter Stand}
 Der letzte Stand des Datenbankmodell kann in \myfig{fig:db-final} betrachtet werden.
+\todo{Schönere DB-Modell beschreibung}
 Im Vergleich zu der vorherigen Version haben sämtliche Klassen das Präfix "`BILLING\_"' erhalten.
-Die Buchungen-Klasse hat die Felder zum Speichern der letzten Änderung erhalten. Weiterhin wurde das Feld "`gebuhr"' in "`netto\_summe"' umbenannt und es hat die Felder "`brutto\_summe"' und "`mwst\_satz"' erhalten. Außerdem wurde das Feld "`abgerechnet"' hinzugefügt.
+Die Buchungen-Klasse hat die Felder zum Speichern der letzten Änderung erhalten.
+Weiterhin wurde ihr Feld "`gebuhr"' in "`netto\_summe"' umbenannt und sie hat die Felder "`brutto\_summe"' und "`mwst\_satz"' erhalten. Außerdem wurde das Feld "`abgerechnet"' hinzugefügt.
 Die Kunden-Login-Klasse hat ein eigens Kontaktfeld erhalten.
 Die Kunden-Klasse hat ein Feld "`name\_intern"' erhalten.
 In sämtlichen Klassen wurden die Bezeichnungsfelder in "`name"' umbenannt. Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
@@ -172,11 +176,18 @@ Weiterhin wurde die Kundengruppen-Klasse eingeführt, dies zeigt z.B. dass diese
 Nachdem Erstellen des Datenbankmodell, musste die Datenbank entsprechend erweitert werden.
 Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
 
-Für die weitere Entwicklung der Funktionalitäten, wurden Initial-Daten benötigt die vom R102 in Form von Excel-Dateien geliefert wurden. Diese Datei wurde in mehrere CSV-Dateien aufgeteilt, die dann in eine neue Datenbank eingespielt wurden. In einem nächsten Schritt erfolgte das Importieren mittels JPresso. Mit diesem Werkzeug wurden die neu erstellten Tabellen gefüllt, wobei die neue Datenbank als Datenquelle diente. Daraufhin wurden, ebenfalls mit JPresso, die Buchungen aus der "`BILLING"'-Tabelle in die neue "'BILLING\_BILLING"'-Tabelle überführt. Dabei wurde vermehrt auf die Normalisierungsfunktion von JPresso zurückgegriffen um die Fremdschlüssel zwischen den Tabellen zu realisieren.
+Für die weitere Entwicklung der Funktionalitäten wurden Anfangsdaten benötigt, die vom R102 in Form von Excel-Dateien geliefert wurden.
+Diese Datei enthielt die Informationen zu tatsächlichen Kunden und Kunden-Logins, wobei z.B. deren Abrechnungsturnus und Produkte angegeben war.
+Diese Datei wurde in mehrere CSV-Dateien aufgeteilt, die dann in eine neue Datenbank eingespielt wurden.
+Mit Hilfe von JPresso konnten die Daten aus dieser Datenbank in die eigentliche Datenbank importiert werden.
+Weiterhin konnten mit Hilfe dieses Werkzeuges die Buchungen aus der "`BILLING"'-Tabelle in die neue "'BILLING\_BILLING"'-Tabelle überführt werden.
+Bei diesem Vorgang wurde vermehrt auf die Normalisierungsfunktion von JPresso zurückgegriffen um die Fremdschlüssel zwischen den neuen Tabellen zu realisieren.
 
 \subsection{Anpassung des Downloadprotokoll-Dialoges}
-Durch die Änderung der Struktur der Buchungen-Klasse musste auch die Klasse des Downloadprotokoll"=Dialoges \lstinline|BillingPopup| angepasst werden.
-Diese Klasse soll dahin erweitert werden, dass auch die Netto und Brutto-Summen der anfallenden Gebühren sowie der MwSt-Satz für ein Produkt angezeigt werden. An der eigentlichen, im \autoref{subsec:beschaffung} bereits beschriebenen, Funktionalität wurde nichts verändert. Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig:alkis-protocol-new} gefunden werden.
+Durch die Änderung der Struktur der Buchungen-Klasse musste auch die Klasse des Downloadprotokoll"=Dialoges \inline{BillingPopup} angepasst werden.
+Dabei sollte an der eigentlichen Funktionalität von \inline{BillingPopup}, die bereits im \autoref{subsec:beschaffung} beschrieben wurde, nichts geändert werden.
+Lediglich die Graphische Oberfläche wurde dahingehend verändert, dass die Netto und Brutto-Summen der anfallenden Gebühren sowie der anfallende MwSt-Satz angezeigt werden
+Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig:alkis-protocol-new} gefunden werden.
 
 \begin{figure}[htb]
 	\centering
@@ -185,22 +196,65 @@ Diese Klasse soll dahin erweitert werden, dass auch die Netto und Brutto-Summen 
 	\label{fig:alkis-protocol-new}
 \end{figure}
 
-\subsection{Zeitliche Filter und Filter nach Verwendungszweck}
-Beim Betrachten der benötigten Filter in der Spezifikation fällt auf, dass ähnliche Filtermöglichkeiten in den verschiedenen Renderer und der Suche benötigt werden. Aus diesem Grund wurde der Zeitliche Filter und der Filter von Verwendungszwecken als eigene \lstinline|JPanel| angelegt, so dass diese mehrfach verwendet werden können.
+\subsection{Zeitliche Filter und Verwendungszweck-Filter}
+Beim Betrachten der benötigten Filter in der Spezifikation fällt auf, dass ähnliche Filtermöglichkeiten in den verschiedenen Renderer und der Suche benötigt werden. Aus diesem Grund wurde der zeitliche Filter und Verwendungszweck-Filter als eigene \inline{JPanel} angelegt, so dass diese mehrfach verwendet werden können.
 
 \subsubsection{Zeitlicher Filter}
-Das eigenständige \lstinline|JPanel TimeFilterPanel| gibt dem Benutzer die Möglichkeit keine Zeit, einen Tag oder einen Zeitspanne auszuwählen. Dabei werden ihm Schnellwahlmöglichkeiten für den aktuellen Tag, einen Monat oder ein Quartal angeboten. Weiterhin kann er mittels der Angabe von einem von-Datum und einem bis-Datum einen Zeitspanne festlegen. Bei Bedarf kann die aktuelle Einstellung des Panels abgefragt werden, wobei der Rückgabewert zwei \lstinline|Date|-Variablen sind. Sind beide Variablen \lstinline|null| so wurde keine Zeit ausgewählt. Ist nur das von-Datum belegt so wurde ein einzelner Tag ausgewählt. Sind beide Variablen belegt so wurde eine Zeitspanne festgelegt.
+Das eigenständige \inline{JPanel} \inline{TimeFilterPanel} gibt dem Benutzer die Möglichkeit nichts, einen Tag oder einen Zeitspanne auszuwählen.
+Dabei werden ihm Schnellwahlmöglichkeiten für den aktuellen Tag, einen Monat oder ein Quartal angeboten.
+Weiterhin kann er mittels der Angabe eines von-Datums und eines bis-Datums einen Zeitspanne festlegen.
+Bei Bedarf kann die aktuelle Einstellung des Panels abgefragt werden, wobei der Rückgabewert zwei \inline{Date}-Variablen sind.
+Sind beide Variablen \inline{null} so wurde keine Zeit ausgewählt.
+Ist nur das von-Datum belegt so wurde ein einzelner Tag ausgewählt.
+Sind beide Variablen belegt so wurde eine Zeitspanne festgelegt.
 
-Eine zusätzliche Anforderung die während dem Testen entstand besagt, dass die Datumsauswahl jeweils eine Schnellauswahl für das Jahr benötigt. Da die verwendete Komponente \lstinline|JXDatePicker| dies offiziell nicht anbietet musste ein Workaround gefunden werden. Dieses wurde unter \autocite{so-jxdatepicker} gefunden. Um diesen Workaround umzusetzen musste ein sogenanntes \lstinline|TakeoffHook| implementiert werden. Dies ist eine Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird. Somit wird in dem eigenen \lstinline|TakeoffHook JXDatePickerHeaderTakeoff| folgende zwei Zeilen ausgeführt:
+\begin{figure}[htb]
+	\centering
+	\incgraph{scale=0.8}{./rimg/gui-jxdatepicker.png}
+	\caption{Datumsauswahl mit einer Schnellauswahl für das Jahr}
+	\label{fig:jxdatepicker}
+\end{figure}
+
+Während dem Testen der Renderer kam die zusätzliche Anforderung auf, dass die Datumsauswahl jeweils eine Schnellauswahl für das Jahr benötigt.
+Das gewünschte Result kann in der \myfig{fig:jxdatepicker} betrachtet werden.
+Da die verwendete Komponente \inline{JXDatePicker} dies offiziell nicht anbietet musste ein Workaround gefunden werden, welches unter \autocite{so-jxdatepicker} gefunden wurde.
+Um diesen Workaround umzusetzen musste ein sogenanntes \inline{TakeoffHook} implementiert werden. 
+Dies ist eine Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
+Somit wird beim Starten des Programmes das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das folgende zwei Zeilen beinhaltet:
 \begin{lstlisting}
 UIManager.put(CalendarHeaderHandler.uiControllerID, "org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler");
 UIManager.put(SpinningCalendarHeaderHandler.ARROWS_SURROUND_MONTH, Boolean.TRUE);
 \end{lstlisting}
-In der ersten Zeile wird angegeben dass für die \lstinline|JXDatePicker| eine Kopfzeile verwendet wird, die eine Schnellauswahl des Jahres zulässt. In der zweiten Zeile wird die Anordnung der Pfeile geändert. Soll die Kopfzeile einer \lstinline|JXDatePicker|-Instanz \lstinline|datePicker| entsprechend geändert werden so muss folgende Zeile ausgeführt werden:
+In der ersten Zeile wird angegeben dass für die \inline{JXDatePicker} eine Kopfzeile verwendet wird, die eine Schnellauswahl des Jahres zulässt.
+In der zweiten Zeile wird die Anordnung des rechten Pfeils geändert, dieser würde sich ansonsten ganz rechts außen befinden.
+Damit die Kopfzeile einer \inline{JXDatePicker}-Instanz \inline{datePicker} entsprechend geändert wird, muss die folgende Zeile ausgeführt werden:
 \begin{lstlisting}
 datePicker.getMonthView().setZoomable(true)
 \end{lstlisting}
-In genau dieser Zeile liegt das Workaround, da das Zoomable-Attribut der \lstinline|JXMonthView|, eine Anzeige von Monaten, über die ein Datum gewählt werden kann, nicht belegt ist und keine Auswirkungen haben dürfte \autocite[vgl.][]{swingx-jxdatepicker}. 
+In genau dieser Zeile liegt der Nachteil dieses Workaround, da das Zoomable-Attribut von \inline{JX\-MonthView}, eine Anzeige von Monaten, über die ein Datum gewählt werden kann, noch nicht richtig implementiert ist und keine Auswirkungen haben dürfte \autocite[vgl.][]{swingx-jxdatepicker}.
+Dennoch wird hierdurch die gewünschte Kopfzeile angezeigt.
+
+\subsubsection{Verwendungszweck-Filter}
+Der Verwendungszweck-Filter ist ebenfalls ein eigenständiges \inline{JPanel} und wurde in der Klasse \inline{VerwendungszweckPanel} implementiert.
+In diesem Panel werden die möglichen Verwendungszwecke untereinander angezeigt, wobei jedes eine Checkbox besitzt, mit der es an oder abgewählt werden kann. Weiterhin ist es nicht möglich sämtliche Verwendungszwecke abzuwählen.
+Die Besonderheit dieses Panel besteht darin, dass die Verwendungszwecke nicht hardkodiert sind, sondern aus der \inline{billing.json} Datei geladen werden.
+Diese JSON-Datei beinhaltet sämtliche Informationen die zu den Buchungen benötigt werden. So enthält sie neben den Verwendungszwecken auch die Gebühren und MwSt.-Sätze zu den einzelnen Produkten. 
+
+\subsection{ServerSearch}
+Beim Analyseren der Anforderungen ist ebenfalls aufgefallen, dass sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit brauchen um in der Datenbank nach Buchungen mit bestimmten Kriterien zu suchen.
+Aus diesem Grund wurde auf die Such-Funktionalität der Cids-Umgebung zurückgegriffen und eine sogenannte ServerSearch implementiert.
+Bei einer solchen ServerSearch wird eine SQL-Query vom Server auf die Datenbank abgesetzt. 
+Aus den gelieferten Ergebnissen werden MetaObjekte erstellt, welche zurück an den Client gesendet werden und dort benutzt werden können.
+Diese MetaObjekte enthalten Meta-Informationen zu einem bestimmten Datensatz, so dass aus ihnen die konkrete CidsBean zu einem Datensatz erstellt werden kann.
+Kurzum erhält der Client mit Hilfe der ServerSearch eine Möglichkeit konkrete Objekte mit bestimmten Kriterien zu erhalten.  
+
+Um diesen Mechanismus zu realisieren wurde die Klasse \inline{Cids\-Billing\-Search\-Statement} implementiert, die von der Klasse \inline{Abstract\-Cids\-Server\-Search} erbt.
+Die Letztere enthält die Grundfunktionalität zu einer solchen ServerSearch.
+Durch das Benutzen von \inline{Cids\-Billing\-Search\-Statement} kann in den Renderern und dem Suchdialog auf die gleiche Suche zurückgegriffen werden, um Buchungen zu finden.
+Um eine Suche durchzuführen muss einem Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} die gewünschten Kriterien übergeben werden. Zu diesen Kriterien gehören die in den Renderern und dem Suchdialog benötigten Filter, wie etwa die Zeit, die Verwendungszwecke oder der Kunden-Login, mit dem eine Buchung erstellt wurde.
+Anschließend wird die Query, abhängig von den übergebenen Parametern, erstellt. 
+Mit Hilfe der Query kann daraufhin die Suche ausgeführt werden und die gefundenen Buchungen können an den Client weitergeleitet werden und dort weiterverarbeitet und angezeigt werden.
+
 
 \subsection{Anlegen der Berechtigungen}
 
@@ -217,6 +271,6 @@ In genau dieser Zeile liegt das Workaround, da das Zoomable-Attribut der \lstinl
 
 \section{Vergleich Realisierung und Spezifikation}
 \begin{itemize}
-	\item Durch diese Realisierung ist es möglich das zu tun was in den Anforderungen beschreiben wurde
+	\item Durch diese Realisierung ist es möglich das zu tun was in den Anforderungen beschrieben wurde
 	\item D.h. durch die Rationalisierung kann durchgeführt werden
 \end{itemize}
