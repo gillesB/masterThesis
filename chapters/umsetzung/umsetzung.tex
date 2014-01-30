@@ -258,6 +258,36 @@ Außerdem kann eine Liste mit Kunden und einem, optionalen, Abrechnungsturnus ü
 In dem Fall werden nur Buchungen von jenen Kunden mit eben diesem  Abrechnungsturnus gefunden.
 Das einzige Pflichtkriterium ist eine Information bezüglich den Kunden. So muss ein Kundenname oder eine Liste mit Kunden angegeben werden.
 
+\subsection{Kunden}
+\subsubsection{Kundenrenderer}
+Die Funktionalität des Kundenrenderers wurde bereits größtenteils in dem \autoref{subsubsec:kundenrenderer} beschrieben.
+Der dort nicht beschriebene Knopf "`Ergebnisse anzeigen"' wurde hinzugefügt, damit die Suche bei Bedarf ausgeführt werden kann.
+Dieser wurde während der Entwicklung hinzugefügt, da sich die erneute Suche bei jeder Änderung der Filter als unpraktikabel herausstellte.
+Dies lag an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt war, auch wenn diese, in den meisten Fällen, nur ein paar Sekunden beträgt.
+Bei Betätigen des Knopfes wird ein Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die Suche wird ausgeführt.
+Die Ergebnisse dieser Suche werden dann in der Tabelle angezeigt und eine entsprechende Zusammenfassung der Suchergebnisse wird über der Tabelle ausgegeben.
+Weiterhin können die beiden Berichte Rechnungsanlage und Buchungsbeleg erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
+So dürfen externe Benutzer die Rechnungsanlage nicht erstellen und es kann ausgewählt werden, ob kostenfreie Buchungen in den Berichten angezeigt werden sollen oder nicht.
+Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/gui-kunderenderer-real.png}
+	\caption{Kundenrenderer}
+	\label{fig:kundenrenderer}
+\end{figure}
+\subsubsection{Kundeneditor}
+Der Kundeneditor, der in \myfig{fig:kundeneditor} dargestellt ist, ermöglicht es einen neuen Kunden anzulegen oder die Daten eines bereits bestehenden Kunden zu bearbeiten.
+Bei den meisten Felder handelt es sich um gewöhnliche Texteingaben oder Auswahlmöglichkeiten.
+Allerdings konnte bei den Felder für die Produkte, Kunden-Logins und Kundengruppen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen werden.
+Somit können Objekte dieser Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt. 
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.9\textwidth}{./rimg/gui-kundeneditor-real.png}
+	\caption{Kundeneditor}
+	\label{fig:kundeneditor}
+\end{figure}
+
 \subsection{Anlegen der Berechtigungen}
 
 
