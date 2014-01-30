@@ -240,21 +240,23 @@ In diesem Panel werden die möglichen Verwendungszwecke untereinander angezeigt,
 Die Besonderheit dieses Panel besteht darin, dass die Verwendungszwecke nicht hardkodiert sind, sondern aus der \inline{billing.json} Datei geladen werden.
 Diese JSON-Datei beinhaltet sämtliche Informationen die zu den Buchungen benötigt werden. So enthält sie neben den Verwendungszwecken auch die Gebühren und MwSt.-Sätze zu den einzelnen Produkten. 
 
-\subsection{ServerSearch}
-Beim Analyseren der Anforderungen ist ebenfalls aufgefallen, dass sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit brauchen um in der Datenbank nach Buchungen mit bestimmten Kriterien zu suchen.
-Aus diesem Grund wurde auf die Such-Funktionalität der Cids-Umgebung zurückgegriffen und eine sogenannte ServerSearch implementiert.
-Bei einer solchen ServerSearch wird eine SQL-Query vom Server auf die Datenbank abgesetzt. 
-Aus den gelieferten Ergebnissen werden MetaObjekte erstellt, welche zurück an den Client gesendet werden und dort benutzt werden können.
-Diese MetaObjekte enthalten Meta-Informationen zu einem bestimmten Datensatz, so dass aus ihnen die konkrete CidsBean zu einem Datensatz erstellt werden kann.
-Kurzum erhält der Client mit Hilfe der ServerSearch eine Möglichkeit konkrete Objekte mit bestimmten Kriterien zu erhalten.  
+\subsection{Suche nach Buchungen}
+Beim Analyseren der Anforderungen ist ebenfalls aufgefallen, dass sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit benötigen um in der Datenbank nach Buchungen mit bestimmten Kriterien zu suchen.
+Aus diesem Grund wurde auf die Such-Funktionalität der Cids-Umgebung zurückgegriffen und es wurde eine sogenannte ServerSearch implementiert.
+Um diesen Mechanismus umzusetzen wurde die Klasse \inline{Cids\-Billing\-Search\-Statement} erstellt.
+Diese erbt von der, bereits bestehenden, Klasse \inline{Abstract\-Cids\-Server\-Search} und besitzt somit die Grundfunktionalität zu einer solchen ServerSearch.
+Um diese ServerSearch in den Renderern oder dem Suchdialog auszuführen müssen lediglich die gewünschten Kriterien einem Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} übergeben werden und die eigentliche Suche muss gestartet werden.
+Daraufhin können die gefundenen Buchungen dort weiterverarbeitet und angezeigt werden.
 
-Um diesen Mechanismus zu realisieren wurde die Klasse \inline{Cids\-Billing\-Search\-Statement} implementiert, die von der Klasse \inline{Abstract\-Cids\-Server\-Search} erbt.
-Die Letztere enthält die Grundfunktionalität zu einer solchen ServerSearch.
-Durch das Benutzen von \inline{Cids\-Billing\-Search\-Statement} kann in den Renderern und dem Suchdialog auf die gleiche Suche zurückgegriffen werden, um Buchungen zu finden.
-Um eine Suche durchzuführen muss einem Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} die gewünschten Kriterien übergeben werden. Zu diesen Kriterien gehören die in den Renderern und dem Suchdialog benötigten Filter, wie etwa die Zeit, die Verwendungszwecke oder der Kunden-Login, mit dem eine Buchung erstellt wurde.
-Anschließend wird die Query, abhängig von den übergebenen Parametern, erstellt. 
-Mit Hilfe der Query kann daraufhin die Suche ausgeführt werden und die gefundenen Buchungen können an den Client weitergeleitet werden und dort weiterverarbeitet und angezeigt werden.
-
+Die Kriterien die \inline{Cids\-Billing\-Search\-Statement} entgegen nehmen kann, sind die Strings bezüglich zu der Geschäftsbuchnummer, der Projektbezeichnung und dem Kundenname.
+Dabei wird jeweils nach Substrings gesucht und es können die beiden Wildcards '\_' und '\%' für ein einzelnes Zeichen bzw. für eine beliebige Anzahl von Zeichen benutzt werden.
+Weiterhin kann ein Kunden-Login angegeben werden.
+Ist dies der Fall dann wird nur nach solche Buchungen gesucht, die mit jenem Kunden-Login angelegt wurden.
+Ein anderes Kriterium ist der Zeitbereich in denen die Buchungen erstellt werden mussten, sowie der Kostentyp, sprich ob die einzelne Buchung kostenpflichtig oder kostenfrei ist.
+Weiterhin kann angegeben werden, ob stornierte oder abgerechnete Buchungen gefunden werden sollen.
+Außerdem kann eine Liste mit Kunden und einem, optionalen, Abrechnungsturnus übergeben werden.
+In dem Fall werden nur Buchungen von jenen Kunden mit eben diesem  Abrechnungsturnus gefunden.
+Das einzige Pflichtkriterium ist eine Information bezüglich den Kunden. So muss ein Kundenname oder eine Liste mit Kunden angegeben werden.
 
 \subsection{Anlegen der Berechtigungen}
 
