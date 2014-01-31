@@ -3,6 +3,11 @@
 
 \newcommand{\incgraph}[2]{\IfFileExists{#2}{\includegraphics[#1]{#2}}{\includegraphics[width=0.7\textwidth]{./img/dummy.png}}}
 
+\usepackage{rotating}
+\addto\extrasngerman{%
+\def\subsectionautorefname{Abschnitt}%
+}
+
 \begin{document}
 
 %\include{preamble/titlepages}

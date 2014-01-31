@@ -26,7 +26,7 @@ Dabei stehen verschiedene, häufig benötigte, Funktionalitäten bereits zur Ver
 
 Durch das Cids-Umfeld kann ein verteiltes System erstellt werden, dessen Architektur auf dem Client-Server-Prinzip basiert, wobei es aus mehreren Clients, Server, sowie Datenbanken bestehen kann.
 Diese Bestandteile können in verschiedenen Ausprägungen nebeneinander existieren.
-In Wuppertal steht so z.B. neben dem \ac{WuNDa} auch die BELIS-Fachanwendung zur Verfügung. BELIS dient zur Verwaltung des städtischen Beleuchtungskataster.
+In Wuppertal steht so z.\,B. neben dem \ac{WuNDa} auch die BELIS-Fachanwendung zur Verfügung. BELIS dient zur Verwaltung des städtischen Beleuchtungskataster.
 Um die Logik der Systeme zu trennen und um eine Skalierbarkeit zu gewährleisten, besitzt jedes System einen eigenen Domain Server und eine eigene Integration Base.
 Bei einer solchen Integration Base handelt es sich um eine Datenbank, in der neben den üblichen Daten auch Meta-Daten gespeichert werden.
 Durch diese Unterteilung der Daten können in der Integration Base beliebige Objekte abgebildet werden, weiterhin können dadurch auch Beziehungen zwischen sogenannten Meta-Klassen und Objekten abgebildet werden.
@@ -35,7 +35,7 @@ Eine Integration Base erlaubt es zum Beispiel die Benutzer und Benutzergruppen e
 Bei einem Domain Server handelt sich um eine Schnittstelle zur Integration Base und hat die Aufgabe aus deren Daten konkrete Klasse und Objekte zu erstellen. Weiterhin ist der Domain Server auch für die Erstellung des Katalogs zuständig.
 Eine Beschreibung des Katalogs kann im \autoref{subsubsec:katalog} gefunden werden.
 In der Cids-Umgebung gibt es weiterhin die sogenannten Broker. Diese dienen den Clients als Proxy zu den einzelnen Domain Servern. Sie verstecken somit die Komplexität des verteilten Systems, indem sie die Anfragen der Clients an die entsprechenden Domain Server weiterleiten.
-Darüber hinaus gibt es noch den Registry Server. Dieser gewährleistet das Zusammenspiel der einzelnen Server, indem er z.B. die Namensauflösung für die restlichen Server bereitstellt.
+Darüber hinaus gibt es noch den Registry Server. Dieser gewährleistet das Zusammenspiel der einzelnen Server, indem er z.\,B. die Namensauflösung für die restlichen Server bereitstellt.
 
 \subsection{Navigator}
 Beim Navigator handelt es sich um eine erweiterbare graphische Benutzeroberfläche für \acp{GIS}. So ist der Client von \ac{WuNDa} eine Erweiterung des Navigators. Die für diese Arbeit wichtigsten Unterkomponenten sind der Katalog, die Suche sowie der Renderer und der Editor.
@@ -78,7 +78,7 @@ In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingeg
 \paragraph{Rechte auf Objekte}
 Für jede Klasse, Attribut oder Knoten lassen sich drei Standardverhalten festlegen, wobei immer ein Verhalten benutzt werden muss.
 Damit nicht für jedes Objekt ein Verhalten explicit gesetzt werden muss, wurde die Fallback Strategie eingeführt.
-Diese Strategie ermöglicht es z.B. ein Verhalten als Standard-Server-Verhalten festzulegen, woraufhin jede Klasse ohne explizit gesetztes Verhalten auf dieses zurückgreift.
+Diese Strategie ermöglicht es z.\,B. ein Verhalten als Standard-Server-Verhalten festzulegen, woraufhin jede Klasse ohne explizit gesetztes Verhalten auf dieses zurückgreift.
 Die verfügbaren Standardverhalten sind:
 \begin{description}
 \item[Standard] Besitzt ein Objekt dieses Verhalten so bedeutet dies, dass jeder Benutzer lesen und niemand schreiben darf.
@@ -86,7 +86,7 @@ Die verfügbaren Standardverhalten sind:
 \item[Secure] Bei diesem Standardverhalten darf niemand lesen und schreiben
 \end{description}
 Für jedes Objekt können diese Rechte für verschiedene Benutzergruppen erweitert oder eingeschränkt werden.
-Für eine Klasse mit dem Verhalten "`Secure"' kann z.B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
+Für eine Klasse mit dem Verhalten "`Secure"' kann z.\,B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
 Im Gegensatz hierzu kann einer Benutzergruppe für eine Klasse mit dem Verhalten "`Standard"', die Leserechte entzogen werden. \autocite[vgl.][]{cismet-workshop}
 
 \paragraph{Aktionsrecht}
@@ -163,8 +163,8 @@ Weiterhin wurde ihr Feld "`gebuhr"' in "`netto\_summe"' umbenannt und sie hat di
 Die Kunden-Login-Klasse hat ein eigens Kontaktfeld erhalten.
 Die Kunden-Klasse hat ein Feld "`name\_intern"' erhalten.
 In sämtlichen Klassen wurden die Bezeichnungsfelder in "`name"' umbenannt. Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
-Einige Felder wurden umbenannt, so dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt. Dies ist der Fall bei Array-Felder oder 1:n Felder. Siehe z.B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
-Weiterhin wurde die Kundengruppen-Klasse eingeführt, dies zeigt z.B. dass diese erst recht spät bei dem Ermitteln der Anforderungen aufgetreten ist. 
+Einige Felder wurden umbenannt, so dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt. Dies ist der Fall bei Array-Felder oder 1:n Felder. Siehe z.\,B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
+Weiterhin wurde die Kundengruppen-Klasse eingeführt, dies zeigt z.\,B. dass diese erst recht spät bei dem Ermitteln der Anforderungen aufgetreten ist. 
 \begin{sidewaysfigure}
 	\centering
 	\incgraph{width=\textwidth}{./rimg/db_model_final.png}
@@ -177,11 +177,23 @@ Nachdem Erstellen des Datenbankmodell, musste die Datenbank entsprechend erweite
 Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
 
 Für die weitere Entwicklung der Funktionalitäten wurden Anfangsdaten benötigt, die vom R102 in Form von Excel-Dateien geliefert wurden.
-Diese Datei enthielt die Informationen zu tatsächlichen Kunden und Kunden-Logins, wobei z.B. deren Abrechnungsturnus und Produkte angegeben war.
+Diese Datei enthielt die Informationen zu tatsächlichen Kunden und Kunden-Logins, wobei z.\,B. deren Abrechnungsturnus und Produkte angegeben war.
 Diese Datei wurde in mehrere CSV-Dateien aufgeteilt, die dann in eine neue Datenbank eingespielt wurden.
 Mit Hilfe von JPresso konnten die Daten aus dieser Datenbank in die eigentliche Datenbank importiert werden.
 Weiterhin konnten mit Hilfe dieses Werkzeuges die Buchungen aus der "`BILLING"'-Tabelle in die neue "'BILLING\_BILLING"'-Tabelle überführt werden.
 Bei diesem Vorgang wurde vermehrt auf die Normalisierungsfunktion von JPresso zurückgegriffen um die Fremdschlüssel zwischen den neuen Tabellen zu realisieren.
+
+Ein besonderer Fall beim Importieren war der MwSt.-Satz, da dieser bei den bereits angelegten Buchungen nicht existierte.
+Dieser konnte beim Importieren nicht auf einen Wert von \per{0,0} gesetzt werden, da dies fachlich falsch wäre.
+Dies liegt daran, dass es Produkte mit einem anderen MwSt.-Satz gibt als \per{0,0}, so haben z.\,B. Orthofotos einen MwSt.-Satz von \per{19,0}.
+Gäbe es nun Orthofotos mit \per{0,0} und andere mit \per{19,0} so würde dies wahrscheinlich für Verwirrung beim Endbenutzer sorgen, da es such um einen inkonsistenten Fall handelt.
+Eine andere Lösung wäre das Anpassen der Datenbestände gewesen, also das Umändern der Netto- und Brutto-Summen sowie des MwSt.-Satzes. 
+Hiergegen wurde sich entschieden, da es sich um kritische Daten handelt und ein kleiner Fehler finanzielle Auswirkungen für R102 oder einen Kunden hätte.
+Aus diesem Grund wurde beim Importieren der MwSt.-Satz auf \inline{null} gesetzt.
+Durch diesen Sonderfall kann der MwSt.-Satz, beim Anzeigen, anders behandelt werden und es entsteht keine Verwirrung beim Benutzer.
+Weiterhin kann bei Berechnungen \inline{null} genau wie der Satz \per{0,0} behandelt werden, so dass die Netto-Summe immer gleich der Brutto-Summe ist.
+Hierdurch ist gewährleistet, dass am ursprünglichen Preis nichts verändert wird.
+
 
 \subsection{Anpassung des Downloadprotokoll-Dialoges}
 Durch die Änderung der Struktur der Buchungen-Klasse musste auch die Klasse des Downloadprotokoll"=Dialoges \inline{BillingPopup} angepasst werden.
@@ -237,10 +249,10 @@ Dennoch wird hierdurch die gewünschte Kopfzeile angezeigt.
 \subsubsection{Verwendungszweck-Filter}
 Der Verwendungszweck-Filter ist ebenfalls ein eigenständiges \inline{JPanel} und wurde in der Klasse \inline{VerwendungszweckPanel} implementiert.
 In diesem Panel werden die möglichen Verwendungszwecke untereinander angezeigt, wobei jedes eine Checkbox besitzt, mit der es an oder abgewählt werden kann. Weiterhin ist es nicht möglich sämtliche Verwendungszwecke abzuwählen.
-Die Besonderheit dieses Panel besteht darin, dass die Verwendungszwecke nicht hardkodiert sind, sondern aus der \inline{billing.json} Datei geladen werden.
-Diese JSON-Datei beinhaltet sämtliche Informationen die zu den Buchungen benötigt werden. So enthält sie neben den Verwendungszwecken auch die Gebühren und MwSt.-Sätze zu den einzelnen Produkten. 
+Die Besonderheit dieses Panel besteht darin, dass die Verwendungszwecke nicht hart kodiert sind, sondern aus der \inline{billing.json} Datei geladen werden.
+Diese JSON-Datei beinhaltet Informationen bezüglich den Buchungen. Sie enthält neben den Verwendungszwecken auch die Gebühren und MwSt.-Sätze zu den einzelnen Produkten. 
 
-\subsection{Suche nach Buchungen}
+\subsection{Suche nach Buchungen} \label{subsec:serversearch}
 Beim Analyseren der Anforderungen ist ebenfalls aufgefallen, dass sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit benötigen um in der Datenbank nach Buchungen mit bestimmten Kriterien zu suchen.
 Aus diesem Grund wurde auf die Such-Funktionalität der Cids-Umgebung zurückgegriffen und es wurde eine sogenannte ServerSearch implementiert.
 Um diesen Mechanismus umzusetzen wurde die Klasse \inline{Cids\-Billing\-Search\-Statement} erstellt.
@@ -248,29 +260,31 @@ Diese erbt von der, bereits bestehenden, Klasse \inline{Abstract\-Cids\-Server\-
 Um diese ServerSearch in den Renderern oder dem Suchdialog auszuführen müssen lediglich die gewünschten Kriterien einem Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} übergeben werden und die eigentliche Suche muss gestartet werden.
 Daraufhin können die gefundenen Buchungen dort weiterverarbeitet und angezeigt werden.
 
-Die Kriterien die \inline{Cids\-Billing\-Search\-Statement} entgegen nehmen kann, sind die Strings bezüglich zu der Geschäftsbuchnummer, der Projektbezeichnung und dem Kundenname.
-Dabei wird jeweils nach Substrings gesucht und es können die beiden Wildcards '\_' und '\%' für ein einzelnes Zeichen bzw. für eine beliebige Anzahl von Zeichen benutzt werden.
-Weiterhin kann ein Kunden-Login angegeben werden.
-Ist dies der Fall dann wird nur nach solche Buchungen gesucht, die mit jenem Kunden-Login angelegt wurden.
-Ein anderes Kriterium ist der Zeitbereich in denen die Buchungen erstellt werden mussten, sowie der Kostentyp, sprich ob die einzelne Buchung kostenpflichtig oder kostenfrei ist.
+\inline{Cids\-Billing\-Search\-Statement} kann die Geschäftsbuchnummer, die Projektbezeichnung und den Kundennamen als Kriterien entgegennehmen.
+Dabei wird jeweils überprüft, ob das angegebene Kriterium ein Teilwort des jeweiligen Feldes ist.
+Für diese Kriterien können außerdem die beiden Wildcards '\_' und '\%' für ein einzelnes Zeichen bzw. für eine beliebige Anzahl von Zeichen benutzt werden.
+Als weiteres Kriterium kann ein Kunden-Login angegeben werden.
+In dem Fall wird nur nach solche Buchungen gesucht, die mit jenem Kunden-Login angelegt wurden.
+Weitere Kriterien sind der Zeitbereich in denen die Buchungen erstellt werden mussten, sowie der Kostentyp, sprich ob die einzelne Buchung kostenpflichtig oder kostenfrei ist.
 Weiterhin kann angegeben werden, ob stornierte oder abgerechnete Buchungen gefunden werden sollen.
 Außerdem kann eine Liste mit Kunden und einem, optionalen, Abrechnungsturnus übergeben werden.
 In dem Fall werden nur Buchungen von jenen Kunden mit eben diesem  Abrechnungsturnus gefunden.
 Das einzige Pflichtkriterium ist eine Information bezüglich den Kunden. So muss ein Kundenname oder eine Liste mit Kunden angegeben werden.
 
 \subsection{Kunden}
+In diesem Abschnitt werden die graphischen Oberflächen beschrieben, die den Kunden betreffen.
 \subsubsection{Kundenrenderer}
 Die Funktionalität des Kundenrenderers wurde bereits größtenteils in dem \autoref{subsubsec:kundenrenderer} beschrieben.
 Der dort nicht beschriebene Knopf "`Ergebnisse anzeigen"' wurde hinzugefügt, damit die Suche bei Bedarf ausgeführt werden kann.
-Dieser wurde während der Entwicklung hinzugefügt, da sich die erneute Suche bei jeder Änderung der Filter als unpraktikabel herausstellte.
-Dies lag an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt war, auch wenn diese, in den meisten Fällen, nur ein paar Sekunden beträgt.
-Bei Betätigen des Knopfes wird ein Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die Suche wird ausgeführt.
+Dieser wurde während der Entwicklung hinzugefügt, da sich die automatisch ausgeführte Suche bei jeder Änderung der Filter als unpraktikabel herausstellte.
+Dies liegt an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt ist, obwohl diese, in den meisten Fällen, nur ein paar Sekunden beträgt.
+Bei Betätigen des Knopfes wird ein Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die eigentliche Suche wird ausgeführt.
 Die Ergebnisse dieser Suche werden dann in der Tabelle angezeigt und eine entsprechende Zusammenfassung der Suchergebnisse wird über der Tabelle ausgegeben.
 Weiterhin können die beiden Berichte Rechnungsanlage und Buchungsbeleg erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
 So dürfen externe Benutzer die Rechnungsanlage nicht erstellen und es kann ausgewählt werden, ob kostenfreie Buchungen in den Berichten angezeigt werden sollen oder nicht.
 Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen werden.
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 	\centering
 	\incgraph{width=0.9\textwidth}{./rimg/gui-kunderenderer-real.png}
 	\caption{Kundenrenderer}
@@ -280,13 +294,136 @@ Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen
 Der Kundeneditor, der in \myfig{fig:kundeneditor} dargestellt ist, ermöglicht es einen neuen Kunden anzulegen oder die Daten eines bereits bestehenden Kunden zu bearbeiten.
 Bei den meisten Felder handelt es sich um gewöhnliche Texteingaben oder Auswahlmöglichkeiten.
 Allerdings konnte bei den Felder für die Produkte, Kunden-Logins und Kundengruppen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen werden.
-Somit können Objekte dieser Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt. 
+Somit können Objekte dieser Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt. \todo{evt 1:n Aufwand erwähnen}
 \begin{figure}[htbp]
 	\centering
 	\incgraph{width=0.9\textwidth}{./rimg/gui-kundeneditor-real.png}
 	\caption{Kundeneditor}
 	\label{fig:kundeneditor}
 \end{figure}
+
+\todo{Kunden-Login Editor und Renderer}
+
+\subsection{Buchungen}
+Für die Buchungen musste ein Renderer, ein Editor und ein Suchdialog erstellt werden.
+
+\subsubsection{Buchungseditor und -renderer}
+Beim Buchungseditor und -renderer handelt es sich um die gleiche graphische Oberfläche, wobei beim Buchungseditor die Buchung verändert werden kann.
+Die veränderbaren Werte sind die Geschäftsbuchnummer und die Projektbezeichnung, wobei die letzte Änderung jeweils protokolliert werden muss.
+Weiterhin kann im Editor eine Buchung, unter Angabe eines Stornogrundes, storniert werden.
+Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:buchungen} und eine Abbildung kann \vpageref{fig:buchungseditor} gefunden werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.8\textwidth}{./rimg/gui-buchungseditor-real.png}
+	\caption{Buchungseditor}
+	\label{fig:buchungseditor}
+\end{figure}
+
+\subsubsection{Suchdialog zu den Buchungen}
+Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich von Buchungen anzugeben, woraufhin diese über die ServerSearch von Seite \pageref{subsec:serversearch} gesucht werden und anschließend in den Suchergebnissen von \ac{WuNDa} angezeigt werden.
+Ein Beispiel der Suchergebnisse kann in der Abbildung \vref{fig:suchergebnisse} betrachtet werden, dabei wurde das Kontextmenü für den ersten Eintrag geöffnet.
+Über dieses Menü kann der Editor der ausgewählten Buchung geöffnet werden.
+Da es sich bei dem Kontextmenü um eine Standardkomponente der Cids-Umgebung handelt, befindet sich hier auch die Option "`Objekt löschen"'.
+Diese wurde jedoch so eingestellt, dass ein Löschen nicht möglich ist.
+Ein Screenshot des Suchdialog selbst kann in \myfig{fig:gui-suchdialog} gefunden werden.
+
+\begin{figure}[htb]
+	\centering
+	\incgraph{width=0.8\textwidth}{./rimg/gui-suchergebnisse-real.png}
+	\caption{Suchergebnisse mit Buchungen und Kontextmenu}
+	\label{fig:suchergebnisse}
+\end{figure}
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.8\textwidth}{./rimg/gui-buchungsuche-real.png}
+	\caption{Suchdialog der Buchungen}
+	\label{fig:gui-suchdialog}
+\end{figure}
+
+\subsection{Kundengruppen}
+
+\subsubsection{Kundengruppenrenderer und Kundengruppeneditor}
+Wie bereits beschrieben bietet der Kundengruppenrenderer einige Filterkriterien, so dass nicht gewünschte Buchungen nicht in die Ergebnisse miteinbezogen werden.
+Im Gegensatz zum Kundenrenderer werden die einzelnen Buchungen nicht angezeigt, sondern diese werden für den jeweiligen Kunden zusammengefasst und erst dann in der Tabelle dargestellt.
+Zum Erstellen der Rechnungsanlage und des Buchungbeleges stehen die gleichen Optionen zur Verfügung, wie im Kundenrenderer.
+Zusätzlich kann die Geschäftsstatistik als Bericht erstellt werden.
+Ein Screenshot des Kundengruppenrenderer kann in der \myfig{fig:gui-kundengruppenrenderer} gefunden werden.
+\begin{figure}[htb]
+	\centering
+	\incgraph{width=0.8\textwidth}{./rimg/gui-kundengruppenrenderer-real.png}
+	\caption{Kundengruppenrenderer}
+	\label{fig:gui-kundengruppenrenderer}
+\end{figure}
+
+Der Kundengruppeneditor ist in \autoref{fig:gui-kundengruppeneditor} zu sehen. Mit diesem Editor kann eine neue Kundengruppe erstellt oder eine alte bearbeitet werden. Bei den Feldern für den Namen und die Beschreibung handelt es sich um normale Texteingaben, wohingegen die Kunden wieder per Drag-and-Drop hinzugefügt werden können.
+
+\begin{figure}[htb]
+	\centering
+	\incgraph{width=0.8\textwidth}{./rimg/gui-kundengruppeneditor-real.png}
+	\caption{Kundengruppeneditor}
+	\label{fig:gui-kundengruppeneditor}
+\end{figure}
+
+\subsubsection{E-Mail an Kundengruppe erstellen}
+Wird im Katalog das Kontextmenü einer Kundengruppe geöffnet, dann erscheinen die zwei zusätzlichen Auswahlmöglichkeiten "`E-Mail an Ansprechpartner"' und "`E-Mail an Nutzer"'.
+Siehe hierzu auch die \myfig{fig:gui-kundengruppe-context}.
+Mittels diesen beiden Optionen lässt sich ein Vorlagen-Dialog öffnen, mit dem eine Vorlage ausgewählt werden kann.
+Wird dieser Dialog bestätigt so wird ein E-Mail-Verfassen-Fenster des, im Betriebssystem, eingestellten Standard-E-Mail-Programms geöffnet.
+Dieses Fenster enthält die Werte aus der Vorgabe und kann wie gewohnt bearbeitet werden.
+Je nach Auswahl der Option werden unterschiedliche E-Mail-Adressen eingesetzt.
+Wurden die Ansprechpartner ausgewählt, so werden nur die Direktkontakte der Kunden innerhalb der Kundengruppe der E-Mail hinzugefügt.
+Andernfalls werden die Kontakte sämtlicher Kunden-Logins die sich in dieser Gruppe befinden benutzt.
+Um die restlichen E-Mail-Adressen den jeweiligen Empfängern nicht bekannt zu machen, werden diese als BCC der E-Mail hinzugefügt.
+
+Die Vorlagen die in dem Vorlagen-Dialog angezeigt werden, werden aus der Datei \inline{email_templates.json} bezogen. Eine Vorlage besitzt die folgenden vier Felder:
+\begin{description}
+\item[Name] Der Name der Vorlage. Dieser wird in dem Auswahlfeld des Vorlagen-Dialogs angezeigt.
+\item[Betreff] Der Betreff der E-Mail.
+\item[To-Adressat] Dieser Empfänger wird ebenfalls der E-Mail hinzugefügt und soll als Kontrolle dienen.
+\item[Inhalt] Der eigentliche Inhalt der E-Mail.
+\end{description}
+
+\begin{figure}[htb]
+	\centering
+	\incgraph{width=0.6\textwidth}{./rimg/gui-kundengruppen-context-real.png}
+	\caption{Kontextmenu einer Kundengruppe}
+	\label{fig:gui-kundengruppe-context}
+\end{figure}
+%\inline{E\-Mail\-Composer} EMailComposer
+Um das E-Mail-Verfassen-Fenster zu öffnen, wurde die Klasse \inline{E\-Mail\-Composer} implementiert.
+Ein Objekt dieser Klasse nimmt die benötigten Informationen entgegen und erstellt eine URI nach dem mailto Schema \autocite{RFC2368}.
+Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{java-mailto} übergeben werden, welches dann das E-Mail-Verfassen-Fenster, mit den entsprechenden Vorgaben, öffnet.
+
+\subsection{Berichte}
+\todo{Noch nicht fertig. Spezifikation der Berichte fehlt noch teils.}
+Die Berichte wurden mit dem Werkzeug iReport erstellt. Diesen Berichte können aus Java heraus dynamisch generiert werden, so dass ihnen beliebige Parameter mitgegeben werden.
+Weiterhin kann diesen Berichten auch Listen mitgegeben werden und dort verarbeitet werden.
+So kann jede Zeile der Liste nach einer in iReport angegeben Vorgabe angezeigt werden.
+
+Beim Erstellen der Berichte in iReport wurde sich an die Vorgaben aus \autoref{subsec:berichte} gehalten.
+Durch die eher eingeschränkte Funktionalität von iReport konnten die Buchungen nicht als Liste übergeben werden, sondern die benötigten Daten mussten in \ac{WuNDa} vorgerechnet werden und als Parameter übergeben werden.
+
+\subsection{Buchungen-Knoten im Katalog}
+Um die Navigation innerhalb des Buchungsthemas zu gewährleisten wurde der Katalog um einen Buchungen-Knoten erweitert.
+Dessen Aufbau ist, aus Sicht eines Administrators, in \myfig{fig:katalog} dargestellt.
+Diese Erweiterung wurde mit Hilfe des \ac{ABF} durchgeführt.
+Dies war insbesondere deshalb nützlich, da es such bei den Unterknoten, die sich direkt unter dem Knoten "`Buchungen"' befinden, um dynamische Knoten handelt.
+Somit konnte im \ac{ABF} direkt überprüft werden, ob die Query richtig angegeben wurde, da dort die automatisch erstellten Unterknoten als Vorschau angezeigt werden.
+
+Der Unterknoten "`Administration"' enthält wiederum Unterknoten mit Objekten, die zur Verwaltung des Buchungsthemas benötigt werden.
+So kann mittels des Aufrufen des Kontextmenüs auf den verschiedenen Unterknoten ausgewählt werden ob neue Objekte erstellt oder alte Objekte bearbeitet werden sollen.
+Das gleiche gilt für den Unterknoten "`Kundengruppe"', dieser steht nicht unterhalb der "`Administration"' da dieser vorallem benutzt wird um die Kunden- und Kundengruppenrenderer aufzurufen. Mit ihm können aber auch die Kundengruppen verwaltet werden.
+Ein besonderer Fall stellt der Unterknoten "`meine Buchungen"' dar, der für die Administratoren leer ist.
+An dieser Stelle sehen die externen Benutzer, den Kunden dem sie zugeordnet sind und können den entsprechenden Renderer öffnen. 
+
+\begin{figure}[htb]
+	\centering
+	\incgraph{scale=0.8}{./rimg/gui-katalog.png}
+	\caption{Aufbau des Katalogs für die Buchungen}
+	\label{fig:katalog}
+\end{figure}
+
 
 \subsection{Anlegen der Berechtigungen}
 
