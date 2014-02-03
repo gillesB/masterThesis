@@ -426,6 +426,79 @@ An dieser Stelle sehen die externen Benutzer, den Kunden dem sie zugeordnet sind
 
 
 \subsection{Anlegen der Berechtigungen}
+\subsubsection{Neue Benutzergruppe}
+Im \autoref{subsec:berechtigungen} wurde beschrieben, dass nur die \ac{WuNDa}-Administratoren und verschiedene Beamte auf das Buchungen-Thema zugreifen dürfen.
+Für diese Beamte wurde eine Benutzergruppe "`Billing Intern"' angelegt, denen danach die Rechte erhalten haben, so dass sie die Buchungen verwalten können.
+
+Die Kunden sind nicht einer einzelnen Benutzergruppe zugeordnet, sondern sie sind nach ihrer Art in verschiedene Benutzergruppen eingeteilt.
+Diese Benutzergruppen sind "`Unternehmen"', "`Behörde"', "`ÖbVI - gesetzlich"' und "`ÖbVI - kommunal"'.
+Diese haben im Nachhinein die Rechte erhalten, so dass sie ihren eigenen Kundenrenderer, wie im \autoref{subsubsec:ansicht_externe_benutzer} beschrieben, betrachten können.
+
+\subsubsection{Rechte der Klassen}
+Sämtliche Klassen mit dem Präfix "`Billing\_"' haben das Standardverhalten "`Secure"' erhalten. Damit wird sichergestellt, dass niemand auf diese Klassen Zugriff erhält, dem die Rechte nicht explizit zugewiesen wurden.
+In einem nächsten Schritt haben die Administratoren und die Benutzer der Benutzergruppe "`Billing Intern"' auf diesen Klassen Lese- und Schreibrechte erhalten.
+Anschließend haben die verschiedenen Benutzergruppen der Kunden ihre benötigten Rechte erhalten.
+Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:klassenrechte} entnommen werden. 
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Vergebene Rechte an die Klassen.} \label{tab:klassenrechte}
+\begin{tabulary}{\textwidth}{|l|C|c|}
+ \hline 
+  & \head{Administratoren und Billing Intern} & \head{Kunden} \tabularnewline
+ \hline 
+ Abrechnungsturnus & r/w & r \\ 
+ \hline 
+ Billing & r/w & r/w \\ 
+ \hline 
+ Branche & r/w & r \\ 
+ \hline 
+ Client & r/w & r \\ 
+ \hline 
+ Kunde & r/w & r \\ 
+ \hline 
+ Kunde\_Kundengruppe\_Array & r/w & - \\ 
+ \hline 
+ Kunde\_Produkt\_Array & r/w & r \\ 
+ \hline 
+ Kunden\_Logins & r/w & r \\ 
+ \hline 
+ Kundengruppe & r/w & - \\ 
+ \hline 
+ Produkt & r/w & r \\ 
+ \hline 
+ Stornogrund & r/w & r \\ 
+ \hline 
+ \end{tabulary}
+ \par
+ \bigskip
+ r = Leserecht, w = Schreibrecht, - = keine Rechte
+ \end{minipage}
+ 
+\subsubsection{Rechte des Kataloges}
+Den angelegten Katalog-Knoten im Katalog mussten ebenfalls Rechte vergeben werden, so dass diese nur von den gewünschten Benutzergruppen ausgewählt werden können.
+Eine Übersicht zu den vergebenen Rechte kann der \mytab{tab:katalogrechte} entnommen werden.
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Vergebene Rechte an die Katalogknoten.} \label{tab:katalogrechte}
+\begin{tabulary}{\textwidth}{|l|L|C|c|}
+ \hline 
+  & \head{Standardverhalten} & \head{Administratoren und Billing Intern} & \head{Kunden} \tabularnewline
+ \hline 
+ Buchungen & Secure & r & r \\ 
+ \hline 
+ Administration & Secure &r & - \\ 
+ \hline 
+ Kundengruppe & Verhalten von "`Kundengruppen"' & (r/w) & (-) \\ 
+ \hline 
+ meine Buchungen & Verhalten von "`Kunde"' & (r/w) & (r) \\ 
+ \hline 
+ \end{tabulary}
+ \par
+ \bigskip
+ r = Leserecht, w = Schreibrecht, - = keine Rechte
+ \end{minipage}
 
 
 \begin{itemize}
