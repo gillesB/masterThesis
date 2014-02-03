@@ -29,7 +29,7 @@ Festpunkte sind Vermessungspunkte die laut dem sächsischen Staatsministerium f�
 Das \acf{ALKIS} ersetzt das \acf{ALB} und die \acf{ALK}, indem es die Daten beider Systeme vereint. Die \acs{AdV} hat \acs{ALKIS} entwickelt und organisiert die Pflege des Datenmodells \autocite[vgl.][]{adv-alkis}.
 
 Das Datenmodell von ALKIS ist stufenweise aufgebaut. Die oberste Stufe ist das ALKIS-Fachschema der AdV, dieses Fachschema bildet eine Grundlage mit der sämtliche Objekte, Attribute und Attributwerte aller Katasterbehörden Deutschlands abgebildet werden können.
-Die folgenden Stufen sind Reduktionen dieses Fachschema, d.h. sie benutzen nur einen Teil dieser Grundlage. Weiterhin ist die jeweils folgende Stufe eine Reduktion der vorhergegangenen Stufe. Eine Übersicht der einzelnen Stufen kann der Abbildung \ref{fig:prod-stufen} entnommen werden. 
+Die folgenden Stufen sind Reduktionen dieses Fachschema, d.h. sie benutzen nur einen Teil dieser Grundlage. Weiterhin ist die jeweils folgende Stufe eine Reduktion der vorhergegangenen Stufe \autocite[vgl.][1-4]{bezk-grunddaten}. Eine Übersicht der einzelnen Stufen kann der Abbildung \ref{fig:prod-stufen} entnommen werden. 
 
 \begin{figure}[htbp]
 	\centering
@@ -41,14 +41,7 @@ Die folgenden Stufen sind Reduktionen dieses Fachschema, d.h. sie benutzen nur e
 In \ac{NRW} wurde das Maximalprofil NRW festgelegt, da hier einige Objekte aus dem ALKIS-Fachschema der AdV nicht benötigt werden. Alle Informationen die im Maximalprofil NRW geführt werden gehören zum amtlichen Liegenschaftskataster.
 Weiterhin dürfen in NRW nur diese Informationen innerhalb ALKIS geführt werden. Jedes Katasteramt darf frei wählen welche Informationen es aus dieser Stufe führen will, vorausgesetzt diese Informationen gehören nicht zu einer unteren Stufe.
 Die nächste Stufe bildet der Grunddatenbestand NRW dieser ist landesweit gültig und muss von jedem Katasteramt in NRW geführt werden.
-Die unterste Stufe bildet der Grunddatenbestand AdV, dieser ist bundesweit gültig und muss von jedem Katasteramt in Deutschland geführt werden.
-
-Weiterhin haben die Katasterämter die Möglichkeit eine eigene Stufe zu diesem Stufenkonzept hinzuzufügen, diese gehört im Gegensatz zu den vorherigen Stufen nicht mehr zum amtlichen Liegenschaftskataster \autocite[vgl.][1-4]{bezk-grunddaten}. In Wuppertal ist dies \acs{ALWIS}.
-
-\subsubsection{ALWIS}
-Um sämtliche Datenbestände, die für die Katasterbenutzung benötigt werden, abzubilden wurde in Wuppertal eine weitere Schicht eingeführt, die \acf{ALWIS} genannt wird.
-Diese umfasst sämtliche Informationen, die in ALKIS zur Verfügung stehen und wurde um die fehlenden Informationen erweitert.
-Eine der Erweiterungen ist das Vermessungsregister.
+Die unterste Stufe bildet der Grunddatenbestand AdV, dieser ist bundesweit gültig und muss von jedem Katasteramt in Deutschland geführt werden \autocite[vgl.][1-4]{bezk-grunddaten}.
 
 \subsection{Gebühren der Produkte} \label{subsec:gebuehren}
 In diesem Abschnitt wird das Zustandekommen der Gebühren der Produkte kurz beschrieben.
@@ -60,7 +53,7 @@ Ein Rabatt kann z.\,B. ein Mengenrabatt sein oder ein Rabatt der durch eine Regl
 Eine Reglung die insbesondere die \acp{ÖbVI} betrifft ist in der \ac{VermWertGebO} festgelegt.
 Laut dieser muss die Selbstentnahme der Produkte, die zur Durchführung bestimmter Amtshandlungen benötigt werden, kostenfrei sein.
 Zu diesen Handlungen gelten die Anfertigung von Amtlichen Lageplänen und die Durchführung hoheitlicher Vermessungen \autocite[vgl.][]{wupp-wunda-oebvi}.
-Die Produkte die diese Bedingungen erfüllen werden im folgenden vermessungsrelevant genannt. Der Rabatt der bei diesen Produkten gegeben wird, wird "`zweckabhängiger Rabatt"' genannt. \todo{evt. noch MwSt erwähnen.}
+Die Produkte die diese Bedingungen erfüllen werden im folgenden vermessungsrelevant genannt. Der Rabatt der bei diesen Produkten gegeben wird, wird "`zweckabhängiger Rabatt"' genannt. \todo{evt. noch MwSt erwähnen. Rabett der Selbstentnahme erwähnen.}
 
 Weitere Informationen können dem Dokument "`Entgeltordnung Ressort 102"' \autocite{wupp-entgelt} entnommen werden.
 
@@ -85,7 +78,10 @@ In der Produktklasse ALKIS-Standardausgaben wird zwischen landesweit einheitlich
 Bei den Standardausgaben handelt es sich um Auszüge aus dem Liegenschaftskataster deren Inhalt und Form landesweit festgelegt ist.
 Diese Ausgaben beinhalten nur Daten die im Grunddatenbestand NRW definiert sind \autocite[vgl.][8]{bezk-grunddaten}.
 
-Bei den kommunalen Produkten handelt es sich um Auszüge aus dem Liegenschaftskataster, allerdings dürfen auch Daten verwendet werden, die nicht im Grunddatenbestand NRW definiert sind. Ein Beispiel eines kommunalen Produktes wäre eine modifizierte Standardausgabe, die mit Daten aus dem Maximalprofil NRW erweitert wurde. Weiterhin muss die Bezeichnung bzw. Beschriftung deutlich gekennzeichnet sein, so dass eine Verwechslung mit den Standardausgaben ausgeschlossen ist \autocite[vgl.][9]{bezk-grunddaten}. Dies wird durch die Anhänge \textit{(NRW)} bzw. \textit{(kommunal)} garantiert.
+Bei den kommunalen Produkten handelt es sich um Auszüge aus dem Liegenschaftskataster, allerdings dürfen auch Daten verwendet werden, die nicht im Grunddatenbestand NRW definiert sind.
+Ein Beispiel eines kommunalen Produktes wäre eine modifizierte Standardausgabe, die mit Daten aus dem Maximalprofil NRW erweitert wurde.
+Weiterhin muss die Bezeichnung bzw. Beschriftung deutlich gekennzeichnet sein, so dass eine Verwechslung mit den Standardausgaben ausgeschlossen ist \autocite[vgl.][9]{bezk-grunddaten}.
+Dies wird durch die Anhänge \textit{(NRW)} bzw. \textit{(kommunal)} garantiert.
 
 Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{tab-alkis-standard-start} \vpagerefrange{tab-alkis-standard-start}{tab-alkis-standard-end} entnommen werden.
 
@@ -139,13 +135,13 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 	\hline
 	Stadtgrundkarte (kommunal)
 	&
-Die Stadtgrundkarte (kommunal) ist eine umfangreiche Grundkarte, die, das Stadtbild prägende, Inhalte wiedergibt. Zusätzlich zur Stadtgrundkarte werden topographische Informationen wie zum Beispiel 
+Die Stadtgrundkarte (kommunal) ist eine umfangreiche Grundkarte, die, das Stadtbild prägende, Inhalte wiedergibt. Zusätzlich zur Flurkarte werden topographische Informationen wie zum Beispiel 
 Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balkone oder die Geschosszahl von Gebäuden.	
  \autocite[vgl.][]{wupp-alkis} Ein Beispieldokment kann unter \vref{fig:stadtgrundkarte} gefunden werden. \\
 	\hline			
 	Stadtgrundkarte
 	&
-	Stadtgrundkarte ohne kommunale Ergänzungen. Wird nicht vertrieben. \\
+	Die Stadtgrundkarte ohne kommunale Ergänzungen. Diese Version wird nicht vertrieben, da die optischen Unterschiede, gegenüber der kommunalen Version, sehr gering sind. Aus diesem Grund wird nur eine Version angeboten.  \\
 	\hline
 	Schätzungskarte (NRW)
 	&
@@ -269,9 +265,9 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 	Im Fortführungsriss sind die Änderungen rot dargestellt und mit einem Pfeil markiert \autocite[vgl.][]{stelling-fortfuehrung}. Ein solcher Fortführungsriss einer Gebäudeeinmessung kann in \ref{fig:fortfuehrungsriss} gefunden werden.
 	 \\
 	\hline
-	Dokument Liegenschaftskatasterakte
+	Dokumente der Liegenschaftskatasterakten
 	&
-	\todo{Was ist das?} \\
+	Die Dokumente der Liegenschaftskatasterakten ergänzen die Vermessungsrisse. Zu ihnen gehören u.\,a. Koordinatenberechnungen und Grenzniederschriften. In letzteren erkennen die jeweiligen Eigentümer neu gezogene Grenzen an.  \\
 	\hline
 \end{longtable} 
 	
@@ -284,10 +280,10 @@ Die Produkte der Produktklasse Daten Liegenschaftskataster sind einzelne Dateien
 \item[DXF] Das \ac{DXF} ist ein Dateiformat das von dem Unternehmen Autodesk entwickelt wurde und in \ac{CAD}-Applikationen (z.\,B. AutoCAD) als vektorbasierte Bilddatei Verwendung findet.
 \ac{DXF} wurde mit dem Hintergrund entwickelt, dass es möglich sein soll AutoCAD Dokumente mit Programmen öffnen zu können, die nicht von Autodesk entwickelt wurden. Aus diesem Grund ist \ac{DXF} eine ASCII-Textdatei \autocite[vgl.][]{fileinfo-dxf}.
 
-\item[GEOTIFF] \enquote{Ein GeoTIFF ist eine spezielle Form eines TIFF-Bildes, also ein Dateiformat zur Speicherung von Bilddaten (Dateinamenserweiterung .geotiff, oft auch nur .tif). Da das TIF-Format eine verlustfreie Speicherung zulässt, eignet es sich gut zur Verarbeitung von geographischen Daten, da es bei Satelliten- und Luftbildern bzw. anderen Rasterdaten oft auf hohe Abbildungsgenauigkeit ankommt."'} \autocite{wiki-geotiff} Weiterhin sind die \enquote{Bildinformationen [.] in jedem Programm darstellbar, welches den normalen TIFF-Standard unterstützt.} \autocite{wiki-geotiff}
+\item[GEOTIFF] \enquote{Ein GeoTIFF ist eine spezielle Form eines TIFF-Bildes, also ein Dateiformat zur Speicherung von Bilddaten [..]. Da das TIF-Format eine verlustfreie Speicherung zulässt, eignet es sich gut zur Verarbeitung von geographischen Daten, [..]."'} \autocite{wiki-geotiff} Weiterhin sind die \enquote{Bildinformationen [.] in jedem Programm darstellbar, welches den normalen TIFF-Standard unterstützt.}  \autocite{wiki-geotiff} \enquote{Wesentliche Eigenschaft ist die enthaltene Georeferenzierung, die das Geotiff bei Verwendung im GIS "an die richtige Stelle" platziert, sodass es z.B. als Hintergrundbild für weitere Planzeichnungen dienen kann.} [Frau Hähner] \todo{Neu verfassen. Indirekte Zitierung.}
 \end{description}
 
-Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabelle \ref{tab-daten-kataster} entnommen werden.
+Die Produkte der Produktklasse Daten Liegenschaftskataste können der Tabelle \ref{tab-daten-kataster} entnommen werden.
 \begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}
 	\caption{Produkte der Produktklasse Daten Liegenschaftskataster} \label{tab-daten-kataster} \\
 	\hline 
@@ -342,7 +338,7 @@ Auf jeden dieser drei Schritte wird im Folgenden eingegangen.
 
 Nachdem der \ac{ÖbVI} die Auftragserteilung zur einer Teilungsvermessung durch den Eigentümer, Erwerber oder Bauträger erhalten hat, bezieht er die erforderlichen Katasterunterlagen vom Katasteramt und die Teilungsgenehmigung von der für das Baurecht zuständigen Baugenehmigungsbehörde.
 
-Die zur Vermessung neu zu erstellenden Punkte müssen beim Katasteramt reserviert werden, so dass diese später eine eindeutige Kennung besitzen. Dieser Vorgang wird Punktnummernreservierung genannt. Weiterhin müssen die folgenden Katasterunterlagen, in Form von Produkten, bezogen werden:
+Die benötigten Katasterunterlagen werden in Form der folgenden Produkte bezogen:
 \begin{itemize}
 	\item Eigentümerangaben
 	\item Flurkarte
@@ -396,7 +392,9 @@ die neue Grenze kann, wie gewünscht, durch neue Abmarkungen gekennzeichnet werd
 
 Nach der örtlichen Arbeit folgt die Auswertung der ermittelten Rohmessdaten. Hierzu gehört es die Protokolle z.\,B. die Risse anzufertigen und die Berechnungen z.\,B. der neuen Flächen durchzuführen. 
 
-Der erste Schritt der Auswertung besteht im Einlesen der Rohmessdaten in das Berechnungsprogramm \todo{oder ins CAD? oder beides?}. Dieses kann den benötigten Fortführungsriss und die Skizze zur Grenzniederschrift automatisch erzeugen.
+In einem ersten Schritt wird die sogenannte Punktnummernreservierung durchgeführt. Dabei werden für die neu zu erstellenden Punkte amtliche Punktnummern beim Katasteramt angefragt. Diese Nummern werden benötigt damit jeder Punkt eine eindeutige Kennung besitzt.
+
+Der zweite Schritt der Auswertung besteht im Einlesen der Rohmessdaten in das Berechnungsprogramm \todo{oder ins CAD? oder beides?}. Dieses kann den benötigten Fortführungsriss und die Skizze zur Grenzniederschrift automatisch erzeugen.
 Anschließend werde folgende Berechnungen zur Ermittlung der Koordinaten durchgeführt:
 \begin{description}
 	\item[Hierarchische Berechnung der Polaraufnahme] Mittels dieser Berechnung wird die Lage von Neupunkten bestimmt \autocite[vgl.][]{wiki-polaraufnahme}. Bei Neupunkten handelt es sich um Punkte deren Koordinate noch nicht ermittelt wurden \autocite[vgl.][]{wiki-neupunkt}.  
@@ -424,17 +422,22 @@ Das Maximalprofil NRW lässt allerdings weitere Werte zu, so z.\,B. "`Stein, Gre
 
 Nach dem Abschließen der beiden Schritte kann die Erhebungsdatei nach NAS-ERH Stufe 1  erstellt werden und an das Katasteramt weitergegeben werden. Dieses kann die Fortführung dann, in einem möglichst automatischen Prozess, abschließen.
 
+\todo{STIMMT SO NICHT. Siehe pdf mit den Anmerkungen von Frah Hähner.}
+
 \paragraph{Wuppertal}
 Im Augenblick ist es bei der Stadt Wuppertal nur möglich die NAS-Dateien zu beziehen. Demnach funktioniert das, oben beschriebene, Zurückgeben der NAS-Erhebungsdaten nicht.
 Aus diesem Grund erstellt der \ac{ÖbVI} Dokumente, z.\,B. Fortführungsrisse \todo{Stimmt das? Welche Dokumente noch?} aus seinen ausgewerteten Daten und den ermittelten Punkten und gibt diese an das Katasteramt weiter.
 Dort müssen diese manuell von Beamten mittels des 3A Editors eingepflegt werden. Bei dem 3A Editor handelt es sich um eine Anwendung von AED-SICAD, mit der es möglich ist ALKIS-Daten fortzuführen \autocite[vgl.][]{sicad-3a}.
 
-\subsection{Polizei - Fahndung} \label{subsec:polizei_ermittlung}
-Ein anderer Arbeitsschritt von externen Benutzer sind Fahndungen die durch die Polizei Wuppertal durchgeführt werden. Hierbei müssen sie in verschiedenen Fällen den Eigentümer eines Flurstücks kennen, welchen sie aus dem Produkt Flurstücks- und Eigentumsnachweis beziehen können.
+\subsection{Polizei - Ermttlungen} \label{subsec:polizei_ermittlung}
+Die Polizei Wuppertal gehört auch zu den externen Benutzer von \ac{WuNDa}.
+In verschiedenen Fahndungen müssen diese die Eigentümer von Flurstücken kenne, welche sie aus dem Produkt Flurstücks- und Eigentumsnachweis beziehen können.
+Ein anderes Beispiel ist die Erstellung von Unfallskizzen. Hier können Orthofotos Verwendung finden, da auf diesen die Fahrbahnmarkierungen sichtbar sind. Weiterhin können in solchen Fällen die Mess- und Zeichenwerkzeuge der \ac{WuNDa}-Karte benutzt werden.
+Ein dritter Fall ist die Einsatzplanung, die auf Basis von geeigneter Datenquellen stattfindet. So können z.\,B. die Orthofotos auch hier wieder zu Einsatz kommen.
 
-Allerdings entzieht sich die genaue Verwendung dieses Produktes der Kenntnis des Autors, weiterhin ist ihm auch nicht bekannt ob noch weitere Funktionalitäten oder potentielle Erweiterungen von \ac{WuNDa} benötigt werden. \todo{Unwissenheit}
-
-Ungeachtet dessen bereichert dieser Zugriff die Arbeit der Polizeibeamten, da die benötigten Informationen auch außerhalb der Öffnungszeiten des Katasteramtes ermittelt werden können. Weiterhin hat jeder Beamte seinen eigenen Benutzernamen, so dass zurückverfolgt werden kann, wer welche Produkte bezogen hat. \todo{Ist das der tatsächliche Grund?} 
+Ungeachtet dessen bereichert dieser Zugriff die Arbeit der Polizeibeamten, da die benötigten Informationen auch außerhalb der Öffnungszeiten des Katasteramtes bezogen werden können.
+Weiterhin besitzt jeder Beamte, aus Datenschutzgründen, seinen eigenen Benutzernamen.
+Auf diese Weise kann nachvollzogen werden, welcher Beamte welche Produkte bezogen hat.
 
 %\subsection{Sparkasse - Baufinanzierung}
 %Weitere externe Benutzer sind die verschiedene Mitarbeiter der Sparkasse Wuppertal. Diese benötigen bei der Vergabe von Krediten zur Baufinanzierung Flurkarten. Diese spielen dabei eine wichtige Rolle da die Sparkasse so den Wert der Immobile oder des Grundstücks vor der Vergabe des Kredits einschätzen kann. Dies ist nötig, da das finanzierte Objekt üblicherweise als Kreditsicherheit benutzt wird \autocite[vgl.][]{check24-flurkarte}. 
@@ -527,14 +530,18 @@ Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Do
 \label{subsec:beschaffung-download}
 Zeitgleich mit dem Starten des Downloads wird dieser protokolliert. Dies bedeutet, dass relevante Informationen zu dem Download abgespeichert werden. Das Abspeichern erfolgt in jedem Fall, also auch wenn die Gebühr \EUR{0} beträgt oder der Download fehlschlägt. Insbesondere der letzte Fall bereitet beim Erstellen der Abrechnung Probleme, wie dies dem Abschnitt \vref{subsec:erstellen_abrechnung_storno} zu entnehmen ist, da diese Protokolle storniert werden müssen.
  
-Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit die benötigten Produkte, von seinem Rechner aus, selbst zu beziehen und entlastet das Katasteramt in dem Sinne, dass die Bearbeitungszeit zum Erstellen der Produkte eingespart wird.
+Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit die benötigten Produkte, von seinem Rechner aus, selbst zu beziehen, so dass diese unmittelbar für ihn zur Verfügung stehen.
+Weiterhin entlastet er somit das Katasteramt, weil die Bearbeitungszeit zum Erstellen der Produkte eingespart wird.
+Wodurch ein zweiter Vorteil für den Benutzer entsteht, da er einen Rabatt auf den kostenpflichtigen Produkten erhält.
 
 \subsection{Verarbeitung}
 Bei der Verarbeitung der Produkte oder sonstigen weiteren Tätigkeiten unterstützt \ac{WuNDa} den externen Benutzer nicht.
 
 \subsection{Fortführung}
-Auch bei der Fortführung unterstützt \ac{WuNDa} den externen Benutzer nicht, obwohl dies ähnlich wie in Abschnitt \ref{subsubsec:auswertung} beschrieben denkbar wäre.
+Bei der Fortführung wird der externen Benutzer mittels der von \ac{WuNDa} angebotenen Punktnummernreservierung unterstützt.
+Ansonsten wird dem Benutzer in dem Bereich keine Funktionalität angeboten.
 
+\bigskip
 Welche Erweiterungen von \ac{WuNDa} denkbar und sinnvoll sind, wird im Kapitel \todo{Ref} ausführlich beschrieben. Zu Schluss dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
 
 %\begin{itemize}
@@ -563,7 +570,9 @@ Im folgenden Arbeitsschritt muss der Beamte die einzelnen Buchungen für jeden B
 Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit anfällt. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
 
 Ein weiterer Nachteil ist, dass die Protokolle nur auf Login-Ebene angelegt werden, d.h. es wird nur der Name gespeichert, mit dem sich der externe Benutzer in \ac{WuNDa} anmeldet.
-Im Workflow \ref{subsec:polizei_ermittlung} hat man gesehen, dass die Polizei mehrere externe Benutzer besitzt, die Abrechnung soll allerdings an den eigentlichen Kunden, also die Polizei, gestellt werden und nicht an die einzelnen Benutzer.
+Im Workflow \ref{subsec:polizei_ermittlung} hat man gesehen, dass die Polizei mehrere externe Benutzer besitzt.
+In naher Zukunft wird es voraussichtlich noch andere Kunden geben, die mehrere Benutzer besitzen. \todo{polizei streichen, die zahlen nix}
+Die Abrechnung soll allerdings an den eigentlichen Kunden gestellt werden und nicht an die einzelnen Benutzer.
 Demnach muss sich der Beamte merken welche Benutzer zu welchem Kunden gehören um die entsprechende Abrechnung zu erstellen.
 Dies ist zwar machbar, verkompliziert den Arbeitsschritt aber ungemein.
 
@@ -575,7 +584,7 @@ Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der A
 
 Kurzum die Vorgehensweise ist durch die manuelle Bearbeitung und den aufgeführten Nachteilen sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
 
-Aus diesen Gründen soll \ac{WuNDa} um eine Verwaltung der Downloadprotokolle, eine automatisierte Erstellung der Abrechnungen, sowie anderen verwandten Funktionalitäten erweitert werden, die den externen Benutzer und dem Katasteramt Zeitersparnisse bringen sollen. Die gewünschten Erweiterungen werden im nächsten Kapitel spezifiziert.
+Aus diesen Gründen soll \ac{WuNDa} um eine Verwaltung der Downloadprotokolle, eine automatisierte Erstellung der Abrechnungen, sowie anderen verwandten Funktionalitäten erweitert werden, die den externen Benutzer und dem Katasteramt Zeitersparnisse bringen sollen. Die gewünschten Erweiterungen werden im nächsten Kapitel spezifiziert. \todo{konto einsicht des Kunden}
 
 
 %Bisheriges Erstellen der Abrechnung.

@@ -45,7 +45,7 @@ Beim Katalog handelt es sich um die Hauptnavigationsmöglichkeit des Navigators.
 Dieser Baum wird in der Integration Base mittels Meta-Daten beschrieben und wird bei Bedarf erstellt und im Navigator angezeigt.
 Dieses Erstellen erfolgt dynamisch und ermöglicht es sämtliche Unterknoten, bis hin zur Objektebene, aus der Datenbank zu beziehen und zu erzeugen.
 Um den Aufbau des Katalogs mittels eines Beispiels zu verdeutlichen, kann der Katalog eines \ac{ÖbVI} in \ac{WuNDa} der \myfig{fig:katlog-oebvi} entnommen werden.
-Bei dem Knoten \ac{ALWIS} handelt es sich um einen sogenannten dynamischen Knoten.
+Bei dem Knoten \acs{ALWIS}\footnote{\acs{ALWIS} (\acl{ALWIS}) fasst mehrere Teilsysteme von \ac{WuNDa} zusammen. Unter \acs{ALWIS} finden sich die ALKIS-Benutzungskomponenten und alle weiteren Datenbestände die für die Katasterbenutzung relevant sind, so z.\,B. das Vermessungsregister \autocite[vgl.][]{wupp-wunda-oebvi}.} handelt es sich um einen sogenannten dynamischen Knoten.
 Ein solcher Knoten besitzt eine SQL-Querie, mit der seine Unterknoten ermittelt und erstellt werden können.
 Diese Unterknoten können ebenfalls solche Querie besitzen, so dass diese wiederum eigene Unterknoten mit eigenen Queries besitzen.
 Auf diese Weise kann der Baum dynamisch gefüllt werden, wobei seine Blätter, in der Regel, konkrete Objekte darstellen.
