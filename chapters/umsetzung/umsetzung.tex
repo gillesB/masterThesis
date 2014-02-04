@@ -321,7 +321,13 @@ Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:
 \end{figure}
 
 \subsubsection{Suchdialog zu den Buchungen}
-Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich von Buchungen anzugeben, woraufhin diese über die ServerSearch von Seite \pageref{subsec:serversearch} gesucht werden und anschließend in den Suchergebnissen von \ac{WuNDa} angezeigt werden.
+Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich Buchungen anzugeben, woraufhin nach Buchungen mit jenen Kriterien gesucht werden kann.
+Die graphische Oberfläche der Suche wurde in der Klasse \inline{Billing\-Window\-Search} umgesetzt.
+Diese Klasse kann über einen Lookup-Mechanismus gefunden werden und wird automatisch als Eintrag des Fenster-Menüs von \ac{WuNDa} angezeigt.
+Über diesen Eintrag kann der Suchdialog geöffnet und geschlossen werden.
+
+Die eigentliche Suche wurde über die ServerSearch, die auf Seite \pageref{subsec:serversearch} beschrieben wurde, umgesetzt.
+Wobei die gefundenen Ergebnisse  anschließend in den Suchergebnissen von \ac{WuNDa} angezeigt werden.
 Ein Beispiel der Suchergebnisse kann in der Abbildung \vref{fig:suchergebnisse} betrachtet werden, dabei wurde das Kontextmenü für den ersten Eintrag geöffnet.
 Über dieses Menü kann der Editor der ausgewählten Buchung geöffnet werden.
 Da es sich bei dem Kontextmenü um eine Standardkomponente der Cids-Umgebung handelt, befindet sich hier auch die Option "`Objekt löschen"'.
@@ -476,8 +482,13 @@ Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:klassenrechte} ent
  \end{minipage}
  
 \subsubsection{Rechte des Kataloges}
-Den angelegten Katalog-Knoten im Katalog mussten ebenfalls Rechte vergeben werden, so dass diese nur von den gewünschten Benutzergruppen ausgewählt werden können.
-Eine Übersicht zu den vergebenen Rechte kann der \mytab{tab:katalogrechte} entnommen werden.
+Damit die angelegten Katalog-Knoten nur von den gewünschten Benutzergruppen ausgewählt und benutzt werden können, mussten für die Knoten ebenfalls Rechte gesetzt werden.
+Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:katalogrechte} entnommen werden.
+In dieser Tabelle wird das gesetzte Standardverhalten der Knoten ebenfalls aufgelistet.
+Das Standardverhalten "`Secure"' funktioniert auf die gleiche Art und Weise wie dies auch bei den Klassen der Fall ist.
+Einem Knoten kann zusätzlich eine Klasse zugewiesen werden, auf die er sich bezieht.
+Daraufhin kann als Standardverhalten festgelegt werden, dass der Knoten die Rechte seiner Klasse übernimmt.
+In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu verdeutlichen dass diese übernommen wurden.
 
 \begin{minipage}{\linewidth}
 \centering
@@ -497,18 +508,69 @@ Eine Übersicht zu den vergebenen Rechte kann der \mytab{tab:katalogrechte} entn
  \end{tabulary}
  \par
  \bigskip
- r = Leserecht, w = Schreibrecht, - = keine Rechte
+ r = Leserecht, w = Schreibrecht, - = keine Rechte, () = übernommene Rechte
  \end{minipage}
+ 
+Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Klasse "'Kundengruppe"' nicht auf lesend gesetzt werden darf. Wäre dies der Fall so könnten sämtliche Kunden die Kundenrenderer der anderen Kunden öffnen und somit Einsicht in deren Buchungen erhalten.
 
+\subsubsection{Einschränkungen bezüglich der Rechnungsanlage und der Buchungen-Suche}
 
+Nach dem Setzen der Rechte haben die externe Benutzer zu viele Berechtigungen.
+Nämlich das Erstellen der Rechnungsanlage und das Öffnen der Buchungen-Suche.
+Diese zusätzlichen Berechtigungen werden mit Hilfe der folgenden zwei Aktionsrechten realisiert:
 \begin{itemize}
-	\item Realisiert wurde
-	\begin{itemize}
-		\item in der DB
-		\item in der GUI
-		\item ...
-	\end{itemize}
+\item custom.billing.reports
+\item custom.billing.search
 \end{itemize}
+Diesen Aktionsrechte wurden die Benutzergruppen "`Administratoren"' und "`Billing Intern"' als Attribute hinzugefügt.
+
+Die Einschränkungen bezüglich der Rechnungsanlage kann somit realisiert werden, da  im Kundenrenderer abgefragt werden kann, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes "`custom.billing.reports"' ist.
+Bei Bedarf können somit die benötigten GUI-Elemente an- oder ausgeschaltet werden.
+
+Für die Anzeige der Suche wurde eine Cids-Funktionalität verwendet, die das Interface \inline{Action\-Tag\-Protected} liefert.
+Um diese Funktionalität umzusetzen muss die Klasse \inline{Billing\-Window\-Search} dieses Interface implementieren.
+Dadurch muss in \inline{Billing\-Window\-Search} die Methode \inline{check\-Action\-Tag()} realisiert sein, die ein \inline{boolean} zurückgibt.
+Somit fragt diese Methode ab, ob der aktuell angemeldete Benutzer das Aktionsrecht "`custom.""billing.""search"' besitzt, um dieses Ergebnis daraufhin zurück zu gegeben.
+Cids-intern wird diese Methode aufgerufen und die Suche wird entsprechend den Berechtigungen im Such-Menü angezeigt oder nicht. 
+
+\subsubsection{Ansicht des eigenen Kundenrenderers}
+Die letzte Einschränkung die umgesetzt werden musste war, dass ein externer Benutzer nur den eigenen Kundenrenderer öffnen kann.
+
+In einem ersten Schritt wurde für jeden Kunden ein eigenes Aktionsrecht angelegt.
+Der Namensaufbau eines solchen Aktionsrechtes ist: \inline{custom.\-billing.\-tree.\-<interner_\-Name_\-des_\-Kunden>}.
+Die Attribute dieses Aktionsrecht sind die Benutzer die zu einem Kunden gehören. 
+Wobei ein Benutzer für jede Benutzergruppe, in der er sich befindet, eingetragen werden muss.
+Als Beispiel: der Kunden \ac{ÖbVI} Otto hat den internen Namen "`otto"'. Weiterhin hat er einen Login-Name "`oebvi\_otto"' der sich in den Benutzergruppen "`ÖbVI - gesetzlich"' und "`ÖbVI - kommunal"' befindet. Sein Aktionsrecht muss demnach folgenden Aufbau haben, wobei die Unterelemente dessen Attribute darstellen (Login-Name -- Benutzergruppe):
+\begin{itemize}
+\item custom.billing.tree.otto
+\begin{itemize}
+\item oebvi\_otto -- "`ÖbVI - gesetzlich"'
+\item oebvi\_otto -- "`ÖbVI - kommunal"'
+\end{itemize}
+\end{itemize}
+
+In einem nächsten Schritt wurde die SQL-Query des dynamischen Knotens "`meine Buchungen"' angepasst.
+Diese Query beinhaltet in der Regel Parameter, die zur Erstellung eines Unterknotens benötigt werden, wie etwa die ID oder der anzuzeigende Name.
+Zusätzlich zu den üblichen Parameter wurde hier das Parameter "`additionaltree""permissiontag"' hinzugefügt.
+Dessen Wert besteht aus dem String "`custom.""billing.""tree."' konkateniert mit dem jeweiligen internen Namen des Kunden.
+Wichtig zu erwähnen ist, dass somit der Aktionsrechtsname und der Wert des Parameters für einen Kunden gleich ist. 
+
+Im letzten Schritt musste die Klasse \inline{Virtual\-Tree} erweitert werden.
+Sie wertet für jeden zu erstellenden Kundenknoten das Parameter "`additionaltreepermissiontag"' aus und überprüft, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes mit dem gleichen Namen ist.
+Nur in dem Fall beidem dies zutrifft wird der Knoten dem Katalog hinzugefügt.
+Aus diesem Grund muss der oben genannte Aufbau des Aktionsrechtsnamens eingehalten werden, da sonst die Überprüfung im  \inline{Virtual\-Tree} immer fehlschlägt und der Kundenknoten nicht angezeigt wird.
+Weiterhin ist somit sichergestellt, dass ein Kundenknoten eines anderen Kunden nicht angezeigt wird, weil der aktuell angemeldete Benutzer nicht Besitzer dessen Aktionsrechtes ist.
+
+Auf diese Weise sieht ein Kunde jeweils nur seinen eigenen Knoten und kann hierüber nur seinen eigenen Kundenrenderer öffnen. 
+
+%\begin{itemize}
+%	\item Realisiert wurde
+%	\begin{itemize}
+%		\item in der DB
+%		\item in der GUI
+%		\item ...
+%	\end{itemize}
+%\end{itemize}
 
 
 \section{Vergleich Realisierung und Spezifikation}
