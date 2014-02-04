@@ -404,12 +404,8 @@ Anschließend werde folgende Berechnungen zur Ermittlung der Koordinaten durchge
 Nachdem Fertigstellen der Berechnungen müssen die Daten aufbereitet werden ehe diese zurück an das Katasteramt gegeben werden können.
 Zu dieser Aufbereitung gehört die \ac{VP-Liste}, in der die zuvor ermittelten Koordinaten und zusätzlichen Informationen zu den Punkten eingetragen werden \autocite[vgl.][62]{bezk-vp-liste}.
 
-Bei den folgenden Schritten der Aufbereitung muss zwischen der geplanten ALKIS"=Vorgehensweise und der Zurzeit benutzten Vorgehensweise in Wuppertal unterschieden werden.
-Nach der Abgabe der Informationen ist die Teilungsvermessung abgeschlossen. \todo{Gehören die beiden Vorgehensweisen wirklich hierhin?}
-
-\paragraph{ALKIS}
-
-Laut \autocite{jungemann-alltag} ist mit ALKIS vorgesehen dass die Punktendaten in einer Erhebungsdatei der Form NAS-ERH Stufe 1 zurückgegeben werden können.
+Um die Fortführung durchzuführen benötigt das Katasteramt diese drei erstellten Dokumente, also Fortführungsriss, Grenzniederschrift und \ac{VP-Liste}.
+Zusätzlich können die Messergebnisse in digitaler Form eingereicht werden, welches dem Katasteramt die Fortführungsarbeit erleichtert. Dabei können die Punktendaten in Form einer Erhebungsdatei der Form NAS-ERH Stufe 1 zurückgegeben werden können.
 Bei NAS-Erhebungsdaten (NAS-ERH) Stufe 1 handelt es sich um einen Mindestumfang an Informationen der zu Vermessungspunkten bekannt sein muss \autocite[vgl.][]{bezk-nas-erh}.
 
 Ehe die Erhebungsdatei erstellt werden kann muss darauf geachtet werden, dass jedes Katasteramt in \ac{NRW} andere ALKIS-Datenbestände benutzen kann. Dies kann an der Attributart "`abmarkung\_Marke"' zur Objektart AX\_Grenzpunkt verdeutlicht werden. Für diese Attributart gibt es im  Grunddatenbestand NRW drei mögliche Werte:
@@ -420,14 +416,9 @@ Ehe die Erhebungsdatei erstellt werden kann muss darauf geachtet werden, dass je
 \end{description}
 Das Maximalprofil NRW lässt allerdings weitere Werte zu, so z.\,B. "`Stein, Grenzstein"' (1110) oder "`Rohr mit Schutzkappe"' (1201) \autocite[vgl.][]{bezk-schluessel}. Kennt das Katasteramt die benutzten Werte nicht so müssen diese umgeschlüsselt werden, dies bedeutet dass im Zweifelsfall einer der drei Werte des Grunddatenbestandes NRW benutzt werden muss. 
 
-Nach dem Abschließen der beiden Schritte kann die Erhebungsdatei nach NAS-ERH Stufe 1  erstellt werden und an das Katasteramt weitergegeben werden. Dieses kann die Fortführung dann, in einem möglichst automatischen Prozess, abschließen.
-
-\todo{STIMMT SO NICHT. Siehe pdf mit den Anmerkungen von Frah Hähner.}
-
-\paragraph{Wuppertal}
-Im Augenblick ist es bei der Stadt Wuppertal nur möglich die NAS-Dateien zu beziehen. Demnach funktioniert das, oben beschriebene, Zurückgeben der NAS-Erhebungsdaten nicht.
-Aus diesem Grund erstellt der \ac{ÖbVI} Dokumente, z.\,B. Fortführungsrisse \todo{Stimmt das? Welche Dokumente noch?} aus seinen ausgewerteten Daten und den ermittelten Punkten und gibt diese an das Katasteramt weiter.
-Dort müssen diese manuell von Beamten mittels des 3A Editors eingepflegt werden. Bei dem 3A Editor handelt es sich um eine Anwendung von AED-SICAD, mit der es möglich ist ALKIS-Daten fortzuführen \autocite[vgl.][]{sicad-3a}.
+Nach Erstellung der Erhebungsdatei und der drei Dokumente können diese beim Katasteramt abgegeben werden. Dieses kann die Dokumente dann auf Richtigkeit überprüfen und archivieren.
+Mit Hilfe der Erhebungsdatei können die neu erstellten Punkte automatisch in ihr Softwaresystem importiert werden und weiterverarbeitet werden.
+Somit dienen sie als Basis für die Beamten des Katasteramtes, die die Teilungsvermessung dort übernehmen.
 
 \subsection{Polizei - Ermttlungen} \label{subsec:polizei_ermittlung}
 Die Polizei Wuppertal gehört auch zu den externen Benutzer von \ac{WuNDa}.
@@ -523,23 +514,25 @@ Für die Abrechnungen ist der Verwendungszweck besonders relevant, da dieser ver
 
 Im Berechnungsfeld kann der Benutzer nachvollziehen wie die Gebühr zu seinem Download zustande kommt. Hier wird das gewählte Produkt und dessen Grundpreis angegeben, woraufhin der Rabatt abgezogen wird, um schließlich die fällige Gebühr anzuzeigen.
 
-Die auswählbare Verwendungszwecke eines \ac{ÖbVI} sind u.\,a. "`Vermessungsunterlagen (amtlicher Lageplan TS3)"' und "`Vermessungsunterlagen (hoheitliche Vermessung TS4)"'. In diesem Beispiel ist der Benutzer ein \ac{ÖbVI} der ein vermessungsrelevantes Dokument bezieht, somit fällt, nach Abzug der Rabatte, eine Gebühr von \EUR{0} an.
+Die auswählbare Verwendungszwecke eines \ac{ÖbVI} sind u.\,a. "`Vermessungsunterlagen (amtlicher Lageplan TS3)"' und "`Vermessungsunterlagen (hoheitliche Vermessung TS4)"'.
+In diesem Beispiel ist der Benutzer ein \ac{ÖbVI} der ein vermessungsrelevantes Dokument bezieht, somit fällt, nach Abzug der Rabatte, eine Gebühr von \EUR{0} an.
+Bezieht der Kunde ein kostenpflichtiges Produkt selbst, so fällt auf jeden Fall der sogenannte Selbstentnahmerabatt an. 
 
 Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Download des Produktes wird gestartet. Nach dem Abschluss des Downloads kann der Benutzer die heruntergeladene Datei wie gewohnt benutzen. Im Falle der Liegenschaftskarte wird eine PDF-Datei heruntergeladen, ein Beispiel hiervon ist auf Seite \pageref{fig:flurkarte} zu finden.
 
 \label{subsec:beschaffung-download}
 Zeitgleich mit dem Starten des Downloads wird dieser protokolliert. Dies bedeutet, dass relevante Informationen zu dem Download abgespeichert werden. Das Abspeichern erfolgt in jedem Fall, also auch wenn die Gebühr \EUR{0} beträgt oder der Download fehlschlägt. Insbesondere der letzte Fall bereitet beim Erstellen der Abrechnung Probleme, wie dies dem Abschnitt \vref{subsec:erstellen_abrechnung_storno} zu entnehmen ist, da diese Protokolle storniert werden müssen.
  
-Kurzum der externe Benutzer erhält durch die Selbstentnahme die Möglichkeit die benötigten Produkte, von seinem Rechner aus, selbst zu beziehen, so dass diese unmittelbar für ihn zur Verfügung stehen.
-Weiterhin entlastet er somit das Katasteramt, weil die Bearbeitungszeit zum Erstellen der Produkte eingespart wird.
-Wodurch ein zweiter Vorteil für den Benutzer entsteht, da er einen Rabatt auf den kostenpflichtigen Produkten erhält.
+Kurzum der externe Benutzer erhält durch die Selbstentnahme verschiedene Vorteile.
+Einerseits stehen ihm die Dokumente sofort zur Verfügung und dies auch außerhalb der Öffnungszeiten des Katasteramtes.
+Andererseits erhält er durch die Selbstentnahme ein Rabatt, da das Katasteramt die, ansonsten benötigte, Bearbeitungszeit einspart.
 
 \subsection{Verarbeitung}
 Bei der Verarbeitung der Produkte oder sonstigen weiteren Tätigkeiten unterstützt \ac{WuNDa} den externen Benutzer nicht.
 
 \subsection{Fortführung}
 Bei der Fortführung wird der externen Benutzer mittels der von \ac{WuNDa} angebotenen Punktnummernreservierung unterstützt.
-Ansonsten wird dem Benutzer in dem Bereich keine Funktionalität angeboten.
+Ansonsten wird dem Benutzer in diesem Bereich keine Funktionalität angeboten.
 
 \bigskip
 Welche Erweiterungen von \ac{WuNDa} denkbar und sinnvoll sind, wird im Kapitel \todo{Ref} ausführlich beschrieben. Zu Schluss dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
@@ -570,10 +563,10 @@ Im folgenden Arbeitsschritt muss der Beamte die einzelnen Buchungen für jeden B
 Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit anfällt. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
 
 Ein weiterer Nachteil ist, dass die Protokolle nur auf Login-Ebene angelegt werden, d.h. es wird nur der Name gespeichert, mit dem sich der externe Benutzer in \ac{WuNDa} anmeldet.
-Im Workflow \ref{subsec:polizei_ermittlung} hat man gesehen, dass die Polizei mehrere externe Benutzer besitzt.
-In naher Zukunft wird es voraussichtlich noch andere Kunden geben, die mehrere Benutzer besitzen. \todo{polizei streichen, die zahlen nix}
-Die Abrechnung soll allerdings an den eigentlichen Kunden gestellt werden und nicht an die einzelnen Benutzer.
-Demnach muss sich der Beamte merken welche Benutzer zu welchem Kunden gehören um die entsprechende Abrechnung zu erstellen.
+Dies ist unproblematisch falls es pro Kunde nur einen Login-Namen gibt.
+Dies ist allerdings nicht immer der Fall, weil verschiedene Kunden mehrere Login-Namen besitzen.
+Aus diesem Grund müssen beim Erstellen der Abrechnung die Login-Namen aus den Protokollen den entsprechenden Kunden zugeordnet werden.
+Demnach muss der Beamte, beim Erstellen der Abrechnung an einen bestimmten Kunden, darauf achten diese Zuordnung richtig und vollständig zu machen.
 Dies ist zwar machbar, verkompliziert den Arbeitsschritt aber ungemein.
 
 \label{subsec:erstellen_abrechnung_storno}
@@ -584,7 +577,7 @@ Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der A
 
 Kurzum die Vorgehensweise ist durch die manuelle Bearbeitung und den aufgeführten Nachteilen sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
 
-Aus diesen Gründen soll \ac{WuNDa} um eine Verwaltung der Downloadprotokolle, eine automatisierte Erstellung der Abrechnungen, sowie anderen verwandten Funktionalitäten erweitert werden, die den externen Benutzer und dem Katasteramt Zeitersparnisse bringen sollen. Die gewünschten Erweiterungen werden im nächsten Kapitel spezifiziert. \todo{konto einsicht des Kunden}
+Aus diesen Gründen soll \ac{WuNDa} einige Erweiterungen erhalten, die diese Probleme beseitigen, in dem es diesen Vorgang möglichst automatisiert und auch Funktionalitäten mit einer verwandten Thematik anbietet. Diese Erweiterungen sollen den externen Benutzern, aber vor allem dem Katasteramt Zeitersparnisse einbringen und werden im nächsten Kapitel spezifiziert.
 
 
 %Bisheriges Erstellen der Abrechnung.
