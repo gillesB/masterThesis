@@ -87,12 +87,14 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}
 	\caption{Produkte der Produktklasse ALKIS-Standardausgaben} \label{tab-alkis-standard-start} \\
-	\hline 
+	\hline
+	\rowcolor{gray}
 	\head{Produktname} & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endfirsthead	
 		\caption{Produkte der Produktklasse ALKIS-Standardausgaben}  \\
 			\hline
+	\rowcolor{gray}
 	\head{Produktname} & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endhead	
@@ -187,12 +189,14 @@ Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}
 	\caption{Produkte der Produktklasse Standardausgaben WUP-kommunal} \label{tab-wupp} \\
-	\hline 
+	\hline
+		\rowcolor{gray}
 	\head{Produktname}  & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endfirsthead	
 	\caption{Produkte der Produktklasse Standardausgaben WUP-kommunal}\\
-	\hline 
+	\hline
+		\rowcolor{gray}
 	\head{Produktname}  & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endhead
@@ -240,11 +244,13 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 \begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}	
 	\caption{Produkte der Produktklasse WuNDa-Berichte} \label{tab-wunda-berichte} \\
 	\hline 
+		\rowcolor{gray}
 	\head{Produktname}  & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endfirsthead
 	\caption{Produkte der Produktklasse WuNDa-Berichte} \\
 	\hline 
+		\rowcolor{gray}
 	\head{Produktname}  & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endhead
@@ -284,13 +290,15 @@ Die Produkte der Produktklasse Daten Liegenschaftskataster sind einzelne Dateien
 \end{description}
 
 Die Produkte der Produktklasse Daten Liegenschaftskataste können der Tabelle \ref{tab-daten-kataster} entnommen werden.
-\begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}
-	\caption{Produkte der Produktklasse Daten Liegenschaftskataster} \label{tab-daten-kataster} \\
+
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Produkte der Produktklasse Daten Liegenschaftskataster} \label{tab-daten-kataster}
+\begin{tabular}{|p{0.3\textwidth}|p{0.642\textwidth}|}
 	\hline 
+	 \rowcolor{gray} 
 	\head{Produktname}  & \head{Beschreibung} \tabularnewline
-	\hline 
-	\endhead	
-				
+	\hline 					
 	\acs{NAS}-Daten (mit Eigentümern)
 	&
 	Vollständiger \acs{NAS}-Datensatz, wird als \acs{XML}-Datei ausgegeben. \\
@@ -311,7 +319,8 @@ Die Produkte der Produktklasse Daten Liegenschaftskataste können der Tabelle \r
 	&
 	Die Stadtgrundkarte (kommunal) als GEOTIFF-Datei. \\
 	\hline	
-\end{longtable} 
+\end{tabular}
+ \end{minipage}
 
 \section{Beleuchtung typischer Workflows der externen Benutzer}
 Nachdem die einzelnen Produkte aufgelistet wurden, werden in diesem Abschnitt verschiedene Workflows von externen Benutzer beleuchtet und es wird gezeigt wie verschiedene Produkte verwendet werden. Im nächsten Abschnitt wird dann erläutert wie \ac{WuNDa} diese Workflows im Augenblick unterstützt.

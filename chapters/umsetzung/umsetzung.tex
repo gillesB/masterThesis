@@ -154,42 +154,59 @@ Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank un
 Dabei sind auch die Tabelle der Datenbank und ihr Aufbau gemeint, da deren Struktur nicht oder nur geringfügig von der Struktur der erstellten Klassen abweicht.
 
 \subsubsection{Ausgangslage}
-In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Klasse der Buchungen, die \inline{BILLING}-Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
-\todo{beschreiben}
+In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Klasse der Buchungen, die \inline{BILLING}"=Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
 \begin{figure}[htb]
 	\centering
-	\incgraph{scale=0.8}{./rimg/db_model_billing.png}
+	\incgraph{scale=0.618}{./rimg/db_model_billing.png}
 	\caption{Ausgangslage des Datenbankmodells}
 	\label{fig:db-billing}
 \end{figure}
 
-\subsubsection{Weitere Schritte}
-Wie bereits in \autoref{ch:spezi} beschrieben, waren sämtliche Anforderungen nicht von Anfang an bekannt, sondern wurden schrittweise erweitert. Dieser Prozess ist am deutlichsten am Datenbankmodell zu betrachten, welches mit den Anforderungen gewachsen ist.
+\subsubsection{Iterativer Vorgang}
+Wie bereits in \autoref{ch:spezi} beschrieben, waren sämtliche Anforderungen nicht von Anfang an bekannt, sondern wurden schrittweise erweitert.
+Dieser Prozess ist am deutlichsten am Datenbankmodell zu betrachten, welches mit den Anforderungen gewachsen ist.
 Da die einzelnen Schritte für das Verständnis der Arbeit nicht relevant sind, werden diese nicht im Detail erläutert.
-Um das Anwachsen des Datenbankmodells trotzdem zu verdeutlichen, wird eine der ersten Versionen kurz beschrieben, um anschließend die schlussendliche Version abzubilden und zu kommentieren.
+Um das Anwachsen des Datenbankmodells trotzdem zu verdeutlichen, wird an dieser Stelle auf zwei Versionen des Datenbankmodells verwiesen deren Abbildungen sich unter \ref{fig:db-two} und \ref{fig:db-three} befinden.
 
-Für den ersten Schritt wurden die anfänglich existierenden Anforderungen analysiert und die erste Version des Datenbankmodells wurde erstellt. 
-Die \myfig{fig:db-two} zeigt einen recht frühen Stand des Datenbankmodells.
-Dennoch sind die meisten Klassen die in den Spezifikationen aufgeführt werden bereits vorhanden und die Verbindungen zwischen den einzelnen Klassen bestehen ebenfalls bereits. 
+\subsubsection{Benötigte Änderungen}
+Nach dem Analysieren der Ausgangslage wurde in einem weiteren Schritt die \inline{BILLING}"=Klasse um die benötigten Felder erweitert.
+Bis zu dem Zeitpunkt war die Gebühr einer Buchung in dem einzelnen Feld "`gebuehr"' gespeichert.
+Dies reicht allerdings nicht aus, um die benötigten Funktionalitäten darzustellen. Aus diesem Grund wurde das Feld  "`gebuehr"' durch die drei Felder "`netto\_summe"', "`brutto\_summe"' und "`mwst\_satz"' ersetzt.
+Weiterhin muss eine Buchung storniert werden können, deshalb wurden die folgenden zusätzlichen Felder eingeführt:
+\begin{description}
+\item[storniert] Ein Boolean, das angibt ob die Buchung storniert wurde, oder nicht.
+\item[storniert\_durch] Der Benutzername der die Buchung storniert hat.
+\item[stornogrund] Der Grund, warum die Buchung storniert wurde, dabei handelt es sich um ein Verweis auf einen Stornogrund.
+\item[storno\_datum] Das Datum, wann die Buchung storniert wurde.
+\end{description}
+Des Weiteren muss eine Änderung protokolliert werden können, für diese Funktionalität wurden die folgenden Felder eingeführt:
+\begin{description}
+\item[geaendert\_von] Der Benutzername mit dem die Buchung geändert wurde.
+\item[geaendert\_am] Das Datum, an dem die Buchung geändert wurde.
+\item[aenderung\_attribut] Der Spaltenname von dem Wert der geändert wurde.
+\item[aenderung\_alter\_wert] Der Wert der vor der Änderung in der Buchung stand.
+\item[aenderung\_neuer\_wert] Der Wert der nach der Änderung in der Buchung steht.
+\end{description}
+Außerdem wurde das Feld "`abgerechnet"' hinzugefügt, dieses Boolean gibt an, ob die Buchung abgerechnet wurde, oder nicht.
 
-\begin{sidewaysfigure}
-	\centering
-	\incgraph{width=\textwidth}{./rimg/db_model_two.png}
-	\caption{Zweiter Stand des Datenbankmodells}
-	\label{fig:db-two}
-\end{sidewaysfigure}
+Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Klassen in das Datenbankmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
 
 \subsubsection{Letzter Stand}
 Der letzte Stand des Datenbankmodell kann in \myfig{fig:db-final} betrachtet werden.
-\todo{Schönere DB-Modell beschreibung}
-Im Vergleich zu der vorherigen Version haben sämtliche Klassen das Präfix "`BILLING\_"' erhalten.
-Die Buchungen-Klasse hat die Felder zum Speichern der letzten Änderung erhalten.
-Weiterhin wurde ihr Feld "`gebuhr"' in "`netto\_summe"' umbenannt und sie hat die Felder "`brutto\_summe"' und "`mwst\_satz"' erhalten. Außerdem wurde das Feld "`abgerechnet"' hinzugefügt.
-Die Kunden-Login-Klasse hat ein eigens Kontaktfeld erhalten.
-Die Kunden-Klasse hat ein Feld "`name\_intern"' erhalten.
-In sämtlichen Klassen wurden die Bezeichnungsfelder in "`name"' umbenannt. Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
-Einige Felder wurden umbenannt, so dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt. Dies ist der Fall bei Array-Felder oder 1:n Felder. Siehe z.\,B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
-Weiterhin wurde die Kundengruppen-Klasse eingeführt, dies zeigt z.\,B. dass diese erst recht spät bei dem Ermitteln der Anforderungen aufgetreten ist. 
+Im Folgenden sollen einige Besonderheiten des Datenbankmodell hervorgehoben werden.
+Sämtliche Klassen besitzen das Präfix "`BILLING\_"', damit diese sofort dem Buchungsthema zugeordnet werden können.
+In sämtlichen Klassen heißen die Bezeichnungsfelder "`name"'.
+Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
+Einige Felder wurden so benannt, dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt. Dies ist der Fall bei Array-Felder oder 1:n Felder. Siehe z.\,B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
+
+Diese Felder sind in der Datenbank nicht enthalten sondern, kommen nur in den später, erstellten CidsBeans vor.
+Denn CidsBeans ist es möglich auf diese Felder zuzugreifen und automatisch eine Liste mit den gewünschten Werten zu erhalten.
+Dies bedeutet, dass die Cids-Umgebung 1:n-Beziehungen und n:m-Beziehungen abstrahieren kann.
+Somit wird die Java-seitige Programmierung vereinfacht, da gewünschten Werte nicht über ihre Foreign Keys aus den entsprechenden Tabellen bezogen werden müssen.
+Sondern es kann, wie gewohnt, objekt-orientiert programmiert werden.
+Aus diesem Grund werden die Beziehungstabellen innerhalb der Cids-Umgebung auch Array"=Tabellen genannt und besitzen das Suffix "`\_ARRAY"'.
+Weiterhin müssen diese Tabellen immer den gleichen Aufbau besitzen, da sonst die automatische Umwandlung in eine Liste fehlschlägt.
+
 \begin{sidewaysfigure}
 	\centering
 	\incgraph{width=\textwidth}{./rimg/db_model_final.png}
@@ -263,17 +280,23 @@ Das gewünschte Result kann in der \myfig{fig:jxdatepicker} betrachtet werden.
 Da die verwendete Komponente \inline{JX\-Date\-Picker} dies offiziell nicht anbietet musste ein Workaround gefunden werden, welches unter \autocite{so-jxdatepicker} gefunden wurde.
 Um diesen Workaround umzusetzen musste ein sogenanntes \inline{Takeoff\-Hook} implementiert werden. 
 Dies ist eine Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
-Somit wird beim Starten des Programmes das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.
+Somit wird beim Starten des Programmes das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.\\
+\begin{minipage}{\textwidth}
 \begin{lstlisting}[caption=innerhalb \texttt{JXDatePickerHeaderTakeoff}, label=lst:setHead]
 UIManager.put(CalendarHeaderHandler.uiControllerID, "org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler");
 UIManager.put(SpinningCalendarHeaderHandler.ARROWS_SURROUND_MONTH, Boolean.TRUE);
 \end{lstlisting}
+\end{minipage}
+
 In der ersten Zeile wird angegeben dass für die \inline{JXDatePicker} eine Kopfzeile verwendet wird, die eine Schnellauswahl des Jahres zulässt.
 In der zweiten Zeile wird die Anordnung des rechten Pfeils geändert, dieser würde sich ansonsten ganz rechts außen befinden.
-Damit die Kopfzeile einer \inline{JXDatePicker}-Instanz \inline{datePicker} entsprechend geändert wird, muss die Zeile aus \autoref{lst:setZoomable} ausgeführt werden.
+Damit die Kopfzeile einer \inline{JXDatePicker}-Instanz \inline{datePicker} entsprechend geändert wird, muss die Zeile aus \autoref{lst:setZoomable} ausgeführt werden.\\
+\begin{minipage}{\textwidth}
 \begin{lstlisting}[caption=Setzen der Kopfzeile, label=lst:setZoomable]
 datePicker.getMonthView().setZoomable(true)
 \end{lstlisting}
+\end{minipage}
+
 Genau diese Zeile enthält den problematischen Teil dieses Workaround, da das Zoomable-Attribut von \inline{JX\-Month\-View}, eine Anzeige von Monaten, über die ein Datum gewählt werden kann, noch nicht richtig implementiert ist und keine Auswirkungen haben dürfte \autocite[vgl.][]{swingx-jxdatepicker}.
 Dennoch wird hierdurch die gewünschte Kopfzeile angezeigt.
 
@@ -330,12 +353,12 @@ Somit können Objekte dieser Klassen aus dem Katalog in den Editor gezogen werde
 Dieser Drag-and-Drop-Mechanismus bot sich auch bei den Kunden-Logins an, allerdings wird in dem Fall die Beziehung nicht automatisch erstellt, da es sich um eine 1:n-Beziehung handelt.
 Aus diesem Grund musste in das entsprechende Kunden"=Login"=Objekt aus der Datenbank bezogen werden und die Beziehung gesetzt werden.
 
-\begin{figure}[htb]
-	\centering
-	\incgraph{width=\textwidth}{./rimg/gui-kundeneditor-real.png}
-	\caption{Kundeneditor}
-	\label{fig:kundeneditor}
-\end{figure}
+%\begin{figure}[htb]
+%	\centering
+%	\incgraph{width=\textwidth}{./rimg/gui-kundeneditor-real.png}
+%	\caption{Kundeneditor}
+%	\label{fig:kundeneditor}
+%\end{figure}
 
 \subsubsection{Kunden-Login Editor und Renderer}
 Auf Grund der 1:n-Beziehung funktionierte das automatische Erstellen des Standardeditors und -renderers nicht für die Kunden-Login-Objekte.
@@ -352,12 +375,19 @@ Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:
 
 \begin{figure}[htbp]
 	\centering
-	\incgraph{width=0.8\textwidth}{./rimg/gui-buchungseditor-real.png}
+	\incgraph{width=0.618\textwidth}{./rimg/gui-buchungseditor-real.png}
 	\caption{Buchungseditor}
 	\label{fig:buchungseditor}
 \end{figure}
 
 \subsubsection{Suchdialog zu den Buchungen}
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.618\textwidth}{./rimg/gui-suchergebnisse-real.png}
+	\caption{Suchergebnisse mit Buchungen und Kontextmenu}
+	\label{fig:suchergebnisse}
+\end{figure}
+
 Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich Buchungen anzugeben, woraufhin nach Buchungen mit jenen Kriterien gesucht werden kann.
 Die graphische Oberfläche der Suche wurde in der Klasse \inline{Billing\-Window\-Search} umgesetzt.
 Diese Klasse kann über einen Lookup-Mechanismus gefunden werden und wird automatisch als Eintrag des Fenster-Menüs von \ac{WuNDa} angezeigt.
@@ -371,12 +401,6 @@ Da es sich bei dem Kontextmenü um eine Standardkomponente der Cids-Umgebung han
 Diese wurde jedoch so eingestellt, dass ein Löschen nicht möglich ist.
 Ein Screenshot des Suchdialog selbst kann in \myfig{fig:gui-suchdialog} gefunden werden.
 
-\begin{figure}[htb]
-	\centering
-	\incgraph{width=0.8\textwidth}{./rimg/gui-suchergebnisse-real.png}
-	\caption{Suchergebnisse mit Buchungen und Kontextmenu}
-	\label{fig:suchergebnisse}
-\end{figure}
 \begin{figure}[htbp]
 	\centering
 	\incgraph{width=0.8\textwidth}{./rimg/gui-buchungsuche-real.png}
@@ -401,12 +425,12 @@ Ein Screenshot des Kundengruppenrenderer kann in der \myfig{fig:gui-kundengruppe
 
 Der Kundengruppeneditor ist in \autoref{fig:gui-kundengruppeneditor} zu sehen. Mit diesem Editor kann eine neue Kundengruppe erstellt oder eine alte bearbeitet werden. Bei den Feldern für den Namen und die Beschreibung handelt es sich um normale Texteingaben, wohingegen die Kunden wieder per Drag-and-Drop hinzugefügt werden können.
 
-\begin{figure}[htb]
-	\centering
-	\incgraph{width=0.618\textwidth}{./rimg/gui-kundengruppeneditor-real.png}
-	\caption{Kundengruppeneditor}
-	\label{fig:gui-kundengruppeneditor}
-\end{figure}
+%\begin{figure}[htb]
+%	\centering
+%	\incgraph{width=0.618\textwidth}{./rimg/gui-kundengruppeneditor-real.png}
+%	\caption{Kundengruppeneditor}
+%	\label{fig:gui-kundengruppeneditor}
+%\end{figure}
 
 \subsubsection{E-Mail an Kundengruppe erstellen}
 
@@ -440,13 +464,15 @@ Ein Objekt dieser Klasse nimmt die benötigten Informationen entgegen und erstel
 Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{java-mailto} übergeben werden, welches dann das E-Mail-Verfassen-Fenster, mit den entsprechenden Vorgaben, öffnet.
 
 \subsection{Berichte}
-\todo{Noch nicht fertig. Spezifikation der Berichte fehlt noch teils.}
-Die Berichte wurden mit dem Werkzeug iReport erstellt. Diese Berichte können aus Java heraus dynamisch generiert werden, so dass ihnen beliebige Parameter mitgegeben werden.
-Weiterhin kann diesen Berichten auch Listen mitgegeben werden und dort verarbeitet werden.
-So kann jede Zeile der Liste nach einer in iReport angegeben Vorgabe angezeigt werden.
-
+Um die Berichte zu Erstellen wurde mit dem Werkzeug iReport sogenannte JasperReports erzeugt.
 Beim Erstellen der Berichte in iReport wurde sich an die Vorgaben aus \autoref{subsec:berichte} gehalten.
-Durch die eher eingeschränkte Funktionalität von iReport konnten die Buchungen nicht als Liste übergeben werden, sondern die benötigten Daten mussten in \ac{WuNDa} vorgerechnet werden und als Parameter übergeben werden.
+Diesen Berichte können aus Java heraus dynamisch generiert werden, indem ihnen Parameter und Listen übergeben werden.
+Bei den Parametern handelt es sich um normale Java-Objekte, die im Bericht weiterverarbeitet und angezeigt werden können.
+Über die mitgegebenen Listen kann im Bericht iteriert werden und deren Elemente können ebenfalls weiterverarbeitet werden.
+So können sie z.\,B. in einer Tabelle dargestellt werden oder aufsummiert werden.
+
+Durch die eher eingeschränkte Funktionalität von iReport konnten die Buchungen nicht als eine Liste übergeben werden.
+Somit mussten die Daten in \ac{WuNDa} aufbereitet werden und als mehrere Listen und Parameter übergeben werden.
 
 \subsection{Buchungen-Knoten im Katalog}
 Um die Navigation innerhalb des Buchungsthemas zu gewährleisten wurde der Katalog um einen Buchungen-Knoten erweitert.
@@ -473,7 +499,7 @@ Die verschiedenen, benötigten Berechtigungen wurden mit Hilfe des \ac{ABF}s ers
 In einem ersten Schritt wurde eine neue Benutzergruppe angelegt, danach wurden die Rechte der Benutzergruppen auf die Klassen festgelegt und anschließend wurden noch Aktionsrechte angelegt. 
 
 \subsubsection{Neue Benutzergruppe}
-Im \autoref{subsec:berechtigungen} wurde beschrieben, dass nur die \ac{WuNDa}-Administratoren und verschiedene Beamte auf das Buchungen-Thema zugreifen dürfen.
+Im \autoref{subsec:berechtigungen} wurde beschrieben, dass nur die \ac{WuNDa}-Administratoren und verschiedene Beamte auf das Buchungsthema zugreifen dürfen.
 Für diese Beamte wurde eine Benutzergruppe "`Billing Intern"' angelegt, die danach die Rechte erhalten hat, so dass die Benutzer die Buchungen verwalten können.
 
 Für die Kunden gibt es keine eigene Benutzergruppe, sondern sie sind nach ihrer Art in verschiedene Benutzergruppen eingeteilt.
@@ -491,10 +517,12 @@ In dieser Tabelle sind die Administratoren und die Billing Intern Gruppe, der Vo
 \centering
 \captionof{table}{Vergebene Rechte an die Klassen.} \label{tab:klassenrechte}
 \begin{tabulary}{\textwidth}{|l|C|c|}
- \hline 
+ \hline
+ 	 \rowcolor{gray} 
   & \head{Administratoren und Billing Intern} & \head{Kunden} \tabularnewline
- \hline 
- Abrechnungsturnus & r/w & r \\ 
+ \hline
+ Abrechnungsturnus
+  & r/w & r \\ 
  \hline 
  Billing & r/w & r/w \\ 
  \hline 
@@ -535,7 +563,8 @@ In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu ver
 \centering
 \captionof{table}{Vergebene Rechte an die Katalogknoten.} \label{tab:katalogrechte}
 \begin{tabulary}{\textwidth}{|l|L|C|c|}
- \hline 
+ \hline
+ 	 \rowcolor{gray} 
   & \head{Standardverhalten} & \head{Administratoren und Billing Intern} & \head{Kunden} \tabularnewline
  \hline 
  Buchungen & Secure & r & r \\ 

@@ -232,7 +232,7 @@ Außerdem soll eine Buchung storniert werden können.
 Siehe hierzu auch die zwei folgenden Abschnitte.
 
 \subsubsection{Änderung von einzelnen Buchungen} \label{subsubsec:aendern_buchung}
-Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
+Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden, sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
 Diese beiden Felder werden vom externen Benutzer händisch eingegeben und deshalb sind Fehleingaben vorstellbar, die von Beamten des Katasteramtes verbessert werden müssen.
 
 Weiterhin soll die jeweils letzte Änderung protokolliert werden. Auf eine Historie mit den gemachten Änderungen wird bewusst verzichtet, erfolgen also zwei Änderungen so wird das Protokoll der erste Änderung überschrieben. In dieser Protokollierung sollen folgende Werte erfasst werden:
@@ -263,7 +263,7 @@ Im Kopfbereich des Berichts sollen sich folgende Basisinformationen befinden:
   \item Vertragsnummer
   \item Abrechnungszeitraum
 \end{itemize}  
-Die Tabelle soll folgende Felder der Buchungen enthalten: \todo{MwSt?}
+Die Tabelle soll folgende Felder der Buchungen enthalten:
 \begin{itemize}
  \item Gebühr
  \item Geschäftsbuchnummer 
@@ -271,6 +271,7 @@ Die Tabelle soll folgende Felder der Buchungen enthalten: \todo{MwSt?}
  \item Zeit
  \item Verwendungszweck
  \item Produktbezeichnung
+ \item MwSt.-Satz
 \end{itemize}
 
 In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden sollen oder nicht.
@@ -288,7 +289,11 @@ In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Do
 Die Geschäftsstatistik ist ein Bericht der Statistiken von den Downloads von verschiedenen Kunden darstellt.
 Durch die jeweilige Darstellung mehrerer Kunden, kann der Bericht nur im Kundengruppenrenderer erstellt werden.
 Die angezeigten Statistiken stellen Informationen zu der Aktivität der Benutzer, den Kostenarten der Produkte, den Verwendungszwecken, den Angaben für den Jahresbericht, sowie eine Übersicht über die bezogenen Produkte dar.
-Eine Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.
+Der Bericht wurde allerdings nicht vollständig vom R102 spezifiziert und kann somit auch nicht komplett umgesetzt werden.
+Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll auch generiert werden können.
+Dieser Bericht entspricht allerdings nicht der tatsächlichen Geschäftsstatistik. 
+Eine etwaige Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.
+
  
 \subsection{sonstige neu benötigte Klassen} \label{subsec:neue_klassen}
 Der Hauptgrund warum diese, hier aufgeführten, Klassen eingeführt werden ist, die Unterstützung des Benutzers bei der Eingabe von den jeweiligen Werten.
@@ -300,9 +305,7 @@ Zum Einführen der Klasse Kunde und zum Erweitern der Buchungen werden folgende 
 \begin{description}
 \item[Abrechnungsturnus] Der Abrechnungsturnus gibt an wie häufig ein Kunde eine Abrechnung erhält. Sein einziges Feld ist die Bezeichnung des Abrechnungsturnus (z.\,B. Jahr, Quartal)
 \item[Produkt] Ein Produkt repräsentiert die verschiedenen Softwareprodukte, die ein Kunde benutzen kann. Seine Felder sind eine Bezeichung des Produktes, eine Beschreibung sowie der konkrete Client, mit dem sich der Benutzer anmelden kann. Beim Client handelt es sich ebenfalls um eine Klasse.
-\begin{description}
 \item[Client] Ein Client kann von verschiedenen Produkten benutzt werden. Sein einziges Feld ist seine Bezeichnung.
-\end{description}
 \item[Stornogrund] Ein Stornogrund ist der Grund, warum eine Buchung storniert wurde. Sein einziges Feld ist die Bezeichnung des Grundes.
 \end{description}
 
