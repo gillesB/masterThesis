@@ -75,19 +75,19 @@ Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutt
 
 Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden.
 \subsection{Kunde}
-Im aktuellen Stand werden die Kunden des Ressort 102 nicht in \ac{WuNDa} verwaltet, durch die gewünschten Erweiterungen wird dies jedoch zwingend notwendig. Daher wird eine Klasse  benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
+Im aktuellen Stand werden die Kunden des Ressorts 102 nicht in \ac{WuNDa} verwaltet, durch die gewünschten Erweiterungen wird dies jedoch zwingend notwendig. Daher wird eine Klasse  benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
 
 Für die Klasse Kunde sollen folgende Felder bereitstehen:
 \begin{description}
 \item[Name] Der Name des Kunden, dies kann z.\,B. eine Organisationsbezeichnung sein.
-\item[Vermessungsstellennummer] Dieses Feld enthält die Zulassungsnummer einer Vermessungsstelle. Eine Vermessungsstellen ist eine Behörde oder Person, die berechtigt ist Liegenschaftsvermessungen durchzuführen und Abmarkungen vorzunehmen. Zu den Vermessungsstellen zählen z.\,B. das Katasteramt oder ÖbVI \autocite[vgl.][]{recklinghausen-vermessungsstelle}.
-\item[Vertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunde die Benutzung von \ac{WuNDa} erlaubt.
+\item[Vermessungsstellennummer] Dieses Feld enthält die Zulassungsnummer einer Vermessungsstelle. Eine Vermessungsstelle ist eine Behörde oder Person, die berechtigt ist Liegenschaftsvermessungen durchzuführen und Abmarkungen vorzunehmen. Zu den Vermessungsstellen zählen z.\,B. das Katasteramt oder ÖbVI \autocite[vgl.][]{recklinghausen-vermessungsstelle}.
+\item[Vertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden die Benutzung von \ac{WuNDa} erlaubt.
 \item[Vertragsende] Das Auslaufdatum dieses Vertrages.
 \item[Abrechnungsturnus] Der zeitliche Abstand wann ein Kunde seine Abrechnung erhält. (z.\,B.. quartalsweise, jährlich)
 \item[Direktkontakt] Eine E-Mail-Adresse mit der, der Kunde sofort erreicht werden kann. Dies kann zum Beispiel die Adresse des Geschäftsleiters sein.
 \item[Weiterverkaufsvertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden das Weiterverkaufen von bezogenen Produkten erlaubt.
 \item[Weiterverkaufsvertragsende] Das Auslaufdatum des Weiterverkaufsvertrags.
-\item[Branche] Die Branche in der der Kunde tätig ist. Ein Kunde kann in genau einer Branche tätig sein. Hierbei handelt es sich um eine neue Klasse.
+\item[Branche] Die Branche in der, der Kunde tätig ist. Ein Kunde kann in genau einer Branche tätig sein. Hierbei handelt es sich um eine neue Klasse.
 \item[Produkte] Die Softwareprodukte die ein Kunde benutzt. Ein Kunde kann mehrere Produkte besitzen. Hierbei handelt es sich ebenfalls um eine neue Klasse.
 \end{description}
 
@@ -189,7 +189,7 @@ In verschiedenen Fällen müssen Benachrichtigung-E-Mails an alle oder verschied
 Dies muss u.\,a. bei geplanten Systemausfällen, die durch Wartungsarbeiten verursacht werden, beim Einführen von neuen Funktionen oder sonstigen neuen Funktionalitäten wie z.\,B. neue Kartenthemen erfolgen.
 Im aktuellen Stand besitzt jeder Beamte, der solche E-Mails versenden soll, einen eigenen Verteiler, den er manuell aktuell halten muss.
 Nach dem Hinzufügen/Entfernen eines Kunden oder dem Ändern einer E-Mail-Adresse kann es somit zu Unvollständigkeiten in den einzelnen Verteiler kommen, da diese noch nicht aktualisiert wurden.
-Mittels der Kundengruppen können diese, von den Beamten einzeln verwalteten, Verteilter durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
+Mittels der Kundengruppen können diese, von den Beamten einzeln verwalteten, Verteiler durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
 
 Der gewünschte Lösungsansatz ist die Möglichkeit für eine Kundengruppe auszuwählen ob eine E-Mail an die jeweiligen Direktkontakte oder an jeden Kunden-Login der Kunden innerhalb der Gruppe erstellt werden soll.
 Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können. Diese Vorlage soll den Betreff und den Text der E-Mail enthalten.
@@ -235,9 +235,10 @@ Siehe hierzu auch die zwei folgenden Abschnitte.
 Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden, sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
 Diese beiden Felder werden vom externen Benutzer händisch eingegeben und deshalb sind Fehleingaben vorstellbar, die von Beamten des Katasteramtes verbessert werden müssen.
 
-Weiterhin soll die jeweils letzte Änderung protokolliert werden. Auf eine Historie mit den gemachten Änderungen wird bewusst verzichtet, erfolgen also zwei Änderungen so wird das Protokoll der erste Änderung überschrieben. In dieser Protokollierung sollen folgende Werte erfasst werden:
+Weiterhin soll die jeweils letzte Änderung protokolliert werden. Auf eine Historie mit den gemachten Änderungen wird bewusst verzichtet, erfolgen also zwei Änderungen so wird das Protokoll der ersten Änderung überschrieben.
+In dieser Protokollierung sollen folgende Werte erfasst werden:
 \begin{itemize}
-\item Veränderter Wert (Geschäftsbuchnummer oder Projektbezeichnung)
+\item veränderter Wert (Geschäftsbuchnummer oder Projektbezeichnung)
 \item alter Wert
 \item neuer Wert
 \item Benutzer der die Änderung vornimmt

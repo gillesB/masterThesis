@@ -5,7 +5,7 @@ Im ersten Teil wird der aktuelle technische Stand erläutert, anschließend wird
 
 \section{Aktueller technischer Stand}
 
-In diesem Abschnitt soll der aktuelle technische Stand aufgezeigt werden, dies dient einerseits der Verständnis bezüglich des zweiten Abschnitts dieses Kapitels.
+In diesem Abschnitt soll der aktuelle technische Stand aufgezeigt werden, dies dient einerseits dem besseren Verständnis des zweiten Abschnitts dieses Kapitels.
 Andererseits soll somit verdeutlicht werden von welcher Basis ausgegangen wurde und welche Funktionalitäten neu implementiert werden mussten.
 
 Die Informationen die für diesen Abschnitt benötigt wurden, stammen aus \autocite{cismet-cids} und \autocite{cismet-readme}.
@@ -68,11 +68,9 @@ Bei dem Knoten \acs{ALWIS}\footnote{\acs{ALWIS} (\acl{ALWIS}) fasst mehrere Teil
 Ein solcher Knoten besitzt eine SQL-Query, mit der seine Unterknoten ermittelt und erstellt werden können.
 Diese Unterknoten können ebenfalls solche Queries besitzen, so dass diese wiederum eigene Unterknoten mit eigenen Queries besitzen.
 Auf diese Weise kann der Baum dynamisch gefüllt werden, wobei seine Blätter, in der Regel, konkrete Objekte darstellen.
-Ein Vorteile dieser Herangehensweise ist die Aktualität des Katalogs, da dieser zu jedem Zeitpunkt neu erstellt werden kann.
+Ein Vorteil dieser Herangehensweise ist die Aktualität des Katalogs, da dieser zu jedem Zeitpunkt neu erstellt werden kann.
 Ein weiterer Vorteil ist das Anzeigen sämtlicher relevanten Kategorien und Objekte in einer zentralen Stelle.
 Durch dieses Anzeigen der kompletten Struktur wird eine unübersichtliche Struktur, die aus Menüs und verschiedenen Untermenüs besteht, vermieden.
-
-
 
 \subsubsection{Suche}
 Bei der Suche handelt es sich um eine Schnittstelle zum Kernel, die das Suchen von Objekten ermöglicht.
@@ -192,14 +190,14 @@ Außerdem wurde das Feld "`abgerechnet"' hinzugefügt, dieses Boolean gibt an, o
 Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Klassen in das Datenbankmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
 
 \subsubsection{Letzter Stand}
-Der letzte Stand des Datenbankmodell kann in \myfig{fig:db-final} betrachtet werden.
-Im Folgenden sollen einige Besonderheiten des Datenbankmodell hervorgehoben werden.
+Der letzte Stand des Datenbankmodells kann in \myfig{fig:db-final} betrachtet werden.
+Im Folgenden sollen einige Besonderheiten des Datenbankmodells hervorgehoben werden.
 Sämtliche Klassen besitzen das Präfix "`BILLING\_"', damit diese sofort dem Buchungsthema zugeordnet werden können.
 In sämtlichen Klassen heißen die Bezeichnungsfelder "`name"'.
 Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
 Einige Felder wurden so benannt, dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt. Dies ist der Fall bei Array-Felder oder 1:n Felder. Siehe z.\,B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
 
-Diese Felder sind in der Datenbank nicht enthalten sondern, kommen nur in den später, erstellten CidsBeans vor.
+Diese Felder sind in der Datenbank nicht enthalten, sondern kommen nur in den später, erstellten CidsBeans vor.
 Denn CidsBeans ist es möglich auf diese Felder zuzugreifen und automatisch eine Liste mit den gewünschten Werten zu erhalten.
 Dies bedeutet, dass die Cids-Umgebung 1:n-Beziehungen und n:m-Beziehungen abstrahieren kann.
 Somit wird die Java-seitige Programmierung vereinfacht, da gewünschten Werte nicht über ihre Foreign Keys aus den entsprechenden Tabellen bezogen werden müssen.
@@ -215,7 +213,7 @@ Weiterhin müssen diese Tabellen immer den gleichen Aufbau besitzen, da sonst di
 \end{sidewaysfigure}
 
 \subsection{Import von neuen Daten}
-Nachdem Erstellen des Datenbankmodell musste die Datenbank entsprechend erweitert werden.
+Nachdem Erstellen des Datenbankmodells musste die Datenbank entsprechend erweitert werden.
 Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
 
 Für die weitere Entwicklung der Funktionalitäten wurden Anfangsdaten benötigt, die vom R102 in Form einer Excel-Datei geliefert wurde.
@@ -280,7 +278,7 @@ Das gewünschte Result kann in der \myfig{fig:jxdatepicker} betrachtet werden.
 Da die verwendete Komponente \inline{JX\-Date\-Picker} dies offiziell nicht anbietet musste ein Workaround gefunden werden, welches unter \autocite{so-jxdatepicker} gefunden wurde.
 Um diesen Workaround umzusetzen musste ein sogenanntes \inline{Takeoff\-Hook} implementiert werden. 
 Dies ist eine Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
-Somit wird beim Starten des Programmes das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.\\
+Somit wird beim Starten des Programms das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.\\
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[caption=innerhalb \texttt{JXDatePickerHeaderTakeoff}, label=lst:setHead]
 UIManager.put(CalendarHeaderHandler.uiControllerID, "org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler");
@@ -346,8 +344,8 @@ Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen
 \end{figure}
 \subsubsection{Kundeneditor}
 Der Kundeneditor, der in \myfig{fig:kundeneditor} dargestellt ist, ermöglicht es einen neuen Kunden anzulegen oder die Daten eines bereits bestehenden Kunden zu bearbeiten.
-Bei den meisten Felder handelt es sich um gewöhnliche Texteingaben oder Auswahlmöglichkeiten.
-Allerdings konnte bei den Felder für die Produkte und Kundengruppen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen werden.
+Bei den meisten Feldern handelt es sich um gewöhnliche Texteingaben oder Auswahlmöglichkeiten.
+Allerdings konnte bei den Feldern für die Produkte und Kundengruppen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen werden.
 Somit können Objekte dieser Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt.
 
 Dieser Drag-and-Drop-Mechanismus bot sich auch bei den Kunden-Logins an, allerdings wird in dem Fall die Beziehung nicht automatisch erstellt, da es sich um eine 1:n-Beziehung handelt.
@@ -464,11 +462,15 @@ Ein Objekt dieser Klasse nimmt die benötigten Informationen entgegen und erstel
 Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{java-mailto} übergeben werden, welches dann das E-Mail-Verfassen-Fenster, mit den entsprechenden Vorgaben, öffnet.
 
 \subsection{Berichte}
+Die drei Berichte wurden nach den Vorgaben aus \autoref{subsec:berichte} erstellt.
+Bei den Berichten Buchungsbeleg und Rechnungsanlage wurden die genauen Vorgaben eingehalten, dabei musste allerdings auf die Formatierung und das Aussehen keine Rücksicht genommen werden.
+Das Formatieren wird vom R102 übernommen.
+Da der Bericht Geschäftsstatistik noch nicht spezifiziert ist, wurde diesem Bericht lediglich die bekannten Werte übergeben und auch hier wurde nur eine sehr grobe Formatierung durchgeführt.
+
 Um die Berichte zu Erstellen wurde mit dem Werkzeug iReport sogenannte JasperReports erzeugt.
-Beim Erstellen der Berichte in iReport wurde sich an die Vorgaben aus \autoref{subsec:berichte} gehalten.
-Diesen Berichte können aus Java heraus dynamisch generiert werden, indem ihnen Parameter und Listen übergeben werden.
+Diese Berichte können aus Java heraus dynamisch generiert werden, indem ihnen Parameter und Listen übergeben werden.
 Bei den Parametern handelt es sich um normale Java-Objekte, die im Bericht weiterverarbeitet und angezeigt werden können.
-Über die mitgegebenen Listen kann im Bericht iteriert werden und deren Elemente können ebenfalls weiterverarbeitet werden.
+Bericht intern wird über die mitgegebenen Listen iteriert und deren Elemente können ebenfalls weiterverarbeitet werden.
 So können sie z.\,B. in einer Tabelle dargestellt werden oder aufsummiert werden.
 
 Durch die eher eingeschränkte Funktionalität von iReport konnten die Buchungen nicht als eine Liste übergeben werden.
@@ -489,7 +491,7 @@ Somit konnte im \ac{ABF} direkt überprüft werden, ob die Query richtig angegeb
 
 Der Unterknoten "`Administration"' enthält wiederum Unterknoten mit Objekten, die zur Verwaltung des Buchungsthemas benötigt werden.
 So kann mittels des Aufrufen des Kontextmenüs auf den verschiedenen Unterknoten ausgewählt werden ob neue Objekte erstellt oder alte Objekte bearbeitet werden sollen.
-Das gleiche gilt für den Unterknoten "`Kundengruppe"', dieser steht nicht unterhalb der "`Administration"' da dieser vorallem benutzt wird um die Kunden- und Kundengruppenrenderer aufzurufen. Mit ihm können aber auch die Kundengruppen verwaltet werden.
+Das gleiche gilt für den Unterknoten "`Kundengruppe"', dieser steht nicht unterhalb der "`Administration"' da dieser vor allem benutzt wird um die Kunden- und Kundengruppenrenderer aufzurufen. Mit ihm können aber auch die Kundengruppen verwaltet werden.
 Ein besonderer Fall stellt der Unterknoten "`meine Buchungen"' dar, der für die Administratoren leer ist.
 An dieser Stelle sehen die externen Benutzer, den Kunden dem sie zugeordnet sind und können den entsprechenden Renderer öffnen. 
 
@@ -581,7 +583,7 @@ In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu ver
  r = Leserecht, w = Schreibrecht, - = keine Rechte, () = übernommene Rechte
  \end{minipage}
  
-Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Klasse "'Kundengruppe"' nicht auf lesend gesetzt werden darf. Wäre dies der Fall so könnten sämtliche Kunden die Kundenrenderer der anderen Kunden öffnen und somit Einsicht in deren Buchungen erhalten.
+Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Klasse "`Kundengruppe"' nicht auf lesend gesetzt werden darf. Wäre dies der Fall so könnten sämtliche Kunden die Kundenrenderer der anderen Kunden öffnen und somit Einsicht in deren Buchungen erhalten.
 
 \subsubsection{Einschränkungen bezüglich der Rechnungsanlage und der Buchungen-Suche}
 
@@ -592,7 +594,7 @@ Die zusätzlich benötigten Einschränkungen werden mit Hilfe der folgenden zwei
 \item custom.billing.reports
 \item custom.billing.search
 \end{itemize}
-Diesen Aktionsrechte wurden die Benutzergruppen "`Administratoren"' und "`Billing Intern"' als Attribute hinzugefügt.
+Diesen Aktionsrechten wurden die Benutzergruppen "`Administratoren"' und "`Billing Intern"' als Attribute hinzugefügt.
 
 Die Einschränkungen bezüglich der Rechnungsanlage kann wie folgt realisiert werden.
 Im laufenden Programm wird im Kundenrenderer abgefragt, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes "`custom.billing.reports"' ist.
@@ -624,12 +626,12 @@ Sein Aktionsrecht muss demnach folgenden Aufbau haben, wobei die Unterelemente d
 
 In einem nächsten Schritt wurde die SQL-Query des dynamischen Knotens "`meine Buchungen"' angepasst.
 Diese Query beinhaltet in der Regel Parameter, die zur Erstellung eines Unterknotens benötigt werden, wie etwa die ID oder den anzuzeigenden Namen.
-Zusätzlich zu den üblichen Parameter wurde hier das Parameter "`additionaltree""permissiontag"' hinzugefügt.
+Zusätzlich zu den üblichen Parameter wurde hier der Parameter "`additionaltree""permissiontag"' hinzugefügt.
 Dessen Wert besteht aus dem String "`custom.""billing.""tree."' konkateniert mit dem jeweiligen internen Namen des Kunden.
 Wichtig zu erwähnen ist, dass somit der Aktionsrechtsname und der Wert des Parameters für einen Kunden gleich ist. 
 
 Im letzten Schritt musste die Klasse \inline{Virtual\-Tree} erweitert werden.
-Sie wertet für jeden zu erstellenden Kundenknoten das Parameter "`additionaltreepermissiontag"' aus und überprüft, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes mit dem gleichen Namen ist.
+Sie wertet für jeden zu erstellenden Kundenknoten der Parameter "`additionaltreepermissiontag"' aus und überprüft, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes mit dem gleichen Namen ist.
 Nur in dem Fall bei dem dies zutrifft wird der Knoten dem Katalog hinzugefügt.
 Aus diesem Grund muss der oben genannte Aufbau des Aktionsrechtsnamens eingehalten werden, da sonst die Überprüfung im  \inline{Virtual\-Tree} immer fehlschlägt und der Kundenknoten nicht angezeigt wird.
 Weiterhin ist somit sichergestellt, dass ein Kundenknoten eines anderen Kunden nicht angezeigt wird, weil der aktuell angemeldete Benutzer nicht Besitzer dessen Aktionsrechtes ist.
