@@ -1,5 +1,5 @@
 \chapter{Einführung}
-In diesem einführenden Kapitel wird der aktuelle Zustand bezüglich \acs{WuNDa} und seinen externen Benutzern beschrieben. Danach wird das, sich durch eine gewünschte Rationalisierung stellende, Problem erläutert und ein Lösungsansatz für dieses Problem wird vorgestellt.
+In diesem ersten Kapitel wird der aktuelle Zustand bezüglich \acs{WuNDa} und seinen externen Benutzern beschrieben. Danach wird das Problem erläutert, das sich durch die Rationalisierung ergibt und es wird ein Lösungsansatz vorgestellt.
 
 \section{Überblick über den aktuellen Zustand}
 Bei dem \ac{WuNDa} handelt es sich um ein Softwaresystem, das es der wuppertaler Stadtverwaltung ermöglicht auf geographisch-räumliche Informationen zuzugreifen \autocite[vgl.][]{cismet-wunda}. Durch diesen Schwerpunkt findet \ac{WuNDa} häufig Anwendung im Ressort 102, dem Ressort für Vermessung, Katasteramt und Geodaten.
@@ -7,16 +7,15 @@ Bei dem \ac{WuNDa} handelt es sich um ein Softwaresystem, das es der wuppertaler
 Weiterhin stellt die Stadtverwaltung einen Online-Zugriff auf \ac{WuNDa} bereit, so dass auch Benutzer, die keine Beamte der Stadtverwaltung sind, auf dieses System zugreifen können. Diese Gruppe von Benutzern wird im Folgenden externe Benutzer genannt.
 Zu diesen externen Benutzer gehören u.\,a. die Polizei, Sparkasse, Notare und insbesondere \acp{ÖbVI}.
 
-Die, für diese Arbeit wichtigste, Funktionalität des Online-Zugriffs ist die sogenannte Selbstentnahme von Produkten. Dabei können externen Benutzer amtliche Auszüge aus dem Liegenschaftskataster selbst beziehen. Dies bedeutet einerseits für die externen Benutzer, dass der Weg zum Katasteramt gespart wird und andererseits bedeutet es für das Katasteramt, dass die ansonsten benötigte Bearbeitungszeit eingespart wird \autocite[vgl.][]{wupp-wunda}.
+Die, für diese Arbeit wichtigste, Funktionalität des Online-Zugriffs ist die sogenannte Selbstentnahme von Produkten. Dabei können externe Benutzer amtliche Auszüge aus dem Liegenschaftskataster selbst beziehen und so den Weg zum Katasteramt sparen. Zudem wird auf dem Katasteramt die ansonsten benötigte Bearbeitungszeit eingespart \autocite[vgl.][]{wupp-wunda}.
 
-Am Beispiel der \acp{ÖbVI} zeigt sich, dass es gebührenfreie und gebührenpflichtige Produkte gibt.
-So können die \acp{ÖbVI} bestimmte Produkte, die im Rahmen von der Anfertigung von Amtlichen Lageplänen und der Durchführung hoheitlicher Vermessungen benötigt werden, kostenfrei anfordern.
-Besteht allerdings Bedarf nach anderen Produkten so sind diese kostenpflichtig \autocite[vgl.][]{wupp-wunda-oebvi}. Mehr Informationen hierzu befinden sich im \autoref{subsec:gebuehren}.
-
-Die Selbstentnahme unterstützt neben den kostenfreien Produkten auch kostenpflichtige Produkte. Dadurch wird es erforderlich, dass jedes bezogene Produkt protokolliert wird.
-Somit kann nach einem, vom Benutzer abhängigen, Abrechnungsturnus eine Abrechnung an die jeweiligen externen Benutzer gestellt werden.
-Eine solche Abrechnung für einen Benutzer enthält eine Auflistung seiner Produkte, die er während eines Abrechnungsturnus bezogen hat, und den entsprechend anfallenden Gebühren.
-Das Erstellen der Abrechnungen geschieht manuell durch einen Beamten des Katasteramtes, in dem sämtliche Produktprotokolle mit einem Tabellenkalkulationsprogramms so gefiltert werden, dass ausschließlich die gewünschten Protokolle für die Abrechnung eines bestimmten externen Benutzer und einen Abrechnungsturnus übrig sind.
+Die Selbstentnahme unterstützt neben den kostenfreien Produkten auch kostenpflichtige Produkte. 
+Dies zeigt sich am Beispiel der \acp{ÖbVI}. Diese können bestimmte Produkte, die im Rahmen von der Anfertigung von Amtlichen Lageplänen und der Durchführung hoheitlicher Vermessungen benötigt werden, kostenfrei selbst beziehen.
+Besteht allerdings Bedarf nach anderen Produkten so sind diese kostenpflichtig \autocite[vgl.][]{wupp-wunda-oebvi}. Ausführlichere Informationen hierzu befinden sich im \autoref{subsec:gebuehren}.
+Dadurch wird es erforderlich, dass jedes bezogene Produkt protokolliert wird.
+Somit wird jedem externen Benutzer eine Abrechnung gestellt, dessen Abrechnungsturnus er individuell bestimmt kann.
+In jeder Abrechnung befindet sich eine Auflistung der Produkte, die während einem Abrechnungsturnus gedownloadet wurden, sowie die anfallenden Gebühren.
+Die Abrechnung wird manuell von einem Beamter des Katasteramts erstellt, indem er sämtliche Produktprotokolle mit Hilfe eines Tabellenkalkulationsprogramm filtert und ausschließlich die gewünschten Protokolle für einen bestimmten externen Benutzer und dessen Abrechnungsturnus übrig bleiben.
 Durch dieses Verfahren ist das Erstellen der Abrechnungen arbeitsaufwändig und fehleranfällig \autocite[vgl.][]{sander-abrechnung}.
 
 
@@ -45,7 +44,7 @@ Der geplanten Rationalisierung steht allerdings im Weg, dass die Methode zur Ers
 Nichtsdestotrotz werden erhebliche Anstrengungen unternommen, um die Gruppe der externen Benutzer zu vergrößern.
 Durch das Wachsen dieser Gruppe, wächst allerdings auch der Aufwand der mit dem Erstellen der Abrechnungen einhergeht, folglich wird dieser noch zeitintensiver.
 
-Die Problemstellung lautet deshalb wie folgt: die Rationalisierung kann nur dann vollständig durchgeführt werden, falls die Methode zur Erstellung der Abrechnungen so verändert werden kann, so dass sie weniger zeitaufwändig ist \autocite[vgl.][]{sander-abrechnung}. 
+Die Problemstellung lautet deshalb wie folgt: die Rationalisierung kann nur dann vollständig durchgeführt werden, falls die Methode zur Erstellung der Abrechnungen so verändert werden kann, dass sie weniger zeitaufwändig ist \autocite[vgl.][]{sander-abrechnung}. 
 
 %\begin{itemize}
 %	\item Das Amt will Beamten abbauen. Stichwort Rationalisierung
@@ -56,11 +55,12 @@ Die Problemstellung lautet deshalb wie folgt: die Rationalisierung kann nur dann
 
 \section{Lösungsansatz}
 
-Der, in dieser Arbeit verfolgte, Lösungsansatz ist es die Methode zur Erstellung der Abrechnungen möglichst zu automatisieren, so dass der Arbeitsaufwand für die Beamten minimiert wird. 
+Der, in dieser Arbeit verfolgte, Lösungsansatz ist es eine Methode zu finden, die die Erstellung der Abrechnungen möglichst automatisiert und somit den Arbeitsaufwand für die Beamten zu minimalisieren. 
 
-Der naheliegendste Ansatz ist es \acs{WuNDa} für diese Automatisierung zu erweitern, da über dieses System bereits die Selbstentnahme bereitgestellt wird und die dadurch anfallende Gebühren protokolliert werden. Dies bedeutet dass für das Erreichen des Ziels mindestens eine Übersicht und Auswahl für die einzelnen protokollierten Produkte zur Verfügung stehen muss, weiterhin muss ein automatisches Erstellen der Abrechnungen dieser Produkte möglich sein. Hierbei handelt es sich lediglich um minimal Anforderungen, im \autoref{ch:spezi} wird detaillierter auf die benötigten und zusätzlich gewünschten Erweiterungen von \ac{WuNDa} eingegangen. Daraufhin wird im \autoref{ch:realisierung} die Umsetzung der Erweiterungen in \ac{WuNDa} beschrieben.
+Der naheliegendste Ansatz ist es \acs{WuNDa} für diese Automatisierung zu erweitern, da über dieses System bereits die Selbstentnahme bereitgestellt wird und die dadurch anfallende Gebühren protokolliert werden. Dies bedeutet dass für das Erreichen des Ziels mindestens eine Übersicht und Auswahl für die einzelnen protokollierten Produkte zur Verfügung stehen muss, weiterhin muss ein automatisches Erstellen der Abrechnungen dieser Produkte möglich sein. Hierbei handelt es sich lediglich um minimale Anforderungen, in \autoref{ch:spezi} wird detaillierter auf die benötigten und zusätzlich gewünschten Erweiterungen von \ac{WuNDa} eingegangen.
+Anschließend wird in \autoref{ch:realisierung} die Umsetzung der Erweiterungen in \ac{WuNDa} beschrieben.
 
-Im nächsten Kapitel wird die bereits vorgestellte Arbeit der externen Benutzer und die beschriebene Rationalisierung beleuchtet und in Verbindung gebracht.
+\todo{evt. weglassen} Im nächsten Kapitel wird die bereits vorgestellte Arbeit der externen Benutzer und die beschriebene Rationalisierung beleuchtet und in Verbindung gebracht.
 
 \section{Aussicht}
 Der Abschluss dieser Arbeit besteht aus \autoref{ch:aussicht}, hier werden die vorher gesammelten Informationen benutzt um Teile der Workflows ausfindig zu machen, die durch \ac{WuNDa} unterstützt werden könnten. \todo{Später erweitern und anpassen.}

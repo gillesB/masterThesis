@@ -1,8 +1,9 @@
-\chapter{Beleuchtung der Arbeitsweise von externen Benutzer}
+\chapter{Beleuchtung der Arbeitsweise von den externen Benutzern}
 
 In diesem Kapitel soll aufgezeigt werden, warum die geplante Rationalisierung mit dem aktuellen Stand von \ac{WuNDa} nicht durchzuführen ist.
 
-Um dies zu erreichen müssen in einem ersten Schritt einige fachliche Erläuterungen erfolgen. So werden einige Begriffe definiert und die Gebühren zu den Produkten erläutert. Daraufhin  werden die Produkte aufgelistet, die von den externen Benutzern bezogen werden können.
+Um dies zu erreichen, müssen in einem ersten Schritt einige fachliche Erläuterungen erfolgen, so werden einige Begriffe definiert und die Gebühren der Produkte erläutert.
+Daraufhin werden die Produkte aufgelistet, die von den externen Benutzern bezogen werden können.
 
 Im Anschluss werden einige Workflows von externen Benutzern beleuchtet, woraufhin überprüft wird ob und wie \ac{WuNDa} diese unterstützt. Demnach wird der aktuelle Stand von \ac{WuNDa} bezüglich der bestehenden Problematik beschrieben.
 
@@ -19,17 +20,19 @@ In diesem Abschnitt werden einige fachliche Begriffe und Zusammenhänge erläute
 \subsection{ÖbVI}
 Damit hoheitliche Vermessungen nicht nur durch Verwaltungen durchgeführt werden können, kann der Staat private Vermessungsingenieure mit hoheitlichen Aufgaben beleihen.
 Solche Freiberufler werden \acfp{ÖbVI} genannt und sind berechtigt Katastervermessungen durchzuführen. Dies sind Vermessungen, die der Einrichtung und Fortführung des Liegenschaftskatasters und der Feststellung oder Abmarkung von Grundstücksgrenzen dienen \autocite[vgl.][]{bdvi-oebvi}.
-Weiterhin dürfen sie Grenzzeichen setzen oder entfernen \autocite[vgl.][]{wolff-oebvi}.
+Zudem dürfen sie Grenzzeichen setzen oder entfernen \autocite[vgl.][]{wolff-oebvi}.
 
 \subsection{Festpunkte}
 Festpunkte sind Vermessungspunkte die laut dem sächsischen Staatsministerium für Umwelt und Landwirtschaft \autocite{sachsen-festpunkt} wie folgt definiert werden können:
 \enquote{Festpunkte der Grundlagenvermessung sind vermarkte, gesicherte und örtlich eingemessene Vermessungspunkte mit präzise bestimmten und im amtlichen Nachweis geführten Koordinaten, Höhen und Schwerewerten.} Weiterhin wird zwischen Lage-, Höhen- und Schwerefestpunkten unterschieden \autocite[vgl.][]{adv-festpunkte}.
 
 \subsection{ALKIS und sein Datenmodell}
-Das \acf{ALKIS} ersetzt das \acf{ALB} und die \acf{ALK}, indem es die Daten beider Systeme vereint. Die \acs{AdV} hat \acs{ALKIS} entwickelt und organisiert die Pflege des Datenmodells \autocite[vgl.][]{adv-alkis}.
+Das \acf{ALKIS} ersetzt das \acf{ALB} und die \acf{ALK}, indem es die Daten beider Systeme vereint. Die \ac{AdV} hat \acs{ALKIS} entwickelt und organisiert die Pflege des Datenmodells \autocite[vgl.][]{adv-alkis}.
 
 Das Datenmodell von ALKIS ist stufenweise aufgebaut. Die oberste Stufe ist das ALKIS-Fachschema der AdV, dieses Fachschema bildet eine Grundlage mit der sämtliche Objekte, Attribute und Attributwerte aller Katasterbehörden Deutschlands abgebildet werden können.
-Die folgenden Stufen sind Reduktionen dieses Fachschema, d.\,h. sie benutzen nur einen Teil dieser Grundlage. Weiterhin ist die jeweils folgende Stufe eine Reduktion der vorhergegangenen Stufe \autocite[vgl.][1-4]{bezk-grunddaten}. Eine Übersicht der einzelnen Stufen kann der Abbildung \ref{fig:prod-stufen} entnommen werden. 
+Die darauffolgenden Stufen sind Reduktionen dieses Fachschema, d.\,h. sie benutzen nur einen Teil dieser Grundlage.
+Weiterhin sind die jeweils folgenden Stufen eine Reduktion der jeweils vorhergegangenen Stufe \autocite[vgl.][1-4]{bezk-grunddaten}.
+Eine Übersicht von den vier einzelnen Stufen kann der Abbildung \ref{fig:prod-stufen} entnommen werden. 
 
 \begin{figure}[htbp]
 	\centering
@@ -38,22 +41,22 @@ Die folgenden Stufen sind Reduktionen dieses Fachschema, d.\,h. sie benutzen nur
 	\label{fig:prod-stufen}
 \end{figure}
 
-In \ac{NRW} wurde das Maximalprofil NRW festgelegt, da hier einige Objekte aus dem ALKIS-Fachschema der AdV nicht benötigt werden. Alle Informationen die im Maximalprofil NRW geführt werden gehören zum amtlichen Liegenschaftskataster.
-Weiterhin dürfen in NRW nur diese Informationen innerhalb ALKIS geführt werden. Jedes Katasteramt darf frei wählen welche Informationen es aus dieser Stufe führen will, vorausgesetzt diese Informationen gehören nicht zu einer unteren Stufe.
-Die nächste Stufe bildet der Grunddatenbestand NRW dieser ist landesweit gültig und muss von jedem Katasteramt in NRW geführt werden.
-Die unterste Stufe bildet der Grunddatenbestand AdV, dieser ist bundesweit gültig und muss von jedem Katasteramt in Deutschland geführt werden \autocite[vgl.][1-4]{bezk-grunddaten}.
+In \ac{NRW} wurde das Maximalprofil NRW festgelegt, da hier einige Objekte aus dem ALKIS-Fachschema der AdV nicht benötigt werden.
+Alle Informationen, die im Maximalprofil NRW geführt werden, gehören zum amtlichen Liegenschaftskataster und dürfen zudem nur innerhalb ALKIS geführt werden.
+Jedes Katasteramt darf frei wählen welche Informationen es aus dieser Stufe führen will, vorausgesetzt sie gehören nicht zu einer unteren Stufe.
+Die dritte Stufe wird von dem Grunddatenbestand NRW gebildet und ist in ganz NRW gültig, sodass er hier von jedem Katasteramt geführt werden muss.
+Der Grunddatenbestand AdV bildet die unterste Stufe, ist bundesweit gültig und muss von jedem Katasteramt in Deutschland geführt werden \autocite[vgl.][1-4]{bezk-grunddaten}.
 
 \subsection{Gebühren der Produkte} \label{subsec:gebuehren}
-In diesem Abschnitt wird das Zustandekommen der Gebühren der Produkte kurz beschrieben.
+In diesem Abschnitt wird das Zustandekommen der Gebühren von den Produkten kurz beschrieben.
 Da die genaue Ermittlung der Gebühren nicht Bestandteil dieser Arbeit ist, wird hier nur auf das Nötigste eingegangen. 
 
-Die Gebühren der einzelnen Produkte wird durch eine Grundgebühr bestimmt, auf die verschiedene Rabatte angewendet werden können.
-Ein Rabatt kann z.\,B. ein Mengenrabatt sein oder ein Rabatt der durch eine Reglung gegeben werden muss. 
+Die Gebühr für die jeweiligen Produkte wird durch eine Grundgebühr bestimmt, der mit verschiedenen Rabatten, wie z.\,B. Mengenrabatt oder Rabatt wegen einer bestimmten Reglung, verrechnet wird.
 
-Eine Reglung die insbesondere die \acp{ÖbVI} betrifft ist in der \ac{VermWertGebO} festgelegt.
+Solch eine Reglung, die insbesondere die \acp{ÖbVI} betrifft, ist in der \ac{VermWertGebO} festgelegt.
 Laut dieser muss die Selbstentnahme der Produkte, die zur Durchführung bestimmter Amtshandlungen benötigt werden, kostenfrei sein.
-Zu diesen Handlungen gelten die Anfertigung von Amtlichen Lageplänen und die Durchführung hoheitlicher Vermessungen \autocite[vgl.][]{wupp-wunda-oebvi}.
-Die Produkte die diese Bedingungen erfüllen werden im folgenden vermessungsrelevant genannt. Der Rabatt der bei diesen Produkten gegeben wird, wird "`zweckabhängiger Rabatt"' genannt. \todo{evt. noch MwSt erwähnen. Rabett der Selbstentnahme erwähnen.}
+Zu diesen Handlungen gehören die Anfertigung von Amtlichen Lageplänen und die Durchführung hoheitlicher Vermessungen \autocite[vgl.][]{wupp-wunda-oebvi}.
+Die Produkte, die diese Bedingungen erfüllen, werden im Folgenden vermessungsrelevant genannt und der Rabatt, auf diese Produkte wird "`zweckabhängiger Rabatt"' genannt. \todo{evt. noch MwSt erwähnen. Rabett der Selbstentnahme erwähnen.}
 
 Weitere Informationen können dem Dokument "`Entgeltordnung Ressort 102"' \autocite{wupp-entgelt} entnommen werden.
 
@@ -78,7 +81,7 @@ In der Produktklasse ALKIS-Standardausgaben wird zwischen landesweit einheitlich
 Bei den Standardausgaben handelt es sich um Auszüge aus dem Liegenschaftskataster deren Inhalt und Form landesweit festgelegt ist.
 Diese Ausgaben beinhalten nur Daten die im Grunddatenbestand NRW definiert sind \autocite[vgl.][8]{bezk-grunddaten}.
 
-Bei den kommunalen Produkten handelt es sich um Auszüge aus dem Liegenschaftskataster, allerdings dürfen auch Daten verwendet werden, die nicht im Grunddatenbestand NRW definiert sind.
+Bei den kommunalen Produkten handelt es sich um Auszüge aus dem Liegenschaftskataster, allerdings dürfen hier auch Daten verwendet werden, die nicht im Grunddatenbestand NRW definiert sind.
 Ein Beispiel eines kommunalen Produktes wäre eine modifizierte Standardausgabe, die mit Daten aus dem Maximalprofil NRW erweitert wurde.
 Weiterhin muss die Bezeichnung bzw. Beschriftung deutlich gekennzeichnet sein, so dass eine Verwechslung mit den Standardausgaben ausgeschlossen ist \autocite[vgl.][9]{bezk-grunddaten}.
 Dies wird durch die Anhänge \textit{(NRW)} bzw. \textit{(kommunal)} garantiert.
@@ -143,7 +146,7 @@ Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balk
 	\hline			
 	Stadtgrundkarte
 	&
-	Die Stadtgrundkarte ohne kommunale Ergänzungen. Diese Version wird nicht vertrieben, da die optischen Unterschiede, gegenüber der kommunalen Version, sehr gering sind. Aus diesem Grund wird nur eine Version angeboten.  \\
+	Die Stadtgrundkarte ohne kommunale Ergänzungen wird nicht vertrieben, da die optischen Unterschiede, gegenüber der kommunalen Version, sehr gering sind, weshalb nur eine Version angeboten wird.  \\
 	\hline
 	Schätzungskarte (NRW)
 	&
@@ -152,7 +155,7 @@ Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balk
 	Bei einer Bodenschätzung werden landwirtschaftlich genutzte Böden auf ihre Fruchtbarkeit hin geschätzt, so dass auf dieser Basis eine Besteuerung vorgenommen werden kann \autocite[vgl.][]{sachsen-boden}.   \\
 						
 	\hline
-	Amtliche Basiskarte (NRW)
+	Amtliche Basiskarte \newline (NRW)
 	&
 	\enquote{Die Amtliche Basiskarte NRW (ABK NRW oder nur ABK) ist eine Übersichtskarte, die eine Verbindung zwischen der großmaßstäbigen Liegenschaftskarte und der Topographischen Karte 1:25000 (TK25) herstellt.} \autocite{wiki-abk} \\
 	\hline
@@ -169,7 +172,7 @@ Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balk
 	
 \subsection{Standardausgaben WUP-kommunal}
 
-Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden. Aus diesem Grund musste die Stadtverwaltung Wuppertal weitere Produkte selbst definieren.
+Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden, weshalbdie Stadtverwaltung Wuppertal weitere Produkte selbst definieren musste.
 Bei diesen Eigendefinition werden keine ALKIS-Objekte dargestellt und somit handelt es sich nicht um Auszüge aus dem Liegenschaftskataster.
 Der Inhalt der Produkte wird aus Rasterdatenbeständen bezogen und zeigen demnach Geodaten mit Bild.
 Obwohl es sich nicht um ALKIS-Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Fällen für den ÖbVI gebührenfrei.
@@ -200,7 +203,7 @@ Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle
 	\head{Produktname}  & \head{Beschreibung} \tabularnewline
 	\hline 
 	\endhead
-	\ac{DGK}
+	Digitale Grundkarte \newline (DGK)
 	&
 	Die \ac{DGK} ist eine topografische Karte, die aus der Flurkarte und der Stadtgrundkarte abgeleitet wurde  \autocite[vgl.][]{wupp-digitale-grundkarte}. Ein Beispiel einer \ac{DGK} kann in \vref{fig:digitale_grundkarte} gefunden werden.\\
 	\hline
@@ -238,7 +241,7 @@ Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle
 \end{longtable} 	
 
 \subsection{WuNDa-Berichte}
-Die WuNDa-Berichte sind ebenfalls eigens definierte Produkte. Im Gegensatz zu den Standardausgaben WUP-kommunal enthalten sie allerdings keine Geodaten mit Bild, sondern sind Berichte die ein einzlnes Objekt beschreiben. Weiterhin sind sie ebenfalls nicht Bestandteil von ALKIS und auf Grund ihres Inhaltes vermessungsrelevant.
+Die WuNDa-Berichte sind ebenfalls eigens definierte Produkte. Im Gegensatz zu den Standardausgaben WUP-kommunal enthalten sie allerdings keine Geodaten mit Bild, sondern sind Berichte die ein einzlnes Objekt beschreiben. Weiterhin sind sie ebenfalls nicht Bestandteil von ALKIS, doch auf Grund ihres Inhaltes vermessungsrelevant.
 
 Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabelle \ref{tab-wunda-berichte} entnommen werden.
 \begin{longtable}{|p{0.3\textwidth}|p{0.642\textwidth}|}	
@@ -256,7 +259,7 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 	\endhead
 	AP-Karte
 	&
-	AP-Karten werden angefertigt damit \acfp{AP} vor Ort aufgefunden werden können. In diese Karten werden Maße zu topographisch relevanten Gegenständen und die Entfernung zu Sicherheitspunkten angegeben \autocite[vgl.][]{siegen-ap-karte}. Eine solche AP-Karte wird in \vref{fig:ap-karte} abgebildet.
+	AP-Karten werden angefertigt damit \acfp{AP} vor Ort aufgefunden werden können. In diesen Karten werden Maße zu topographisch relevanten Gegenständen und die Entfernung zu Sicherheitspunkten angegeben \autocite[vgl.][]{siegen-ap-karte}. Eine solche AP-Karte wird in \vref{fig:ap-karte} abgebildet.
 	 \\
 	\hline
 	Nivellement-Punkt
@@ -281,12 +284,12 @@ Die Produkte der Produktklasse Standardausgaben WuNDa-Berichte können der Tabel
 
 Die Produkte der Produktklasse Daten Liegenschaftskataster sind einzelne Dateien, die einen Teil des Liegenschaftskatasters abbilden. Die folgenden Dateiformate können ausgewählt werden:
 \begin{description}
-\item[NAS] Die \ac{NAS} ist das Datenaustauschformat von Alkis und umfasst neben den Fachobjekten auch Operationen zur Haltung von Bestandsdaten. \ac{NAS} basiert auf \ac{XML}, \ac{GML} und \ac{WFS} \autocite[vgl.][]{sachsen-nas}.
+\item[NAS] Die \ac{NAS} ist das Datenaustauschformat von ALKIS und umfasst neben den Fachobjekten auch Operationen zur Haltung von Bestandsdaten. \ac{NAS} basiert auf \ac{XML}, \ac{GML} und \ac{WFS} \autocite[vgl.][]{sachsen-nas}.
 
 \item[DXF] Das \ac{DXF} ist ein Dateiformat das von dem Unternehmen Autodesk entwickelt wurde und in \ac{CAD}-Applikationen (z.\,B. AutoCAD) als vektorbasierte Bilddatei Verwendung findet.
 \ac{DXF} wurde mit dem Hintergrund entwickelt, dass es möglich sein soll AutoCAD Dokumente mit Programmen öffnen zu können, die nicht von Autodesk entwickelt wurden. Aus diesem Grund ist \ac{DXF} eine ASCII-Textdatei \autocite[vgl.][]{fileinfo-dxf}.
 
-\item[GEOTIFF] \enquote{Ein GeoTIFF ist eine spezielle Form eines TIFF-Bildes, also ein Dateiformat zur Speicherung von Bilddaten [..]. Da das TIF-Format eine verlustfreie Speicherung zulässt, eignet es sich gut zur Verarbeitung von geographischen Daten, [..]."'} \autocite{wiki-geotiff} Weiterhin sind die \enquote{Bildinformationen [.] in jedem Programm darstellbar, welches den normalen TIFF-Standard unterstützt.}  \autocite{wiki-geotiff} \enquote{Wesentliche Eigenschaft ist die enthaltene Georeferenzierung, die das Geotiff bei Verwendung im GIS "an die richtige Stelle" platziert, sodass es z.B. als Hintergrundbild für weitere Planzeichnungen dienen kann.} [Frau Hähner] \todo{Neu verfassen. Indirekte Zitierung.}
+\item[GEOTIFF] \enquote{Ein GeoTIFF ist eine spezielle Form eines TIFF-Bildes, also ein Dateiformat zur Speicherung von Bilddaten [..]. Da das TIF-Format eine verlustfreie Speicherung zulässt, eignet es sich gut zur Verarbeitung von geographischen Daten, [..]."'} \autocite{wiki-geotiff} Weiterhin sind die \enquote{Bildinformationen [.] in jedem Programm darstellbar, welches den normalen TIFF-Standard unterstützt.}  \autocite{wiki-geotiff} \enquote{Wesentliche Eigenschaft ist die enthaltene Georeferenzierung, die das Geotiff bei Verwendung im GIS \enquote{an die richtige Stelle} platziert, sodass es z.B. als Hintergrundbild für weitere Planzeichnungen dienen kann.} [Frau Hähner] \todo{Neu verfassen. Indirekte Zitierung.}
 \end{description}
 
 Die Produkte der Produktklasse Daten Liegenschaftskataste können der Tabelle \ref{tab-daten-kataster} entnommen werden.
@@ -332,7 +335,7 @@ Nachdem die einzelnen Produkte aufgelistet wurden, werden in diesem Abschnitt ve
 %\end{itemize}
 
 \subsection{ÖbVI - Teilungsvermessung}
-Ein solcher Workflow ist die Teilungsvermessung, die durch einen \ac{ÖbVI} durchgeführt wird. Durch die Teilungsvermessung wird ein neues Grundstück aus einem abgetrennten Teil eines bestehenden Grundstücks erstellt. Die folgende Beschreibung wurde nach \autocite{klein-vermessung} und \autocite{jungemann-alltag} erstellt.
+Ein solcher Workflow ist die Teilungsvermessung, die durch einen \ac{ÖbVI} durchgeführt wird. Durch die Teilungsvermessung wird ein neues Grundstück aus einem abgetrennten Teil eines bestehenden Grundstücks erstellt. Die folgende Beschreibung wurde nach \autocite{klein-vermessung} und \autocite{jungemann-alltag} erstellt. \todo{Zitate ausschreiben}
 
 Die Teilungsvermessung kann aus Sicht des \ac{ÖbVI} in drei Teile zerlegt werden:
 \begin{itemize}
@@ -360,7 +363,7 @@ Die benötigten Katasterunterlagen werden in Form der folgenden Produkte bezogen
 Sobald sämtliche Unterlagen vorhanden sind, kann die eigentliche Vorbereitung der Teilungsvermessung beginnen.
 In einem ersten Schritt müssen die zuvor erhaltenen NAS"=Bestandsdaten in ein CAD-System sowie in ein Berechnungsprogramm (z.\,B. KAVDI) importiert werden.
 
-Daraufhin können die Geräte, die im Außendienst benutzt werden, vorbereitet werden.
+Anschließend kann mit der Vorbereitung der Geräte, die im Außendienst benötigt werden, begonnen werden.
 Dazu gehört das Erstellen der Koordinatendateien mittels des Berechnungsprogramm, woraufhin diese vom Tachymeter und GPS-Gerät eingelesen werden können. Danach kann die Übernahme der benötigten CAD-Dateien und des Berechnungsauftrags auf den Außendienstrechner erfolgen.
 
 %\begin{itemize}
@@ -410,7 +413,7 @@ Anschließend werde folgende Berechnungen zur Ermittlung der Koordinaten durchge
 	\item[Flächenhafte Ausgleichung] Die flächenhafte Ausgleichung wird ebenfalls benutzt um neue Koordinaten zu ermitteln  \autocite[vgl.][6]{bezk-ausgleichung}.
 \end{description}
 
-Nachdem Fertigstellen der Berechnungen müssen die Daten aufbereitet werden ehe diese zurück an das Katasteramt gegeben werden können.
+Nach der Fertigstellung der Berechnung, müssen die Daten zunächst aufbereitet werden, ehe sie zurück ins Katasteramt gegeben werden können.
 Zu dieser Aufbereitung gehört die \ac{VP-Liste}, in der die zuvor ermittelten Koordinaten und zusätzlichen Informationen zu den Punkten eingetragen werden \autocite[vgl.][62]{bezk-vp-liste}.
 
 Um die Fortführung durchzuführen benötigt das Katasteramt diese drei erstellten Dokumente, also Fortführungsriss, Grenzniederschrift und \ac{VP-Liste}.
@@ -430,12 +433,11 @@ Mit Hilfe der Erhebungsdatei können die neu erstellten Punkte automatisch in ih
 Somit dienen sie als Basis für die Beamten des Katasteramtes, die die Teilungsvermessung dort übernehmen.
 
 \subsection{Polizei - Ermttlungen} \label{subsec:polizei_ermittlung}
-Die Polizei Wuppertal gehört auch zu den externen Benutzer von \ac{WuNDa}.
-In verschiedenen Fahndungen müssen diese die Eigentümer von Flurstücken kenne, welche sie aus dem Produkt Flurstücks- und Eigentumsnachweis beziehen können.
-Ein anderes Beispiel ist die Erstellung von Unfallskizzen. Hier können Orthofotos Verwendung finden, da auf diesen die Fahrbahnmarkierungen sichtbar sind. Weiterhin können in solchen Fällen die Mess- und Zeichenwerkzeuge der \ac{WuNDa}-Karte benutzt werden.
-Ein dritter Fall ist die Einsatzplanung, die auf Basis von geeigneter Datenquellen stattfindet. So können z.\,B. die Orthofotos auch hier wieder zu Einsatz kommen.
+Die Polizei Wuppertal gehört unter anderen auch zu den externen Benutzer von \ac{WuNDa}.
+In verschiedenen Fahndungen müssen sie die Eigentümer von Flurstücken identifizieren, wobei sie die Hilfe des Produktes Flurstücks- und Eigentumsnachweis einbeziehen können.
+Ein anderes Beispiel ist die Erstellung von Unfallskizzen: hier können Orthofotos angewendet werden, da auf diesen unter anderem die Fahrbahnmarkierungen sichtbar sind. Zudem können in solchen Fällen die Mess- und Zeichenwerkzeuge der \ac{WuNDa}-Karte benutzt werden. Ein weiterer Fall der Benutzung durch die Polizei ist die Einsatzplanung, die auf Basis von geeigneter Datenquellen stattfindet. So können z. B. die Orthofotos auch hier wieder zum Einsatz kommen.
 
-Ungeachtet dessen bereichert dieser Zugriff die Arbeit der Polizeibeamten, da die benötigten Informationen auch außerhalb der Öffnungszeiten des Katasteramtes bezogen werden können.
+Ungeachtet dessen bereichert der Zugriff die Arbeit der Polizeibeamten, da die benötigten Informationen auch außerhalb der Öffnungszeiten des Katasteramtes bezogen werden können.
 Weiterhin besitzt jeder Beamte, aus Datenschutzgründen, seinen eigenen Benutzernamen.
 Auf diese Weise kann nachvollzogen werden, welcher Beamte welche Produkte bezogen hat.
 
@@ -470,7 +472,7 @@ Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese
  \item Verarbeitung
  \item Fortführung
 \end{itemize}
-Weiterhin werden vor allem die Schritte erläutert die eine Erstellung einer Abrechnung nach sich ziehen. Somit wird hier nicht beschrieben wie jedes einzelne Produkt in \ac{WuNDa} erstellt werden kann.
+Weiterhin werden vor allem die Schritte erläutert, die eine Erstellung einer Abrechnung mit sich ziehen, sodass hier nicht beschrieben wird, wie jedes einzelne Produkt in \ac{WuNDa} erstellt werden kann.
 
 \subsection{Beschaffung} \label{subsec:beschaffung}
 \ac{WuNDa} unterstützt die externen Benutzer bei der Beschaffung der, für ihren Arbeitsschritt benötigten, Produkte. Durch die Selbstentnahme der Produkte wird das Anfragen der Produkte beim Katasteramt erspart, welches vorher die eigentliche Beschaffung übernehmen musste. Mittels der Selbstentnahme können die Produkte, die im Abschnitt \ref{sec:produktliste} aufgelistet sind, bezogen werden.
