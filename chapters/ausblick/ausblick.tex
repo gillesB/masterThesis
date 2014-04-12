@@ -64,8 +64,7 @@ Ein jeder solcher Abdruck der Cismap besitzt einen sogenannten Plotrahmen. In di
 Im Augenblick ist es möglich in \ac{WuNDa} einen Text anzugeben, der dann in der dem mittleren Feld des Rahmens abgebildet wird.
 Eine neue Funktionalität wäre es den Rahmen individueller gestalten zu können, so dass externe Benutzer z.\,B. ihr Logo in dem Rahmen abbilden können.
 Dabei soll das Logo des Katasteramtes erhalten bleiben, da es die Herkunft des Bildes angibt und somit die Richtigkeit der Bildes gewährleistet. 
-\subsubsection{Exposee erstellen}
-\subsubsection{Pläne auf Cismap ziehen}
+
 \subsubsection{Zugriff auf Daten der WSW}
 Die \ac{WSW} bietet Interessenten eine kostenlose Auskunft bezüglich den Daten, die das \ac{WSW} verwaltet.
 Hierzu gehören u.\,a. Trassen, wie etwa Strom- und Gasleitungen, Kanaldaten aber auch Buslinien.
@@ -102,13 +101,48 @@ Somit handelt es sich hierbei um eine Funktionalität deren Umsetzung näher bet
 \subsubsection{Verwaltung von eigenen Stammdaten}
 Im Augenblick haben sämtliche Daten, die von \ac{WuNDa} benutzt werden, einen direkten Bezug zu dem R102.
 Durch das Aufkommen der externen Benutzer kann es nützlich werden, dass diese eigene Daten in \ac{WuNDa} anzeigen wollen.
-Ein einfaches Beispiel wären z.\,B. Bookmarks für häufig benutzte Objekte oder angezeigte Stellen in der Karte.
-Andere Anwendungsfälle mit 
-\subsubsection{Verschiedene nicht öffentliche Layer freigeben (Schrottimmo)}
-\subsubsection{zukünftige Vorhaben anzeigen. Investitionspotential}
-\subsubsection{Luftlinienentfernung von einem Grundstück zu}
-\subsubsection{Anzeigen des Baujahres}
+Ein Beispiel wäre das Hinzufügen und Verwalten von Bookmarks für häufig benutzte Objekte oder angezeigte Stellen in der Karte.
+Andere Anwendungsfälle mit persönlicheren Daten sind ebenfalls denkbar, hier wurde im Gespräch bereits deutlich dass solche Daten im Besitz der externen Benutzer bleiben muss und nicht, wie vorgeschlagen, von dem R102 verwaltet werden kann.
+\subsubsection{Freigeben der Layer für Problemimmobilien und Schrottimmobilien}
+Das R102 besitzt einige Layer die für Öffentlichkeit nicht freigegeben sind.
+Im Gespräch wurde hier das Beispiel der Problemimmobilien und Schrottimmobilien genannt.
+Als Schrottimmobilien werden Immobilien bezeichnet, die in einem minderwertigen oder mangelhaften Zustand deutlich über ihren Wert verkauft wurden.
+Hierunter fallen häufig Gebäude, die nicht vollständig oder nur mangelhaft saniert wurden und dann an Privatkunden verkauft wurden \autocite[vgl.][]{iva-schrottimmo}.
+Unter Problemimmobilien werden auf Grund von Mängel nur schwer verkäufliche Immobilien verstanden \autocite[vgl.][]{immo-problemimmo}.
 
+Das Wissen um solche Immobilien ist nützlich für Projektentwickler, da diese sich häufig auf Grundstücken befinden, die für eine neues Projekt interessant sind.
+So kann z.\,B. das Grundstück einer Problemimmobilie für einen Neubau geeignet sein.
+Andererseits ist eine Gegend mit zu vielen solcher Immobilien eher zu meiden.
+
+Die entsprechenden Layer können jedoch nicht ohne weiteres freigegeben werden, da auch hier  der Datenschutz beachtet werden muss.
+Nichtsdestotrotz besitzt die Stadt Wuppertal selbst solche Immobilien, so dass der Datenschutz in diesem Fall keine Rolle spielt und die Layer in einem ersten Schritt eingeschränkt zur Verfügung gestellt werden könnten.
+  
+\subsubsection{Anzeigen von zukünftige Vorhaben}
+Informationen zu zukünftigen Vorhaben auf Grundstücken, können das Investitionspotential einer Gegend erhöhen.
+So wurde z.\,B. im vorherigen Abschnitt erwähnt dass zu viele Schrottimmobilien in einer Gegend einen Projektentwickler davon abschrecken können in diese Gegend zu investieren.
+Dem könnte entgegengewirkt werden in dem die Projektentwickler Informationen dazu hätten, welche Vorhaben bereits auf diesen Grundstücken in Planung sind, wie etwa eine Komplettsanierung von solchen Immobilien oder das Erstellen von Neubauten auf diesen Grundstücken.
+Weitere Informationen zu anderen zukünftigen Vorhaben, wären aber auch hilfreich, wie etwa welche Grundstücke in Bauland umgewandelt werden oder entwickelt werden. 
+Dadurch hätten die Projektentwickler einen Einblick in die nahe Zukunft und die Entwicklung einer Gegend und könnten somit ein Projekt dort vorbereiten, obwohl diese Gegend zu diesem Zeitpunkt noch nicht interessant ist.
+Kurzum das Investitionspotential einer Gegend wäre lediglich durch Informationen gestiegen, die zwar bereits vorhanden, jedoch in solcher Form noch nicht veröffentlicht oder nur schwer zugänglich sind.
+
+Diese Funktionalität wäre aus technischer Sicht umsetzbar, da lediglich zusätzliche Informationen zu einem Grundstück angezeigt werden müssten.
+Dies könnte über neue Layer oder neue Objekte in \ac{WuNDa} realisiert werden.
+Allerdings gibt es diese Art der Informationen im Augenblick nicht und müssten in einem ersten Schritt zusammengetragen werden und in Zukunft auf einem aktuellen Stand gehalten werden.
+Aus diesem Grund müsste deshalb zuerst analysiert werden, welche Daten relevant sind, in welchen Ämtern diese erfasst werden und es müssten Gespräche mit diesen Ämtern für dieses Kooperationsprojekt angestoßen werden.
+ 
+\subsubsection{Luftlinienentfernung von einem Grundstück zu interessanten Orten}
+Für die Projektentwickler und die Vertreiber der Immobilien spielt die Qualität der Lage eine wichtige Rolle, da über diese den Endpreis mitbestimmt wird und sich somit auch in deren Rendite widerspiegelt.
+Eine Möglichkeit die Qualität der Lage zu bestimmen, ist es die Luftlinienentfernung zu verschiedenen interessanten Orten für die späteren Bewohner zu berechnen.
+Diese Gegebenheit dieser Orte unterscheidet sich je nach Zielgruppe, typischerweise handelt es sich um Orte wie Schulen, Supermärkte, Ärzte, Freizeitbeschäftigungen, Bushaltestellen etc...
+
+Über die Cismap kann in \ac{WuNDa} die Entfernung zwischen zwei Punkten berechnet werden.
+Trotzdem kann diese Funktionalität nicht sofort umgesetzt werden, da Informationen bezüglich diesen interessanten Orten fehlen.
+Weiterhin müssten auch die verschiedenen Zielgruppen bestimmt werden sowie ihr Interessegrad an den verschiedenen Orten.
+So sind z.\,B. junge Eltern interessierter an Schulen (Vor-, Grund- und Sekundarschulen) als Senioren.
+
+\subsubsection{Anzeigen des Baujahres}
+Ein weiterer Layer der im Gespräch aufkam war das Anzeigen des Baujahres in Zehnjahres-Gruppen.
+Dadurch ist sofort ersichtlich wie eine Gegend entstanden ist und welche letzten Investitionen in ihr getätigt wurden.
 
 
 \section{Beleuchtung einiger Features}
