@@ -1,6 +1,5 @@
 \chapter{Spezifikation} \label{ch:spezi}
-In diesem Kapitel werden die gewünschten Erweiterungen von \ac{WuNDa} spezifiziert.
-Diese Erweiterungen werden der Übersicht halber zuerst aufgelistet und danach detaillierter beschrieben.
+Dieses Kapitel spezifiziert die gewünschten Erweiterungen von \ac{WuNDa}, welche zuerst aufgelistet und danach detaillierter beschrieben werden.
 
 Die Informationen zu diesem Kapitel sind aus einer Zusammenarbeit zwischen dem Ressort 102 und Cismet entstanden.
 Dabei entstanden die Anforderungen nicht auf Anhieb, sondern es wurde von den Grundideen ausgegangen, so dass ein erstes Datenmodell und erste Mock-Ups entstanden.
@@ -24,8 +23,9 @@ Anschließend können sie wieder in die Datenbank zurückgeführt werden.
 Um die Spezifikation umzusetzen muss mit solchen Cids-Klassen gearbeitet werden, dabei sind die drei neu eingeführten Klassen Kunden, Kunden-Logins und Kundenguppe sowie die bereits bestehende Klasse Buchungen am relevantesten für das automatische Erstellen der Abrechnungen und werden im \autoref{sec:spezifikation} stärker beleuchtet. 
 Die restlichen neuen Klassen werden gesondert im \autoref{subsec:neue_klassen} aufgeführt und beschrieben.
 
-Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
-Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordnung der Erweiterung darstellt. So finden sich unter den Kategorien die neuen Klassen Kunde und Kundengruppe, aber auch die bereits bestehende Klasse Buchung. 
+%Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
+Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordnung der Erweiterung darstellt.
+So befinden sich unter den Kategorien die neuen Klassen Kunde und Kundengruppe, aber auch die bereits bestehende Klasse Buchung. 
 \begin{itemize}
 	\item Allgemeines
 	\begin{itemize}
@@ -62,11 +62,10 @@ Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordn
 In diesem Abschnitt werden die oben genannten Erweiterungen spezifiziert. Dabei werden die Erweiterungen in der Regel zuerst erläutert und danach mittels möglichst wenigen und einfachen Sätzen spezifiziert.
 
 \subsection{Berechtigungen} \label{subsec:berechtigungen}
-Durch die Erweiterungen können vertrauliche Informationen betrachtet und verändert werden.
+Durch die gewünschten Erweiterungen können vertrauliche Informationen betrachtet und verändert werden.
 Aus diesem Grund dürfen nur einige ausgewählte Benutzer Zugriff auf diese Erweiterungen erhalten.
-Bei den Benutzern handelt es sich um die \ac{WuNDa}"=Administratoren und einigen Beamten die für die Kundenverwaltung zuständig sind.
-Die einzige Ausnahme hiervon bildet die Ansicht der Kunden auf ihren eigenen Kundenrenderer.
-Siehe hierzu auch den Unterabschnitt "`\nameref{subsubsec:ansicht_externe_benutzer}"' im \autoref{subsubsec:ansicht_externe_benutzer}. 
+Bei den Benutzern handelt es sich um die \ac{WuNDa}"=Administratoren und einige Beamten, die für die Kundenverwaltung zuständig sind.
+Die einzige Ausnahme hiervon bildet die Ansicht der Kunden auf ihren eigenen Kundenrenderer, mehr Informationen hierzu befinden sich im Unterabschnitt \autoref{subsubsec:ansicht_externe_benutzer}. 
 
 Demnach sollen nur die \ac{WuNDa}"=Administratoren und einige Beamten der Kundenverwaltung Zugriff auf die gewünschte Erweiterungen erhalten. Wie bereits erwähnt, soll es hiervon nur eine einzige Ausnahme geben.
 
@@ -75,14 +74,14 @@ Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutt
 
 Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden.
 \subsection{Kunde}
-Im aktuellen Stand werden die Kunden des Ressorts 102 nicht in \ac{WuNDa} verwaltet, durch die gewünschten Erweiterungen wird dies jedoch zwingend notwendig. Daher wird eine Klasse  benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
+Im aktuellen Stand werden die Kunden des Ressorts 102 nicht in \ac{WuNDa} verwaltet, jedoch wird dies durch die gewünschten Erweiterungen zwingend notwendig. Daher wird eine Klasse  benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
 
 Für die Klasse Kunde sollen folgende Felder bereitstehen:
 \begin{description}
 \item[Name] Der Name des Kunden, dies kann z.\,B. eine Organisationsbezeichnung sein.
 \item[Vermessungsstellennummer] Dieses Feld enthält die Zulassungsnummer einer Vermessungsstelle. Eine Vermessungsstelle ist eine Behörde oder Person, die berechtigt ist Liegenschaftsvermessungen durchzuführen und Abmarkungen vorzunehmen. Zu den Vermessungsstellen zählen z.\,B. das Katasteramt oder ÖbVI \autocite[vgl.][]{recklinghausen-vermessungsstelle}.
 \item[Vertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden die Benutzung von \ac{WuNDa} erlaubt.
-\item[Vertragsende] Das Auslaufdatum dieses Vertrages.
+\item[Vertragsende] Das Auslaufdatum des Vertrages.
 \item[Abrechnungsturnus] Der zeitliche Abstand wann ein Kunde seine Abrechnung erhält. (z.\,B.. quartalsweise, jährlich)
 \item[Direktkontakt] Eine E-Mail-Adresse mit der, der Kunde sofort erreicht werden kann. Dies kann zum Beispiel die Adresse des Geschäftsleiters sein.
 \item[Weiterverkaufsvertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden das Weiterverkaufen von bezogenen Produkten erlaubt.
@@ -101,6 +100,9 @@ Zusammenfassend benötigt ein Kunden-Login folgende Felder:
 \item[Kontakt] Die E-Mail-Adresse des externen Benutzers.
 \item[Kunde] Die Zuordnung des Kunden-Logins zu genau einem Kunden.
 \end{description}
+
+Nach der Beschreibung der Klassen, folgen nun die eigentlichen Erweiterungen, die den Kunden betreffen.
+
 \subsubsection{Kundenrenderer} \label{subsubsec:kundenrenderer}
 Der Kundenrenderer soll Buchungen eines Kunden tabellarisch darstellen.
 Dabei sollen verschiedene Filtermöglichkeiten angegeben werden können, so dass nur Buchungen angezeigt werden, die die Kriterien erfüllen.
@@ -110,18 +112,18 @@ Für die angezeigten Buchungen soll es möglich sein den Bericht Rechnungsanlage
 Die Buchungen sollen zeitlich gefiltert werden können.
 Dabei soll es eine Schnellauswahl für die Buchungen des aktuellen Tages, eines beliebigen Monats und eines beliebigen Quartals geben.
 Weiterhin soll ein Datumsbereich als Filter benutzt werden können.
-Die Buchungen sollen auch nach ihrer Geschäftsbuchnummer, ihrem Projekt und dem Kunden-Login, der die Buchung angelegt hat, gefiltert werden können.
+Die Buchungen sollen auch nach Geschäftsbuchnummer, Projekt und nach dem Kunden-Login, der die Buchung angelegt hat, gefiltert werden können.
 Weitere Filter sind der Kostentyp, sprich ob eine Buchung kostenfrei oder kostenpflichtig ist, sowie der Verwendungszweck der Buchung.
-Zusätzlich besteht das Kriterium dass sämtliche Filter eine neutrale Einstellung haben müssen, bei der sie keine filternde Funktionalität übernehmen.
+Zusätzlich besteht das Kriterium, dass sämtliche Filter eine neutrale Einstellung haben müssen, bei der sie keine filternde Funktionalität übernehmen.
 
-In der Tabelle müssen die Geschäftsbuchnummer, die Projektbezeichnung, der Verwendungszweck, das Art des bezogenen Produktes, die Netto-Gebühr, der MwSt.-Satz, das Erstellungsdatum sowie der Kunden-Login der Buchung angezeigt werden.
+In der Tabelle müssen die Geschäftsbuchnummer, die Projektbezeichnung, der Verwendungszweck, die Art des bezogenen Produktes, die Netto-Gebühr, der MwSt.-Satz, das Erstellungsdatum sowie der Kunden-Login einer Buchung angezeigt werden.
 
 Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up des Kundenrenderers \vref{fig:mockup-kunderenderer} entnommen werden.
 
 \begin{figure}[htb]
 	\centering
 	\incgraph{width=\textwidth}{./rimg/gui-kunderenderer.png}
-	\caption{Mockup des Kundenrendereres}
+	\caption{Mock-up des Kundenrendereres}
 	\label{fig:mockup-kunderenderer}
 \end{figure}
 
@@ -129,7 +131,7 @@ Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up d
 Die Funktionalität des Kundenrenderers soll dem Kunden selbst nicht vorenthalten werden.
 Aus diesem Grund soll es für die externen Benutzer eines Kunden möglich sein auf den eigenen Kundenrenderer zuzugreifen.
 Hierbei muss sichergestellt werden, dass die externen Benutzer nur den Kundenrenderer des eigenen Kunden öffnen können und somit keine Einsicht in die Buchungen der anderen Kunden erhalten. 
-Weiterhin dürfen sie den Bericht Rechnungsanlage nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
+Zudem dürfen sie den Bericht Rechnungsanlage nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
 
 Demnach sollen externe Benutzer nur den eigenen Kundenrenderer öffnen können und es soll ihnen nicht möglich sein den Bericht Rechnungsanlage zu erstellen.
 
@@ -149,14 +151,14 @@ Bei einem Klick auf ein solches Datumsfeld soll das bereits protokollierte Produ
 Mit Hilfe des Kundeneditors soll es möglich sein einen neuen Kunden anzulegen, bzw. Informationen zu einem bereits existierenden Kunden zu ändern.
 
 \subsection{Kundengruppen}
-Bei den Kundengruppen handelt es sich um Mengen von Kunden. Diese Klasse wird benötigt um Kunden mit ähnlichen Eigenschaften zu gruppieren.
+Kundengruppen werden benötigt um Kunden mit ähnlichen Eigenschaften zu gruppieren.
 Die Kundengruppen besitzen kein Wissen über ihren Inhalt, sondern müssen manuell erstellt und verwaltet werden.
 
 Die Funktionsweise einer Kundengruppe soll an dem Beispiel Gruppe "`Quartalsweise"' erläutert werden.
 Diese Gruppe enthält sämtliche Kunden die den Abrechnungsturnus "`Quartal"' besitzen. Wird ein neuer Kunde erstellt, mit eben dem Abrechnungsturnus, so muss dieser manuell der Kundengruppe hinzugefügt werden.
 Diese Kundegruppe hat den Nutzen, dass beim Erstellen der Abrechnung für ein Quartal die benötigten Kunden nicht zusammengesucht werden müssen, sondern bereits in dieser Gruppe gesammelt sind.
 
-Kurzum eine Kundengruppe soll eine Menge von Kunden sein, die manuell erstellt und verwaltet werden muss. Eine Kundengruppe soll folgende Informationen enthalten:
+Kurzum eine Kundengruppe soll eine Gruppe von Kunden sein, die manuell erstellt und verwaltet werden muss. Eine Kundengruppe soll folgende Informationen enthalten:
 \begin{itemize}
 \item Name
 \item Beschreibung
@@ -169,15 +171,15 @@ Seine Funktionsweise ist ähnlich dem des Kundenrenderers und besitzt deshalb au
 Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte Rechnungsanlage, Buchungsbeleg können erstellt werden. Zusätzlich steht hier auch der Bericht Geschäftsstatistik zur Auswahl.
 
 Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird, sondern mehrere, werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
-Die in der Tabelle angezeigten Informationen sind der Kundenname, der aggregierte Brutto-Preis und die Anzahl der kostenpflichtigen Downloads. Weiterhin soll jeder Eintrag in der Tabelle ein Auswahlfeld besitzen. Mit diesem Feld kann der Benutzer auswählen, ob die Buchungen eines Kunden beim Erstellen eines Berichtes benutzt werden sollen, oder nicht.
+Die in der Tabelle angezeigten Informationen sind die Kundennamen, die aggregierten Brutto-Preise und die Anzahl der kostenpflichtigen Downloads. Weiterhin soll jeder Eintrag in der Tabelle ein Auswahlfeld besitzen, mit dem der Benutzer auswählen kann, ob die Buchungen eines Kunden beim Erstellen eines Berichtes benutzt werden sollen, oder nicht.
 
-Die Buchungen können genau wie im Kundenrenderer zeitlich und nach Verwendungszweck gefiltert werden. Weiterhin kann nach dem Abrechnungsturnus des Kunden gefiltert werden und kostenfreie Buchungen können ausgeblendet werden.
+Die Buchungen können genau wie im Kundenrenderer zeitlich und nach Verwendungszweck gefiltert werden. Weiterhin kann nach dem Abrechnungsturnus der Kunden gefiltert werden und kostenfreie Buchungen können ausgeblendet werden.
 
-Eine frühes Mock-up des Kundengruppenrenderer kann in \myfig{fig:mockup-kundengruppenrenderer} betrachtet werden.
+Eine Mock-up des Kundengruppenrenderer kann in \myfig{fig:mockup-kundengruppenrenderer} betrachtet werden.
 \begin{figure}[htb]
 	\centering
 	\incgraph{width=\textwidth}{./rimg/gui-kundengruppenrenderer.png}
-	\caption{Mockup des Kundengruppenrenderer}
+	\caption{Mock-up des Kundengruppenrenderer}
 	\label{fig:mockup-kundengruppenrenderer}
 \end{figure}
 
@@ -191,8 +193,8 @@ Im aktuellen Stand besitzt jeder Beamte, der solche E-Mails versenden soll, eine
 Nach dem Hinzufügen/Entfernen eines Kunden oder dem Ändern einer E-Mail-Adresse kann es somit zu Unvollständigkeiten in den einzelnen Verteiler kommen, da diese noch nicht aktualisiert wurden.
 Mittels der Kundengruppen können diese, von den Beamten einzeln verwalteten, Verteiler durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
 
-Der gewünschte Lösungsansatz ist die Möglichkeit für eine Kundengruppe auszuwählen ob eine E-Mail an die jeweiligen Direktkontakte oder an jeden Kunden-Login der Kunden innerhalb der Gruppe erstellt werden soll.
-Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können. Diese Vorlage soll den Betreff und den Text der E-Mail enthalten.
+Der gewünschte Lösungsansatz ist die Möglichkeit für eine Kundengruppe auszuwählen, ob eine E-Mail an die jeweiligen Direktkontakte oder an jeden Kunden-Login der Kunden innerhalb der Gruppe erstellt werden soll.
+Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können, welche den Betreff und den Text der E-Mail enthält.
 Weiterhin soll sie zusätzlich die To-Adressaten enthalten, dies sind in der Regel Adressen von Mitarbeiter aus dem Katasteramt.
 Diese Mitarbeiter sollen die später versendete E-Mail als Kontrolle erhalten. 
 Nach der Auswahl der Vorlage soll ein E-Mail-Erstellungsfenster des Standard-E-Mail-Programms des Benutzers geöffnet werden.
@@ -211,12 +213,12 @@ Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.\,B. den ber
 Bei den Buchungen handelt es sich um die bereits mehrmals erwähnten Download"=Protokolle. Im aktuellen Stand können die Buchungen nicht in \ac{WuNDa} dargestellt oder bearbeitet werden.
 
 \subsubsection{Suchdialog zu den Buchungen} 
-Dieser Suchdialog soll es ermöglichen Buchungen über verschiedene Suchkriterien zu finden und anschließend im Buchungsrenderer oder -editor zu öffnen.
-Diesen Renderer und Editor soll nur über den Umweg über den Suchdialog geöffnet werden können. 
-Die Suchkriterien, die angegeben werden können, sind der Kundenname, der Abrechnungsturnus des Kunden, die Geschäftsbuchnummer und das Projekt der Buchung sowie das Kunden-Login, mit dem die Buchung angelegt wurde.
+Der Suchdialog soll es ermöglichen Buchungen über verschiedene Suchkriterien zu finden und anschließend im Buchungsrenderer oder -editor zu öffnen.
+Diesen Renderer und Editor soll nur über den Umweg des Suchdialogs geöffnet werden können. 
+Die Suchkriterien, die angegeben werden können, sind: Kundenname, Abrechnungsturnus des Kunden, Geschäftsbuchnummer, Projekt der Buchung sowie Kunden-Login, mit dem die Buchung angelegt wurde.
 Weiterhin soll, es wie im Kundenrender, möglich sein zeitliche Angaben, den Verwendungszweck und den Kostentyp anzugeben. Zusätzlich kann angegeben werden ob stornierte oder abgerechnete Buchungen gefunden werden sollen.
 
-Der prinzipielle Aufbau des Suchdialogs kann dem Mock-up \ref{fig:mockup-buchungssuchdialog} entnommen werden.
+Der prinzipielle Aufbau des Suchdialogs kann dem Mock-up in \autoref{fig:mockup-buchungssuchdialog} entnommen werden.
 \begin{figure}[htbp]
 	\centering
 	\incgraph{width=0.95\textwidth}{./rimg/gui-buchung_suchdialog.png}
@@ -226,16 +228,14 @@ Der prinzipielle Aufbau des Suchdialogs kann dem Mock-up \ref{fig:mockup-buchung
 
 \subsubsection{Buchungseditor und Buchungsrenderer}
 Beim Buchungseditor und dem Buchungsrenderer soll es sich um die gleiche Ansicht handeln, wobei der Renderer keine Benutzereingabe entgegen nimmt.
-Der Buchungseditor soll es nicht erlauben neue Buchungen zu erstellen, da diese nur über den Downloadprotokoll-Dialog nach dem Beziehen eines Produktes angelegt werden.
-Weiterhin soll es im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern.
-Außerdem soll eine Buchung storniert werden können.
-Siehe hierzu auch die zwei folgenden Abschnitte.
+Der Buchungseditor soll es nicht erlauben neue Buchungen zu erstellen, da diese nur über den Downloadprotokoll-Dialog nach dem Beziehen eines Produktes angelegt werden sollen.
+Es soll im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Projektbezeichnung zu ändern.
+Außerdem soll eine Buchung storniert werden können, weitere Informationen hierzu befinden sich in den zwei folgenden Abschnitten.
 
 \subsubsection{Änderung von einzelnen Buchungen} \label{subsubsec:aendern_buchung}
-Wie bereits erwähnt dürfen nicht sämtliche Werte einer Buchung im Buchungseditor verändert werden, sondern es sollen nur die Werte Geschäftsbuchnummer und Projektbezeichnung verändert werden können.
-Diese beiden Felder werden vom externen Benutzer händisch eingegeben und deshalb sind Fehleingaben vorstellbar, die von Beamten des Katasteramtes verbessert werden müssen.
+Im Buchungseditor dürfen, wie bereits erwähnt, nicht alle Werte einer Buchung verändert werden, sonders nur die Werte \enquote{Geschäftsbuchnummer} und \enquote{Projektbezeichnung}. Da die beiden letztgenannten Werte manuell vom externen Benutzer eingegeben werden, kann es zu Fehleingaben kommen, die die Beamten des Katasteramts verbessern können.
 
-Weiterhin soll die jeweils letzte Änderung protokolliert werden. Auf eine Historie mit den gemachten Änderungen wird bewusst verzichtet, erfolgen also zwei Änderungen so wird das Protokoll der ersten Änderung überschrieben.
+Für jede Buchung wird die jeweils letzte Änderung protokolliert und somit wird auf eine Historie von den Änderungen bewusst verzichtet. Wird eine Buchung also zwei oder mehrmals verändert, wird das Protokoll der vorherigen Änderung überschrieben.
 In dieser Protokollierung sollen folgende Werte erfasst werden:
 \begin{itemize}
 \item veränderter Wert (Geschäftsbuchnummer oder Projektbezeichnung)
@@ -247,15 +247,15 @@ In dieser Protokollierung sollen folgende Werte erfasst werden:
 Diese Felder werden der Klasse Buchung hinzugefügt, so dass jede Buchung sein eigenes Änderungsprotokoll mit speichert.
 
 \subsubsection{Stornierung von einzelnen Buchungen} \label{subsubsec:storno_buchung}
-Wie oben bereits erwähnt soll es über den Buchungseditor möglich sein Buchungen zu stornieren. Beim Stornieren einer Buchung soll ein Grund ausgewählt werden können. Dieser gibt an, warum eine Buchung storniert werden musste. Um diese Auswahl darzustellen wird die Klasse Storno-Grund eingeführt, diese ist in \ref{subsec:neue_klassen} beschrieben.
+Über den Buchungseditor, wie vorher bereits erwähnt, soll es möglich sein Buchungen zu stornieren, bei diesem Vorgang soll jedoch ein Grund ausgewählt werden, weshalb es zu der Stornierung kommt. Um diese Auswahl darzustellen wird die Klasse Storno-Grund eingeführt, diese ist in Kapitel \ref{subsec:neue_klassen} beschrieben.
 
-Bei dem Vorgang der Stornierung soll ein Beamte ein Storno-Grund auswählen können und die Stornierung selbst anstoßen. Daraufhin soll die betroffene Buchung als storniert markiert werden und das aktuelle Datum, der Benutzer, der die Stornierung vornimmt, sowie der Storno-Grund sollen mit der Buchung abgespeichert werden.
+Nachdem ein Beamte ein Storno-Grund ausgewählt hat und somit den Vorgang der Stornierung angestoßen hat, soll die Buchung als storniert markiert werden und mit dem Datum der Stornierung, sowie dem Storno-Grund und dem Benutzer abgespeichert werden.
 
 \subsection{Berichte} \label{subsec:berichte}
 Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.  \todo{Müssen noch besser spezifiziert werden.}
 
 \subsubsection{Buchungsbeleg}
-Dieser Bericht soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
+Der Buchungsbeleg soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
 Dabei ist der Bericht in einen Kopfbereich und eine Tabelle mit den Buchungen eingeteilt.
 
 Im Kopfbereich des Berichts sollen sich folgende Basisinformationen befinden:
@@ -279,38 +279,36 @@ In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Do
 Falls im Renderer keine Buchungen ausgewählt sind, so soll der Bericht nicht erstellt werden.
 
 \subsubsection{Rechnungsanlage}
-Die Rechnungsanlage ist eine Erweiterung des Buchungsbeleg.
-Diese besitzt zwischen dem Kopfbereich und der Tabelle ein zusätzliches Statistikfeld.
-Weiterhin ist die Rechnungsanlage ein Teil der Abrechnung, so dass die angezeigten Buchungen, beim Erstellen des Berichts, als abgerechnet markiert werden. Dies ist auch der Grund weshalb der Bericht im Kundenrenderer nicht von den externen Benutzern erstellt werden darf.
+Die Rechnungsanlage ist eine Erweiterung des Buchungsbelegs, welcher zwischen dem Kopfbereich und der Tabelle ein zusätzliches Statistikfeld einnimmt.
+Zudem ist die Rechnungsanlage ein Teil der Abrechnung, sodass die angezeigten Buchungen beim Erstellen der Berichte als abgerechnet markiert werden können.
+Was auch der Grund ist, weshalb der Bericht im Kundenrenderer nicht von den externen Benutzern erstellt werden darf.
 Eine Vorlage eines solchen Berichts kann der Abbildung \vref{fig:vorlage_rechnungsanlage} entnommen werden.
 
-In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden sollen oder nicht. Weiterhin soll festgelegt werden können, ob die Buchungen tatsächlich als abgerechnet markiert werden sollen, oder nicht.
+In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden und ob die Buchungen tatsächlich als abgerechnet markiert werden.
 
 \subsubsection{Geschäftsstatistik}
-Die Geschäftsstatistik ist ein Bericht der Statistiken von den Downloads von verschiedenen Kunden darstellt.
+Die Geschäftsstatistik ist ein Bericht der Statistiken der Downloads von den verschiedenen Kunden.
 Durch die jeweilige Darstellung mehrerer Kunden, kann der Bericht nur im Kundengruppenrenderer erstellt werden.
-Die angezeigten Statistiken stellen Informationen zu der Aktivität der Benutzer, den Kostenarten der Produkte, den Verwendungszwecken, den Angaben für den Jahresbericht, sowie eine Übersicht über die bezogenen Produkte dar.
+Es gibt verschiedene Informationen die in der Geschäftsstatistik angezeigt werden: die Aktivität der Benutzer, die Kostenarten der Produkte, die Verwendungszwecke, die Angaben für den Jahresbericht und die Übersicht der bezogenen Produkte.
 Der Bericht wurde allerdings nicht vollständig vom R102 spezifiziert und kann somit auch nicht komplett umgesetzt werden.
-Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll auch generiert werden können.
-Dieser Bericht entspricht allerdings nicht der tatsächlichen Geschäftsstatistik. 
+Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll auch generiert werden können. Dieser entspricht allerdings nicht den tatsächlichen Geschäftsstatistiken.
 Eine etwaige Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.
-
  
 \subsection{sonstige neu benötigte Klassen} \label{subsec:neue_klassen}
-Der Hauptgrund warum diese, hier aufgeführten, Klassen eingeführt werden ist, die Unterstützung des Benutzers bei der Eingabe von den jeweiligen Werten.
-Mit diesen Klassen kann dem Benutzer eine vorgefertigte Auswahl an Elementen angeboten werden.
-Somit müssen die entsprechenden Felder nicht händisch in der GUI eintragen werden.
-Diese Auswahl beschleunigt einerseits das Eintragen von Werten und verhindert andererseits Fehleingaben. 
+Der Hauptgrund, warum diese, im Folgenden aufgelisteten, Klassen eingeführt werden, ist die Unterstützung des Benutzers bei der Eingabe von den jeweiligen Werten.
+
+Dem Benutzer wird eine vorgefertigte Auswahl an Elementen angeboten, somit muss er die entsprechenden Felder nicht händisch in der GUI eintragen.
+Dies beschleunigt einerseits das Eintragen und verhindert zudem Fehleingaben. 
 
 Zum Einführen der Klasse Kunde und zum Erweitern der Buchungen werden folgende zusätzlichen Klassen benötigt:
 \begin{description}
 \item[Abrechnungsturnus] Der Abrechnungsturnus gibt an wie häufig ein Kunde eine Abrechnung erhält. Sein einziges Feld ist die Bezeichnung des Abrechnungsturnus (z.\,B. Jahr, Quartal)
-\item[Produkt] Ein Produkt repräsentiert die verschiedenen Softwareprodukte, die ein Kunde benutzen kann. Seine Felder sind eine Bezeichung des Produktes, eine Beschreibung sowie der konkrete Client, mit dem sich der Benutzer anmelden kann. Beim Client handelt es sich ebenfalls um eine Klasse.
-\item[Client] Ein Client kann von verschiedenen Produkten benutzt werden. Sein einziges Feld ist seine Bezeichnung.
+\item[Client] Das einzige Feld eines Clients ist seine Bezeichnung.
+\item[Produkt] Ein Produkt repräsentiert die verschiedenen Softwareprodukte, die ein Kunde benutzen kann. Seine Felder sind eine Bezeichung des Produktes, eine Beschreibung sowie der konkrete Client, mit dem sich der Benutzer anmelden kann.
 \item[Stornogrund] Ein Stornogrund ist der Grund, warum eine Buchung storniert wurde. Sein einziges Feld ist die Bezeichnung des Grundes.
 \end{description}
 
 Bei diesen Klassen sollen die sogenannten Standardrenderer und -editoren verwendet werden. Diese werden für jede Klasse automatisch erstellt und müssen nicht eigens implementiert werden.
-Mit dem Standardeditor ist es möglich neue Objekte einer Klasse anzulegen und sämtliche Felder der Klasse verändern.
-Diese Anforderungen genügen allerdings für die hier aufgelisteten Klassen.
+Mit dem Standardeditor ist es möglich neue Objekte einer Klasse anzulegen und sämtliche Felder der Klasse zu verändern.
+Die Anforderungen genügen allerdings für die hier aufgelisteten Klassen.
 

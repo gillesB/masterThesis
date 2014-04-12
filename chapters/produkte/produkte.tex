@@ -475,8 +475,7 @@ Um nicht auf sämtliche Details der einzelnen Workflows einzugehen, werden diese
 Weiterhin werden vor allem die Schritte erläutert, die eine Erstellung einer Abrechnung mit sich ziehen, sodass hier nicht beschrieben wird, wie jedes einzelne Produkt in \ac{WuNDa} erstellt werden kann.
 
 \subsection{Beschaffung} \label{subsec:beschaffung}
-\ac{WuNDa} unterstützt die externen Benutzer bei der Beschaffung der, für ihren Arbeitsschritt benötigten, Produkte. Durch die Selbstentnahme der Produkte wird das Anfragen der Produkte beim Katasteramt erspart, welches vorher die eigentliche Beschaffung übernehmen musste. Mittels der Selbstentnahme können die Produkte, die im Abschnitt \ref{sec:produktliste} aufgelistet sind, bezogen werden.
-Die Benutzer können je nach Produkt verschiedene Einstellungen treffen. So können Sie etwa einen Bereich in der Karte oder Objekte auswählen, die in dem jeweiligen Produkt angezeigt werden.
+Der Arbeitsschritt der Beschaffung wird durch \ac{WuNDa} deutlich erleichtert, da die Anfrage der Produkte am Katasteramt erspart wird und der externe Benutzer  die Produkte jetzt selbstständig per Selbstentnahme beziehen kann. Zudem können die Benutzer für jedes Produkt verschiedene Einstellung treffen, wie etwa einen bestimmten Bereich der Karte oder ein bestimmtes Objekt auswählen.
 
 \begin{figure}[htb]
 	\centering
@@ -492,7 +491,7 @@ Zum Beziehen der Liegenschaftskarte muss in \ac{WuNDa} der sogenannten ALKIS-Dru
 Nach dem Öffnen des Dialogs kann der Benutzer die Produktklasse auswählen. In diesem Fall ist dies "`Gdb-NRW-Amtlich"', welches eine Teilmenge der ALKIS-Standardausgaben darstellt. 
 Je nachdem welche Produktklasse ausgewählt wurde, ändern sich die Auswahlmöglichkeiten der Produkte.
 Wie bereits erwähnt, wird hier die farbige Liegenschaftskarte ausgewählt.
-Eine weitere wichtige Eingabe ist das Flurstück-Feld, hier können ein oder mehrere Flurstücke per drag-and-drop hereingezogen werden, diese werden dann später im Produkt dargestellt.
+Eine weitere wichtige Eingabe ist das Flurstück-Feld, hier können ein oder mehrere Flurstücke per drag-and-drop hereingezogen werden, welche dann später im Produkt dargestellt werden.
 Weitere Eingabefelder sind das Format (z.\,B. DINA4), den  Maßstab (hier 1:500), die Auftragsnummer und ein Kommentarfeld. Die Option "`Drehwinkel vorschlagen"' beeinflusst die Rotation des später angezeigten Druckbereiches.
 
 \begin{figure}[htb]
@@ -502,9 +501,8 @@ Weitere Eingabefelder sind das Format (z.\,B. DINA4), den  Maßstab (hier 1:500)
 	\label{fig:alkis-auswahl}
 \end{figure}
 
-Bestätigt der Benutzer mit "`Ok"' seine Eingabe so gelangt er zur Karte in \ac{WuNDa}, wobei der Druckbereich angezeigt wird (siehe \myfig{fig:alkis-auswahl}).
-Dieser Druckbereich befindet sich über den zuvor ausgewählten Flurstücken und kann verschoben, in der Größe verändert und rotiert werden.
-Mit einem Doppelklick auf den Druckbereich, wird gelangt er zum Downloadprotokoll-Dialog (siehe \myfig{fig:alkis-protocol}).  
+Bestätigt der Benutzer seine Eingabe mit "`Ok"' gelangt er zur Karte in \ac{WuNDa}, wobei der Druckbereich angezeigt wird (siehe \myfig{fig:alkis-auswahl}), welcher sich über den zuvor ausgewählten Flurstücken befindet und nachträglich verschoben, in der Größe verändert und rotiert werden kann.
+Mit einem Doppelklick auf den Druckbereich, gelangt dieser dann zum Downloadprotokoll-Dialog (siehe \myfig{fig:alkis-protocol}).  
 
 Das Downloadprotokoll-Dialog hat mehrere Aufgaben, so 
 \begin{itemize}
@@ -523,7 +521,7 @@ Für die Abrechnungen ist der Verwendungszweck besonders relevant, da dieser ver
 	\label{fig:alkis-protocol}
 \end{figure}
 
-Im Berechnungsfeld kann der Benutzer nachvollziehen wie die Gebühr zu seinem Download zustande kommt. Hier wird das gewählte Produkt und dessen Grundpreis angegeben, woraufhin der Rabatt abgezogen wird, um schließlich die fällige Gebühr anzuzeigen.
+Im Berechnungsfeld wird dem Benutzer veranschaulicht, wie die Gebühr für sein Download zustande kommt. Hier wird das gewählte Produkt und dessen Grundpreis angegeben, woraufhin der Rabatt abgezogen wird, um schließlich die fällige Gebühr anzuzeigen.
 
 Die auswählbare Verwendungszwecke eines \ac{ÖbVI} sind u.\,a. "`Vermessungsunterlagen (amtlicher Lageplan TS3)"' und "`Vermessungsunterlagen (hoheitliche Vermessung TS4)"'.
 In diesem Beispiel ist der Benutzer ein \ac{ÖbVI} der ein vermessungsrelevantes Dokument bezieht, somit fällt, nach Abzug der Rabatte, eine Gebühr von \EUR{0} an.
@@ -532,7 +530,7 @@ Bezieht der Kunde ein kostenpflichtiges Produkt selbst, so fällt auf jeden Fall
 Mit dem Bestätigten des Dialoges akzeptiert der Benutzer die Gebühr und der Download des Produktes wird gestartet. Nach dem Abschluss des Downloads kann der Benutzer die heruntergeladene Datei wie gewohnt benutzen. Im Falle der Liegenschaftskarte wird eine PDF-Datei heruntergeladen, ein Beispiel hiervon ist auf Seite \pageref{fig:flurkarte} zu finden.
 
 \label{subsec:beschaffung-download}
-Zeitgleich mit dem Starten des Downloads wird dieser protokolliert. Dies bedeutet, dass relevante Informationen zu dem Download abgespeichert werden. Das Abspeichern erfolgt in jedem Fall, also auch wenn die Gebühr \EUR{0} beträgt oder der Download fehlschlägt. Insbesondere der letzte Fall bereitet beim Erstellen der Abrechnung Probleme, wie dies dem Abschnitt \vref{subsec:erstellen_abrechnung_storno} zu entnehmen ist, da diese Protokolle storniert werden müssen.
+Zeitgleich mit dem Starten des Downloads wird dieser protokolliert. Dies bedeutet, dass die relevanten Informationen zu dem Download in der Datenbank des Katasteramtes abgespeichert werden. Das Abspeichern erfolgt in jedem Fall, also auch wenn die Gebühr \EUR{0} beträgt oder der Download fehlschlägt. Insbesondere der letzte Fall bereitet beim Erstellen der Abrechnung Probleme, wie dies dem Abschnitt \vref{subsec:erstellen_abrechnung_storno} zu entnehmen ist, da diese Protokolle storniert werden müssen.
  
 Kurzum der externe Benutzer erhält durch die Selbstentnahme verschiedene Vorteile.
 Einerseits stehen ihm die Dokumente sofort zur Verfügung und dies auch außerhalb der Öffnungszeiten des Katasteramtes.
@@ -546,7 +544,7 @@ Bei der Fortführung wird der externen Benutzer mittels der von \ac{WuNDa} angeb
 Ansonsten wird dem Benutzer in diesem Bereich keine Funktionalität angeboten.
 
 \bigskip
-Welche Erweiterungen von \ac{WuNDa} denkbar und sinnvoll sind, wird im Kapitel \autoref{ch:aussicht} ausführlich beschrieben. Zu Schluss dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
+Welche Erweiterungen von \ac{WuNDa} denkbar und sinnvoll sind, wird im Kapitel \autoref{ch:aussicht} ausführlich beschrieben. Am Ende dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
 
 %\begin{itemize}
 %	\item fachlicher IST-Zustand
@@ -571,7 +569,7 @@ Demnach befindet sich in einer Spalte dieser Datei Informationen wie z.\,B. der 
 
 Im folgenden Arbeitsschritt muss der Beamte die einzelnen Buchungen für jeden Benutzer von dieser Excel-Datei in eine jeweils eigene Excel-Datei kopieren. Eine solche Excel-Datei repräsentiert die Abrechnung an die einzelnen Kunden des Katasteramtes.
 
-Diese Vorgehensweise hat einige Nachteile. Ein Nachteil ist, dass durch den manuellen Kopiervorgang eine sehr lange Bearbeitungszeit anfällt. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
+Diese Vorgehensweise hat einige Nachteile, zum einen beansprucht der manuellen Kopiervorgang eine sehr lange Bearbeitungszeit. Diese wird in Zukunft noch verlängert, da ein Ausbau der externen Benutzer geplant ist, woraufhin die Größe der Anfangsdatei anwächst.
 
 Ein weiterer Nachteil ist, dass die Protokolle nur auf Login-Ebene angelegt werden, d.\,h. es wird nur der Name gespeichert, mit dem sich der externe Benutzer in \ac{WuNDa} anmeldet.
 Dies ist unproblematisch falls es pro Kunde nur einen Login-Namen gibt.
@@ -581,14 +579,15 @@ Demnach muss der Beamte, beim Erstellen der Abrechnung an einen bestimmten Kunde
 Dies ist zwar machbar, verkompliziert den Arbeitsschritt aber ungemein.
 
 \label{subsec:erstellen_abrechnung_storno}
-Ein weiterer Nachteil ist, dass keine Bearbeitungen der Buchungen selbst vorgenommen werden kann.
-Somit werden bereits abgerechnete Buchungen nicht als abgerechnet markiert.
-Weiterhin können keine Änderungen z.\,B. am Auftragsnamen der Buchung vorgenommen werden und die Buchung kann nicht als storniert markiert werden.
+Zudem können keine Bearbeitungen an den Buchungen selbst vorgenommen werden.
+Somit werden bereits abgerechnete Buchungen nicht als solche markiert.
+Auch können keine Änderungen z.\,B. am Auftragsnamen der Buchung vorgenommen werden oder die Buchung kann nicht als storniert markiert werden.
 Solche Bearbeitungen müssen vom Beamten selbst notiert und beim Erstellen der Abrechnungen berücksichtigt werden.
 
-Kurzum die Vorgehensweise ist durch die manuelle Bearbeitung und den aufgeführten Nachteilen sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
+Kurzum: die Vorgehensweise ist durch die manuelle Bearbeitung und die aufgeführten Nachteile sehr aufwändig und fehleranfällig. Dieses Problem wird durch die Vergrößerung der Anzahl der externen Benutzer noch verschärft.
 
-Aus diesen Gründen soll \ac{WuNDa} einige Erweiterungen erhalten, die diese Probleme beseitigen, in dem es diesen Vorgang möglichst automatisiert und auch Funktionalitäten mit einer verwandten Thematik anbietet. Diese Erweiterungen sollen den externen Benutzern, aber vor allem dem Katasteramt Zeitersparnisse einbringen und werden im nächsten Kapitel spezifiziert.
+Aus diesen Gründen soll \ac{WuNDa} einige Erweiterungen erhalten, die diese Probleme beseitigen, und die Vorgänge möglichst automatisieren und zudem andere Funktionalitäten mit einer verwandten Thematik anbietet.
+Diese Erweiterungen, die Zeit einsparend für die externen Benutzer und insbesondere für die Beamten des Katasteramtes sind, werden im nächsten Kapitel spezifiziert.
 
 
 %Bisheriges Erstellen der Abrechnung.
