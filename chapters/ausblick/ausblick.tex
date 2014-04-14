@@ -92,9 +92,8 @@ Die bedeutet dass sie vor jeder Einsicht ein berechtigtes Interesse angeben müs
 
  
 \subsubsection{Abfragen eines berechtigten Interesse}
-Das Katasteramt besitzt ebenfalls Daten, die erst ausgegeben werden dürfen, nachdem ein berechtigtes Interesse angegeben wurde.
-Dies ist z.\,B. der Fall bei Baulasten und ???.
-Diese Funktionalität würde dem Katasteramt und den externen Kunden Zeitaufwand sparen und wird im \todo{ref setzen und vervollständigen} näher behandelt.
+Das Katasteramt besitzt ebenfalls Daten, die erst ausgegeben werden dürfen, nachdem ein berechtigtes Interesse angegeben wurde, dies ist insbesondere der Fall bei Baulasten.
+Diese Funktionalität würde dem Katasteramt und den externen Kunden Zeitaufwand sparen und wird im \autoref{subsec:berechtigtes-interesse} näher behandelt.
 
 \subsubsection{Erschließungsbeiträge}
 Die Erschließungsbeiträge werden für die Herstellung von Straßen, Wegen, Plätzen etc... erhoben und müssen von den Eigentümer oder Erbbauberechtigte der anliegenden Grundstücken bezahlt werden.
@@ -105,12 +104,12 @@ Zusätzlich wurde die Funktionalität, in einem anderen Gespräch, von der Kunde
 Somit handelt es sich hierbei um eine Funktionalität deren Umsetzung näher betrachtet werden sollte, insbesondere da die Erschließungsbeiträge von einem Ressort der Stadtverwaltung Wuppertal verwaltet wird.
 
 \subsubsection{Abfrage der Dachhöhen}
-In \ac{WuNDa} ist es möglich die Dachhöhen abzufragen, diese Funktionalität wurde allerdings noch für die externen Benutzer freigegeben.
+In \ac{WuNDa} ist es möglich die Dachhöhen abzufragen, diese Funktionalität wurde allerdings noch nicht für die externen Benutzer freigegeben.
 Sie wäre jedoch nützlich für die Projektentwickler und ihre Dienstleister um ein neue Gebäude ins bestehende Stadtbild einzufügen.
-Mehr Informationen hierzu befinden sich in \todo{ref setzen}
+Mehr Informationen hierzu befinden sich im \autoref{subsec:dachhoehen}.
 
 \subsubsection{3D-Ansicht}
-Im Gespräch kam auf, dass eine 3D-Ansicht der Stadt Wuppertal nice-to-have wäre.
+Im Gespräch kam auf, dass eine 3D-Ansicht der Stadt Wuppertal nützlich, aber nicht unbedingt notwendig wäre.
 Diese Ansicht könnte z.\,B. dafür verwendet werden um sich ein Bild der Lage zu verschaffen, oder um in Dokumenten darzustellen, wie sich die Gebäude eines Projektes, in die aktuelle Umgebung einfügen.
 
 Diese Funktionalität wird allerdings nicht in näher Zukunft realisiert werden, da sie sehr kostspielig ist.
@@ -166,3 +165,32 @@ Dadurch ist sofort ersichtlich wie eine Gegend entstanden ist und welche letzten
 
 \section{Beleuchtung einiger Features}
 
+In diesem Abschnitt werden einige gewünschte Features fachlich näher beleuchtet und ihre potentielle Umsetzung in \ac{WuNDa} wird beschrieben.
+
+\subsection{Abfragen eines berechtigten Interesse}
+\label{subsec:berechtigtes-interesse}
+Das Katasteramt besitzt Informationen deren Einsicht erst nach einer Hinterlegung eines berechtigten Interesses herausgegeben werden dürfen.
+Zu diesen Informationen gehören die Baulasten.
+
+Bei Baulasten handelt es sich um Eintragungen in das Baulastenverzeichnis, die getätigt werden müssen, wenn ein Bauvorhaben nicht baurechtskonform auf einem Baugrundstück durchgeführt werden kann und andere Grundstücke mit herangezogen werden müssen, so dass das Bauvorhaben genehmigt werden kann.
+Baulasten werden in unterschiedlichen Fälle benötigt so z.\,B. für die \enquote{Abstandflächenregelung} oder bei der baurechtliche \enquote{Vereinigung}.
+Eine Baulast ist eine freiwillige Erklärung eines Grundstückseigentümers, die ihn danach zu einem bestimmten Tun, Dulden oder Unterlassen bezüglich des Grundstückes verpflichten.
+Dadurch kann eine solche Baulast mit einer Wertminderung des Grundstückes einhergehen, da z.\,B. seine Bebaubarkeit eingeschränkt wird.
+In anderen Fällen kann der Wert des Grundstückes jedoch auch steigen.
+Die Baulasten für ein Grundstück bleiben auch nach einem Eigentümerwechsel bestehen und können nur dann gelöscht werden, falls zwischenzeitliche Ereignisse eingetreten sind, wodurch das Bauvorhaben auch ohne Baulast baurechtskonform ist \autocite[vgl.][]{herne-baulasten}.
+
+Dadurch dass Baulasten bei einem Eigentümerwechsel nicht verfallen, sind sie für den Projektentwickler bereits bei der Grundstücksauswahl für ein neues Projekt von Bedeutung, da sich erst durch sie herausstellt, ob ein Grundstück für ein Projekt geeignet ist, oder nicht. 
+Demnach ist ein Erhalten dieser Informationen wichtig, insbesondere da sie in späteren Phasen des Projektes vorhanden sein müssen.
+
+Um Informationen bezüglich der Baulasten zu erhalten, muss in einem ersten Schritt beim  Wuppertaler Baulastenverzeichnis \autocite[vgl.][]{wupp-baulast} ein berechtigtes Interesse an einem Grundstück hinterlegt werden.
+Ein solches Interesse haben u.\,a. Kaufinteressenten, Notare und \acp{ÖbVI}.
+Danach kann eine kostenfreie mündliche oder telefonische Auskunft erhalten werden, diese Auskunft kann schriftlich bestätigt werden, d.\,h. man erhält einen schriftlichen Auszug  aus dem Baulastenverzeichnis.
+Ist eine Baulast auf dem Grundstück vorhanden, so kostet diese Auskunft \EUR{50} bis \EUR{150}.
+Ist keine Baulast vorhanden, dann kostet eine schriftliche Bescheinigung \EUR{10}.
+
+
+\subsection{Abfrage der Dachhöhen}
+\label{subsec:dachhoehen}
+
+
+\chapter{Interne Benutzung von der Billing-Komponente}
