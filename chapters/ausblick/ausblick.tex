@@ -173,20 +173,67 @@ Das Katasteramt besitzt Informationen deren Einsicht erst nach einer Hinterlegun
 Zu diesen Informationen gehören die Baulasten.
 
 Bei Baulasten handelt es sich um Eintragungen in das Baulastenverzeichnis, die getätigt werden müssen, wenn ein Bauvorhaben nicht baurechtskonform auf einem Baugrundstück durchgeführt werden kann und andere Grundstücke mit herangezogen werden müssen, so dass das Bauvorhaben genehmigt werden kann.
-Baulasten werden in unterschiedlichen Fälle benötigt so z.\,B. für die \enquote{Abstandflächenregelung} oder bei der baurechtliche \enquote{Vereinigung}.
+Baulasten werden in unterschiedlichen Fälle benötigt, so z.\,B. für die \enquote{Abstandflächenregelung} oder bei der baurechtliche \enquote{Vereinigung}.
 Eine Baulast ist eine freiwillige Erklärung eines Grundstückseigentümers, die ihn danach zu einem bestimmten Tun, Dulden oder Unterlassen bezüglich des Grundstückes verpflichten.
 Dadurch kann eine solche Baulast mit einer Wertminderung des Grundstückes einhergehen, da z.\,B. seine Bebaubarkeit eingeschränkt wird.
 In anderen Fällen kann der Wert des Grundstückes jedoch auch steigen.
-Die Baulasten für ein Grundstück bleiben auch nach einem Eigentümerwechsel bestehen und können nur dann gelöscht werden, falls zwischenzeitliche Ereignisse eingetreten sind, wodurch das Bauvorhaben auch ohne Baulast baurechtskonform ist \autocite[vgl.][]{herne-baulasten}.
+Die Baulasten für ein Grundstück bleiben auch nach einem Eigentümerwechsel bestehen und können nur dann gelöscht werden falls zwischenzeitlich Ereignisse eingetreten sind, wodurch das Bauvorhaben auch ohne Baulast baurechtskonform ist \autocite[vgl.][]{herne-baulasten}.
 
 Dadurch dass Baulasten bei einem Eigentümerwechsel nicht verfallen, sind sie für den Projektentwickler bereits bei der Grundstücksauswahl für ein neues Projekt von Bedeutung, da sich erst durch sie herausstellt, ob ein Grundstück für ein Projekt geeignet ist, oder nicht. 
-Demnach ist ein Erhalten dieser Informationen wichtig, insbesondere da sie in späteren Phasen des Projektes vorhanden sein müssen.
+Demnach ist eine Einsicht ob und welche Baulasten für ein Grundstück notwendig, weiterhin müssen die Dokumente dieser Baulast in einer späteren Phase bezogen werden.
 
 Um Informationen bezüglich der Baulasten zu erhalten, muss in einem ersten Schritt beim  Wuppertaler Baulastenverzeichnis \autocite[vgl.][]{wupp-baulast} ein berechtigtes Interesse an einem Grundstück hinterlegt werden.
 Ein solches Interesse haben u.\,a. Kaufinteressenten, Notare und \acp{ÖbVI}.
-Danach kann eine kostenfreie mündliche oder telefonische Auskunft erhalten werden, diese Auskunft kann schriftlich bestätigt werden, d.\,h. man erhält einen schriftlichen Auszug  aus dem Baulastenverzeichnis.
+Danach kann der Interessent eine kostenfreie mündliche oder telefonische Auskunft erhalten, diese Auskunft kann schriftlich bestätigt werden, d.\,h. er erhält einen schriftlichen Auszug  aus dem Baulastenverzeichnis.
 Ist eine Baulast auf dem Grundstück vorhanden, so kostet diese Auskunft \EUR{50} bis \EUR{150}.
-Ist keine Baulast vorhanden, dann kostet eine schriftliche Bescheinigung \EUR{10}.
+Falls keine Baulast vorhanden ist, so kann er sich dies auch bescheinigen lassen. Diese schriftliche Bescheinigung kostet \EUR{10}.
+
+Der aktuelle Stand der Baulasten in \ac{WuNDa} ist, dass diese Funktionalität in der Entwicklung ist und in naher Zukunft fertiggestellt wird.
+Die fertiggestellte Funktionalität wird es den Beamten des Katasteramtes ermöglichen die bestehenden Baulasten in der Karte anzuzeigen, nach Baulasten zu suchen, die einzelnen Baulasten anzeigen zu lassen und zu editieren sowie die Dokumente, die zu den Baulasten gehören, herunterzuladen.
+
+Leicht modifiziert bietet sich diese Funktionalität demnach auch für die Projektentwickler an, allerdings wird hierzu zusätzlich eine Abfrage für das berechtigte Interesse benötigt.
+Der Ablauf des Beziehens einer Baulast für die externen Benutzer, aber natürlich auch für andere Kundengruppen könnte wie folgt aussehen:
+\subsubsection{Suche nach Baulasten}
+In einem ersten Schritt muss der Benutzer die Grundstücke angeben, von denen er die Baulasten haben will.
+Dies kann über die Baulast-Suche passieren, diese müsste allerdings soweit eingeschränkt sein dass sie keine anderen Angaben als die Grundstücke entgegen nimmt, wie dies der Abbildung \ref{fig:baulast-suche} zu entnehmen ist.
+Die dort eingegeben Flurstückskennzeichen kann z.\,B. über die Flurstücks-Suche ermittelt werden. Die Suche kann daraufhin über den Knopf \enquote{Suchen} gestartet werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.5\textwidth}{./rimg/baulast_suche_disabled.png}
+	\caption{Eingeschränkte Baulast-Suche}
+	\label{fig:baulast-suche}
+\end{figure}
+
+\subsubsection{Abfrage des Berechtigten Interesses}
+Ehe die eigentliche Suche gestartet wird, muss das berechtigte Interesse des Benutzers abgefragt werden, so dass sichergestellt wird, dass er berechtigt ist um eine Einsicht in das Baulastenverzeichnis zu erhalten.
+Die genaue Vorgehensweise wie ein berechtigtes Interesse festgestellt wird entzieht sich dem Wissen des Autors \todo{fehlendes Wissen}.
+Auf der Grundlage von den bereits erwähnten Quellen wird aber angenommen, dass:
+\begin{itemize}
+\item es je nach Kundengruppe einige immer wieder auftretende Gründe gibt,
+\item diese können, oder müssen sogar, in einem Kommentarfeld näher spezifiziert werden
+\item und in einigen Fällen müssen Dokumente hinterlegt werden.\todo{Quelle}
+\end{itemize}
+Demnach könnte die Abfrage des berechtigten Interesses ähnlich realisiert werden, wie dies der Fall beim Downloadprotokoll-Dialog (\autoref{fig:alkis-protocol}).
+Benötigt wird ein Dialog, der anzeigt für welche Flurstücke das berechtigte Interesse gelten soll, eine Angabe für den Grund, ein Kommentarfeld sowie eine Möglichkeit um ein Dokument hochzuladen.
+Genau wie im Downloadprotokoll-Dialog wird jedes berechtigte Interesse protokolliert.
+
+Bei einer solchen automatischen Abfrage stellt sich die Frage, wie die getätigten Eingaben kontrolliert werden, um einen unberechtigten Zugang zu verhindern.
+Es folgen einige Vorschläge.
+Eine denkbare Kontrolle wäre das regelmäßige, stichprobenartige Prüfen der Interesse-Protokolle durch einen Beamten.
+Durch diese Maßnahme wird zwar wieder Zeit verbraucht, da jedoch nicht sämtliche Interessen bearbeitet werden müssen, wird dennoch Zeit gespart.
+Diese Arbeit könnte von \ac{WuNDa} zusätzlich unterstützt werden, indem es versucht Unregelmäßigkeiten in den getätigten Eingaben zu finden.
+So könnte z.\,B. überprüft werden ob ein Benutzer ungewöhnlich viele Anfragen in einem bestimmten Zeitraum getätigt hat oder ob die Flurstücke örtlich zusammenhängen oder die Fläche der Flurstücke in einer Anfrage ungewöhnlich groß ist.
+In den Fällen, bei denen ein Dokument hochgeladen werden muss, besteht jeweils die Möglichkeit eine Plausibiltätsprüfung durchzuführen.
+So könnte überprüft werden, ob die Dateien nicht leer sind, ob es sich jeweils um eine PDF-Datei handelt, über Checksummen könnte weiterhin geprüft werden ob nicht immer die gleiche Datei hochgeladen wurden und je nach angegeben Grund könnte überprüft werden, ob die Datei ein typisches Wort für das erwartete Dokument enthält. \todo{Beispiel} 
+
+
+\subsubsection{Kurzum}
+Nach dieser Abfrage könnten sie sich die Baulasten zu den benötigten Grundstücken kostenlos anzeigen lassen, welches der kostenlosen Einsicht entspricht.
+Weiterhin könnten sie sich die Dokumente, über den bereits beschriebenen Abrechnungsmechanismus, beziehen, so dass auch die schriftliche Auskunft abgedeckt wäre.
+Demnach wird zusätzlich noch eine Möglichkeit benötigt um eine schriftliche Bescheinigung zu erhalten, falls keine Baulast vorliegt.
+
+
 
 
 \subsection{Abfrage der Dachhöhen}
