@@ -10,7 +10,7 @@ Dieses Kapitel fasst diese Anforderungen in ihrer schlussendlichen Form zusammen
 Dieser Abschnitt soll als Übersicht der gewünschten Erweiterungen dienen.
 Dabei werden zunächst einige Begriffe kurz erklärt, die wichtigsten Klassen erwähnt und anschließend werden die gewünschten Erweiterungen aufgelistet.
 
-Bei der Spezifikation werden möglichst nur allgemein bekannte technische Begriffe verwendet, die wenigen spezifischeren Ausnahmen werden hier erklärt. \todo{ref zum technischen Umfeld?; Gehört das hierhin? Abschnitt mit dem Cids-Umfeld vor die Spezifikation ziehen? Dies bedeutet allerdings einen Bruch der Sicht. Kapitel 2,3 fachliche Sicht, Kapitel 4 technische Sicht.}
+Bei der Spezifikation werden möglichst nur allgemein bekannte technische Begriffe verwendet, die wenigen spezifischeren Ausnahmen werden hier erklärt.
 \begin{description}
 \item[Klasse] Mit Klasse ist eine Cids-Klasse gemeint. Objekte von diesen Klassen werden in einer Datenbank gespeichert.
 Aus diesen Datenbankeinträgen lassen sich Java-Objekte erstellen, die auch CidsBean genannt werden.
@@ -252,7 +252,7 @@ Diese Felder werden der Klasse Buchung hinzugefügt, so dass jede Buchung sein e
 Nachdem ein Beamte ein Storno-Grund ausgewählt hat und somit den Vorgang der Stornierung angestoßen hat, soll die Buchung als storniert markiert werden und mit dem Datum der Stornierung, sowie dem Storno-Grund und dem Benutzer abgespeichert werden.
 
 \subsection{Berichte} \label{subsec:berichte}
-Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.  \todo{Müssen noch besser spezifiziert werden.}
+Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.
 
 \subsubsection{Buchungsbeleg}
 Der Buchungsbeleg soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
@@ -290,8 +290,8 @@ In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Do
 Die Geschäftsstatistik ist ein Bericht der Statistiken der Downloads von den verschiedenen Kunden.
 Durch die jeweilige Darstellung mehrerer Kunden, kann der Bericht nur im Kundengruppenrenderer erstellt werden.
 Es gibt verschiedene Informationen die in der Geschäftsstatistik angezeigt werden: die Aktivität der Benutzer, die Kostenarten der Produkte, die Verwendungszwecke, die Angaben für den Jahresbericht und die Übersicht der bezogenen Produkte.
-Der Bericht wurde allerdings nicht vollständig vom R102 spezifiziert und kann somit auch nicht komplett umgesetzt werden.
-Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll auch generiert werden können. Dieser entspricht allerdings nicht den tatsächlichen Geschäftsstatistiken.
+Der Bericht wurde allerdings nicht vollständig vom R102 spezifiziert und kann somit nicht komplett umgesetzt werden.
+Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll generiert werden können. Dieser entspricht allerdings nicht den tatsächlichen Geschäftsstatistiken.
 Eine etwaige Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.
  
 \subsection{sonstige neu benötigte Klassen} \label{subsec:neue_klassen}

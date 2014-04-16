@@ -18,7 +18,6 @@ Die Hauptbestandteile dieser Umgebung sind der Navigator, der Kernel und verschi
 Eine Übersicht der Cids-Umgebung kann der Abbildung \vref{fig:cids-komponenten} entnommen werden.
 Diese Hauptbestandteile sind in weitere Unterkomponenten eingeteilt. Die in der Abbildung \ref{fig:cids-komponenten} nicht ausgegrauten Komponenten sind für diese Arbeit relevant und werden im Folgenden detaillierter erläutert.
 Zunächst wird allerdings der Hauptzweck und der Aufbau des Cids-Umfeldes beschrieben.
-\todo{Werden sie wirklich besser beschrieben?}
 
 \begin{figure}[htb]
 	\centering
@@ -27,7 +26,7 @@ Zunächst wird allerdings der Hauptzweck und der Aufbau des Cids-Umfeldes beschr
 	\label{fig:cids-komponenten}
 \end{figure}
 
-Der Hauptzweck dieses Entwicklungsumfeldes ist das Erstellen von Informationssystemen, insbesondere \acp{GIS}.
+Der Hauptzweck dieses Entwicklungsumfeldes ist das Erstellen von Informationssystemen, insbesondere \acfp{GIS}.
 Dabei stehen verschiedene, häufig benötigte, Funktionalitäten bereits zur Verfügung. Dazu gehören eine Benutzerverwaltung sowie das Anzeigen, Bearbeiten und Suchen von Informationen.
 Außerdem können für die Benutzer Berechtigungen festgelegt werden, die ihnen den Zugriff auf Informationen erlauben oder verbieten.
 Weiterhin wird eine interaktive zweidimensionale Ansicht zu geographischen Daten, die sogenannte Cismap, bereit gestellt.
@@ -35,7 +34,7 @@ Weiterhin wird eine interaktive zweidimensionale Ansicht zu geographischen Daten
 Durch das Cids-Umfeld kann ein verteiltes System erstellt werden, dessen Architektur auf dem Client-Server-Prinzip basiert, wobei es aus mehreren Clients, Server, sowie Datenbanken bestehen kann.
 Diese Bestandteile können in verschiedenen Ausprägungen nebeneinander existieren.
 In Wuppertal steht so z.\,B. neben dem \ac{WuNDa} auch die VerDIS-Fachanwendung zur Verfügung. VerDIS dient zur Berechnung der Abwassergebühr.
-Dabei kann VerDIS auf Informationen aus \ac{WuNDa} zurück greifen.
+Dabei kann VerDIS auf Informationen aus \ac{WuNDa} zurückgreifen.
 Um die Logik der Systeme zu trennen und um eine Skalierbarkeit zu gewährleisten, besitzt jedes System einen eigenen Domain Server und eine eigene Integration Base.
 Bei einer solchen Integration Base handelt es sich um eine Datenbank, in der neben den üblichen Daten auch Meta-Daten gespeichert werden.
 Durch diese Unterteilung der Daten können in der Integration Base beliebige Objekte abgebildet werden, weiterhin können dadurch auch Beziehungen zwischen den sogenannten Meta-Klassen und den Objekten abgebildet werden.
@@ -88,10 +87,10 @@ Mit ihm können Klassen (vergleiche \autoref{sec:gewuenschte-erweiterungen}) und
 
 Der \ac{ABF} bietet ebenfalls einige Funktionalitäten, die das Erweitern des Katalogs vereinfachen.
 Die beiden Hauptfunktionalitäten dabei sind eine Vorschau des Kataloges, wobei auch die dynamischen Knoten aufgelöst und deren Unterknoten angezeigt werden.
-Weiterhin können die Informationen bezüglich jeden Knotens angezeigt, so z.\,B. die vergebenen Rechten und ihre SQL-Query.
-Diese Informationen können auch für die nicht dynamisch erstellten Knoten verändert werden.
+Weiterhin können Informationen zu jedem Knoten angezeigt werden, wie etwa die vergebenen Rechten und ihre SQL-Query.
+Diese Informationen können, für die nicht dynamisch erstellten Knoten, verändert werden.
 Eine weitere Funktionalität ist das Anlegen und Verwalten der verschiedenen Berechtigungen für die Benutzer.
-Da diese Funktionalität des \ac{ABF} eine wichtige Rolle in dieser Arbeit spielen, werden sie im Folgenden näher beleuchtet. 
+Da die Berechtigungen eine wichtige Rolle in dieser Arbeit spielen, werden sie im Folgenden näher beleuchtet. 
 
 \subsubsection{Berechtigungen}
 In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingegangen. In dieser Arbeit werden zwei Arten von Rechte benötigt. Die Lese- und Schreibrechte auf Klassen, Attribute und Knoten des Katalogs sowie die Aktionsrechte.
@@ -649,6 +648,7 @@ Auf diese Weise sieht ein Kunde jeweils nur seinen eigenen Knoten und kann hier�
 
 
 \section{Vergleich Realisierung und Spezifikation}
+\todo{nicht Gegenüberstellen kurz sagen dass wohl alles abgedenkt wurde durch ausgiebiges Testen durch einen Benutzer. Und dass es Monate später kaum Beschwerden gibt}
 \begin{itemize}
 	\item Durch diese Realisierung ist es möglich das zu tun was in den Anforderungen beschrieben wurde
 	\item D.h. durch die Rationalisierung kann durchgeführt werden

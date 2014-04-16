@@ -289,10 +289,14 @@ Die Produkte der Produktklasse Daten Liegenschaftskataster sind einzelne Dateien
 \item[DXF] Das \ac{DXF} ist ein Dateiformat das von dem Unternehmen Autodesk entwickelt wurde und in \ac{CAD}-Applikationen (z.\,B. AutoCAD) als vektorbasierte Bilddatei Verwendung findet.
 \ac{DXF} wurde mit dem Hintergrund entwickelt, dass es möglich sein soll AutoCAD Dokumente mit Programmen öffnen zu können, die nicht von Autodesk entwickelt wurden. Aus diesem Grund ist \ac{DXF} eine ASCII-Textdatei \autocite[vgl.][]{fileinfo-dxf}.
 
-\item[GEOTIFF] \enquote{Ein GeoTIFF ist eine spezielle Form eines TIFF-Bildes, also ein Dateiformat zur Speicherung von Bilddaten [..]. Da das TIF-Format eine verlustfreie Speicherung zulässt, eignet es sich gut zur Verarbeitung von geographischen Daten, [..]."'} \autocite{wiki-geotiff} Weiterhin sind die \enquote{Bildinformationen [.] in jedem Programm darstellbar, welches den normalen TIFF-Standard unterstützt.}  \autocite{wiki-geotiff} \enquote{Wesentliche Eigenschaft ist die enthaltene Georeferenzierung, die das Geotiff bei Verwendung im GIS \enquote{an die richtige Stelle} platziert, sodass es z.B. als Hintergrundbild für weitere Planzeichnungen dienen kann.} [Frau Hähner] \todo{Neu verfassen. Indirekte Zitierung.}
+\item[GEOTIFF] 
+Bei einem GeoTIFF handelt es sich um ein TIFF-Bild, wodurch es eine verlustfreie Speicherung zulässt, welches um eine Georeferenz erweitert wurde.
+Dadurch eignet es sich insbesondere zur Verarbeitung von geographischen Daten. \autocite[vgl.][]{wiki-geotiff}
+Eine, für die \ac{WuNDa}-Benutzer, wesentliche Eigenschaft von GeoTIFF ist die enthaltene Georeferenzierung, durch die ein \ac{GIS} das Bild auf die richtige Stelle in einem Koordinatensystem darstellen kann.
+Ein Anwendungszweck hiervon ist, dass das GeoTIFF als Hintergrundbild für weitere Planzeichnungen dienen kann.
 \end{description}
 
-Die Produkte der Produktklasse Daten Liegenschaftskataste können der Tabelle \ref{tab-daten-kataster} entnommen werden.
+Die Produkte der Produktklasse Daten Liegenschaftskataster können der Tabelle \ref{tab-daten-kataster} entnommen werden.
 
 \begin{minipage}{\linewidth}
 \centering
@@ -335,7 +339,7 @@ Nachdem die einzelnen Produkte aufgelistet wurden, werden in diesem Abschnitt ve
 %\end{itemize}
 
 \subsection{ÖbVI - Teilungsvermessung}
-Ein solcher Workflow ist die Teilungsvermessung, die durch einen \ac{ÖbVI} durchgeführt wird. Durch die Teilungsvermessung wird ein neues Grundstück aus einem abgetrennten Teil eines bestehenden Grundstücks erstellt. Die folgende Beschreibung wurde nach \autocite{klein-vermessung} und \autocite{jungemann-alltag} erstellt. \todo{Zitate ausschreiben}
+Ein solcher Workflow ist die Teilungsvermessung, die durch einen \ac{ÖbVI} durchgeführt wird. Durch die Teilungsvermessung wird ein neues Grundstück aus einem abgetrennten Teil eines bestehenden Grundstücks erstellt. Die folgende Beschreibung wurde nach \citeauthor{klein-vermessung} \autocite{klein-vermessung} und \citeauthor{jungemann-alltag} \autocite{jungemann-alltag} erstellt.
 
 Die Teilungsvermessung kann aus Sicht des \ac{ÖbVI} in drei Teile zerlegt werden:
 \begin{itemize}
@@ -406,7 +410,7 @@ Nach der örtlichen Arbeit folgt die Auswertung der ermittelten Rohmessdaten. Hi
 
 In einem ersten Schritt wird die sogenannte Punktnummernreservierung durchgeführt. Dabei werden für die neu zu erstellenden Punkte amtliche Punktnummern beim Katasteramt angefragt. Diese Nummern werden benötigt damit jeder Punkt eine eindeutige Kennung besitzt.
 
-Der zweite Schritt der Auswertung besteht im Einlesen der Rohmessdaten in das Berechnungsprogramm \todo{oder ins CAD? oder beides?}. Dieses kann den benötigten Fortführungsriss und die Skizze zur Grenzniederschrift automatisch erzeugen.
+Der zweite Schritt der Auswertung besteht im Einlesen der Rohmessdaten in das Berechnungsprogramm. Dieses kann den benötigten Fortführungsriss und die Skizze zur Grenzniederschrift automatisch erzeugen.
 Anschließend werde folgende Berechnungen zur Ermittlung der Koordinaten durchgeführt:
 \begin{description}
 	\item[Hierarchische Berechnung der Polaraufnahme] Mittels dieser Berechnung wird die Lage von Neupunkten bestimmt \autocite[vgl.][]{wiki-polaraufnahme}. Bei Neupunkten handelt es sich um Punkte deren Koordinate noch nicht ermittelt wurden \autocite[vgl.][]{wiki-neupunkt}.  
