@@ -11,25 +11,32 @@
 \usepackage{caption}
 \usepackage{wrapfig}
 
+\newcommand\blankpage{%
+   \newpage
+\thispagestyle{empty}
+\mbox{}}
 
 %%export with pdftotext
 %\usepackage[none]{hyphenat}
 %\pagestyle{empty}
 \begin{document}
 
-
 \include{preamble/titlepages}
 
-%\include{chapters/abstract/abstract}
+\blankpage
+\include{chapters/sonstiges/eidesstatliche_erklaerung}
+\blankpage
 
 \newpage
 \vspace*{\fill}
 Amtliche Geodaten der Stadt Wuppertal, \\
 © Ressort Vermessung, Katasteramt und Geodaten \textbf{(RV-102- )}
 \newpage
+\blankpage
+
+\include{chapters/abstract/abstract}
 
 \tableofcontents
-
 \include{chapters/einfuehrung/einfuehrung}
 \include{chapters/produkte/produkte}
 \include{chapters/spezifikation/spezifikation}
