@@ -145,7 +145,7 @@ Dieser Abschnitt beschreibt die Realisierung der in \autoref{ch:spezi} beschrieb
 \subsection{Datenbankmodell}
 \todo{DB-Modell ist noch so naja}
 Um die in \autoref{ch:spezi} beschriebenen Anforderungen zu realisieren, muss in einem ersten Schritt das Datenbankmodell der verwendeten Datenbank angepasst werden.
-Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen. Zum anderen müssen aus den Daten, die im Client benötigten, CidsBeans erstellt werden können. Dies ist notwendig, da die verschiedenen Erweiterung quasi alle auf den Funktionalitäten der CidsBeans aufbauen.
+Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen. Zum anderen müssen aus den Daten, die im Client benötigt werden, CidsBeans erstellt werden können. Dies ist notwendig, da die verschiedenen Erweiterungen quasi alle auf den Funktionalitäten der CidsBeans aufbauen.
 
 Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Klassen geredet.
 Dabei sind auch die Tabelle der Datenbank und ihr Aufbau gemeint, da deren Struktur nicht oder nur geringfügig von der Struktur der erstellten Klassen abweicht.
@@ -251,9 +251,9 @@ Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig
 Beim Betrachten der benötigten Filter in der Spezifikation fällt auf, dass ähnliche Filtermöglichkeiten in den verschiedenen Renderer und der Suche benötigt werden. Aus diesem Grund wurde der zeitliche Filter und Verwendungszweck"=Filter als eigene \inline{JPanel} angelegt, so dass diese mehrfach verwendet werden können.
 
 \subsubsection{Zeitlicher Filter}
-Das eigenständige \inline{JPanel} \inline{TimeFilterPanel} gibt dem Benutzer die Möglichkeit nichts, einen Tag oder einen Zeitspanne auszuwählen.
+Das eigenständige \inline{JPanel} \inline{TimeFilterPanel} gibt dem Benutzer die Möglichkeit nichts, einen Tag oder eine Zeitspanne auszuwählen.
 Dabei werden ihm Schnellwahlmöglichkeiten für den aktuellen Tag, einen Monat oder ein Quartal angeboten.
-Weiterhin kann er mittels der Angabe eines von-Datums und eines bis-Datums einen Zeitspanne festlegen.
+Weiterhin kann er mittels der Angabe eines von-Datums und eines bis-Datums eine Zeitspanne festlegen.
 Bei Bedarf kann die aktuelle Einstellung des Panels abgefragt werden, wobei der Rückgabewert zwei \inline{Date}-Variablen sind.
 Sind beide Variablen \inline{null} so wurde keine Zeit ausgewählt.
 Ist nur das von-Datum belegt so wurde ein einzelner Tag ausgewählt.
@@ -489,7 +489,7 @@ Somit konnte im \ac{ABF} direkt überprüft werden, ob die Query richtig angegeb
 \end{figure}
 
 Der Unterknoten "`Administration"' enthält wiederum Unterknoten mit Objekten, die zur Verwaltung des Buchungsthemas benötigt werden.
-So kann mittels des Aufrufen des Kontextmenüs auf den verschiedenen Unterknoten ausgewählt werden ob neue Objekte erstellt oder alte Objekte bearbeitet werden sollen.
+So kann mittels des Kontextmenüs auf den verschiedenen Unterknoten ausgewählt werden ob neue Objekte erstellt oder alte Objekte bearbeitet werden sollen.
 Das gleiche gilt für den Unterknoten "`Kundengruppe"', dieser steht nicht unterhalb der "`Administration"' da dieser vor allem benutzt wird um die Kunden- und Kundengruppenrenderer aufzurufen. Mit ihm können aber auch die Kundengruppen verwaltet werden.
 Ein besonderer Fall stellt der Unterknoten "`meine Buchungen"' dar, der für die Administratoren leer ist.
 An dieser Stelle sehen die externen Benutzer, den Kunden dem sie zugeordnet sind und können den entsprechenden Renderer öffnen. 

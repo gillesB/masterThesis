@@ -29,7 +29,8 @@ Festpunkte sind Vermessungspunkte die laut dem sächsischen Staatsministerium f�
 \subsection{ALKIS und sein Datenmodell}
 Das \acf{ALKIS} ersetzt das \acf{ALB} und die \acf{ALK}, indem es die Daten beider Systeme vereint. Die \ac{AdV} hat \acs{ALKIS} entwickelt und organisiert die Pflege des Datenmodells \autocite[vgl.][]{adv-alkis}.
 
-Das Datenmodell von ALKIS ist stufenweise aufgebaut. Die oberste Stufe ist das ALKIS-Fachschema der AdV, dieses Fachschema bildet eine Grundlage mit der sämtliche Objekte, Attribute und Attributwerte aller Katasterbehörden Deutschlands abgebildet werden können.
+Das Datenmodell von ALKIS ist stufenweise aufgebaut.
+Die oberste Stufe ist das ALKIS-Fachschema der AdV, dieses Fachschema bildet eine Grundlage mit der sämtliche Objekte, Attribute und Attributwerte aller Katasterbehörden Deutschlands abgebildet werden können.
 Die darauffolgenden Stufen sind Reduktionen dieses Fachschema, d.\,h. sie benutzen nur einen Teil dieser Grundlage.
 Weiterhin sind die jeweils folgenden Stufen eine Reduktion der jeweils vorhergegangenen Stufe \autocite[vgl.][1-4]{bezk-grunddaten}.
 Eine Übersicht von den vier einzelnen Stufen kann der Abbildung \ref{fig:prod-stufen} entnommen werden. 
@@ -51,12 +52,14 @@ Der Grunddatenbestand AdV bildet die unterste Stufe, ist bundesweit gültig und 
 In diesem Abschnitt wird das Zustandekommen der Gebühren von den Produkten kurz beschrieben.
 Da die genaue Ermittlung der Gebühren nicht Bestandteil dieser Arbeit ist, wird hier nur auf das Nötigste eingegangen. 
 
-Die Gebühr für die jeweiligen Produkte wird durch eine Grundgebühr bestimmt, der mit verschiedenen Rabatten, wie z.\,B. Mengenrabatt oder Rabatt wegen einer bestimmten Reglung, verrechnet wird.
-
-Solch eine Reglung, die insbesondere die \acp{ÖbVI} betrifft, ist in der \ac{VermWertGebO} festgelegt.
+Die Gebühr für die jeweiligen Produkte wird durch eine Grundgebühr bestimmt, die mit verschiedenen Rabatten verrechnet wird.
+Zu diesen Rabatten gehört der Mengenrabatt, weiterhin gibt es Rabatte, die aufgrund von verschiedenen Reglungen gegeben werden müssen.
+Eine solche Reglung, die insbesondere die \acp{ÖbVI} betrifft, ist in der \ac{VermWertGebO} festgelegt.
 Laut dieser muss die Selbstentnahme der Produkte, die zur Durchführung bestimmter Amtshandlungen benötigt werden, kostenfrei sein.
 Zu diesen Handlungen gehören die Anfertigung von Amtlichen Lageplänen und die Durchführung hoheitlicher Vermessungen \autocite[vgl.][]{wupp-wunda-oebvi}.
-Die Produkte, die diese Bedingungen erfüllen, werden im Folgenden vermessungsrelevant genannt und der Rabatt, auf diese Produkte wird "`zweckabhängiger Rabatt"' genannt. \todo{evt. noch MwSt erwähnen. Rabett der Selbstentnahme erwähnen.}
+Die Produkte, die diese Bedingungen erfüllen, werden im Folgenden vermessungsrelevant genannt und der Rabatt, auf diese Produkte wird "`zweckabhängiger Rabatt"' genannt.
+Damit die externen Benutzer einen weiteren Anreiz haben ihre Produkte selbst zu beziehen, wurde ein Rabatt zur Selbstentnahme eingeführt.
+Dieser wird jeweils gewährt, wenn ein Produkt über \ac{WuNDa} heruntergeladen wird und nicht über das Katasteramt bezogen wird.
 
 Weitere Informationen können dem Dokument "`Entgeltordnung Ressort 102"' \autocite{wupp-entgelt} entnommen werden.
 
@@ -105,15 +108,15 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 
 	Flurstücksnachweis
 	&
-	\enquote{Im "`Flurstücksnachweis"' werden alle flurstücksrelevanten Angaben beschrieben.
-	Dies sind neben der "`katastertechnischen Bezeichnung des Flurstücks"' "`Gebietszugehörigkeit"', "`Lage"',
-	"`Fläche"', "`Tatsächliche Nutzung"', "`Klassifizierung nach Straßen- oder Wasserrecht"', "`Gebäude"', "`Hinweise zum Flurstück"', "`Buchungsart"' und "`Buchung"'.} \autocite[269]{adv-alkis-erlaeuterung}
+	\enquote{Im \enquote{Flurstücksnachweis} werden alle flurstücksrelevanten Angaben beschrieben.
+	Dies sind neben der \enquote{katastertechnischen Bezeichnung des Flurstücks} \enquote{Gebietszugehörigkeit}, \enquote{Lage},
+	\enquote{Fläche}, \enquote{Tatsächliche Nutzung}, \enquote{Klassifizierung nach Straßen- oder Wasserrecht}, \enquote{Gebäude}, \enquote{Hinweise zum Flurstück}, \enquote{Buchungsart} und \enquote{Buchung}.} \autocite[269]{adv-alkis-erlaeuterung}
 	\\ 
 	\hline
 	Flurstücks- und Eigentumsnachweis (NRW)
 	&
-	\enquote{Der "`Flurstücks- und Eigentumsnachweis"' enthält alle Angaben des "`Flurstücksnachweises"'
-	und darüber hinaus die "`Eigentümer"' ("`Name"', "`Adresse"',) und die "`Angaben zu den Berechtigten.} \autocite[269]{adv-alkis-erlaeuterung} Ein Beispielprodukt ist unter  \vref{fig:eigentumsnachweis_nrw} zu finden. \\
+	\enquote{Der \enquote{Flurstücks- und Eigentumsnachweis} enthält alle Angaben des \enquote{Flurstücksnachweises}
+	und darüber hinaus die \enquote{Eigentümer} (\enquote{Name}, \enquote{Adresse},) und die \enquote{Angaben zu den Berechtigten}} \autocite[269]{adv-alkis-erlaeuterung} Ein Beispielprodukt ist unter  \vref{fig:eigentumsnachweis_nrw} zu finden. \\
 	\hline
 	Flurstücks- und Eigentumsnachweis (kommunal)
 	&
@@ -121,7 +124,7 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 	\hline
 	Bestandsnachweis (NRW)
 	&
-	\enquote{Der "`Bestandsnachweis"' enthält alle Grundstücke, die auf einem Buchungsblatt gebucht sind.} \autocite[269]{adv-alkis-erlaeuterung} Ein Beispielprodukt ist unter  \vref{fig:bestandsnachweis_nrw} zu finden. \\
+	\enquote{Der \enquote{Bestandsnachweis} enthält alle Grundstücke, die auf einem Buchungsblatt gebucht sind.} \autocite[269]{adv-alkis-erlaeuterung} Ein Beispielprodukt ist unter  \vref{fig:bestandsnachweis_nrw} zu finden. \\
 	\hline
 	Bestandsnachweis (kommunal)
 	&
@@ -129,14 +132,14 @@ Die Produkte der Produktklasse ALKIS-Standardausgaben können der Tabelle \ref{t
 	\hline
 	Grundstücksnachweis (NRW)
 	&
-	\enquote{Im "`Grundstücksnachweis"' wird das unter einer laufenden Nummer im Buchungsblatt geführte Grundstück beschrieben. Neben den im Grundbuch gebuchten Grundstücken können
+	\enquote{Im \enquote{Grundstücksnachweis} wird das unter einer laufenden Nummer im Buchungsblatt geführte Grundstück beschrieben. Neben den im Grundbuch gebuchten Grundstücken können
 	dies auch von der Buchungspflicht befreite Grundstücke (§ 3 Abs. 2 GBO) und Grundstücke
 	sein, die noch nicht im Grundbuch gebucht sind (Verzeichnis der Bodenordnung ersetzt den
 	Grundbuchnachweis).} \autocite[269]{adv-alkis-erlaeuterung}\\
 	\hline
 	Flurkarte (NRW)
 	&
-	\enquote{Der "`Auszug aus dem Liegenschaftskataster - Flurkarte NRW"'  ist eine landesweit einheitliche Ausgabe aus dem Grunddatenbestand. Er enthält alle Flurstücke, Gebäude und Nutzungsarten ohne weitere topographische Inhalte.} \autocite{wupp-alkis} In \acs{WuNDa} wird die Flurkarte auch Liegenschaftskarte genannt, ein Beispieldokument kann unter \ref{fig:flurkarte} gefunden werden.\\
+	\enquote{Der \enquote{Auszug aus dem Liegenschaftskataster - Flurkarte NRW}  ist eine landesweit einheitliche Ausgabe aus dem Grunddatenbestand. Er enthält alle Flurstücke, Gebäude und Nutzungsarten ohne weitere topographische Inhalte.} \autocite{wupp-alkis} In \acs{WuNDa} wird die Flurkarte auch Liegenschaftskarte genannt, ein Beispieldokument kann unter \ref{fig:flurkarte} gefunden werden.\\
 	\hline
 	Stadtgrundkarte (kommunal)
 	&
@@ -161,7 +164,7 @@ Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balk
 	\hline
 	Punktnachweis (PDF)
 	&
-	Beim Punktnachweis handelt es sich um ein Dokument das Informationen zu verschiedenen Vermessungspunkte enthält wie etwa \ac{TP}, \ac{NivP} und \ac{AP} \autocite[vgl.][]{innen-punkte}. Ein Beispiel eines Punktnachweises kann \ref{fig:punktnachweis} entnommen werden.	 \\
+	Beim Punktnachweis handelt es sich um ein Dokument, das Informationen zu verschiedenen Vermessungspunkte enthält wie etwa \ac{TP}, \ac{NivP} und \ac{AP} \autocite[vgl.][]{innen-punkte}. Ein Beispiel eines Punktnachweises kann \ref{fig:punktnachweis} entnommen werden.	 \\
 	\hline
 	Punktliste (TEXT)
 	&
@@ -172,10 +175,10 @@ Fahrbahnbegrenzungen, Böschungen, Mauern, Bahngleise und Zäune, aber auch Balk
 	
 \subsection{Standardausgaben WUP-kommunal}
 
-Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden, weshalbdie Stadtverwaltung Wuppertal weitere Produkte selbst definieren musste.
+Die ALKIS-Standardausgaben decken nicht alle Produkte ab, die benötigt werden, weshalb die Stadtverwaltung Wuppertal weitere Produkte selbst definieren musste.
 Bei diesen Eigendefinition werden keine ALKIS-Objekte dargestellt und somit handelt es sich nicht um Auszüge aus dem Liegenschaftskataster.
 Der Inhalt der Produkte wird aus Rasterdatenbeständen bezogen und zeigen demnach Geodaten mit Bild.
-Obwohl es sich nicht um ALKIS-Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Fällen für den ÖbVI gebührenfrei.
+Obschon es sich nicht um ALKIS-Standardausgaben handelt sind einige dieser Produkte vermessungsrelevant und somit in bestimmten Fällen für den ÖbVI gebührenfrei.
 
 Die Produkte der Produktklasse Standardausgaben WUP-kommunal können der Tabelle \vref{tab-wupp} entnommen werden.
 
@@ -368,7 +371,7 @@ Sobald sämtliche Unterlagen vorhanden sind, kann die eigentliche Vorbereitung d
 In einem ersten Schritt müssen die zuvor erhaltenen NAS"=Bestandsdaten in ein CAD-System sowie in ein Berechnungsprogramm (z.\,B. KAVDI) importiert werden.
 
 Anschließend kann mit der Vorbereitung der Geräte, die im Außendienst benötigt werden, begonnen werden.
-Dazu gehört das Erstellen der Koordinatendateien mittels des Berechnungsprogramm, woraufhin diese vom Tachymeter und GPS-Gerät eingelesen werden können. Danach kann die Übernahme der benötigten CAD-Dateien und des Berechnungsauftrags auf den Außendienstrechner erfolgen.
+Dazu gehört das Erstellen der Koordinatendateien mittels des Berechnungsprogramms, woraufhin diese vom Tachymeter und GPS-Gerät eingelesen werden können. Danach kann die Übernahme der benötigten CAD-Dateien und des Berechnungsauftrags auf den Außendienstrechner erfolgen.
 
 %\begin{itemize}
 %\item nach der Auftragserteilung
@@ -548,7 +551,7 @@ Bei der Fortführung wird der externen Benutzer mittels der von \ac{WuNDa} angeb
 Ansonsten wird dem Benutzer in diesem Bereich keine Funktionalität angeboten.
 
 \bigskip
-Welche Erweiterungen von \ac{WuNDa} denkbar und sinnvoll sind, wird im Kapitel \autoref{ch:aussicht} ausführlich beschrieben. Am Ende dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
+Am Ende dieses Kapitels wird auf die Problemstellung aus Abschnitt \ref{sec:rationalisierung} eingegangen, demnach wird detaillierter beschrieben warum die geplante Rationalisierung nicht durchgeführt werden kann.
 
 %\begin{itemize}
 %	\item fachlicher IST-Zustand
@@ -566,7 +569,7 @@ Bislang wurde angegeben, dass die geplante Rationalisierung auf Grund der hohen 
 Die Abrechnungen werden von einem Beamten des Katasteramts nach jedem Abrechnungsturnus (z.\,B. quartalsweise, jährlich) manuell erstellt, wobei jeder externe Benutzer zu einen anderen Abrechnungsturnus gehören kann.
 Weiterhin muss für jeden Benutzer eine eigene Abrechnung erstellt werden.
 
-Im folgenden werden die Download-Protokolle auch Buchungen genannt, da sich die Sichtweise auf die Protokolle von der Sicht der externen Benutzer auf die Sicht des Rechnungswesens geändert hat.
+Im Folgenden werden die Download-Protokolle auch Buchungen genannt, da sich die Sichtweise auf die Protokolle von der Sicht der externen Benutzer auf die Sicht des Rechnungswesens geändert hat.
 Zum Erstellen der einzelnen Abrechnungen müssen die Buchungen, also die Protokolle der Downloads, aus der Datenbank bezogen werden um weiterverarbeitet zu werden.
 Dies geschieht indem die Buchungen sämtlicher Kunden nach dem gewünschten Zeitraum gefiltert werden, um dann in eine Excel-Datei importiert zu werden.
 Demnach befindet sich in einer Spalte dieser Datei Informationen wie z.\,B. der Benutzername, der Download-Name und die zu bezahlende Gebühr.
