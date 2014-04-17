@@ -107,7 +107,7 @@ Nach der Beschreibung der Klassen, folgen nun die eigentlichen Erweiterungen, di
 Der Kundenrenderer soll Buchungen eines Kunden tabellarisch darstellen.
 Dabei sollen verschiedene Filtermöglichkeiten angegeben werden können, so dass nur Buchungen angezeigt werden, die die Kriterien erfüllen.
 Die Filterergebnisse sollen in einem kurzen Satz zusammengefasst werden.
-Für die angezeigten Buchungen soll es möglich sein den Bericht Rechnungsanlage und Buchungsbeleg zu erstellen.
+Für die angezeigten Buchungen soll es möglich sein den Bericht \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} zu erstellen.
 
 Die Buchungen sollen zeitlich gefiltert werden können.
 Dabei soll es eine Schnellauswahl für die Buchungen des aktuellen Tages, eines beliebigen Monats und eines beliebigen Quartals geben.
@@ -131,9 +131,9 @@ Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up d
 Die Funktionalität des Kundenrenderers soll dem Kunden selbst nicht vorenthalten werden.
 Aus diesem Grund soll es für die externen Benutzer eines Kunden möglich sein auf den eigenen Kundenrenderer zuzugreifen.
 Hierbei muss sichergestellt werden, dass die externen Benutzer nur den Kundenrenderer des eigenen Kunden öffnen können und somit keine Einsicht in die Buchungen der anderen Kunden erhalten. 
-Zudem dürfen sie den Bericht Rechnungsanlage nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
+Zudem dürfen sie den Bericht \enquote{Rechnungsanlage} nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
 
-Demnach sollen externe Benutzer nur den eigenen Kundenrenderer öffnen können und es soll ihnen nicht möglich sein den Bericht Rechnungsanlage zu erstellen.
+Demnach sollen externe Benutzer nur den eigenen Kundenrenderer öffnen können und es soll ihnen nicht möglich sein den Bericht \enquote{Rechnungsanlage} zu erstellen.
 
 \subsubsection{Erneutes Herunterladen von Produkten}
 Die Produkte, die über den ALKIS-Druckdialog erzeugt werden, werden von einem externen Server bezogen.
@@ -168,7 +168,7 @@ Kurzum eine Kundengruppe soll eine Gruppe von Kunden sein, die manuell erstellt 
 \subsubsection{Kundengruppenrenderer}
 Der Kundengruppenrenderer soll die Buchungen eines jeden Kundens einer Kundengruppe aggregieren und tabellarisch darstellen.
 Seine Funktionsweise ist ähnlich dem des Kundenrenderers und besitzt deshalb auch einen ähnlichen Aufbau.
-Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte Rechnungsanlage, Buchungsbeleg können erstellt werden. Zusätzlich steht hier auch der Bericht Geschäftsstatistik zur Auswahl.
+Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} können erstellt werden. Zusätzlich steht hier auch der Bericht Geschäftsstatistik zur Auswahl.
 
 Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird, sondern mehrere, werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
 Die in der Tabelle angezeigten Informationen sind die Kundennamen, die aggregierten Brutto-Preise und die Anzahl der kostenpflichtigen Downloads. Weiterhin soll jeder Eintrag in der Tabelle ein Auswahlfeld besitzen, mit dem der Benutzer auswählen kann, ob die Buchungen eines Kunden beim Erstellen eines Berichtes benutzt werden sollen, oder nicht.
@@ -255,7 +255,7 @@ Nachdem ein Beamte ein Storno-Grund ausgewählt hat und somit den Vorgang der St
 Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.
 
 \subsubsection{Buchungsbeleg}
-Der Buchungsbeleg soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
+Der \enquote{Buchungsbeleg} soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
 Dabei ist der Bericht in einen Kopfbereich und eine Tabelle mit den Buchungen eingeteilt.
 
 Im Kopfbereich des Berichts sollen sich folgende Basisinformationen befinden:
@@ -279,8 +279,8 @@ In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Do
 Falls im Renderer keine Buchungen ausgewählt sind, so soll der Bericht nicht erstellt werden.
 
 \subsubsection{Rechnungsanlage}
-Die Rechnungsanlage ist eine Erweiterung des Buchungsbelegs, welcher zwischen dem Kopfbereich und der Tabelle ein zusätzliches Statistikfeld einnimmt.
-Zudem ist die Rechnungsanlage ein Teil der Abrechnung, sodass die angezeigten Buchungen beim Erstellen der Berichte als abgerechnet markiert werden können.
+Die \enquote{Rechnungsanlage} ist eine Erweiterung des \enquote{Buchungsbelegs}, welcher zwischen dem Kopfbereich und der Tabelle ein zusätzliches Statistikfeld einnimmt.
+Zudem ist die \enquote{Rechnungsanlage} ein Teil der Abrechnung, sodass die angezeigten Buchungen beim Erstellen der Berichte als abgerechnet markiert werden können.
 Was auch der Grund ist, weshalb der Bericht im Kundenrenderer nicht von den externen Benutzern erstellt werden darf.
 Eine Vorlage eines solchen Berichts kann der Abbildung \vref{fig:vorlage_rechnungsanlage} entnommen werden.
 

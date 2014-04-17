@@ -331,8 +331,8 @@ Dieser wurde während der Entwicklung hinzugefügt, da sich die automatisch ausg
 Dies liegt an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt ist, obwohl diese, in den meisten Fällen, nur ein paar Sekunden beträgt.
 Bei Betätigen des Knopfes wird ein Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die eigentliche Suche wird ausgeführt.
 Die Ergebnisse dieser Suche werden dann in der Tabelle angezeigt und eine entsprechende Zusammenfassung der Suchergebnisse wird über der Tabelle ausgegeben.
-Weiterhin können die beiden Berichte Rechnungsanlage und Buchungsbeleg erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
-So dürfen externe Benutzer die Rechnungsanlage nicht erstellen und es kann ausgewählt werden, ob kostenfreie Buchungen in den Berichten angezeigt werden sollen oder nicht.
+Weiterhin können die beiden Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
+So dürfen externe Benutzer die \enquote{Rechnungsanlage} nicht erstellen und es kann ausgewählt werden, ob kostenfreie Buchungen in den Berichten angezeigt werden sollen oder nicht.
 Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen werden.
 
 \begin{figure}[htb]
@@ -410,7 +410,7 @@ Ein Screenshot des Suchdialog selbst kann in \myfig{fig:gui-suchdialog} gefunden
 \subsubsection{Kundengruppenrenderer und Kundengruppeneditor}
 Wie bereits beschrieben bietet der Kundengruppenrenderer einige Filterkriterien, so dass nicht gewünschte Buchungen nicht in die Ergebnisse miteinbezogen werden.
 Im Gegensatz zum Kundenrenderer werden die einzelnen Buchungen nicht angezeigt, sondern diese werden für den jeweiligen Kunden zusammengefasst und diese Zusammenfassung wird in der Tabelle dargestellt.
-Zum Erstellen der Rechnungsanlage und des Buchungbeleges stehen die gleichen Optionen zur Verfügung, wie im Kundenrenderer.
+Zum Erstellen der \enquote{Rechnungsanlage} und des \enquote{Buchungsbeleges} stehen die gleichen Optionen zur Verfügung, wie im Kundenrenderer.
 Zusätzlich kann die Geschäftsstatistik als Bericht erstellt werden.
 Ein Screenshot des Kundengruppenrenderer kann in der \myfig{fig:gui-kundengruppenrenderer} gefunden werden.
 \begin{figure}[htb]
@@ -462,7 +462,7 @@ Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{j
 
 \subsection{Berichte}
 Die drei Berichte wurden nach den Vorgaben aus \autoref{subsec:berichte} erstellt.
-Bei den Berichten Buchungsbeleg und Rechnungsanlage wurden die genauen Vorgaben eingehalten, dabei musste allerdings auf die Formatierung und das Aussehen keine Rücksicht genommen werden.
+Bei den Berichten \enquote{Buchungsbeleg} und \enquote{Rechnungsanlage} wurden die genauen Vorgaben eingehalten, dabei musste allerdings auf die Formatierung und das Aussehen keine Rücksicht genommen werden.
 Das Formatieren wird vom R102 übernommen.
 Da der Bericht Geschäftsstatistik noch nicht spezifiziert ist, wurde diesem Bericht lediglich die bekannten Werte übergeben und auch hier wurde nur eine sehr grobe Formatierung durchgeführt.
 
@@ -587,7 +587,7 @@ Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Klasse "`Kunden
 \subsubsection{Einschränkungen bezüglich der Rechnungsanlage und der Buchungen-Suche}
 
 Nach dem Setzen der Rechte haben die externe Benutzer zu viele Berechtigungen.
-Nämlich das Erstellen der Rechnungsanlage und das Öffnen der Buchungen-Suche.
+Nämlich das Erstellen der \enquote{Rechnungsanlage} und das Öffnen der Buchungen-Suche.
 Die zusätzlich benötigten Einschränkungen werden mit Hilfe der folgenden zwei Aktionsrechten realisiert:
 \begin{itemize}
 \item custom.billing.reports
@@ -595,7 +595,7 @@ Die zusätzlich benötigten Einschränkungen werden mit Hilfe der folgenden zwei
 \end{itemize}
 Diesen Aktionsrechten wurden die Benutzergruppen "`Administratoren"' und "`Billing Intern"' als Attribute hinzugefügt.
 
-Die Einschränkungen bezüglich der Rechnungsanlage kann wie folgt realisiert werden.
+Die Einschränkungen bezüglich der \enquote{Rechnungsanlage} kann wie folgt realisiert werden.
 Im laufenden Programm wird im Kundenrenderer abgefragt, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes "`custom.billing.reports"' ist.
 Je nach Resultat dieser Abfrage können somit die benötigten GUI-Elemente an- oder ausgeschaltet werden.
 
