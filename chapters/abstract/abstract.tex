@@ -1,40 +1,9 @@
 \begin{abstract}
-	In dem cids basierten System WUNDa, das in der Stadtverwaltung Wuppertal eingesetzt wird, wurde für ein 
-	Teilsystem (Abgabe der Produkte des Liegenschaftskatasters) eine Abrechnungskomponente entworfen und implementiert. 
-	Für den wichtigen Bereich der Vermessungsunterlagen umfassen diese Produkte zum einen Auszüge aus dem Amtlichen
-	Liegenschaftskatasterinformationssystem ALKIS (Flurkarte, Flurstücks- und Eigentümernachweise, Punktlisten, NAS-Daten),
-	zum anderen durch Scannen analoger Originale entstandene digitale Dokumente (Fortführungsrisse, Grenzniederschriften, 
-	Aufnahmepunktkarten (AP-Karten), Nivellementspunkt-Beschreibungen (NivP-Beschreibungen), AP"=Übersichten etc.). 
-	Die erforderlichen online-Systeme zur Selbstentnahme dieser Produkte wurden über mehrere Vergaben seit 
-	12/2008 in Form von WuNDa"=Fachverfahren und -Fachthemen  hergestellt.
-						
-	Auf Grund fachrechtlicher Vorgaben und wegen datenschutzrechtlicher 
-	Belange müssen die von den Endkunden vorgenommenen Datenentnahmen durch die Stadt 
-	Wuppertal protokolliert werden. Dabei müssen einige vom externen Nutzer zu liefernde Angaben 
-	abgefragt werden, z. B. der Verwendungszweck der Daten - hieraus ergibt sich, ob die 
-	Datenentnahme kostenfrei oder kostenpflichtig ist - und die Nummer, unter der er die Datenentnahme in seinem Geschäftsbuch führt.
-						
-%	Um das volle Rationalisierungspotenzial der Selbstentnahmen ausschöpfen zu können, 
-%	müssen auch gebührenpflichtige Datenentnahmen unterstützt werden. Dafür müssen die WuNDA-Beschreibungsseiten, 
-%	aus denen heraus Datendownloads ermöglicht werden, um weitere Funktionen und Oberflächenelemente zur Gebührenberechnung, 
-%	Gebührenanzeige und zum Akzeptieren der Gebührenforderung ergänzt werden. 
-%	Jedes Herunterladen solcher Daten führt zu einem Protokolleintrag in der sog. „Billing“-Tabelle der WuNDa-Datenbank.
-%	Die Lösung ermöglicht es, die Prozesse rund um die Selbstentnahme von Vermessungsunterlagen 
-%	medienbruchfrei zu gestalten und die betroffenen WuNDa-Teilsysteme mit dem Geschäftsbuch 
-%	des Ressorts 102 zu verknüpfen.
-%						
-%	Aus der Billing-Tabelle werden turnusmäßige Abrechnungen erzeugt, wobei je nach Kundengruppe und Verwendungszweck
-%	der Daten monatliche, quartalsweise und jährliche Abrechnungen möglich sind. Die Abrechnungen enthalten eine Liste 
-%	aller Downloads des jeweiligen Nutzers mit den zugehörigen Gebühren bzw. den geschuldeten Entgelten. Die Unterstützung dieser Abrechnungen wird vom 
-%	System genauso unterstützt wie die Anzeige der "Kontoinformationen" für den Endkunden der Datenendnahme.
-%						
-%						
-%	Die Arbeit gibt zunächst einen Überblick über die abzugebenden Produkte und ihre Verwendung in den typischen Prozessen der Kunden der Stadtverwaltung. 
-%	Anschließend wird die Integration des Billing Mechanismus in die Fachsysteme, die Preisermittlung und die Protokollierung der Produktentnahmen erläutert.
-%	Der Auswertungsteil der Software wird aus der Sicht der Endkunden und aus der Sicht der Fachabteilungen erläutert. Die Benutzerinteraktion und die 
-%	betroffenen GUI Elemente werden beschrieben.
-%						
-%	Im abschließenden Teil der Arbeit wird auf die wirtschaftlichen Aspekte (Einsparungen) in der Stadtverwaltung eingegangen und diese werden anhand eines Beispiels 
-%	veranschaulicht. Im Ausblick wird die Integrationsmöglichkeit von cids/WuNDa in weitere Prozesse der Endkunden (Beschränkung auf ÖbVi, Sparkassen und Polizei) untersucht 
-%	und die notwendigen weiteren Entwicklungsschritte skiziert.
+Aufgrund einer Rationaliserung in der Stadtverwaltung Wuppertal müssen einige Arbeittschritte des Ressort 102  Vermessung, Katasteramt und Geodaten automatisiert werden.
+Diese Arbeit beschreibt die Automatisierung der bestehenden Abrechnungskomponente, die ein Teilsystem des, im Ressort 102 bereits verwendeten, Infomrationssystems WuNDa darstellt.
+Erst durch diese Komponente wird es externen Benutzern von WuNDa, dies sind Benutzer, die keine Beamten des Ressort 102 sind, ermöglicht verschiedene Produkte, dies sind vorallem Dokumente und Berichte, über WuNDa herunterladen zu können.
+Dies liegt am durchaus kostenpflichtigen Zugriff, der dadurch protokolliert werden muss, so dass nach einem bestimmten Abrechnungsturnus eine Abrechnung an die jeweiligen Benutzer zu stellen.
+Diese Arbeit beschreibt in einem ersten Schritt die fachliche Seite dieser Abrechnungskomponente, deren aktuelle Umsetzung in WuNDa sowie die manuelle Erstellung der Abrechnung.
+Anschließend folgt die Spezifikation der, für die Automatisierung erforderlichen, Funktionalitäten und deren Implementierung wird beschrieben.
+Zu Schluss der Arbeit wird die, aufgrund der Rationalisierung bestehenden, Motivation des Ressort 102 beschrieben um neue externe Benutzer zu gewinnen, dabei wird die Kundengruppe der Projektentwickler vorgestellt und es werden von diesen gewünschte, potentielle Funktionalitäten in WuNDa vorgestellt.
 \end{abstract}

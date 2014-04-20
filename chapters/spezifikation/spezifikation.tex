@@ -168,7 +168,7 @@ Kurzum eine Kundengruppe soll eine Gruppe von Kunden sein, die manuell erstellt 
 \subsubsection{Kundengruppenrenderer}
 Der Kundengruppenrenderer soll die Buchungen eines jeden Kundens einer Kundengruppe aggregieren und tabellarisch darstellen.
 Seine Funktionsweise ist ähnlich dem des Kundenrenderers und besitzt deshalb auch einen ähnlichen Aufbau.
-Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} können erstellt werden. Zusätzlich steht hier auch der Bericht Geschäftsstatistik zur Auswahl.
+Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} können erstellt werden. Zusätzlich steht hier auch der Bericht \enquote{Geschäftsstatistik} zur Auswahl.
 
 Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird, sondern mehrere, werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
 Die in der Tabelle angezeigten Informationen sind die Kundennamen, die aggregierten Brutto-Preise und die Anzahl der kostenpflichtigen Downloads. Weiterhin soll jeder Eintrag in der Tabelle ein Auswahlfeld besitzen, mit dem der Benutzer auswählen kann, ob die Buchungen eines Kunden beim Erstellen eines Berichtes benutzt werden sollen, oder nicht.
@@ -287,9 +287,9 @@ Eine Vorlage eines solchen Berichts kann der Abbildung \vref{fig:vorlage_rechnun
 In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden und ob die Buchungen tatsächlich als abgerechnet markiert werden.
 
 \subsubsection{Geschäftsstatistik}
-Die Geschäftsstatistik ist ein Bericht der Statistiken der Downloads von den verschiedenen Kunden.
+Die \enquote{Geschäftsstatistik} ist ein Bericht der Statistiken der Downloads von den verschiedenen Kunden.
 Durch die jeweilige Darstellung mehrerer Kunden, kann der Bericht nur im Kundengruppenrenderer erstellt werden.
-Es gibt verschiedene Informationen die in der Geschäftsstatistik angezeigt werden: die Aktivität der Benutzer, die Kostenarten der Produkte, die Verwendungszwecke, die Angaben für den Jahresbericht und die Übersicht der bezogenen Produkte.
+Es gibt verschiedene Informationen die in der \enquote{Geschäftsstatistik} angezeigt werden: die Aktivität der Benutzer, die Kostenarten der Produkte, die Verwendungszwecke, die Angaben für den Jahresbericht und die Übersicht der bezogenen Produkte.
 Der Bericht wurde allerdings nicht vollständig vom R102 spezifiziert und kann somit nicht komplett umgesetzt werden.
 Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll generiert werden können. Dieser entspricht allerdings nicht den tatsächlichen Geschäftsstatistiken.
 Eine etwaige Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.

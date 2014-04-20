@@ -98,7 +98,7 @@ Das Katasteramt besitzt ebenfalls Daten, die erst ausgegeben werden dürfen, nac
 Diese Funktionalität würde dem Katasteramt und den externen Kunden Zeitaufwand sparen und wird im \autoref{subsec:berechtigtes-interesse} näher behandelt.
 
 \subsubsection{Erschließungsbeiträge}
-Die Erschließungsbeiträge werden für die Herstellung von Straßen, Wegen, Plätzen etc... erhoben und müssen von den Eigentümern oder Erbbauberechtigte der anliegenden Grundstücken bezahlt werden.
+Die Erschließungsbeiträge werden für die Herstellung von Straßen, Wege, Plätzen, etc. erhoben und müssen von den Eigentümern oder Erbbauberechtigten der anliegenden Grundstücken bezahlt werden.
 Weiterhin werden die Erschließungsbeiträge von dem Ressort Straßen und Verkehr beantragt \autocite[vgl.][]{wupp-erschliessungsbeitrag}.
 
 In \ac{WuNDa} werden die Erschließungsbeiträge nicht abgebildet, diese Funktionalität wäre jedoch nützlich für die Projektentwickler und ihre Dienstleister.
@@ -124,7 +124,7 @@ Durch das Aufkommen der externen Benutzer kann es nützlich werden, dass diese e
 Ein Beispiel wäre das Hinzufügen und Verwalten von Bookmarks für häufig benutzte Objekte oder angezeigte Stellen in der Karte.
 Andere Anwendungsfälle mit persönlicheren Daten sind ebenfalls denkbar, hier wurde im Gespräch bereits deutlich dass solche Daten im Besitz der externen Benutzer bleiben muss und nicht, wie vorgeschlagen, von dem R102 verwaltet werden kann.
 \subsubsection{Freigeben der Layer für Problemimmobilien und Schrottimmobilien}
-Das R102 besitzt einige Kartenlayer die für Öffentlichkeit nicht freigegeben sind.
+Das R102 besitzt einige Kartenlayer die für die Öffentlichkeit nicht freigegeben sind.
 Im Gespräch wurde hier das Beispiel der Problem- und Schrottimmobilien genannt.
 Als Schrottimmobilien werden Immobilien bezeichnet, die in einem minderwertigen oder mangelhaften Zustand deutlich über ihren Wert verkauft wurden.
 Hierunter fallen häufig Gebäude, die nicht vollständig oder nur mangelhaft saniert wurden und dann an Privatkunden verkauft wurden \autocite[vgl.][]{iva-schrottimmo}.
@@ -248,6 +248,28 @@ Demnach wird zusätzlich noch eine Möglichkeit benötigt um eine schriftliche B
 
 \subsection{Abfrage der Dachhöhen}
 \label{subsec:dachhoehen}
+Den Beamten des Katasteramtes ist es möglich die Höhenpunkte der Dachlandschaften von Wuppertal über \ac{WuNDa} zu beziehen.
+Diese, circa zehn Jahre alten, Daten wurde mittels eines fotogrametrischen, sprich mittels fotografischen Bildern, Verfahrens erstellt und sind aus diesem Grund nur bis auf den Dezimeter genau.
+Die Dachhöhen können benutzt um neue Immobilien in das bestehende Stadtbild einzupassen und werden während der Planung eines Projektes von verschiedenen Ämtern angefordert.
+Da der, in \ac{WuNDa} benutzte, Datenbestand nicht aktualisiert wird, in Wuppertal aber neue Gebäude entstehen, enthält der Bestand mittlerweile Lücken.
+Da die Dachhöhen beim Bau eines neuen Gebäudes gemessen werden müssen, wäre eine Rückführung der Daten sinnvoll, da diese dann auch von anderen Stellen weiterhin benutzt werden könnten.
+Im Augenblick werden die Dachhöhen für jeden Gebrauch wieder gemessen.
+Diese präzisere Daten könnten dann auch für andere Berechnungen herangezogen werden, wie etwa bei der Berechnung von Abstandsflächen.
+
+Das Freigeben der Dachhöhen für die Projektentwickler und ihre Dienstleister sollte keine Probleme darstellen, allerdings müsste in einem ersten Schritt überprüft werden, wie die Daten zurückgeführt werden könnten.
+
+
+\begin{itemize}
+\item Höhenpunkte der Dachlandschaften
+\item im Dezimeterbereich genau
+\item fotogrametrisch erfasst, 10 Jahre alt, Versicherungsplaninformationssystem, Umstellung der Niederschlagsgebühr
+\item Kalkulations von abstandsflächen
+\item Einfügen von Gebäuden ins Stadtbild
+\item Anfrage der Werte steigt durch Ämter
+\item Rückführung ermöglichen 
+\item ÖbvI des Katatseramtes benötigen diese Daten auch
+\item alternative alle paar Jahre wieder neu erfassen
+\end{itemize}
 
 
 \chapter{Interne Benutzung von der Billing-Komponente}
