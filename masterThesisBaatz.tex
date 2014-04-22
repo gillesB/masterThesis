@@ -16,13 +16,25 @@
 \thispagestyle{empty}
 \mbox{}}
 
+\newenvironment{dedica}
+  {\clearpage           % we want a new page
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top 
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
+
 %export with pdftotext
 %\usepackage[none]{hyphenat}
 %\pagestyle{empty}
 
 \begin{document}
 
-%\include{preamble/titlepages}
+\include{preamble/titlepages}
 
 \blankpage
 \include{chapters/sonstiges/eidesstatliche_erklaerung}
@@ -36,8 +48,14 @@ Amtliche Geodaten der Stadt Wuppertal, \\
 \blankpage
 
 \include{chapters/abstract/abstract}
+\blankpage
 
-%\tableofcontents
+\begin{dedica}
+Fir all déi, wou mech a mengem Studium ennerstetzt, begeeschtert an och mol duerch méi schwéier Zäite bruecht hunn. 
+\end{dedica}
+
+
+\tableofcontents
 \include{chapters/einfuehrung/einfuehrung}
 \include{chapters/produkte/produkte}
 \include{chapters/spezifikation/spezifikation}
