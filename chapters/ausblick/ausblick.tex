@@ -1,12 +1,12 @@
 \chapter{Workflow von Projektentwickler} \label{ch:aussicht}
 
 In diesem Kapitel wird der Workflow von Projektentwicklern untersucht um Funktionalitäten zu finden, die \ac{WuNDa} noch nicht anbietet, jedoch deren Arbeitsalltag vereinfacht.
-Das Ziel hierbei ist es \ac{WuNDa} für diese attraktiver zu machen, da es sich bei den Projektentwickler noch nicht um externe Benutzer handelt, das Katasteramt diese jedoch als Kunden gewinnen will. 
+Das Ziel hierbei ist es \ac{WuNDa} für diese attraktiver zu machen, da es sich bei den Projektentwickler um eine Kundengruppe handelt, die das Katasteramt als externe Benutzer gewinnen will. 
 
-Um dies zu verdeutlichen wird zuerst auf die Motivation des Katasteramtes eingegangen, danach werden die Projektentwickler näher erläutert. Daraufhin werden mögliche neue Funktionalitäten in \ac{WuNDa} kurz beschrieben und anschließend wird eine Auswahl von diesen detaillierter beleuchtet.
+Um dies zu verdeutlichen wird zuerst auf die Motivation des Katasteramtes eingegangen, danach wird die Kundengruppe der Projektentwickler näher erläutert.
+Daraufhin werden mögliche neue Funktionalitäten in \ac{WuNDa} kurz beschrieben und anschließend wird eine Auswahl von diesen detaillierter beleuchtet.
 
-Die Informationen zu diesem Kapitel stammen aus einem gemeinsamen Treffen zwischen dem Katasteramt, dem Geschäftsleiter des Unternehmens Colemus \autocite{colemus}, der als Geschäftsleiter tätig ist, sowie einem Architekten und einem \ac{ÖbVI}.
-Diese arbeiten häufig mit Colemus zusammen. Der Autor dieser Arbeit war bei diesem Treffen ebenfalls anwesend.
+Die Informationen zu diesem Kapitel stammen aus einem gemeinsamen Treffen zwischen dem Katasteramt, dem Geschäftsleiter des Unternehmens Colemus \autocite{colemus}, der als Projektentwickler tätig ist, sowie einem Architekten und einem \ac{ÖbVI}, welche häufig mit Colemus zusammenarbeiten. Der Autor dieser Arbeit war bei diesem Treffen ebenfalls anwesend.
 
 \section{Motivation des Katasteramtes.}
 
@@ -26,7 +26,7 @@ So sollen z.\,B. keine neuen Datenbestände erstellt werden, die zusätzlich gep
 Dies bedeutet im Umkehrschluss, dass lediglich Datenbestände benutzt werden können die das Katasteramt aus anderen, z.\,B. rechtlichen, Gründen pflegen muss.
 Weiterhin muss bei den Funktionalitäten darauf geachtet werden dass keine rechtliche Gegebenheiten verletzt werden, so z.\,B. das Datenschutzrecht.
 
-Zu den angesprochenen Berufsgruppen gehören die Projektentwickler, welche in dem nächsten Abschnitt beleuchtet werden.
+Zu den angesprochenen Berufsgruppen gehören die Projektentwickler, welche in dem nächsten Abschnitt beleuchtet wird.
 
 
 %\begin{itemize}
@@ -44,19 +44,20 @@ Die meisten Teilaufgaben werden an externe Dienstleister weitergeleitet, wie etw
 Besonders interessant für das Katasteramt sind die kleinen bis mittleren Projektentwickler, da diese standortgebunden sind und somit lediglich Projekte in Wuppertal entwickeln können.
 Zu dieser Zielgruppe gehört z.\,B. das Unternehmen Colemus, das in einem durchschnittlichen Projekt circa zehn Wohnhäuser baut.
 Diese Gebundenheit der Projektentwickler ist einerseits auf die Beschaffung des Kredites zurückzuführen, da lediglich die lokalen Sparkassen solche Projekte finanzieren.
-Ein weiterer Grund sind die regionalen Unterschiede in den Verwaltungswegen, die durchlaufen werden müssen, um ein solches Projekt durchzuführen.
+Ein weiterer Grund ist die Kenntnis der Verwaltungswegen an einem Standort, die durchlaufen werden müssen, um ein solches Projekt durchzuführen.
+Diese können von Region zu Region sehr unterschiedlich sein.
 Ein dritter Grund sind die Beziehungen zu den Partnern, so arbeitet das Unternehmen Colemus bevorzugt immer mit den gleichen Dienstleistern zusammen.
 
 Die Projektentwickler sind durch ihre verschiedene Dienstleister mit denen sie zusammenarbeiten eine interessante Kundengruppe für das Katasteramt.
 Durch sie steigt der Bekanntheitsgrad von \ac{WuNDa} bei ihren Dienstleister die dadurch ebenfalls als externe Benutzer gewonnen werden können.
 Dies zeigte sich bereits im Gespräch, da hier solche Dienstleister ebenfalls am Tisch saßen und von \ac{WuNDa} angesprochen wurden, obwohl sie nicht die direkte Zielgruppe waren.
 
-Weiterhin sind die Projektentwickler interessant für die Stadt Wuppertal an sich.
-So werden diese von einer guten Unterstützung einer Stadt angezogen, da diese somit mehr Projekte in kürzerer Zeit durchführen können, wovon die Stadt schlussendlich profitiert da in sie investiert wird und der Immobilienmarkt angetrieben wird.
-Zu dieser Unterstützung gehören möglichst einfache und schnelle Verwaltungswege sowie eine gute Zusammenarbeit zwischen den verschiedenen Ämtern.
-Kurzum das schnelle Beziehen von Informationen über \ac{WuNDa} gehört auch zu dieser Unterstützung, die das Katasteramt anbieten und unter Umständen noch ausbauen kann.
+%Weiterhin sind die Projektentwickler interessant für die Stadt Wuppertal an sich.
+%So werden diese von einer guten Unterstützung einer Stadt angezogen, da diese somit mehr Projekte in kürzerer Zeit durchführen können, wovon die Stadt schlussendlich profitiert da in sie investiert wird und der Immobilienmarkt angetrieben wird.
+%Zu dieser Unterstützung gehören möglichst einfache und schnelle Verwaltungswege sowie eine gute Zusammenarbeit zwischen den verschiedenen Ämtern.
+%Kurzum das schnelle Beziehen von Informationen über \ac{WuNDa} gehört auch zu dieser Unterstützung, die das Katasteramt anbieten und unter Umständen noch ausbauen kann.
 
-Eine weitere Aufgabe bei der Entwicklung von Projekten besteht in der Überzeugung von Entscheidern.
+Eine Aufgabe bei der Entwicklung von Projekten besteht in der Überzeugung von Entscheidern.
 Dies ist u.\,a. der Fall, wenn das Projekt bei Kreditinstituten und verschiedenen Ämtern vorgestellt wird und mit Dokumenten hinterlegt werden muss um die benötigten Kredite und Genehmigungen zu erhalten.
 Dabei müssen diese Dokumente eine möglichst professionelle Form und Aussehen besitzen, so dass die Projekte einen seriösen und durchdachten Eindruck hinterlassen.
 Aus diesem Grund befindet sich in den Featurewünschen der eine oder andere Wunsch um das Erstellen von solchen Dokumenten direkt oder indirekt zu vereinfachen.
@@ -120,9 +121,10 @@ Weiterhin gibt es für das Katasteramt selbst keinen konkreten Anwendungsfall, w
 
 \subsubsection{Verwaltung von eigenen Stammdaten}
 Im Augenblick haben sämtliche Daten, die von \ac{WuNDa} benutzt werden, einen direkten Bezug zu dem R102.
-Durch das Aufkommen der externen Benutzer kann es nützlich werden, dass diese eigene Daten in \ac{WuNDa} anzeigen wollen.
-Ein Beispiel wäre das Hinzufügen und Verwalten von Bookmarks für häufig benutzte Objekte oder angezeigte Stellen in der Karte.
+Durch das Aufkommen der externen Benutzer sind Anwendungsfälle denkbar, bei denen diese eigene Daten in \ac{WuNDa} anzeigen und verwalten wollen.
+Ein einfaches Beispiel hierzu wäre das Hinzufügen und Verwalten von Bookmarks für häufig benutzte Objekte oder angezeigte Stellen in der Karte.
 Andere Anwendungsfälle mit persönlicheren Daten sind ebenfalls denkbar, hier wurde im Gespräch bereits deutlich dass solche Daten im Besitz der externen Benutzer bleiben muss und nicht, wie vorgeschlagen, von dem R102 verwaltet werden kann.
+Welche Funktionalitäten hier genau gewünscht sind, muss in weiteren Gesprächen mit den externen Benutzern ermittelt werden, da hierzu noch keine näheren Angaben gegeben werden konnten.
 \subsubsection{Freigeben der Layer für Problemimmobilien und Schrottimmobilien}
 Das R102 besitzt einige Kartenlayer die für die Öffentlichkeit nicht freigegeben sind.
 Im Gespräch wurde hier das Beispiel der Problem- und Schrottimmobilien genannt.
@@ -130,7 +132,7 @@ Als Schrottimmobilien werden Immobilien bezeichnet, die in einem minderwertigen 
 Hierunter fallen häufig Gebäude, die nicht vollständig oder nur mangelhaft saniert wurden und dann an Privatkunden verkauft wurden \autocite[vgl.][]{iva-schrottimmo}.
 Unter Problemimmobilien werden auf Grund von Mängel nur schwer verkäufliche Immobilien verstanden \autocite[vgl.][]{immo-problemimmo}.
 
-Das Wissen um solche Immobilien ist nützlich für Projektentwickler, da diese sich häufig auf Grundstücken befinden, die für eine neues Projekt interessant sind.
+Das Wissen um solche Immobilien ist nützlich für Projektentwickler, da diese sich häufig auf Grundstücken befinden, die für ein neues Projekt interessant sind.
 So kann z.\,B. das Grundstück einer Problemimmobilie für einen Neubau geeignet sein.
 Andererseits ist eine Gegend mit zu vielen solcher Immobilien eher zu meiden.
 
@@ -164,7 +166,7 @@ Ein weiterer Anwendungszweck, wäre das Anzeigen dieser Entfernung in einem Beri
 
 \subsubsection{Anzeigen des Baujahres}
 Ein weiterer Kartenlayer der im Gespräch aufkam war das Anzeigen des Baujahres in Zehnjahres-Gruppen.
-Dadurch ist sofort ersichtlich wie eine Gegend entstanden ist und welche letzten Investitionen in ihr getätigt wurden.
+Dadurch ist sofort ersichtlich wie eine Gegend entstanden ist und wann die letzten Investitionen in ihr getätigt wurden.
 
 
 \section{Beleuchtung einiger Features}
@@ -218,15 +220,14 @@ Auf der Grundlage von den bereits erwähnten Quellen wird aber angenommen, dass:
 \item diese können, oder müssen sogar, in einem Kommentarfeld näher spezifiziert werden
 \item und in einigen Fällen müssen Dokumente hinterlegt werden.\todo{Quelle}
 \end{itemize}
-Demnach könnte die Abfrage des berechtigten Interesses ähnlich realisiert werden, wie dies der Fall beim Downloadprotokoll-Dialog (\autoref{fig:alkis-protocol}).
-Benötigt wird ein Dialog, der anzeigt für welche Flurstücke das berechtigte Interesse gelten soll, eine Auswahl für den Grund, ein Kommentarfeld sowie eine Möglichkeit um ein Dokument hochzuladen.
+Demnach könnte die Abfrage des berechtigten Interesses ähnlich realisiert werden, wie dies der Fall bei der Abrechnungskomponente realisiert ist, also mit einem vorgeschalteten Dialog.
+Demnach wird ein Dialog benötigt, der anzeigt für welche Flurstücke das berechtigte Interesse gelten soll, eine Auswahl für den Grund, ein Kommentarfeld sowie eine Möglichkeit um ein Dokument hochzuladen.
 Je nach Benutzergruppe kann sich dabei die Auswahl der Gründe ändern und die anschließend auszufüllende Angaben könnten vom Grund abhängig gemacht werden.
-Dabei wird jedes berechtigte Interesse protokolliert, so dass später nachvollzogen werden kann, wer welche Angaben gemacht hat.
+Beim Bestätigen des Dialoges werden die angegebenen Daten protokolliert, so dass später nachvollzogen werden kann, welcher Benutzer für welche Grundstücke die Baulasten angefragt hat.
 
-Bei einer solchen automatischen Abfrage stellt sich die Frage, wie die getätigten Eingaben kontrolliert werden, um einen unberechtigten Zugang zu verhindern.
-Es folgen einige Vorschläge.
+Bei einer solchen automatischen Abfrage stellt sich die Frage, wie die getätigten Eingaben kontrolliert werden, um einen unberechtigten Zugang zu verhindern, hierzu folgen nun einige Vorschläge.
 Eine denkbare Kontrolle wäre das regelmäßige, stichprobenartige Prüfen der Interesse-Protokolle durch einen Beamten.
-Durch diese Maßnahme wird zwar wieder ein Beamte an diese Aufgabe gebunden, da jedoch nicht sämtliche Interessen bearbeitet werden müssen, wird dennoch Zeit gespart.
+Durch diese Maßnahme wird zwar ein Beamte an diese Aufgabe gebunden, da jedoch nicht sämtliche Interessen bearbeitet werden müssen, wird dennoch Zeit gespart.
 Diese Arbeit könnte von \ac{WuNDa} zusätzlich unterstützt werden, indem es versucht Unregelmäßigkeiten in den getätigten Eingaben zu finden.
 So könnte z.\,B. überprüft werden ob ein Benutzer ungewöhnlich viele Anfragen in einem bestimmten Zeitraum gestellt hat.
 Weiterhin könnte überprüft werden, ob nicht versucht wird möglichst viele Baulasten mit einer Anfrage zu erhalten.
@@ -239,17 +240,21 @@ Je nach angegeben Grund könnte auch überprüft werden, ob die Datei ein typisc
 \subsubsection{Einsicht und Beziehen der Dokumente}
 Nachdem das berechtigte Interesse abgefragt und protokolliert wurde, kann dem externen Benutzer die gefundenen Baulasten für die angegebenen Grundstücke in \ac{WuNDa} angezeigt werden.
 Da die Einsicht auch im Katasteramt kostenlos ist, müssen hier keinen weiteren Änderungen vorgenommen oder bestimmte Maßnahmen getroffen werden.
-Über die Renderer der Baulasten wird es dann möglich sein die entsprechenden, kostenpflichtigen Dokumente herunterzuladen und protokolliert werden, so dass diese später abgerechnet werden können.
+Über die Renderer der Baulasten wird es dann möglich sein die entsprechenden, kostenpflichtigen Dokumente, über die Abrechnungskomponente, herunterzuladen.
 
 \subsubsection{Zusammenfassung}
 Mit der Möglichkeit das berechtigte Interesse über \ac{WuNDa} abzufragen, wird es den Projektentwicklern und anderen externen Benutzern möglich eine kostenlose Einsicht in das Baulastenverzeichnis zu erhalten.
 Weiterhin können kostenpflichtige Dokumente zu den Baulasten über, den bereits an anderer Stelle verwendeten, Abrechnungsmechanismus heruntergeladen werden, so dass auch die schriftliche Auskunft ermöglicht wird.
-Demnach wird zusätzlich noch eine Möglichkeit benötigt um eine schriftliche Bescheinigung zu erhalten, falls keine Baulast auf einem Grundstück vorliegt.
+Der einzige Fall der somit noch nicht abgedeckt wäre, ist das Beziehen der schriftliche Bescheinigung, falls keine Baulast auf einem Grundstück vorliegt.
+
+Weiterhin muss vor einer Realisierung abgewogen werden, ob der Datenschutz mit der, vom Autor vorgeschlagenen, Vorsichtsmaßnahme gewährleistet ist und ob dieser nicht gegebenenfalls noch ausgebaut werden muss.
 
 \subsection{Abfrage der Dachhöhen}
 \label{subsec:dachhoehen}
 Den Beamten des Katasteramtes ist es möglich die Höhenpunkte der Dachlandschaften von Wuppertal über \ac{WuNDa} zu beziehen.
-Diese, circa zehn Jahre alten, Daten wurde mittels eines fotogrametrischen, sprich mittels fotografischen Bildern, Verfahrens erstellt und sind aus diesem Grund nur bis auf den Dezimeter genau.
+Diese, circa zehn Jahre alten, Daten wurde mittels eines fotogrametrischen
+\footnote{\enquote{Verfahren zum Herstellen von Messbildern, Grund- und Aufrissen aus fotografischen Bildern} \autocite{duden-foto}}
+Verfahrens erstellt und sind aus diesem Grund nur bis auf den Dezimeter genau.
 Die Dachhöhen können benutzt um neue Immobilien in das bestehende Stadtbild einzupassen und werden während der Planung eines Projektes von verschiedenen Ämtern angefordert.
 Da der, in \ac{WuNDa} benutzte, Datenbestand nicht aktualisiert wird, in Wuppertal aber neue Gebäude entstehen, enthält der Bestand mittlerweile Lücken.
 Da die Dachhöhen beim Bau eines neuen Gebäudes gemessen werden müssen, wäre eine Rückführung der Daten sinnvoll, da diese dann auch von anderen Stellen weiterhin benutzt werden könnten.
