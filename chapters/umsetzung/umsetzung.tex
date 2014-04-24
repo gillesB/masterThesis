@@ -71,13 +71,13 @@ Durch dieses Anzeigen der kompletten Struktur wird eine unübersichtliche Strukt
 Bei der Suche handelt es sich um eine Schnittstelle zum Kernel, die das Suchen von Objekten ermöglicht.
 Diese Suche kann an verschiedene Anwendungsfälle angepasst werden.
 Eine Suche kann aus der Eingabe von Suchkriterien in einer Maske bestehen, woraufhin nach passenden Objekten gesucht wird.
-Weiterhin kann die Karte (cismap) auch als Suckriterium miteinbezogen werden, indem der Benutzer dort einen Bereich festlegt, woraufhin nach sämtlichen Objekten, einer bestimmten Klasse, gesucht wird, die sich in diesem Bereich befinden.
+Weiterhin kann die Karte (cismap) auch als Suckriterium miteinbezogen werden, indem der Benutzer dort einen Bereich festlegt, woraufhin nach sämtlichen Objekten, einer bestimmten Cids"=Klasse, gesucht wird, die sich in diesem Bereich befinden.
 
 \subsubsection{Renderer und Editor}
 Die Renderer und Editoren wurden bereits in \autoref{sec:gewuenschte-erweiterungen} beschrieben und werden deshalb hier nicht weiter erläutert.
 
 \subsection{ABF}
-Der \ac{ABF} ist ein Werkzeug, mit dem verschiedene Daten der Integration Base visualisiert und bearbeitet werden können, hierzu gehören z.\,B. Klassen (vergleiche \autoref{sec:gewuenschte-erweiterungen}) und ihre Attribute, sowie Benutzer und Benutzergruppen.
+Der \ac{ABF} ist ein Werkzeug, mit dem verschiedene Daten der Integration Base visualisiert und bearbeitet werden können, hierzu gehören z.\,B. Cids"=Klassen (vergleiche \autoref{sec:gewuenschte-erweiterungen}) und ihre Attribute, sowie Benutzer und Benutzergruppen.
 
 Der \ac{ABF} bietet ebenfalls einige Funktionalitäten, die das Erweitern des Katalogs vereinfachen.
 Die beiden Hauptfunktionalitäten dabei sind eine Vorschau des Kataloges, wobei auch die dynamischen Knoten aufgelöst und deren Unterknoten angezeigt werden.
@@ -87,12 +87,12 @@ Eine weitere Funktionalität ist das Anlegen und Verwalten der verschiedenen Ber
 Da die Berechtigungen eine wichtige Rolle in dieser Arbeit spielen, werden sie im Folgenden näher beleuchtet. 
 
 \subsubsection{Berechtigungen}
-In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingegangen. In dieser Arbeit werden zwei Arten von Rechte benötigt. Die Lese- und Schreibrechte auf Klassen, Attribute und Knoten des Katalogs sowie die Aktionsrechte.
+In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingegangen. In dieser Arbeit werden zwei Arten von Rechte benötigt. Die Lese- und Schreibrechte auf Cids"=Klassen, Attribute und Knoten des Katalogs sowie die Aktionsrechte.
 
 \paragraph{Rechte auf Objekte}
-Für jede Klasse, Attribut oder Knoten lassen sich drei Standardverhalten festlegen, wobei immer ein Verhalten benutzt werden muss.
+Für jede Cids"=Klasse, Attribut oder Knoten lassen sich drei Standardverhalten festlegen, wobei immer ein Verhalten benutzt werden muss.
 Damit nicht für jedes Objekt ein Verhalten explizit gesetzt werden muss, wurde die Fallback Strategie eingeführt.
-Diese Strategie ermöglicht es z.\,B. ein Verhalten als Standard-Server-Verhalten festzulegen, woraufhin jede Klasse ohne explizit gesetztes Verhalten auf dieses zurückgreift.
+Diese Strategie ermöglicht es z.\,B. ein Verhalten als Standard-Server-Verhalten festzulegen, woraufhin jede Cids"=Klasse ohne explizit gesetztes Verhalten auf dieses zurückgreift.
 
 Die verfügbaren Standardverhalten sind:
 \begin{description}
@@ -101,8 +101,8 @@ Die verfügbaren Standardverhalten sind:
 \item[Secure] Bei diesem Standardverhalten darf niemand lesen und schreiben
 \end{description}
 Für jedes Objekt können diese Rechte für verschiedene Benutzergruppen erweitert oder eingeschränkt werden.
-Für eine Klasse mit dem Verhalten "`Secure"' kann z.\,B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
-Im Gegensatz hierzu kann einer Benutzergruppe für eine Klasse mit dem Verhalten "`Standard"', die Leserechte entzogen werden. \autocite[vgl.][]{cismet-workshop}
+Für eine Cids"=Klasse mit dem Verhalten "`Secure"' kann z.\,B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
+Im Gegensatz hierzu kann einer Benutzergruppe für eine Cids"=Klasse mit dem Verhalten "`Standard"', die Leserechte entzogen werden. \autocite[vgl.][]{cismet-workshop}
 
 \paragraph{Aktionsrecht}
 In manchen Fällen sind die Rechte auf Objekte zu grobkörnig und feinere Einschränkungen müssen definiert werden können.
@@ -140,11 +140,11 @@ Dieser Abschnitt beschreibt die Realisierung der in \autoref{ch:spezi} beschrieb
 Um die in \autoref{ch:spezi} beschriebenen Anforderungen zu realisieren, muss in einem ersten Schritt das Datenbankmodell der verwendeten Datenbank angepasst werden.
 Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen. Zum anderen müssen aus den Daten, die im Client benötigt werden, CidsBeans erstellt werden können. Dies ist notwendig, da die verschiedenen Erweiterungen auf den Funktionalitäten der CidsBeans aufbauen.
 
-Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Klassen geredet.
-Dabei sind auch die Tabelle der Datenbank und ihr Aufbau gemeint, da deren Struktur nicht oder nur geringfügig von der Struktur der erstellten Klassen abweicht.
+Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Cids"=Klassen geredet.
+Dabei sind auch die Tabelle der Datenbank und ihr Aufbau gemeint, da deren Struktur nicht oder nur geringfügig von der Struktur der erstellten Cids"=Klassen abweicht.
 
 \subsubsection{Ausgangslage}
-In einem ersten Schritt wurden die bereits vorhandenen, benötigten Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Klasse der Buchungen, die \inline{BILLING}"=Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
+In einem ersten Schritt wurden die bereits vorhandenen, benötigten Cids"=Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Cids"=Klasse der Buchungen, die \inline{BILLING}"=Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
 \begin{figure}[htb]
 	\centering
 	\incgraph{scale=0.618}{./rimg/db_model_billing.png}
@@ -179,13 +179,13 @@ Des Weiteren muss eine Änderung protokolliert werden können, für diese Funkti
 \end{description}
 Außerdem wurde das Feld "`abgerechnet"' hinzugefügt, dieses Boolean gibt an, ob die Buchung abgerechnet wurde, oder nicht.
 
-Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Klassen in das Datenbankmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
+Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Cids"=Klassen in das Datenbankmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
 
 \subsubsection{Letzter Stand}
 Der letzte Stand des Datenbankmodells kann in \myfig{fig:db-final} betrachtet werden.
 Im Folgenden sollen einige Besonderheiten des Datenbankmodells hervorgehoben werden.
-Sämtliche Klassen besitzen das Präfix "`BILLING\_"', damit diese sofort dem Buchungsthema zugeordnet werden können.
-In sämtlichen Klassen heißen die Bezeichnungsfelder "`name"'.
+Sämtliche benutzten Cids"=Klassen besitzen das Präfix "`BILLING\_"', damit diese sofort dem Buchungsthema zugeordnet werden können.
+In sämtlichen Billing"=Klassen heißen die Bezeichnungsfelder "`name"'.
 Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
 Array-Felder und 1:n-Felder wurden so benannt, dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt.
 Siehe z.\,B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
@@ -206,7 +206,7 @@ Weiterhin müssen diese Tabellen immer den gleichen Aufbau besitzen, da ansonste
 
 \subsection{Import von neuen Daten}
 Nach dem Erstellen des Datenbankmodells musste die Datenbank entsprechend erweitert werden.
-Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
+Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Cids"=Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
 
 Für die weitere Entwicklung der Funktionalitäten wurden Anfangsdaten benötigt, die vom R102 in Form einer Excel-Datei geliefert wurden.
 Diese Datei enthielt die Informationen zu tatsächlichen Kunden und Kunden-Logins, wobei z.\,B. deren Abrechnungsturnus und Produkte angegeben war.
@@ -228,7 +228,7 @@ Hierdurch ist gewährleistet, dass am ursprünglichen Preis nichts verändert wi
 
 
 \subsection{Anpassung des Downloadprotokoll-Dialoges}
-Durch die Änderung der Struktur der Buchungen-Klasse musste auch die Klasse des Downloadprotokoll"=Dialoges \inline{BillingPopup} angepasst werden.
+Durch die Änderung der Struktur der Buchungen"=Klasse musste auch die Java"=Klasse des Downloadprotokoll"=Dialoges \inline{BillingPopup} angepasst werden.
 Dabei sollte an der eigentlichen Funktionalität von \inline{BillingPopup}, die bereits im \autoref{subsec:beschaffung} beschrieben wurde, nichts geändert werden.
 Lediglich die graphische Oberfläche wurde dahingehend verändert, dass die Netto- und Brutto-Summen der anfallenden Gebühren sowie der anfallende MwSt-Satz angezeigt werden
 Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig:alkis-protocol-new} gefunden werden.
@@ -269,7 +269,7 @@ Das gewünschte Result kann in der \myfig{fig:jxdatepicker} betrachtet werden.
 
 Da die verwendete Komponente \inline{JX\-Date\-Picker} eine solche Schnellauswahl offiziell nicht anbietet musste ein Workaround gefunden werden, welches unter \autocite{so-jxdatepicker} gefunden wurde.
 Um diesen Workaround umzusetzen musste ein sogenanntes \inline{Takeoff\-Hook} implementiert werden. 
-Dies ist eine Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
+Dies ist eine Java"=Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
 Somit wird beim Starten des Programms das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.\\
 \begin{minipage}{\textwidth}
 \begin{lstlisting}[caption=innerhalb \texttt{JXDatePickerHeaderTakeoff}, label=lst:setHead]
@@ -291,7 +291,7 @@ Genau diese Zeile enthält den problematischen Teil dieses Workaround, da das Zo
 Dennoch wird hierdurch die gewünschte Kopfzeile angezeigt.
 
 \subsubsection{Verwendungszweck-Filter}
-Der Verwendungszweck-Filter ist ebenfalls ein eigenständiges \inline{JPanel} und wurde in der Klasse \inline{VerwendungszweckPanel} implementiert.
+Der Verwendungszweck-Filter ist ebenfalls ein eigenständiges \inline{JPanel} und wurde in der Java"=Klasse \inline{VerwendungszweckPanel} implementiert.
 In diesem Panel werden die möglichen Verwendungszwecke untereinander angezeigt, wobei jedes eine Checkbox besitzt, mit der es an oder abgewählt werden kann. Weiterhin ist es nicht möglich sämtliche Verwendungszwecke abzuwählen.
 Die Besonderheit dieses Panel besteht darin, dass die Verwendungszwecke nicht hart kodiert sind, sondern aus der \inline{billing.json} Datei geladen werden.
 Diese \ac{JSON}-Datei beinhaltet Informationen bezüglich den Buchungen. Sie enthält neben den Verwendungszwecken auch die Gebühren und MwSt.-Sätze zu den einzelnen Produkten. 
@@ -299,7 +299,7 @@ Diese \ac{JSON}-Datei beinhaltet Informationen bezüglich den Buchungen. Sie ent
 \subsection{Suche nach Buchungen} \label{subsec:serversearch}
 Beim Analyseren der Anforderungen ist ebenfalls aufgefallen, dass sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit benötigen um in der Datenbank nach Buchungen mit bestimmten Kriterien zu suchen.
 Aus diesem Grund wurde auf die Such-Funktionalität der Cids-Umgebung zurückgegriffen und es wurde eine sogenannte Server Search implementiert.
-Um diesen Mechanismus umzusetzen wurde die Klasse \inline{Cids\-Billing\-Search\-Statement} erstellt.
+Um diesen Mechanismus umzusetzen wurde die Java"=Klasse \inline{Cids\-Billing\-Search\-Statement} erstellt.
 Diese erbt von der, bereits bestehenden, Klasse \inline{Ab\-stract\-Cids\-Server\-Search} und besitzt somit die Grundfunktionalität zu einer solchen Server Search.
 Um diese Server Search in den Renderern oder dem Suchdialog auszuführen müssen lediglich die gewünschten Kriterien einem Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} übergeben werden und die eigentliche Suche muss gestartet werden.
 Daraufhin können die gefundenen Buchungen dort weiterverarbeitet und angezeigt werden.
@@ -322,7 +322,7 @@ Die Funktionalität des Kundenrenderers wurde bereits größtenteils in dem \aut
 Der dort nicht beschriebene Knopf "`Ergebnisse anzeigen"' wurde hinzugefügt, damit die Suche bei Bedarf ausgeführt werden kann.
 Dieser wurde während der Entwicklung hinzugefügt, da sich die automatisch ausgeführte Suche bei jeder Änderung der Filter als unpraktikabel herausstellte.
 Dies liegt an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt ist, obwohl diese, in den meisten Fällen, nur ein paar Sekunden beträgt.
-Bei Betätigen des Knopfes wird ein Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die eigentliche Suche wird ausgeführt.
+Bei Betätigen des Knopfes wird ein Objekt der Java"=Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die eigentliche Suche wird ausgeführt.
 Die Ergebnisse dieser Suche werden dann in der Tabelle angezeigt und eine entsprechende Zusammenfassung der Suchergebnisse wird über der Tabelle ausgegeben.
 Weiterhin können die beiden Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
 So dürfen externe Benutzer die \enquote{Rechnungsanlage} nicht erstellen und es kann ausgewählt werden, ob kostenfreie Buchungen in den Berichten angezeigt werden sollen oder nicht.
@@ -338,7 +338,7 @@ Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen
 Der Kundeneditor, der in \myfig{fig:kundeneditor} dargestellt ist, ermöglicht es einen neuen Kunden anzulegen oder die Daten eines bereits bestehenden Kunden zu bearbeiten.
 Bei den meisten Feldern handelt es sich um gewöhnliche Texteingaben oder Auswahlmöglichkeiten.
 Allerdings konnte bei den Feldern für die Produkte und Kundengruppen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen werden.
-Somit können Objekte dieser Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt.
+Somit können Objekte dieser Cids"=Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt.
 
 Dieser Drag-and-Drop-Mechanismus bot sich auch bei den Kunden-Logins an, allerdings wird in dem Fall die Beziehung nicht automatisch erstellt, da es sich um eine 1:n-Beziehung handelt.
 Aus diesem Grund musste in das entsprechende Kunden"=Login"=Objekt aus der Datenbank bezogen werden und die Beziehung gesetzt werden.
@@ -380,7 +380,7 @@ Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:
 \end{figure}
 
 Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich Buchungen anzugeben, woraufhin nach Buchungen mit jenen Kriterien gesucht werden kann.
-Die graphische Oberfläche der Suche wurde in der Klasse \inline{Billing\-Window\-Search} umgesetzt.
+Die graphische Oberfläche der Suche wurde in der Java"=Klasse \inline{Billing\-Window\-Search} umgesetzt.
 Diese Klasse kann über einen Lookup-Mechanismus gefunden werden und wird automatisch als Eintrag des Fenster-Menüs von \ac{WuNDa} angezeigt.
 Über diesen Eintrag kann der Suchdialog geöffnet und geschlossen werden.
 
@@ -450,7 +450,7 @@ Die Vorlagen die in dem Vorlagen-Dialog angezeigt werden, werden aus der Datei \
 \end{description}
 
 %\inline{E\-Mail\-Composer} EMailComposer
-Um das E-Mail-Verfassen-Fenster zu öffnen, wurde die Klasse \inline{E\-Mail\-Composer} implementiert.
+Um das E-Mail-Verfassen-Fenster zu öffnen, wurde die Java"=Klasse \inline{E\-Mail\-Composer} implementiert.
 Ein Objekt dieser Klasse nimmt die benötigten Informationen entgegen und erstellt eine URI nach dem mailto Schema \autocite{RFC2368}.
 Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{java-mailto} übergeben werden, welches dann das E-Mail-Verfassen-Fenster, mit den entsprechenden Vorgaben, öffnet.
 
@@ -491,7 +491,7 @@ An dieser Stelle sehen die externen Benutzer, den Kunden dem sie zugeordnet sind
 \subsection{Anlegen der Berechtigungen}
 
 Die verschiedenen, benötigten Berechtigungen wurden mit Hilfe des \ac{ABF}s erstellt.
-In einem ersten Schritt wurde eine neue Benutzergruppe angelegt, danach wurden die Rechte der Benutzergruppen auf die Klassen festgelegt und anschließend wurden noch Aktionsrechte angelegt. 
+In einem ersten Schritt wurde eine neue Benutzergruppe angelegt, danach wurden die Rechte der Benutzergruppen auf die Cids"=Klassen festgelegt und anschließend wurden noch Aktionsrechte angelegt. 
 
 \subsubsection{Neue Benutzergruppe}
 Im \autoref{subsec:berechtigungen} wurde beschrieben, dass nur die \ac{WuNDa}-Administratoren und verschiedene Beamte auf das Buchungsthema zugreifen dürfen.
@@ -502,7 +502,7 @@ Diese Benutzergruppen sind "`Unternehmen"', "`Behörde"', "`ÖbVI - gesetzlich"'
 Diese haben im Nachhinein die Rechte erhalten, so dass sie ihren eigenen Kundenrenderer, wie im \autoref{subsubsec:ansicht_externe_benutzer} beschrieben, betrachten können.
 
 \subsubsection{Rechte der Klassen}
-Sämtliche Klassen mit dem Präfix "`Billing\_"' haben das Standardverhalten "`Secure"' erhalten. Damit wird sichergestellt, dass niemand auf diese Klassen Zugriff erhält, dem die Rechte nicht explizit zugewiesen wurden.
+Sämtliche Cids"=Klassen mit dem Präfix "`Billing\_"' haben das Standardverhalten "`Secure"' erhalten. Damit wird sichergestellt, dass niemand auf diese Klassen Zugriff erhält, dem die Rechte nicht explizit zugewiesen wurden.
 In einem nächsten Schritt haben die Administratoren und die Benutzer der Benutzergruppe "`Billing Intern"' auf diesen Klassen Lese- und Schreibrechte erhalten.
 Anschließend haben die verschiedenen Benutzergruppen der Kunden ihre benötigten Rechte erhalten.
 Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:klassenrechte} entnommen werden.
@@ -549,8 +549,8 @@ In dieser Tabelle sind die Administratoren und die Billing Intern Gruppe, der Vo
 Damit die angelegten Katalog-Knoten nur von den gewünschten Benutzergruppen ausgewählt und benutzt werden können, mussten für die Knoten ebenfalls Rechte gesetzt werden.
 Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:katalogrechte} entnommen werden.
 In dieser Tabelle wird das gesetzte Standardverhalten der Knoten ebenfalls aufgelistet.
-Das Standardverhalten "`Secure"' funktioniert auf die gleiche Art und Weise wie dies auch bei den Klassen der Fall ist.
-Einem Knoten kann zusätzlich eine Klasse zugewiesen werden, auf die er sich bezieht.
+Das Standardverhalten "`Secure"' funktioniert auf die gleiche Art und Weise wie dies auch bei den Cids"=Klassen der Fall ist.
+Einem Knoten kann zusätzlich eine Cids"=Klasse zugewiesen werden, auf die er sich bezieht.
 Daraufhin kann als Standardverhalten festgelegt werden, dass der Knoten die Rechte seiner Klasse übernimmt.
 In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu verdeutlichen dass diese übernommen wurden.
 
@@ -576,7 +576,7 @@ In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu ver
  r = Leserecht, w = Schreibrecht, - = keine Rechte, () = übernommene Rechte
  \end{minipage}
  
-Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Klasse "`Kundengruppe"' nicht auf lesend gesetzt werden darf. Wäre dies der Fall so könnten sämtliche Kunden die Kundenrenderer der anderen Kunden öffnen und somit Einsicht in deren Buchungen erhalten.
+Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Cids"=Klasse "`Kundengruppe"' nicht auf lesend gesetzt werden darf. Wäre dies der Fall so könnten sämtliche Kunden die Kundenrenderer der anderen Kunden öffnen und somit Einsicht in deren Buchungen erhalten.
 
 \subsubsection{Einschränkungen bezüglich der Rechnungsanlage und der Buchungen-Suche}
 
@@ -594,7 +594,7 @@ Im laufenden Programm wird im Kundenrenderer abgefragt, ob der aktuell angemelde
 Je nach Resultat dieser Abfrage können somit die benötigten GUI-Elemente an- oder ausgeschaltet werden.
 
 Für die Anzeige der Suche wurde eine Cids-Funktionalität verwendet, die das Interface \inline{Action\-Tag\-Protected} liefert.
-Um diese Funktionalität umzusetzen muss die Klasse \inline{Billing\-Window\-Search} dieses Interface implementieren.
+Um diese Funktionalität umzusetzen muss die Java"=Klasse \inline{Billing\-Window\-Search} dieses Interface implementieren.
 Dadurch muss in \inline{Billing\-Window\-Search} die Methode \inline{check\-Action\-Tag()} realisiert sein, die ein \inline{boolean} zurückgibt.
 Somit fragt diese Methode ab, ob der aktuell angemeldete Benutzer das Aktionsrecht "`custom.""billing.""search"' besitzt, um dieses Ergebnis daraufhin zurück zu gegeben.
 Cids-intern wird diese Methode aufgerufen und die Suche wird entsprechend den Berechtigungen im Such-Menü angezeigt oder nicht. 
@@ -623,7 +623,7 @@ Zusätzlich zu den üblichen Parameter wurde hier der Parameter "`additionaltree
 Dessen Wert besteht aus dem String "`custom.""billing.""tree."' konkateniert mit dem jeweiligen internen Namen des Kunden.
 Wichtig zu erwähnen ist, dass somit der Aktionsrechtsname und der Wert des Parameters für einen Kunden gleich ist. 
 
-Im letzten Schritt musste die Klasse \inline{Virtual\-Tree} erweitert werden.
+Im letzten Schritt musste die Java"=Klasse \inline{Virtual\-Tree} erweitert werden.
 Sie wertet für jeden zu erstellenden Kundenknoten der Parameter "`additionaltreepermissiontag"' aus und überprüft, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes mit dem gleichen Namen ist.
 Nur in dem Fall bei dem dies zutrifft wird der Knoten dem Katalog hinzugefügt.
 Aus diesem Grund muss der oben genannte Aufbau des Aktionsrechtsnamens eingehalten werden, da sonst die Überprüfung im  \inline{Virtual\-Tree} immer fehlschlägt und der Kundenknoten nicht angezeigt wird.

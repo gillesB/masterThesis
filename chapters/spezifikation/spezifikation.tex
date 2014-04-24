@@ -8,24 +8,24 @@ Dieses Kapitel fasst diese Anforderungen in ihrer schlussendlichen Form zusammen
 
 \section{Gewünschte Erweiterungen} \label{sec:gewuenschte-erweiterungen}
 Dieser Abschnitt soll als Übersicht der gewünschten Erweiterungen dienen.
-Dabei werden zunächst einige Begriffe kurz erklärt, die wichtigsten Klassen erwähnt und anschließend werden die gewünschten Erweiterungen aufgelistet.
+Dabei werden zunächst einige Begriffe kurz erklärt, die wichtigsten Cids"=Klassen erwähnt und anschließend werden die gewünschten Erweiterungen aufgelistet.
 
 Bei der Spezifikation werden möglichst nur allgemein bekannte technische Begriffe verwendet, die wenigen spezifischeren Ausnahmen werden hier erklärt.
 \begin{description}
-\item[Klasse] Mit Klasse ist eine Cids-Klasse gemeint. Objekte von diesen Klassen werden in einer Datenbank gespeichert.
+\item[Cids-Klasse] Objekte von diesen Cids-Klassen werden in einer Datenbank gespeichert.
 Aus diesen Datenbankeinträgen lassen sich Java-Objekte erstellen, die auch CidsBean genannt werden.
 Diese Objekte können in einem Java-Programm benutzt und verändert werden.
 Anschließend können sie wieder in die Datenbank zurückgeführt werden.
-\item[Renderer] Eine solche Klasse kann einen Renderer besitzen. Bei einem Renderer handelt es sich um eine Beschreibungsseite in einem Java-Programm, die Informationen bezüglich eines Objektes dieser Klasse anzeigt.
-\item[Editor] Eine Cids-Klasse kann außerdem einen Editor besitzen. Ein Editor ist von dem Anzeigemechanismus ähnlich dem Renderer, im Gegensatz hierzu können die Informationen zu einem Objekt jedoch verändert und in der Datenbank gespeichert werden. Mit einem Editor ist es in der Regel auch möglich neue Objekte einer Cids-Klasse anzulegen. 
+\item[Renderer] Eine Cids-Klasse besitzt einen Renderer, dieser zeigt dem Benutzer Informationen zu einer CidsBean an.
+\item[Editor] Eine Cids-Klasse besitzt außerdem einen Editor, dieser ermöglicht es dem Benutzer eine CidsBean zu verändern.
 \end{description}
 
-Um die Spezifikation umzusetzen muss mit solchen Cids-Klassen gearbeitet werden, dabei sind die drei neu eingeführten Klassen Kunden, Kunden-Logins und Kundenguppe sowie die bereits bestehende Klasse Buchungen am relevantesten für das automatische Erstellen der Abrechnungen und werden im \autoref{sec:spezifikation} stärker beleuchtet. 
+Um die Spezifikation umzusetzen muss mit solchen Cids"=Klassen gearbeitet werden, dabei sind die drei neu eingeführten Klassen Kunden, Kunden-Logins und Kundenguppe sowie die bereits bestehende Klasse Buchungen am relevantesten für das automatische Erstellen der Abrechnungen und werden im \autoref{sec:spezifikation} stärker beleuchtet. 
 Die restlichen neuen Klassen werden gesondert im \autoref{subsec:neue_klassen} aufgeführt und beschrieben.
 
 %Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
 Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordnung der Erweiterung darstellt.
-So befinden sich unter den Kategorien die neuen Klassen Kunde und Kundengruppe, aber auch die bereits bestehende Klasse Buchung. 
+So befinden sich unter den Kategorien die neuen Cids"=Klassen Kunde und Kundengruppe, aber auch die bereits bestehende Cids"=Klasse Buchung. 
 \begin{itemize}
 	\item Allgemeines
 	\begin{itemize}
@@ -55,7 +55,7 @@ So befinden sich unter den Kategorien die neuen Klassen Kunde und Kundengruppe, 
 		\item Rechnungsanlage
 		\item Geschäftsstatistik
 	\end{itemize}	 
-	\item Renderer und Editoren für sonstige neue Klassen
+	\item Renderer und Editoren für sonstige neue Cids"=Klassen
 \end{itemize}
 
 \section{Spezifikation der Erweiterungen} \label{sec:spezifikation}
@@ -74,9 +74,10 @@ Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutt
 
 Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden.
 \subsection{Kunde}
-Im aktuellen Stand werden die Kunden des Ressorts 102 nicht in \ac{WuNDa} verwaltet, jedoch wird dies durch die gewünschten Erweiterungen zwingend notwendig. Daher wird eine Klasse  benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
+Im aktuellen Stand werden die Kunden des Ressorts 102 nicht in \ac{WuNDa} verwaltet, jedoch wird dies durch die gewünschten Erweiterungen zwingend notwendig.
+Daher wird eine Cids"=Klasse benötigt die es ermöglicht Kunden zu verwalten und darzustellen. 
 
-Für die Klasse Kunde sollen folgende Felder bereitstehen:
+Für die Cids"=Klasse Kunde sollen folgende Felder bereitstehen:
 \begin{description}
 \item[Name] Der Name des Kunden, dies kann z.\,B. eine Organisationsbezeichnung sein.
 \item[Vermessungsstellennummer] Dieses Feld enthält die Zulassungsnummer einer Vermessungsstelle. Eine Vermessungsstelle ist eine Behörde oder Person, die berechtigt ist Liegenschaftsvermessungen durchzuführen und Abmarkungen vorzunehmen. Zu den Vermessungsstellen zählen z.\,B. das Katasteramt oder ÖbVI \autocite[vgl.][]{recklinghausen-vermessungsstelle}.
@@ -86,11 +87,11 @@ Für die Klasse Kunde sollen folgende Felder bereitstehen:
 \item[Direktkontakt] Eine E-Mail-Adresse mit der, der Kunde sofort erreicht werden kann. Dies kann zum Beispiel die Adresse des Geschäftsleiters sein.
 \item[Weiterverkaufsvertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden das Weiterverkaufen von bezogenen Produkten erlaubt.
 \item[Weiterverkaufsvertragsende] Das Auslaufdatum des Weiterverkaufsvertrags.
-\item[Branche] Die Branche in der, der Kunde tätig ist. Ein Kunde kann in genau einer Branche tätig sein. Hierbei handelt es sich um eine neue Klasse.
-\item[Produkte] Die Softwareprodukte die ein Kunde benutzt. Ein Kunde kann mehrere Produkte besitzen. Hierbei handelt es sich ebenfalls um eine neue Klasse.
+\item[Branche] Die Branche in der, der Kunde tätig ist. Ein Kunde kann in genau einer Branche tätig sein. Hierbei handelt es sich um eine neue Cids"=Klasse.
+\item[Produkte] Die Softwareprodukte die ein Kunde benutzt. Ein Kunde kann mehrere Produkte besitzen. Hierbei handelt es sich ebenfalls um eine neue Cids"=Klasse.
 \end{description}
 
-Neben den Kunden sollen die externen Benutzer in \ac{WuNDa} abgebildet werden, hierfür wird die Klasse Kunden-Login eingeführt.
+Neben den Kunden sollen die externen Benutzer in \ac{WuNDa} abgebildet werden, hierfür wird die Cids"=Klasse Kunden-Login eingeführt.
 Somit repräsentiert ein Kunden-Login einen \ac{WuNDa}-Benutzer.
 Weiterhin soll ein Kunden-Login genau einem Kunden zugeordnet sein. 
 
@@ -101,7 +102,7 @@ Zusammenfassend benötigt ein Kunden-Login folgende Felder:
 \item[Kunde] Die Zuordnung des Kunden-Logins zu genau einem Kunden.
 \end{description}
 
-Nach der Beschreibung der Klassen, folgen nun die eigentlichen Erweiterungen, die den Kunden betreffen.
+Nach der Beschreibung der Cids"=Klassen, folgen nun die eigentlichen Erweiterungen, die den Kunden betreffen.
 
 \subsubsection{Kundenrenderer} \label{subsubsec:kundenrenderer}
 Der Kundenrenderer soll Buchungen eines Kunden tabellarisch darstellen.
@@ -244,10 +245,10 @@ In dieser Protokollierung sollen folgende Werte erfasst werden:
 \item Benutzer der die Änderung vornimmt
 \item Zeitstempel
 \end{itemize}
-Diese Felder werden der Klasse Buchung hinzugefügt, so dass jede Buchung sein eigenes Änderungsprotokoll mit speichert.
+Diese Felder werden der Cids"=Klasse Buchung hinzugefügt, so dass jede Buchung sein eigenes Änderungsprotokoll mit speichert.
 
 \subsubsection{Stornierung von einzelnen Buchungen} \label{subsubsec:storno_buchung}
-Über den Buchungseditor, wie vorher bereits erwähnt, soll es möglich sein Buchungen zu stornieren, bei diesem Vorgang soll jedoch ein Grund ausgewählt werden, weshalb es zu der Stornierung kommt. Um diese Auswahl darzustellen wird die Klasse Storno-Grund eingeführt, diese ist in Kapitel \ref{subsec:neue_klassen} beschrieben.
+Über den Buchungseditor, wie vorher bereits erwähnt, soll es möglich sein Buchungen zu stornieren, bei diesem Vorgang soll jedoch ein Grund ausgewählt werden, weshalb es zu der Stornierung kommt. Um diese Auswahl darzustellen wird die Cids"=Klasse Storno-Grund eingeführt, diese ist in Kapitel \ref{subsec:neue_klassen} beschrieben.
 
 Nachdem ein Beamte ein Storno-Grund ausgewählt hat und somit den Vorgang der Stornierung angestoßen hat, soll die Buchung als storniert markiert werden und mit dem Datum der Stornierung, sowie dem Storno-Grund und dem Benutzer abgespeichert werden.
 
@@ -294,13 +295,13 @@ Der Bericht wurde allerdings nicht vollständig vom R102 spezifiziert und kann s
 Aus diesem Grund soll der Bericht lediglich in den Masken vorgesehen werden und ein Beispielbericht soll generiert werden können. Dieser entspricht allerdings nicht den tatsächlichen Geschäftsstatistiken.
 Eine etwaige Vorlage des Berichts kann den Abbildungen \vrefrange{fig:vorlage_geschaeftsstatistik_1}{fig:vorlage_geschaeftsstatistik_2} entnommen werden.
  
-\subsection{sonstige neu benötigte Klassen} \label{subsec:neue_klassen}
-Der Hauptgrund, warum diese, im Folgenden aufgelisteten, Klassen eingeführt werden, ist die Unterstützung des Benutzers bei der Eingabe von den jeweiligen Werten.
+\subsection{sonstige neu benötigte Cids"=Klassen} \label{subsec:neue_klassen}
+Der Hauptgrund, warum diese, im Folgenden aufgelisteten, Cids"=Klassen eingeführt werden, ist die Unterstützung des Benutzers bei der Eingabe von den jeweiligen Werten.
 
 Dem Benutzer wird eine vorgefertigte Auswahl an Elementen angeboten, somit muss er die entsprechenden Felder nicht händisch in der GUI eintragen.
 Dies beschleunigt einerseits das Eintragen und verhindert zudem Fehleingaben. 
 
-Zum Einführen der Klasse Kunde und zum Erweitern der Buchungen werden folgende zusätzlichen Klassen benötigt:
+Zum Einführen der Cids"=Klasse Kunde und zum Erweitern der Buchungen werden folgende zusätzlichen Klassen benötigt:
 \begin{description}
 \item[Abrechnungsturnus] Der Abrechnungsturnus gibt an wie häufig ein Kunde eine Abrechnung erhält. Sein einziges Feld ist die Bezeichnung des Abrechnungsturnus (z.\,B. Jahr, Quartal)
 \item[Client] Das einzige Feld eines Clients ist seine Bezeichnung.
@@ -308,7 +309,7 @@ Zum Einführen der Klasse Kunde und zum Erweitern der Buchungen werden folgende 
 \item[Stornogrund] Ein Stornogrund ist der Grund, warum eine Buchung storniert wurde. Sein einziges Feld ist die Bezeichnung des Grundes.
 \end{description}
 
-Bei diesen Klassen sollen die sogenannten Standardrenderer und -editoren verwendet werden. Diese werden für jede Klasse automatisch erstellt und müssen nicht eigens implementiert werden.
-Mit dem Standardeditor ist es möglich neue Objekte einer Klasse anzulegen und sämtliche Felder der Klasse zu verändern.
-Die Anforderungen genügen allerdings für die hier aufgelisteten Klassen.
+Bei diesen Cids"=Klassen sollen die sogenannten Standardrenderer und -editoren verwendet werden. Diese werden für jede Klasse automatisch erstellt und müssen nicht eigens implementiert werden.
+Mit dem Standardeditor ist es möglich neue Objekte einer Cids"=Klasse anzulegen und sämtliche Felder der Klasse zu verändern.
+Diese einfachen Anforderungen genügen allerdings für die hier aufgelisteten Cids"=Klassen.
 
