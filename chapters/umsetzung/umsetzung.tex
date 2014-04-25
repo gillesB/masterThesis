@@ -5,17 +5,17 @@ Im ersten Teil wird der aktuelle technische Stand erläutert, anschließend wird
 
 \section{Aktueller technischer Stand}
 
-In diesem Abschnitt soll der aktuelle technische Stand aufgezeigt werden, dies dient einerseits dem besseren Verständnis des zweiten Abschnitts dieses Kapitels.
-Andererseits soll somit verdeutlicht werden von welcher Basis ausgegangen wurde und welche Funktionalitäten neu implementiert werden mussten.
+In diesem Abschnitt soll der aktuelle technische Stand aufgezeigt werden.
+Dies dient einerseits dem besseren Verständnis des zweiten Abschnitts dieses Kapitels, andererseits soll somit verdeutlicht werden von welcher Basis ausgegangen wurde und welche Funktionalitäten neu implementiert werden mussten.
 
-Die Informationen die für diesen Abschnitt benötigt wurden, stammen aus \autocite{cismet-cids} und \autocite{cismet-readme}.
+Die für diesen Abschnitt benötigten Informationen stammen aus \autocite{cismet-cids} und \autocite{cismet-readme}.
 
 \subsection{Cids-Umgebung}
-In der bisherigen Arbeit wurde \ac{WuNDa} mehr oder weniger als einheitliches System betrachtet, aus technischer Sicht trifft dies jedoch nicht zu.
-Tatsächlich ist \ac{WuNDa} ein System, das sich aus mehreren Bestandteilen zusammensetzt und innerhalb der Cids-Umgebung realisiert wurde.
-Dabei ist es bei der Cids-Umgebung möglich, diese für besondere Zwecke zu erweitern, was auch der Fall bei \ac{WuNDa} ist.
+In der bisherigen Arbeit wurde \ac{WuNDa} als einheitliches System betrachtet, aus technischer Sicht trifft dies jedoch nicht zu.
+Tatsächlich ist \ac{WuNDa} ein System, das sich aus mehreren Bestandteilen zusammensetzt und auf der Cids"=Umgebung basiert.
+Die Cids"=Umgebung bietet an verschiedenen Stellen Erweiterungsmöglichkeiten, die es erlauben ein auf den jeweiligen Anwendungsfall zugeschnittenes und optimiertes Gesamtsystem zu erstellen, wie dies auch der Fall bei \ac{WuNDa} ist.
 Die Hauptbestandteile dieser Umgebung sind der Navigator, der Kernel und verschiedene Entwicklungswerkzeuge.
-Eine Übersicht der Cids-Umgebung kann der Abbildung \vref{fig:cids-komponenten} entnommen werden.
+Eine Übersicht der Cids"=Umgebung kann der Abbildung \ref{fig:cids-komponenten} entnommen werden.
 Diese Hauptbestandteile sind in weitere Unterkomponenten eingeteilt. Die in der Abbildung \ref{fig:cids-komponenten} nicht ausgegrauten Komponenten sind für diese Arbeit relevant und werden im Folgenden detaillierter erläutert.
 Zunächst wird allerdings der Hauptzweck und der Aufbau des Cids-Umfeldes beschrieben.
 
@@ -27,29 +27,28 @@ Zunächst wird allerdings der Hauptzweck und der Aufbau des Cids-Umfeldes beschr
 \end{figure}
 
 Der Hauptzweck dieses Entwicklungsumfeldes ist das Erstellen von Informationssystemen, insbesondere Geoinformationssystemen (\acs{GIS}).
-Dabei stehen verschiedene, häufig benötigte, Funktionalitäten bereits zur Verfügung, wie etwa eine Benutzerverwaltung sowie das Anzeigen, Bearbeiten und Suchen von Informationen.
-Außerdem können für die Benutzer Berechtigungen festgelegt werden, die ihnen den Zugriff auf Informationen erlauben oder verbieten.
-Weiterhin wird eine interaktive zweidimensionale Ansicht zu geographischen Daten, die sogenannte Cismap, bereit gestellt.
+Dabei stehen häufig benötigte Funktionalitäten wie etwa eine Benutzerverwaltung, ein Berechtigungssystem sowie das Anzeigen, Bearbeiten und Suchen von Informationen bereits zur Verfügung.
+Weiterhin wird eine interaktive zweidimensionale Kartenkomponente (Cismap) zur Ansicht von geographischen Daten bereitgestellt.
 
-Durch das Cids-Umfeld kann ein verteiltes System erstellt werden, dessen Architektur auf dem Client-Server-Prinzip basiert, wobei es aus mehreren Clients, Server, sowie Datenbanken bestehen kann.
+Durch das Cids"=Umfeld kann ein verteiltes System erstellt werden, dessen Architektur auf dem Client-Server-Prinzip basiert, wobei es aus mehreren Clients, Server, sowie Datenbanken bestehen kann.
 Diese Bestandteile können in verschiedenen Ausprägungen nebeneinander existieren.
-In Wuppertal steht so z.\,B. neben \ac{WuNDa} auch die VerDIS-Fachanwendung zur Verfügung. VerDIS dient zur Berechnung der Abwassergebühr.
+In Wuppertal steht so z.\,B. neben \ac{WuNDa} auch die VerDIS-Fachanwendung zur Verfügung, welche der Berechnung und Verwaltung von Abwassergebühren dient.
 Dabei kann VerDIS auf Informationen aus \ac{WuNDa} zurückgreifen.
-Um die Logik der Systeme zu trennen und um eine Skalierbarkeit zu gewährleisten, besitzt jedes System einen eigenen Domain Server und eine eigene Integration Base, also eine eigene Datenbank.
-Bei einem Domain Server handelt sich um eine Schnittstelle zur Integration Base und er hat die Aufgabe aus deren Daten konkrete Java"=Klassen und Objekte zu erstellen. Weiterhin ist der Domain Server auch für die Erstellung des Katalogs zuständig.
-Eine Beschreibung des Katalogs kann im \autoref{subsubsec:katalog} gefunden werden.
-In der Cids-Umgebung gibt es weiterhin die sogenannten Broker. Diese dienen den Clients als Proxy zu den einzelnen Domain Servern. Sie verstecken somit die Komplexität des verteilten Systems, indem sie die Anfragen der Clients an die entsprechenden Domain Server weiterleiten.
-Darüber hinaus gibt es noch den Registry Server. Dieser gewährleistet das Zusammenspiel der einzelnen Server, indem er z.\,B. die Namensauflösung für die restlichen Server bereitstellt.
+Um die Logik der Systeme getrennt zu lassen und um eine Skalierbarkeit zu gewährleisten, besitzt jedes System einen eigenen Domain Server und eine eigene Integration Base.
+Bei einem Domain Server handelt sich um eine Schnittstelle zur Integration Base, der die Aufgabe hat aus den Daten konkrete Java"=Klassen und Objekte zu erstellen. Weiterhin ist der Domain Server auch für die Erstellung des Katalogs zuständig.
+Broker dienen den Clients als Proxy zu den einzelnen Domain Servern und abstrahieren somit die Komplexität des verteilten Systems, indem sie die Anfragen der Clients an die entsprechenden Domain Server weiterleiten.
+Der Registry Server gewährleistet das Zusammenspiel der einzelnen Server, indem er z.\,B. die Namensauflösung für die restlichen Server bereitstellt.
 
-In den folgenden Abschnitten des Kapitels werden die Bestandteile der Cids-Umgebung näher beleuchtet, die am relevantesten für diese Arbeit waren.
+In den folgenden Abschnitten des Kapitels werden die für diese Arbeit relevantesten Bestandteile der Cids-Umgebung näher beleuchtet.
 
 \subsection{Navigator}
-Beim Navigator handelt es sich um eine erweiterbare graphische Benutzeroberfläche für \acp{GIS}. So ist der Client von \ac{WuNDa} eine Erweiterung des Navigators. Die für diese Arbeit wichtigsten Unterkomponenten sind der Katalog, die Suche sowie der Renderer und der Editor.
+Beim Navigator handelt es sich um eine erweiterbare graphische Benutzeroberfläche der Cids"=Umgebung.
+Der Client von \ac{WuNDa} ist eine Erweiterung des Navigators.
+Die für diese Arbeit wichtigsten Unterkomponenten sind der Katalog, die Suche sowie die Renderer und die Editoren.
 
 \subsubsection{Katalog} \label{subsubsec:katalog}
-Beim Katalog handelt es sich um die Hauptnavigationsmöglichkeit des Navigators.
-Der Aufbau dieses Baumes ist in der Integration Base hinterlegt und wird bei Bedarf vom Domain Server erstellt und im Navigator angezeigt.
-Dieses Erstellen erfolgt dynamisch und ermöglicht es sämtliche Unterknoten, bis hin zur Objektebene, aus der Datenbank zu beziehen und zu erzeugen.
+Beim Katalog handelt es sich um einen Baum über den die verschiedenen Themen bis hin zu einzelnen Objekten angezeigt werden können.
+Der Aufbau des Katalogs wird im Folgenden mittels eines Beispiels verdeutlicht.
 
 \begin{figure}[htb]
 	\centering
@@ -58,14 +57,15 @@ Dieses Erstellen erfolgt dynamisch und ermöglicht es sämtliche Unterknoten, bi
 	\label{fig:katlog-oebvi}
 \end{figure}
 
-Um den Aufbau des Katalogs mittels eines Beispiels zu verdeutlichen, kann der Katalog eines \ac{ÖbVI} in \ac{WuNDa} der \myfig{fig:katlog-oebvi} entnommen werden.
-Bei dem Knoten \acs{ALWIS}\footnote{\acs{ALWIS} (\acl{ALWIS}) fasst mehrere Teilsysteme von \ac{WuNDa} zusammen. Unter \acs{ALWIS} finden sich die ALKIS-Benutzungskomponenten und alle weiteren Datenbestände die für die Katasterbenutzung relevant sind, so z.\,B. das Vermessungsregister \autocite[vgl.][]{wupp-wunda-oebvi}.} handelt es sich um einen sogenannten dynamischen Knoten.
-Ein solcher Knoten besitzt eine SQL-Query, mit der seine Unterknoten ermittelt und erstellt werden können.
-Diese Unterknoten können ebenfalls solche Queries besitzen, so dass diese wiederum eigene Unterknoten mit eigenen Queries besitzen.
-Auf diese Weise kann der Baum dynamisch gefüllt werden, wobei seine Blätter, in der Regel, konkrete Objekte darstellen.
-Ein Vorteil dieser Herangehensweise ist die Aktualität des Katalogs, da dieser zu jedem Zeitpunkt neu erstellt werden kann.
-Ein weiterer Vorteil ist das Anzeigen sämtlicher relevanten Kategorien und Objekte in einer zentralen Stelle.
-Durch dieses Anzeigen der kompletten Struktur wird eine unübersichtliche Struktur, die aus Menüs und verschiedenen Untermenüs besteht, vermieden.
+Der \autoref{fig:katlog-oebvi} kann der Katalog entnommen werden, wie ein in \ac{WuNDa} angemeldeter \ac{ÖbVI} ihn sieht.
+Bei dem Knoten \enquote{\acs{ALWIS}}\footnote{
+\acs{ALWIS} (\acl{ALWIS}) fasst mehrere Teilsysteme von \ac{WuNDa} zusammen. Unter \acs{ALWIS} finden sich die ALKIS-Benutzungskomponenten und alle weiteren Datenbestände die für die Katasterbenutzung relevant sind, so z.\,B. das Vermessungsregister \autocite[vgl.][]{wupp-wunda-oebvi}.}
+handelt es sich um einen sogenannten organisatorischen Knoten, diese Knoten besitzen eine feste Anzahl an Unterknoten.
+Bei dem Unterknoten \enquote{Buchungsblätter} handelt es sich um einen dynamischen Knoten, ein solcher Knoten besitzt eine SQL-Query, mit der seine Unterknoten ermittelt und erstellt werden können.
+Diese dynamischen Kinder können ebenfalls SQL-Queries besitzen, so dass diese wiederum eigene Unterknoten mit eigenen Queries besitzen können.
+Die Blätter des Baumes sind Objektknoten, also konkrete Objekte.
+Mit Hilfe von den Queries auf den verschiedenen Ebenen kann der Baum dynamisch gefüllt werden und zeigt jeweils den aktuellen Stand der Daten an.
+Ändern sich die unterliegenden Daten, so kann der Baum aktualisiert werden und der Benutzer sieht wieder der aktuelle Stand der Daten.
 
 \subsubsection{Suche}
 Bei der Suche handelt es sich um eine Schnittstelle zum Kernel, die das Suchen von Objekten ermöglicht.
@@ -77,49 +77,56 @@ Weiterhin kann die Karte (cismap) auch als Suckriterium miteinbezogen werden, in
 Die Renderer und Editoren wurden bereits in \autoref{sec:gewuenschte-erweiterungen} beschrieben und werden deshalb hier nicht weiter erläutert.
 
 \subsection{ABF}
-Der \ac{ABF} ist ein Werkzeug, mit dem verschiedene Daten der Integration Base visualisiert und bearbeitet werden können, hierzu gehören z.\,B. Cids"=Klassen (vergleiche \autoref{sec:gewuenschte-erweiterungen}) und ihre Attribute, sowie Benutzer und Benutzergruppen.
+Der \ac{ABF} ist ein Werkzeug, mit dem verschiedene Daten der Integration Base visualisiert und bearbeitet werden können.
+Hierzu gehören z.\,B. Cids"=Klassen (vergleiche \autoref{sec:gewuenschte-erweiterungen}) und ihre Attribute, sowie Benutzer und Benutzergruppen.
 
-Der \ac{ABF} bietet ebenfalls einige Funktionalitäten, die das Erweitern des Katalogs vereinfachen.
-Die beiden Hauptfunktionalitäten dabei sind eine Vorschau des Kataloges, wobei auch die dynamischen Knoten aufgelöst und deren Unterknoten angezeigt werden.
-Weiterhin können Informationen zu jedem Knoten angezeigt werden, wie etwa die vergebenen Rechte und ihre SQL-Query.
-Diese Informationen können, für die nicht dynamisch erstellten Knoten, verändert werden.
-Eine weitere Funktionalität ist das Anlegen und Verwalten der verschiedenen Berechtigungen für die Benutzer.
+Der \ac{ABF} bietet ebenfalls Funktionalitäten, die die Darstellung des Kataloges für den Endnutzer beeinflussen.
+Von besonderer Bedeutung ist dabei eine Vorschau des Katalogs, die es erlaubt sämtliche wesentlichen Informationen der Knoten zu bearbeiten.
+Dazu gehören neben den SQL-Queries für das Erzeugen der dynamischen Kinder auch die Rechte der verschiedenen Nutzergruppen.
 Da die Berechtigungen eine wichtige Rolle in dieser Arbeit spielen, werden sie im Folgenden näher beleuchtet. 
 
 \subsubsection{Berechtigungen}
 In diesem Unterabschnitt wird kurz auf das Rechtesystem der Cids-Umgebung eingegangen. In dieser Arbeit werden zwei Arten von Rechte benötigt. Die Lese- und Schreibrechte auf Cids"=Klassen, Attribute und Knoten des Katalogs sowie die Aktionsrechte.
 
 \paragraph{Rechte auf Objekte}
-Für jede Cids"=Klasse, Attribut oder Knoten lassen sich drei Standardverhalten festlegen, wobei immer ein Verhalten benutzt werden muss.
-Damit nicht für jedes Objekt ein Verhalten explizit gesetzt werden muss, wurde die Fallback Strategie eingeführt.
-Diese Strategie ermöglicht es z.\,B. ein Verhalten als Standard-Server-Verhalten festzulegen, woraufhin jede Cids"=Klasse ohne explizit gesetztes Verhalten auf dieses zurückgreift.
+Für jede Cids"=Klasse, Attribut oder Knoten kann eine Rechte-Policy ausgewählt werden.
+Die verschiedenen Policies und deren Bedeutung kann der \autoref{tab-policy} entnommen werden.
 
-Die verfügbaren Standardverhalten sind:
-\begin{description}
-\item[Standard] Besitzt ein Objekt dieses Verhalten so bedeutet dies, dass jeder Benutzer lesen und niemand schreiben darf.
-\item[Wiki] Bei diesem Standardverhalten darf jeder lesen und schreiben.
-\item[Secure] Bei diesem Standardverhalten darf niemand lesen und schreiben
-\end{description}
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}{Rechte-Policies} \label{tab-policy}
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{gray} 
+ & \head{Leserecht} & \head{Schreibrecht} \tabularnewline
+\hline 
+Secure & - & - \\ 
+\hline 
+Standard & \checkmark & - \\ 
+\hline 
+Wiki & \checkmark & \checkmark \\ 
+\hline 
+\end{tabular} 
+\end{minipage}
+
+Um zu vermeiden, dass für jedes Objekt eine Policy explizit gesetzt werden muss, wurde die Fallback Strategie eingeführt.
+Diese Strategie ermöglicht es z.\,B. eine Policy als Standard-Server-Policy festzulegen, woraufhin jede Cids"=Klasse auf diese zurückgreift.
+Wird für eine Klasse eine andere Policy benötigt, so kann diese explizit gesetzt werden.
+
 Für jedes Objekt können diese Rechte für verschiedene Benutzergruppen erweitert oder eingeschränkt werden.
-Für eine Cids"=Klasse mit dem Verhalten "`Secure"' kann z.\,B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
-Im Gegensatz hierzu kann einer Benutzergruppe für eine Cids"=Klasse mit dem Verhalten "`Standard"', die Leserechte entzogen werden. \autocite[vgl.][]{cismet-workshop}
+Für eine Cids"=Klasse mit der Policy "`Secure"' kann z.\,B. festgelegt werden, dass die Administratoren Lese- und Schreibrechte besitzen.
+Im Gegensatz hierzu kann einer Benutzergruppe für eine Cids"=Klasse mit der Policy "`Standard"', die Leserechte entzogen werden. \autocite[vgl.][]{cismet-workshop}
 
 \paragraph{Aktionsrecht}
-In manchen Fällen sind die Rechte auf Objekte zu grobkörnig und feinere Einschränkungen müssen definiert werden können.
-In diesen Fällen können die Aktionsrechte, auch Action Tags genannt, benutzt werden.
+Eine weitere Möglichkeit um Berechtigungen in der Cids"=Umgebung zu setzen sind die Aktionsrechte, auch Action Tags genannt.
+Im Gegensatz zu den Rechten auf Objekten werden in diesem Fall Rechte auf Aktionen gesetzt.
 Ein Aktionsrecht besitzt jeweils einen eindeutigen Namen sowie eine Liste mit Besitzern.
 In dieser Liste können sich ganze Benutzergruppen oder einzelne Benutzer aus einer Benutzergruppe befinden.
 
 Ein Aktionsrecht kann benutzt werden um, im laufenden Programm, zu überprüfen, ob der aktuell angemeldete Benutzer das Recht hat eine bestimmte Aktion durchzuführen.
-Für jede solche Aktion muss es demnach je ein solches konfiguriertes Aktionsrecht geben.
+Für jede Aktion muss es demnach je ein Aktionsrecht geben.
 Der Benutzer hat das Recht die Aktion durchzuführen, falls er ein Besitzer des dazugehörigen Aktionsrechtes ist.
 Zu solchen Aktionen gehört zum Beispiel die Anzeige bestimmter Suchen oder das Aktivieren/Deaktivieren von Benutzungselementen in einem Renderer.
-
-\subsection{JPresso}
-JPresso ist ein ETL (Extraction, Transaction \& Loading)-Werkzeug das eine graphische Benutzeroberfläche besitzt und es ermöglicht verschiedene Datenbestände in eine Datenbank zu importieren.
-Bei diesem Importieren können die Zieltabellen und Spalten für die Datenquellen frei gewählt werden und es können beliebige Datenmanipulationen vorgenommen werden.
-Weiterhin bietet JPresso eine Normalisierungsfunktion an.
-Durch diese Funktion wird die Verbindung zwischen verschiedenen, bereits bestehenden Tabellen oder Datenquellen aufgedeckt und sie werden automatisch mittels ihrer entsprechenden ID referenziert. \autocite[vgl.][]{cismet-jpresso}
 
 %\begin{itemize}
 %	\item Vor der Realisierung wurde der technische IST-Zustand ermittelt.
@@ -136,12 +143,11 @@ Durch diese Funktion wird die Verbindung zwischen verschiedenen, bereits bestehe
 \section{Technische Realisierung}
 Dieser Abschnitt beschreibt die Realisierung der in \autoref{ch:spezi} beschriebenen gewünschten Erweiterungen in \ac{WuNDa}.
 
-\subsection{Datenbankmodell}
-Um die in \autoref{ch:spezi} beschriebenen Anforderungen zu realisieren, muss in einem ersten Schritt das Datenbankmodell der verwendeten Datenbank angepasst werden.
-Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen. Zum anderen müssen aus den Daten, die im Client benötigt werden, CidsBeans erstellt werden können. Dies ist notwendig, da die verschiedenen Erweiterungen auf den Funktionalitäten der CidsBeans aufbauen.
-
-Durch die objektrelationale Abbildung die zwischen den Tabellen der Datenbank und den CidsBeans passiert wird im Folgenden von Cids"=Klassen geredet.
-Dabei sind auch die Tabelle der Datenbank und ihr Aufbau gemeint, da deren Struktur nicht oder nur geringfügig von der Struktur der erstellten Cids"=Klassen abweicht.
+\subsection{Datenmodell}
+Um die in \autoref{ch:spezi} beschriebenen Anforderungen zu realisieren, muss in einem ersten Schritt das Datenmodell der \ac{WuNDa} Integration Base angepasst werden.
+Dies wird zum einen benötigt da die, durch die neuen Erweiterungen, anfallenden Daten abgespeichert werden müssen.
+Zum anderen müssen aus den Daten die im Client benötigt werden CidsBeans (siehe auch \autoref{sec:gewuenschte-erweiterungen}) erstellt werden können.
+Dies ist notwendig, da die verschiedenen Erweiterungen auf den Funktionalitäten der CidsBeans aufbauen.
 
 \subsubsection{Ausgangslage}
 In einem ersten Schritt wurden die bereits vorhandenen, benötigten Cids"=Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Cids"=Klasse der Buchungen, die \inline{BILLING}"=Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
@@ -152,50 +158,74 @@ In einem ersten Schritt wurden die bereits vorhandenen, benötigten Cids"=Klasse
 	\label{fig:db-billing}
 \end{figure}
 
-\subsubsection{Iterativer Vorgang}
-Wie bereits in \autoref{ch:spezi} beschrieben, waren sämtliche Anforderungen nicht von Anfang an bekannt, sondern wurden schrittweise erweitert.
+\subsubsection{Entstehung des Datenmodells}
+Wie bereits in \autoref{ch:spezi} beschrieben, wurde die Spezifikation schrittweise erarbeitet.
 Dieser Prozess ist am deutlichsten am Datenbankmodell zu betrachten, welches mit den Anforderungen gewachsen ist.
 Da die einzelnen Schritte für das Verständnis der Arbeit nicht relevant sind, werden diese nicht im Detail erläutert.
-Um das Anwachsen des Datenbankmodells trotzdem zu verdeutlichen, wird an dieser Stelle auf zwei Versionen des Datenbankmodells verwiesen deren Abbildungen sich unter \ref{fig:db-two} und \ref{fig:db-three} befinden.
+Um das Anwachsen des Datenmodells trotzdem zu verdeutlichen, wird an dieser Stelle auf zwei Versionen des Datenbankmodells verwiesen deren Abbildungen sich unter \ref{fig:db-two} und \ref{fig:db-three} befinden.
 
 \subsubsection{Benötigte Änderungen}
 Nach dem Analysieren der Ausgangslage wurde in einem weiteren Schritt die \inline{BILLING}"=Klasse um die benötigten Felder erweitert.
 Bis zu dem Zeitpunkt war die Gebühr einer Buchung in dem einzelnen Feld "`gebuehr"' gespeichert.
-Dies reicht allerdings nicht aus, um die benötigten Funktionalitäten darzustellen. Aus diesem Grund wurde das Feld  "`gebuehr"' durch die drei Felder "`netto\_summe"', "`brutto\_summe"' und "`mwst\_satz"' ersetzt.
+Durch das Einführen der MwSt. reicht dies allerdings nicht mehr aus, um die benötigten Funktionalitäten darzustellen.
+Aus diesem Grund wurde das Feld  "`gebuehr"' durch die drei Felder "`netto\_summe"', "`brutto\_summe"' und "`mwst\_satz"' ersetzt.
 Weiterhin muss eine Buchung storniert werden können, deshalb wurden die folgenden zusätzlichen Felder eingeführt:
-\begin{description}
-\item[storniert] Ein Boolean, das angibt ob die Buchung storniert wurde, oder nicht.
-\item[storniert\_durch] Der Benutzername der die Buchung storniert hat.
-\item[stornogrund] Der Grund, warum die Buchung storniert wurde, dabei handelt es sich um ein Verweis auf einen Stornogrund.
-\item[storno\_datum] Das Datum, wann die Buchung storniert wurde.
-\end{description}
-Des Weiteren muss eine Änderung protokolliert werden können, für diese Funktionalität wurden die folgenden Felder eingeführt:
-\begin{description}
-\item[geaendert\_von] Der Benutzername mit dem die Buchung geändert wurde.
-\item[geaendert\_am] Das Datum, an dem die Buchung geändert wurde.
-\item[aenderung\_attribut] Der Spaltenname von dem Wert der geändert wurde.
-\item[aenderung\_alter\_wert] Der Wert der vor der Änderung in der Buchung stand.
-\item[aenderung\_neuer\_wert] Der Wert der nach der Änderung in der Buchung steht.
-\end{description}
-Außerdem wurde das Feld "`abgerechnet"' hinzugefügt, dieses Boolean gibt an, ob die Buchung abgerechnet wurde, oder nicht.
 
-Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Cids"=Klassen in das Datenbankmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
+\begin{tabulary}{\textwidth}{|L|L|}
+\hline 
+\rowcolor{gray} 
+ \head{Feld} & \head{Beschreibung} \tabularnewline
+\hline 
+\mbox{storniert} & Ein Boolean, der angibt ob die Buchung storniert wurde, oder nicht. \\ 
+\hline 
+\mbox{storniert\_durch \hspace{8pt}} & Der Benutzername, des Benutzers der die Buchung storniert hat. \\ 
+\hline
+\mbox{stornogrund} &  Ein Verweis auf ein Objekt der Cids"=Klasse Stornogrund. \\ 
+\hline
+\mbox{storno\_datum} & Das Datum, wann die Buchung storniert wurde. \\ 
+\hline
+\end{tabulary} 
+
+Des Weiteren muss eine Änderung protokolliert werden können, für diese Funktionalität wurden die folgenden Felder eingeführt:
+
+\begin{tabulary}{\textwidth}{|L|L|}
+\hline 
+\rowcolor{gray} 
+ \head{Feld} & \head{Beschreibung} \tabularnewline
+\hline 
+\mbox{geaendert\_von} & Der Benutzername mit dem die Buchung geändert wurde. \\ 
+\hline 
+\mbox{geaendert\_am} & Das Datum, an dem die Buchung geändert wurde. \\
+\hline
+\mbox{aenderung\_attribut} &  Der Spaltenname von dem Wert der geändert wurde. \\ 
+\hline
+\mbox{aenderung\_alter\_wert} & Der Wert der vor der Änderung in der Buchung stand. \\ 
+\hline
+\mbox{aenderung\_neuer\_wert \hspace{8pt}} & Der Wert der nach der Änderung in der Buchung steht. \\ 
+\hline
+\end{tabulary} 
+
+Außerdem wurde das Feld "`abgerechnet"' hinzugefügt:
+
+\begin{tabulary}{\textwidth}{|L|L|}
+\hline 
+\rowcolor{gray} 
+ \head{Feld} & \head{Beschreibung} \tabularnewline
+\hline 
+\mbox{abgerechnet \hspace{8pt}} & Ein Boolean, der angibt, ob die Buchung bereits abgerechnet wurde, oder nicht. \\ 
+\hline
+\end{tabulary} 
+
+Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Cids"=Klassen in das Datenmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
 
 \subsubsection{Letzter Stand}
-Der letzte Stand des Datenbankmodells kann in \myfig{fig:db-final} betrachtet werden.
-Im Folgenden sollen einige Besonderheiten des Datenbankmodells hervorgehoben werden.
+Der letzte Stand des Datenbankmodells kann in \autoref{fig:db-final} betrachtet werden.
+Im Folgenden sollen einige Besonderheiten des Datenmodells hervorgehoben werden.
 Sämtliche benutzten Cids"=Klassen besitzen das Präfix "`BILLING\_"', damit diese sofort dem Buchungsthema zugeordnet werden können.
-In sämtlichen Billing"=Klassen heißen die Bezeichnungsfelder "`name"'.
-Somit erfüllen sie eine Namenskonvention und der Wert dieser Felder wird automatisch in Java bei der toString()-Methode ausgegeben.
-Array-Felder und 1:n-Felder wurden so benannt, dass auf den ersten Blick erkennbar ist, dass es sich um besondere Felder handelt.
-Siehe z.\,B. "`produkte\_arr"' und "`benutzer\_n"' der Kundenklasse.
-
-Diese Felder sind in der Datenbank nicht enthalten, können später jedoch, von der erstellten CidsBean benutzt werden.
-Beim Zugriff auf diese Felder wird als Resultat eine Liste mit den gewünschten Werten automatisch erstellt und zurückgegeben.
-Dies bedeutet, dass die Cids-Umgebung 1:n-Beziehungen und n:m-Beziehungen abstrahieren kann.
-Somit wird die Java-seitige Programmierung vereinfacht, da gewünschten Werte nicht über ihre Foreign Keys aus den entsprechenden Tabellen bezogen werden müssen, sondern es kann, wie gewohnt, objekt-orientiert programmiert werden.
-Aus diesem Grund werden die Beziehungstabellen innerhalb der Cids-Umgebung auch Array"=Tabellen genannt und besitzen das Suffix "`\_ARRAY"'.
-Weiterhin müssen diese Tabellen immer den gleichen Aufbau besitzen, da ansonsten die automatische Umwandlung in eine Liste fehlschlägt.
+In sämtlichen Billing"=Klassen heißen die Bezeichnungsfelder "`name"', dadurch  erfüllen sie eine Namenskonvention der Cids"=Umgebung.
+Diese bewirkt, dass der Wert dieser Felder automatisch in Java bei der toString()-Methode ausgegeben wird.
+Weiterhin wurden die Suffixe \enquote{\_arr} und \enquote{\_n} an verschiedene Feldnamen angehangen, um zu verdeutlichen, dass es sich bei diesen um Spezialfelder handelt.
+Beim Zugriff der CidsBean auf diese Felder wird eine Liste von Objekten erhalten, wobei bei normalen Felder ein einzelnes Objekt zurückgegeben wird.
 
 \begin{sidewaysfigure}
 	\centering
@@ -205,22 +235,21 @@ Weiterhin müssen diese Tabellen immer den gleichen Aufbau besitzen, da ansonste
 \end{sidewaysfigure}
 
 \subsection{Import von neuen Daten}
-Nach dem Erstellen des Datenbankmodells musste die Datenbank entsprechend erweitert werden.
-Eine gute Möglichkeit dies im Cids-Umfeld zu realisieren bietet der bereits erwähnte \ac{ABF}. Mit diesem Werkzeug wurden die benötigten Cids"=Klassen angelegt und die entsprechenden Tabellen konnten in die Datenbank eingespielt werden.
+Die Änderungen am Datenmodell wurden über den bereits erwähnten \ac{ABF} realisiert.
+Mit diesem Werkzeug wurden die benötigten Cids"=Klassen angelegt und die entsprechenden Tabellen konnten in die Integration Base eingespielt werden.
 
-Für die weitere Entwicklung der Funktionalitäten wurden Anfangsdaten benötigt, die vom R102 in Form einer Excel-Datei geliefert wurden.
-Diese Datei enthielt die Informationen zu tatsächlichen Kunden und Kunden-Logins, wobei z.\,B. deren Abrechnungsturnus und Produkte angegeben war.
+Für die weitere Entwicklung der Funktionalitäten wurden Anfangsdaten benötigt, die vom R102 in Form einer Excel-Datei bereitgestellt wurden.
+Diese Datei enthielt die Informationen zu tatsächlichen Kunden und Kunden-Logins, wobei z.\,B. die dazugehörigen Abrechnungsturnusse und Produkte angegeben war.
 Diese Datei wurde in mehrere \acs{CSV}-Dateien aufgeteilt, die dann in eine Hilfsdatenbank eingespielt wurden.
-Mit Hilfe von JPresso konnten die Daten aus der Hilfsdatenbank in die eigentliche Datenbank importiert werden.
-Weiterhin konnten mit Hilfe dieses Werkzeugs die Buchungen aus der "`BILLING"'-Tabelle in die neue "`BILLING\_BILLING"'-Tabelle überführt werden.
-Bei diesem Vorgang wurde vermehrt auf die Normalisierungsfunktion von JPresso zurückgegriffen um die Fremdschlüssel zwischen den neuen Tabellen zu realisieren.
+Mit Hilfe von JPresso, einem  ETL (Extraction, Transaction \& Loading)-Werkzeug \autocite[vgl.][]{cismet-jpresso}, konnten die Daten aus der Hilfsdatenbank in die eigentliche Datenbank importiert werden.
 
 Ein besonderer Fall beim Importieren war der MwSt.-Satz, da dieser bei den bereits angelegten Buchungen nicht existierte.
-Dieser konnte beim Importieren nicht auf einen Wert von \per{0,0} gesetzt werden, da dies fachlich falsch wäre.
+Somit konnte dieser beim Importieren des Altbestandes nicht auf einen Wert von \per{0,0} gesetzt werden, da dies fachlich falsch wäre.
 Dies liegt daran, dass es Produkte mit einem anderen MwSt.-Satz gibt als \per{0,0}, so haben z.\,B. Orthofotos einen MwSt.-Satz von \per{19,0}.
-Gäbe es nun Orthofotos mit \per{0,0} und andere mit \per{19,0} so würde dies wahrscheinlich für Verwirrung beim Endbenutzer sorgen, da es such um einen inkonsistenten Fall handelt.
+Würde für jede Buchung \per{0,0} eingesetzt werden, so gäbe es Orthofotos mit \per{0,0} und andere mit \per{19,0}.
+Dies würde für Verwirrung beim Endbenutzer sorgen, da es sich um einen inkonsistenten Fall handelt.
 Eine andere Lösung wäre das Anpassen der Datenbestände gewesen, also das Umändern der Netto- und Brutto-Summen sowie des MwSt.-Satzes. 
-Hiergegen wurde sich entschieden, da es sich um kritische Daten handelt und ein kleiner Fehler finanzielle Auswirkungen für R102 oder einen Kunden hätte.
+Hiergegen wurde sich entschieden, da es sich um kritische Daten handelt und ein kleiner Fehler finanzielle Auswirkungen für das R102 oder einen Kunden hätte.
 Aus diesem Grund wurde beim Importieren der MwSt.-Satz auf \inline{null} gesetzt.
 Durch diesen Sonderfall kann der MwSt.-Satz, beim Anzeigen, anders behandelt werden und es entsteht keine Verwirrung beim Benutzer.
 Weiterhin kann bei Berechnungen \inline{null} genau wie der Satz \per{0,0} behandelt werden, so dass die Netto-Summe immer gleich der Brutto-Summe ist.
@@ -230,8 +259,8 @@ Hierdurch ist gewährleistet, dass am ursprünglichen Preis nichts verändert wi
 \subsection{Anpassung des Downloadprotokoll-Dialoges}
 Durch die Änderung der Struktur der Buchungen"=Klasse musste auch die Java"=Klasse des Downloadprotokoll"=Dialoges \inline{BillingPopup} angepasst werden.
 Dabei sollte an der eigentlichen Funktionalität von \inline{BillingPopup}, die bereits im \autoref{subsec:beschaffung} beschrieben wurde, nichts geändert werden.
-Lediglich die graphische Oberfläche wurde dahingehend verändert, dass die Netto- und Brutto-Summen der anfallenden Gebühren sowie der anfallende MwSt-Satz angezeigt werden
-Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig:alkis-protocol-new} gefunden werden.
+Lediglich die graphische Oberfläche wurde dahingehend verändert, dass die Netto- und Brutto-Summen der anfallenden Gebühren sowie der anfallende MwSt-Satz angezeigt werden.
+Der Screenshot \ref{fig:alkis-protocol-new} zeigt den überarbeiteten Downloadprotokoll-Dialog.
 
 \begin{figure}[htb]
 	\centering
@@ -240,25 +269,25 @@ Ein Screenshot des überarbeiteten Downloadprotokoll-Dialoges kann in \myfig{fig
 	\label{fig:alkis-protocol-new}
 \end{figure}
 
-\subsection{Zeitliche Filter und Verwendungszweck-Filter}
-Beim Betrachten der benötigten Filter in der Spezifikation fällt auf, dass ähnliche Filtermöglichkeiten in den verschiedenen Renderer und der Suche benötigt werden. Aus diesem Grund wurde der zeitliche Filter und Verwendungszweck"=Filter als eigene \inline{JPanel} angelegt, so dass diese mehrfach verwendet werden können.
+\subsection{Zeitliche Filter und Verwendungszweckfilter}
+Beim Betrachten der benötigten Filter in der Spezifikation fällt auf, dass ähnliche Filtermöglichkeiten in den verschiedenen Renderer und der Suche benötigt werden. Aus diesem Grund wurde der zeitliche Filter und Verwendungszweckfilter als eigenes \inline{JPanel} angelegt, so dass dieses mehrfach verwendet werden kann.
 
 \subsubsection{Zeitlicher Filter}
+
 Das eigenständige \inline{JPanel} \inline{TimeFilterPanel} gibt dem Benutzer die Möglichkeit einen Tag oder eine Zeitspanne auszuwählen.
 Dabei werden ihm Schnellwahlmöglichkeiten für den aktuellen Tag, einen Monat oder ein Quartal angeboten.
-Weiterhin kann er mittels der Angabe eines von-Datums und eines bis-Datums eine Zeitspanne festlegen.
-Bei Bedarf kann die aktuelle Einstellung des Panels abgefragt werden, wobei der Rückgabewert zwei \inline{Date}-Variablen sind.
-Sind beide Variablen \inline{null} so wurde keine Zeit ausgewählt.
-Ist nur das von-Datum belegt so wurde ein einzelner Tag ausgewählt.
-Sind beide Variablen belegt so wurde eine Zeitspanne festgelegt.
+Weiterhin kann er mittels der Angabe eines von"=Datums und eines bis"=Datums eine Zeitspanne festlegen.
 
 \begin{wrapfigure}{o}{0.4\textwidth}
   \centering
     \incgraph{width=0.3\textwidth}{./rimg/gui-jxdatepicker.png}
   \caption{Auswahl des Datums} \label{fig:jxdatepicker} 
 \end{wrapfigure}
-Während dem Testen der Renderer kam die zusätzliche Anforderung auf, dass die Datumsauswahl jeweils eine Schnellauswahl für das Jahr benötigt.
-Das gewünschte Result kann in der \myfig{fig:jxdatepicker} betrachtet werden.
+
+Bei Bedarf kann die aktuelle Einstellung des Panels abgefragt werden, wobei der Rückgabewert zwei \inline{Date}-Variablen sind.
+Sind beide Variablen \inline{null} so wurde keine Zeit ausgewählt.
+Ist nur das von-Datum belegt so wurde ein einzelner Tag ausgewählt.
+Sind beide Variablen belegt so wurde eine Zeitspanne festgelegt.
 %\begin{figure}[htb]
 %	\centering
 %	\incgraph{scale=0.618}{./rimg/gui-jxdatepicker.png}
@@ -266,62 +295,52 @@ Das gewünschte Result kann in der \myfig{fig:jxdatepicker} betrachtet werden.
 %	\label{fig:jxdatepicker}
 %\end{figure}
 
+Eine weitere Anforderung an die Datumsauswahl ist, dass das Jahr schnell gewechselt werden kann, wie dies der \autoref{fig:jxdatepicker} zu entnehmen ist.
+Die verwendete Komponente \inline{JX\-Date\-Picker} bietet eine solche Schnellauswahl  jedoch nicht an.
+Aus diesem Grund musste ein Workaround benutzt werden, welches unter \autocite{so-jxdatepicker} gefunden wurde.
+%Um diesen Workaround umzusetzen musste ein sogenanntes \inline{Takeoff\-Hook} implementiert werden. 
+%Dies ist eine Java"=Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
+%Somit wird beim Starten des Programms das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.\\
+%\begin{minipage}{\textwidth}
+%\begin{lstlisting}[caption=innerhalb \texttt{JXDatePickerHeaderTakeoff}, label=lst:setHead]
+%UIManager.put(CalendarHeaderHandler.uiControllerID, "org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler");
+%UIManager.put(SpinningCalendarHeaderHandler.ARROWS_SURROUND_MONTH, Boolean.TRUE);
+%\end{lstlisting}
+%\end{minipage}
+%
+%In der ersten Zeile wird angegeben dass für die \inline{JXDatePicker} eine Kopfzeile verwendet wird, die eine Schnellauswahl des Jahres zulässt.
+%In der zweiten Zeile wird die Anordnung des rechten Pfeils geändert, dieser würde sich ansonsten ganz rechts außen befinden.
+%Damit die Kopfzeile einer \inline{JXDatePicker}-Instanz \inline{datePicker} entsprechend geändert wird, muss die Zeile aus \autoref{lst:setZoomable} ausgeführt werden.\\
+%\begin{minipage}{\textwidth}
+%\begin{lstlisting}[caption=Setzen der Kopfzeile, label=lst:setZoomable]
+%datePicker.getMonthView().setZoomable(true)
+%\end{lstlisting}
+%\end{minipage}
+%
+%Genau diese Zeile enthält den problematischen Teil dieses Workaround, da das Zoomable-Attribut von \inline{JX\-Month\-View}, eine Anzeige von Monaten, über die ein Datum gewählt werden kann, noch nicht richtig implementiert ist und keine Auswirkungen haben dürfte \autocite[vgl.][]{swingx-jxdatepicker}.
+%Dennoch wird hierdurch die gewünschte Kopfzeile angezeigt.
 
-Da die verwendete Komponente \inline{JX\-Date\-Picker} eine solche Schnellauswahl offiziell nicht anbietet musste ein Workaround gefunden werden, welches unter \autocite{so-jxdatepicker} gefunden wurde.
-Um diesen Workaround umzusetzen musste ein sogenanntes \inline{Takeoff\-Hook} implementiert werden. 
-Dies ist eine Java"=Klasse die mittels des Lookup-Mechanismus beim Starten von \ac{WuNDa} gefunden und ausgeführt wird.
-Somit wird beim Starten des Programms das \inline{TakeoffHook} \inline{JXDatePickerHeaderTakeoff} ausgeführt, das die zwei Zeilen aus \autoref{lst:setHead} beinhaltet.\\
-\begin{minipage}{\textwidth}
-\begin{lstlisting}[caption=innerhalb \texttt{JXDatePickerHeaderTakeoff}, label=lst:setHead]
-UIManager.put(CalendarHeaderHandler.uiControllerID, "org.jdesktop.swingx.plaf.basic.SpinningCalendarHeaderHandler");
-UIManager.put(SpinningCalendarHeaderHandler.ARROWS_SURROUND_MONTH, Boolean.TRUE);
-\end{lstlisting}
-\end{minipage}
-
-In der ersten Zeile wird angegeben dass für die \inline{JXDatePicker} eine Kopfzeile verwendet wird, die eine Schnellauswahl des Jahres zulässt.
-In der zweiten Zeile wird die Anordnung des rechten Pfeils geändert, dieser würde sich ansonsten ganz rechts außen befinden.
-Damit die Kopfzeile einer \inline{JXDatePicker}-Instanz \inline{datePicker} entsprechend geändert wird, muss die Zeile aus \autoref{lst:setZoomable} ausgeführt werden.\\
-\begin{minipage}{\textwidth}
-\begin{lstlisting}[caption=Setzen der Kopfzeile, label=lst:setZoomable]
-datePicker.getMonthView().setZoomable(true)
-\end{lstlisting}
-\end{minipage}
-
-Genau diese Zeile enthält den problematischen Teil dieses Workaround, da das Zoomable-Attribut von \inline{JX\-Month\-View}, eine Anzeige von Monaten, über die ein Datum gewählt werden kann, noch nicht richtig implementiert ist und keine Auswirkungen haben dürfte \autocite[vgl.][]{swingx-jxdatepicker}.
-Dennoch wird hierdurch die gewünschte Kopfzeile angezeigt.
-
-\subsubsection{Verwendungszweck-Filter}
-Der Verwendungszweck-Filter ist ebenfalls ein eigenständiges \inline{JPanel} und wurde in der Java"=Klasse \inline{VerwendungszweckPanel} implementiert.
+\subsubsection{Verwendungszweckfilter}
+Der Verwendungszweckfilter ist ebenfalls ein eigenständiges \inline{JPanel} und wurde in der Java"=Klasse \inline{VerwendungszweckPanel} implementiert.
 In diesem Panel werden die möglichen Verwendungszwecke untereinander angezeigt, wobei jedes eine Checkbox besitzt, mit der es an oder abgewählt werden kann. Weiterhin ist es nicht möglich sämtliche Verwendungszwecke abzuwählen.
 Die Besonderheit dieses Panel besteht darin, dass die Verwendungszwecke nicht hart kodiert sind, sondern aus der \inline{billing.json} Datei geladen werden.
 Diese \ac{JSON}-Datei beinhaltet Informationen bezüglich den Buchungen. Sie enthält neben den Verwendungszwecken auch die Gebühren und MwSt.-Sätze zu den einzelnen Produkten. 
 
 \subsection{Suche nach Buchungen} \label{subsec:serversearch}
-Beim Analyseren der Anforderungen ist ebenfalls aufgefallen, dass sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit benötigen um in der Datenbank nach Buchungen mit bestimmten Kriterien zu suchen.
-Aus diesem Grund wurde auf die Such-Funktionalität der Cids-Umgebung zurückgegriffen und es wurde eine sogenannte Server Search implementiert.
-Um diesen Mechanismus umzusetzen wurde die Java"=Klasse \inline{Cids\-Billing\-Search\-Statement} erstellt.
-Diese erbt von der, bereits bestehenden, Klasse \inline{Ab\-stract\-Cids\-Server\-Search} und besitzt somit die Grundfunktionalität zu einer solchen Server Search.
+Da sowohl die Kunden- und Kundengruppenrenderer als auch der Suchdialog zu den Buchungen eine Möglichkeit benötigen um nach Buchungen mit bestimmten Kriterien zu suchen, wurde auf die Such"=Funktionalität der Cids"=Umgebung zurückgegriffen und es wurde eine sogenannte Server Search implementiert.
+Um diesen Mechanismus umzusetzen wurde die Java"=Klasse \inline{Cids\-Billing\-Search\-State\-ment} erstellt.
+Diese erbt von der bereits bestehenden Klasse \inline{Ab\-stract\-Cids\-Server\-Search} und besitzt somit die Grundfunktionalität zu einer solchen Server Search.
 Um diese Server Search in den Renderern oder dem Suchdialog auszuführen müssen lediglich die gewünschten Kriterien einem Objekt der Klasse \inline{Cids\-Billing\-Search\-Statement} übergeben werden und die eigentliche Suche muss gestartet werden.
 Daraufhin können die gefundenen Buchungen dort weiterverarbeitet und angezeigt werden.
-
-\inline{Cids\-Billing\-Search\-Statement} kann die Geschäftsbuchnummer, die Projektbezeichnung und den Kundennamen als Kriterien entgegennehmen.
-Dabei wird jeweils überprüft, ob das angegebene Kriterium ein Teilwort des jeweiligen Feldes ist.
-Für diese Kriterien können außerdem die beiden Wildcards \enquote{\_} und \enquote{\%} für ein einzelnes Zeichen bzw. für eine beliebige Anzahl von Zeichen benutzt werden.
-Als weiteres Kriterium kann ein Kunden-Login angegeben werden.
-In dem Fall wird nur nach solchen Buchungen gesucht, die mit jenem Kunden-Login angelegt wurden.
-Weitere Kriterien sind der Zeitbereich in denen die Buchungen erstellt werden mussten, sowie der Kostentyp, sprich ob die einzelne Buchung kostenpflichtig oder kostenfrei ist.
-Weiterhin kann angegeben werden, ob stornierte oder abgerechnete Buchungen gefunden werden sollen.
-Außerdem kann eine Liste mit Kunden und einem, optionalen, Abrechnungsturnus übergeben werden.
-In dem Fall werden nur Buchungen von jenen Kunden mit eben diesem  Abrechnungsturnus gefunden.
-Das einzige Pflichtkriterium ist eine Information bezüglich den Kunden. So muss ein Kundenname oder eine Liste mit Kunden angegeben werden.
+Zu den Kriterien, die angegeben werden können, gehören u.\,a. die Geschäftsbuchnummer, die Projektbezeichnung und den Kundennamen aber auch der Zeitbereich in denen die Buchungen erstellt werden oder ob stornierte und abgerechnete Buchungen gefunden werden sollen.
 
 \subsection{Kunden}
-In diesem Abschnitt werden die graphischen Oberflächen beschrieben, die den Kunden betreffen.
+In diesem Abschnitt werden die graphischen Oberflächen beschrieben, die die Cids"=Klasse Kunde betreffen.
 \subsubsection{Kundenrenderer}
 Die Funktionalität des Kundenrenderers wurde bereits größtenteils in dem \autoref{subsubsec:kundenrenderer} beschrieben.
 Der dort nicht beschriebene Knopf "`Ergebnisse anzeigen"' wurde hinzugefügt, damit die Suche bei Bedarf ausgeführt werden kann.
 Dieser wurde während der Entwicklung hinzugefügt, da sich die automatisch ausgeführte Suche bei jeder Änderung der Filter als unpraktikabel herausstellte.
-Dies liegt an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt ist, obwohl diese, in den meisten Fällen, nur ein paar Sekunden beträgt.
+Dies liegt an der Dauer der Suche, die für eine solche Funktionalität zu ausgedehnt ist, obwohl diese in den meisten Fällen nur ein paar Sekunden beträgt.
 Bei Betätigen des Knopfes wird ein Objekt der Java"=Klasse \inline{Cids\-Billing\-Search\-Statement} mit den verschiedenen Kriterien aus den Filtern gefüllt und die eigentliche Suche wird ausgeführt.
 Die Ergebnisse dieser Suche werden dann in der Tabelle angezeigt und eine entsprechende Zusammenfassung der Suchergebnisse wird über der Tabelle ausgegeben.
 Weiterhin können die beiden Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
@@ -335,13 +354,12 @@ Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen
 	\label{fig:kundenrenderer}
 \end{figure}
 \subsubsection{Kundeneditor}
-Der Kundeneditor, der in \myfig{fig:kundeneditor} dargestellt ist, ermöglicht es einen neuen Kunden anzulegen oder die Daten eines bereits bestehenden Kunden zu bearbeiten.
+Der Kundeneditor ermöglicht es einen neuen Kunden anzulegen oder die Daten eines bereits bestehenden Kunden zu bearbeiten.
 Bei den meisten Feldern handelt es sich um gewöhnliche Texteingaben oder Auswahlmöglichkeiten.
-Allerdings konnte bei den Feldern für die Produkte und Kundengruppen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen werden.
+Allerdings besteht auch die Möglichkeit Beziehung von einem Kunden"=Objekt zu anderen Objekten zu erstellen.
+Dies ist der Fall bei den Feldern für die Produkte und Kundengruppen, bei denen auf die Drag-and-Drop Funktionalität der Cids-Umgebung zurückgegriffen wurden.
 Somit können Objekte dieser Cids"=Klassen aus dem Katalog in den Editor gezogen werden und die Beziehung zwischen den jeweiligen Objekten wird automatisch erstellt.
 
-Dieser Drag-and-Drop-Mechanismus bot sich auch bei den Kunden-Logins an, allerdings wird in dem Fall die Beziehung nicht automatisch erstellt, da es sich um eine 1:n-Beziehung handelt.
-Aus diesem Grund musste in das entsprechende Kunden"=Login"=Objekt aus der Datenbank bezogen werden und die Beziehung gesetzt werden.
 
 %\begin{figure}[htb]
 %	\centering
@@ -350,57 +368,8 @@ Aus diesem Grund musste in das entsprechende Kunden"=Login"=Objekt aus der Daten
 %	\label{fig:kundeneditor}
 %\end{figure}
 
-\subsubsection{Kunden-Login Editor und Renderer}
-Auf Grund der 1:n-Beziehung funktionierte das automatische Erstellen des Standardeditors und -renderers nicht für die Kunden-Login-Objekte.
-Deshalb musste ein Editor erstellt werden, bei dem der Name und die E-Mail-Adresse eines Kunden-Logins angegeben werden kann, sowie ihm ein Kunde zugeordnet werden kann.
-Beim Renderer handelt es sich um die gleiche Oberfläche, mit dem Unterschied, dass sie keine Eingaben entgegen nimmt. 
-
-\subsection{Buchungen}
-Für die Buchungen musste ein Renderer, ein Editor und ein Suchdialog erstellt werden.
-
-\subsubsection{Buchungseditor und -renderer}
-Beim Buchungseditor und -renderer handelt es sich um die gleiche graphische Oberfläche, wobei beim Buchungseditor eine Buchung verändert werden kann.
-Die veränderbaren Werte sind die Geschäftsbuchnummer und die Projektbezeichnung, wobei die letzte Änderung jeweils protokolliert werden muss.
-Weiterhin kann im Editor eine Buchung, unter Angabe eines Stornogrundes, storniert werden.
-Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:buchungen} und kann unter \myfig{fig:buchungseditor} betrachtet werden.
-
-\begin{figure}[htbp]
-	\centering
-	\incgraph{width=0.618\textwidth}{./rimg/gui-buchungseditor-real.png}
-	\caption{Buchungseditor}
-	\label{fig:buchungseditor}
-\end{figure}
-
-\subsubsection{Suchdialog zu den Buchungen}
-\begin{figure}[htbp]
-	\centering
-	\incgraph{width=0.618\textwidth}{./rimg/gui-suchergebnisse-real.png}
-	\caption{Suchergebnisse mit Buchungen und Kontextmenu}
-	\label{fig:suchergebnisse}
-\end{figure}
-
-Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich Buchungen anzugeben, woraufhin nach Buchungen mit jenen Kriterien gesucht werden kann.
-Die graphische Oberfläche der Suche wurde in der Java"=Klasse \inline{Billing\-Window\-Search} umgesetzt.
-Diese Klasse kann über einen Lookup-Mechanismus gefunden werden und wird automatisch als Eintrag des Fenster-Menüs von \ac{WuNDa} angezeigt.
-Über diesen Eintrag kann der Suchdialog geöffnet und geschlossen werden.
-
-Die eigentliche Suche wurde über die Server Search, die auf Seite \pageref{subsec:serversearch} beschrieben wurde, umgesetzt.
-Wobei die gefundenen Ergebnisse  anschließend in den Suchergebnissen von \ac{WuNDa} angezeigt werden.
-Ein Beispiel der Suchergebnisse kann in der Abbildung \vref{fig:suchergebnisse} betrachtet werden, dabei wurde das Kontextmenü für den ersten Eintrag geöffnet.
-Über dieses Menü kann der Editor der ausgewählten Buchung geöffnet werden.
-Da es sich bei dem Kontextmenü um eine Standardkomponente der Cids-Umgebung handelt, befindet sich hier auch die Option "`Objekt löschen"'.
-Diese wurde jedoch so eingestellt, dass ein Löschen nicht möglich ist.
-Ein Screenshot des Suchdialog selbst kann in \myfig{fig:gui-suchdialog} gefunden werden.
-
-\begin{figure}[htbp]
-	\centering
-	\incgraph{width=0.8\textwidth}{./rimg/gui-buchungsuche-real.png}
-	\caption{Suchdialog der Buchungen}
-	\label{fig:gui-suchdialog}
-\end{figure}
-
 \subsection{Kundengruppen}
-
+In diesem Abschnitt werden die graphischen Oberflächen beschrieben, die die Cids"=Klasse Kundengruppe betreffen.
 \subsubsection{Kundengruppenrenderer und Kundengruppeneditor}
 Wie bereits beschrieben bietet der Kundengruppenrenderer einige Filterkriterien, so dass nicht gewünschte Buchungen nicht in die Ergebnisse miteinbezogen werden.
 Im Gegensatz zum Kundenrenderer werden die einzelnen Buchungen nicht angezeigt, sondern diese werden für den jeweiligen Kunden zusammengefasst und diese Zusammenfassung wird in der Tabelle dargestellt.
@@ -434,8 +403,8 @@ Siehe hierzu auch die \myfig{fig:gui-kundengruppe-context}.
 	\label{fig:gui-kundengruppe-context}
 \end{figure}
 Mittels diesen beiden Optionen lässt sich ein Vorlagen-Dialog öffnen, mit dem eine Vorlage ausgewählt werden kann.
-Wird dieser Dialog bestätigt so wird ein E-Mail-Verfassen-Fenster des, im Betriebssystem, eingestellten Standard-E-Mail-Programms geöffnet.
-Dieses Fenster enthält die Werte aus der Vorgabe und kann wie gewohnt bearbeitet werden.
+Wird dieser Dialog bestätigt so wird eine neue E-Mail im Betriebssystem eingestellten Standard-E-Mail-Programm geöffnet.
+Diese E-Mail enthält die Werte aus der Vorlage und kann wie gewohnt bearbeitet werden.
 Je nach Auswahl der Option werden unterschiedliche E-Mail-Adressen eingesetzt.
 Wurden die Ansprechpartner ausgewählt, so werden nur die Direktkontakte der Kunden innerhalb der Kundengruppe der E-Mail hinzugefügt.
 Andernfalls werden die Kontakte sämtlicher Kunden-Logins die sich in dieser Gruppe befinden benutzt.
@@ -450,24 +419,63 @@ Die Vorlagen die in dem Vorlagen-Dialog angezeigt werden, werden aus der Datei \
 \end{description}
 
 %\inline{E\-Mail\-Composer} EMailComposer
-Um das E-Mail-Verfassen-Fenster zu öffnen, wurde die Java"=Klasse \inline{E\-Mail\-Composer} implementiert.
+Um die E-Mail zu öffnen, wurde die Java"=Klasse \inline{E\-Mail\-Composer} implementiert.
 Ein Objekt dieser Klasse nimmt die benötigten Informationen entgegen und erstellt eine URI nach dem mailto Schema \autocite{RFC2368}.
-Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{java-mailto} übergeben werden, welches dann das E-Mail-Verfassen-Fenster, mit den entsprechenden Vorgaben, öffnet.
+Diese URI kann der Java-Methode \inline{Desktop.getDesktop().mail()} \autocite{java-mailto} übergeben werden, dadurch wird das E-Mail-Programm geöffnet, welches dann die E-Mail nach der ausgewählten Vorlage erstellt.
+
+\subsection{Buchungen}
+Für die Buchungen musste ein Renderer, ein Editor und ein Suchdialog erstellt werden.
+
+\subsubsection{Buchungseditor und -renderer}
+Beim Buchungseditor und -renderer handelt es sich um die gleiche graphische Oberfläche, wobei beim Buchungseditor eine Buchung verändert werden kann.
+Die veränderbaren Werte sind die Geschäftsbuchnummer und die Projektbezeichnung, wobei die letzte Änderung jeweils protokolliert werden muss.
+Weiterhin kann im Editor eine Buchung, unter Angabe eines Stornogrundes, storniert werden.
+Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:buchungen} und kann unter \myfig{fig:buchungseditor} betrachtet werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.618\textwidth}{./rimg/gui-buchungseditor-real.png}
+	\caption{Buchungseditor}
+	\label{fig:buchungseditor}
+\end{figure}
+
+\subsubsection{Suchdialog zu den Buchungen}
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.618\textwidth}{./rimg/gui-suchergebnisse-real.png}
+	\caption{Suchergebnisse mit Buchungen und Kontextmenu}
+	\label{fig:suchergebnisse}
+\end{figure}
+
+Der Suchdialog basiert auf der Beschreibung aus \autoref{subsec:buchungen} und bietet eine Möglichkeit verschiedene Kriterien bezüglich Buchungen anzugeben, woraufhin nach Buchungen mit jenen Kriterien gesucht werden kann.
+Die graphische Oberfläche der Suche wurde in der Java"=Klasse \inline{Billing\-Window\-Search} umgesetzt.
+Diese Klasse kann über einen Lookup-Mechanismus gefunden werden und wird automatisch als Eintrag des Fenster-Menüs von \ac{WuNDa} angezeigt.
+Über diesen Eintrag kann der Suchdialog geöffnet und geschlossen werden.
+
+Die eigentliche Suche wurde über die Server Search, die auf Seite \pageref{subsec:serversearch} beschrieben wurde, umgesetzt.
+Wobei die gefundenen Ergebnisse  anschließend in den Suchergebnissen von \ac{WuNDa} angezeigt werden.
+Ein Beispiel der Suchergebnisse kann in der Abbildung \ref{fig:suchergebnisse} betrachtet werden, dabei wurde das Kontextmenü für den ersten Eintrag geöffnet.
+Über dieses Menü kann der Editor der ausgewählten Buchung geöffnet werden.
+Da es sich bei dem Kontextmenü um eine Standardkomponente der Cids-Umgebung handelt, befindet sich hier auch die Option "`Objekt löschen"'.
+Diese wurde jedoch so eingestellt, dass ein Löschen nicht möglich ist.
+Ein Screenshot des Suchdialog selbst kann in \myfig{fig:gui-suchdialog} gefunden werden.
+
+\begin{figure}[htbp]
+	\centering
+	\incgraph{width=0.8\textwidth}{./rimg/gui-buchungsuche-real.png}
+	\caption{Suchdialog der Buchungen}
+	\label{fig:gui-suchdialog}
+\end{figure}
 
 \subsection{Berichte}
-Die drei Berichte wurden nach den Vorgaben aus \autoref{subsec:berichte} erstellt.
-Bei den Berichten \enquote{Buchungsbeleg} und \enquote{Rechnungsanlage} wurden die genauen Vorgaben eingehalten, dabei musste allerdings auf die Formatierung und das Aussehen keine Rücksicht genommen werden.
-Das Formatieren wird vom R102 übernommen.
-Da der Bericht \enquote{Geschäftsstatistik} noch nicht spezifiziert ist, wurde diesem Bericht lediglich die bekannten Werte übergeben und auch hier wurde nur eine sehr grobe Formatierung durchgeführt.
-
-Um die Berichte zu erstellen wurde mit dem Werkzeug iReport sogenannte JasperReports erzeugt.
-Diese Berichte können aus Java heraus dynamisch generiert werden, indem ihnen Parameter und Listen übergeben werden.
-Bei den Parametern handelt es sich um normale Java-Objekte, die im Bericht weiterverarbeitet und angezeigt werden können.
+Die drei Berichte \enquote{Buchungsbeleg}, \enquote{Rechnungsanlage} und \enquote{Geschäftsstatistik} wurden nach den Vorgaben aus \autoref{subsec:berichte} mit dem Werkzeug iReport erstellt, welches daraus sogenannte JasperReports erzeugte.
+Mittels JasperReports können aus Java heraus Berichte, also PDF-Dateien, dynamisch generiert werden, indem ihnen Parameter und Listen übergeben werden.
+Bei den Parametern handelt es sich um normale Java-Objekte, die im JasperReport weiterverarbeitet und angezeigt werden können.
 Beim Erstellen des Berichts wird über die mitgegebenen Listen iteriert und deren Elemente können ebenfalls weiterverarbeitet werden.
 So können sie z.\,B. in einer Tabelle dargestellt werden oder aufsummiert werden.
 
 Durch die eher eingeschränkte Funktionalität von iReport konnten die Buchungen nicht als eine Liste übergeben werden.
-Somit mussten die Daten in \ac{WuNDa} aufbereitet werden und als Listen und Parameter übergeben werden.
+Somit mussten die Daten in \ac{WuNDa} aufbereitet werden und als Parameter übergeben werden.
 
 \subsection{Buchungen-Knoten im Katalog}
 Um die Navigation innerhalb des Buchungsthemas zu gewährleisten wurde der Katalog um einen Buchungen-Knoten erweitert.
@@ -482,15 +490,23 @@ Somit konnte im \ac{ABF} direkt überprüft werden, ob die Query richtig angegeb
 	\label{fig:katalog}
 \end{figure}
 
+
 Der Unterknoten "`Administration"' enthält wiederum Unterknoten mit Objekten, die zur Verwaltung des Buchungsthemas benötigt werden.
 So kann mittels des Kontextmenüs der verschiedenen Unterknoten ausgewählt werden ob neue Objekte erstellt oder alte Objekte bearbeitet werden sollen.
 Das gleiche gilt für den Unterknoten "`Kundengruppe"', dieser steht nicht unterhalb der "`Administration"' da dieser vor allem benutzt wird um die Kunden- und Kundengruppenrenderer aufzurufen. Mit ihm können aber auch die Kundengruppen verwaltet werden.
 Ein besonderer Fall stellt der Unterknoten "`meine Buchungen"' dar, der für die Administratoren leer ist.
-An dieser Stelle sehen die externen Benutzer, den Kunden dem sie zugeordnet sind und können den entsprechenden Renderer öffnen. 
+An dieser Stelle können die Kunden ihren eigenen Renderer öffnen.
+Dies kann der \autoref{fig:kundenkatalog} entnommen werden, dort ist der Katalog eines Benutzer abgebildet, der für Testzwecke benutzt wird und die gleiche Berechtigungen wie ein \ac{ÖbVI} besitzt. Über den Knoten \enquote{Muster ÖbVI gesetzlich} kann er seinen eigenen Kundenrenderer öffnen, und zwar nur seinen eigenen.
+\begin{figure}[htb]
+  \centering
+    \incgraph{scale=0.7}{./rimg/gui-kundenkatalog.png}
+  \caption{Katalog eines Kunden} \label{fig:kundenkatalog} 
+\end{figure}
+ 
 
 \subsection{Anlegen der Berechtigungen}
 
-Die verschiedenen, benötigten Berechtigungen wurden mit Hilfe des \ac{ABF}s erstellt.
+Die verschiedenen benötigten Berechtigungen wurden mit Hilfe des \ac{ABF}s erstellt.
 In einem ersten Schritt wurde eine neue Benutzergruppe angelegt, danach wurden die Rechte der Benutzergruppen auf die Cids"=Klassen festgelegt und anschließend wurden noch Aktionsrechte angelegt. 
 
 \subsubsection{Neue Benutzergruppe}
@@ -499,14 +515,14 @@ Für diese Beamte wurde eine Benutzergruppe "`Billing Intern"' angelegt, die dan
 
 Für die Kunden gibt es keine eigene Benutzergruppe, sondern sie sind nach ihrer Art in verschiedene Benutzergruppen eingeteilt.
 Diese Benutzergruppen sind "`Unternehmen"', "`Behörde"', "`ÖbVI - gesetzlich"' und "`ÖbVI - kommunal"'.
-Diese haben im Nachhinein die Rechte erhalten, so dass sie ihren eigenen Kundenrenderer, wie im \autoref{subsubsec:ansicht_externe_benutzer} beschrieben, betrachten können.
+Diese haben die Rechte erhalten, so dass sie ihren eigenen Kundenrenderer, wie im \autoref{subsubsec:ansicht_externe_benutzer} beschrieben, betrachten können.
 
 \subsubsection{Rechte der Klassen}
 Sämtliche Cids"=Klassen mit dem Präfix "`Billing\_"' haben das Standardverhalten "`Secure"' erhalten. Damit wird sichergestellt, dass niemand auf diese Klassen Zugriff erhält, dem die Rechte nicht explizit zugewiesen wurden.
 In einem nächsten Schritt haben die Administratoren und die Benutzer der Benutzergruppe "`Billing Intern"' auf diesen Klassen Lese- und Schreibrechte erhalten.
 Anschließend haben die verschiedenen Benutzergruppen der Kunden ihre benötigten Rechte erhalten.
 Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:klassenrechte} entnommen werden.
-In dieser Tabelle sind die Administratoren und die Billing Intern Gruppe, der Vollständigkeit halber, ebenfalls aufgelistet.
+In dieser Tabelle sind die Administratoren und die Billing Intern Gruppe aus Gründen der Vollständigkeit ebenfalls aufgelistet.
 
 \begin{minipage}{\linewidth}
 \centering
@@ -580,14 +596,13 @@ Hierbei ist zu bemerken, dass die Rechte von den Kunden für die Cids"=Klasse "`
 
 \subsubsection{Einschränkungen bezüglich der Rechnungsanlage und der Buchungen-Suche}
 
-Nach dem Setzen der Rechte haben die externe Benutzer zu viele Berechtigungen.
-Nämlich das Erstellen der \enquote{Rechnungsanlage} und das Öffnen der Buchungen-Suche.
-Die zusätzlich benötigten Einschränkungen werden mit Hilfe der folgenden zwei Aktionsrechten realisiert:
+Nach dem Setzen der Rechte haben die externen Benutzer noch die Möglichkeit die \enquote{Rechnungsanlage} zu erstellen und die Buchungen-Suche zu öffnen.
+Aus diesem Grund werden zusätzliche Einschränkungen benötigt, diese werden mit Hilfe der folgenden zwei Aktionsrechten realisiert:
 \begin{itemize}
 \item custom.billing.reports
 \item custom.billing.search
 \end{itemize}
-Diesen Aktionsrechten wurden die Benutzergruppen "`Administratoren"' und "`Billing Intern"' als Attribute hinzugefügt.
+Diesen Aktionsrechten wurden die Benutzergruppen "`Administratoren"' und "`Billing Intern"' als Besitzer hinzugefügt.
 
 Die Einschränkungen bezüglich der \enquote{Rechnungsanlage} kann wie folgt realisiert werden.
 Im laufenden Programm wird im Kundenrenderer abgefragt, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes "`custom.billing.reports"' ist.
@@ -595,7 +610,7 @@ Je nach Resultat dieser Abfrage können somit die benötigten GUI-Elemente an- o
 
 Für die Anzeige der Suche wurde eine Cids-Funktionalität verwendet, die das Interface \inline{Action\-Tag\-Protected} liefert.
 Um diese Funktionalität umzusetzen muss die Java"=Klasse \inline{Billing\-Window\-Search} dieses Interface implementieren.
-Dadurch muss in \inline{Billing\-Window\-Search} die Methode \inline{check\-Action\-Tag()} realisiert sein, die ein \inline{boolean} zurückgibt.
+Dadurch muss in \inline{Billing\-Window\-Search} die Methode \inline{check\-Action\-Tag()} realisiert sein, die ein Boolean zurückgibt.
 Somit fragt diese Methode ab, ob der aktuell angemeldete Benutzer das Aktionsrecht "`custom.""billing.""search"' besitzt, um dieses Ergebnis daraufhin zurück zu gegeben.
 Cids-intern wird diese Methode aufgerufen und die Suche wird entsprechend den Berechtigungen im Such-Menü angezeigt oder nicht. 
 
@@ -604,11 +619,11 @@ Die letzte Einschränkung die umgesetzt werden musste war, dass ein externer Ben
 
 In einem ersten Schritt wurde für jeden Kunden ein eigenes Aktionsrecht angelegt.
 Der Namensaufbau eines solchen Aktionsrechtes ist: \inline{custom.\-billing.\-tree.\-<interner_\-Name_\-des_\-Kunden>}, wobei \inline{<interner_Name_des_Kunden>} durch den tatsächlichen internen Namen eines Kunden ersetzt wird.
-Die Attribute dieses Aktionsrecht sind die Benutzer die zu einem Kunden gehören. 
+Die Besitzer dieses Aktionsrechts sind die Benutzer die zu einem Kunden gehören. 
 Wobei ein Benutzer für jede Benutzergruppe, in der er sich befindet, eingetragen werden muss.
 Um dies zu verdeutlichen wird ein konkretes Beispiel angeführt: der Kunde \ac{ÖbVI} Olivier hat den internen Namen "`olivier"'.
 Weiterhin hat er einen Login-Name "`oebvi\_olivier"' der sich in den Benutzergruppen "`ÖbVI - gesetzlich"' und "`ÖbVI - kommunal"' befindet.
-Sein Aktionsrecht muss demnach folgenden Aufbau haben, wobei die Unterelemente dessen Attribute darstellen (Login-Name -- Benutzergruppe):
+Sein Aktionsrecht muss demnach folgenden Aufbau haben, wobei die Unterelemente dessen Besitzer darstellen (Login-Name -- Benutzergruppe):
 \begin{itemize}
 \item custom.billing.tree.olivier
 \begin{itemize}
@@ -622,14 +637,10 @@ Diese Query beinhaltet in der Regel Parameter, die zur Erstellung eines Unterkno
 Zusätzlich zu den üblichen Parameter wurde hier der Parameter "`additionaltree""permissiontag"' hinzugefügt.
 Dessen Wert besteht aus dem String "`custom.""billing.""tree."' konkateniert mit dem jeweiligen internen Namen des Kunden.
 Wichtig zu erwähnen ist, dass somit der Aktionsrechtsname und der Wert des Parameters für einen Kunden gleich ist. 
+Im letzten Schritt musste die Erstellung des Katalogs auf diese Gegebenheit umgestellt werden, so dass hier überprüft wird ob der angemeldete Benutzer ein Besitzer des Aktionsrechtes ist, oder nicht.
+Ist dies der Fall, so wird sein Kundenknoten im Katalog angezeigt.
 
-Im letzten Schritt musste die Java"=Klasse \inline{Virtual\-Tree} erweitert werden.
-Sie wertet für jeden zu erstellenden Kundenknoten der Parameter "`additionaltreepermissiontag"' aus und überprüft, ob der aktuell angemeldete Benutzer ein Besitzer des Aktionsrechtes mit dem gleichen Namen ist.
-Nur in dem Fall bei dem dies zutrifft wird der Knoten dem Katalog hinzugefügt.
-Aus diesem Grund muss der oben genannte Aufbau des Aktionsrechtsnamens eingehalten werden, da sonst die Überprüfung im  \inline{Virtual\-Tree} immer fehlschlägt und der Kundenknoten nicht angezeigt wird.
-Weiterhin ist somit sichergestellt, dass ein Kundenknoten eines anderen Kunden nicht angezeigt wird, weil der aktuell angemeldete Benutzer nicht Besitzer dessen Aktionsrechtes ist.
-
-Auf diese Weise sieht ein Kunde jeweils nur seinen eigenen Knoten und kann hierüber nur seinen eigenen Kundenrenderer öffnen. 
+Auf diese Weise ist sichergestellt, dass ein Kunde jeweils nur seinen eigenen Knoten sieht und hierüber nur seinen eigenen Kundenrenderer öffnen kann. 
 
 %\begin{itemize}
 %	\item Realisiert wurde
@@ -641,14 +652,14 @@ Auf diese Weise sieht ein Kunde jeweils nur seinen eigenen Knoten und kann hier�
 %\end{itemize}
 
 
-\section{Vollständige Umsetzung der Spezifikation}
-Um die vollständige Umsetzung der, in \autoref{ch:spezi} beschriebenen, Funktionalitäten sicherzustellen, wurden die einzelnen Funktionalitäten in GitHub-Issues beschrieben.
-Bei einem solchen Issue handelt es sich um eine Funktionalität, die, die Internet-Plattform GitHub neben dem Code-Upload anbietet, dabei kann ein Anliegen beschrieben und von mehreren Benutzern kommentiert werden \autocite[vgl.][]{github-issue}.
-Der übliche Vorgang für die Entwicklung einer Funktionalität war üblicherweise, dass in einem ersten Schritt die Beschreibung der Funktionalität dem Issue entnommen wurde, diese Funktionalität wurde dann umgesetzt und als Testversion ausgeliefert.
-Anschließend konnte ein Beamter des Katasteramtes die Funktionalität testen und das entsprechende Issue kommentieren, so dass die Funktionalität verbessert werden konnte, oder das Issue schließen.
-Durch die Einteilung in Issues wurde somit sichergestellt, dass sämtliche Funktionalitäten getestet und auch vollständig umgesetzt wurden, da zu einem Zeitpunkt sämtliche Issues, bezüglich des Abrechnungsmechanismus, als abgeschlossen eingestuft wurden.
+%\section{Vollständige Umsetzung der Spezifikation}
+%Um die vollständige Umsetzung der, in \autoref{ch:spezi} beschriebenen, Funktionalitäten sicherzustellen, wurden die einzelnen Funktionalitäten in GitHub-Issues beschrieben.
+%Bei einem solchen Issue handelt es sich um eine Funktionalität, die, die Internet-Plattform GitHub neben dem Code-Upload anbietet, dabei kann ein Anliegen beschrieben und von mehreren Benutzern kommentiert werden \autocite[vgl.][]{github-issue}.
+%Der übliche Vorgang für die Entwicklung einer Funktionalität war üblicherweise, dass in einem ersten Schritt die Beschreibung der Funktionalität dem Issue entnommen wurde, diese Funktionalität wurde dann umgesetzt und als Testversion ausgeliefert.
+%Anschließend konnte ein Beamter des Katasteramtes die Funktionalität testen und das entsprechende Issue kommentieren, so dass die Funktionalität verbessert werden konnte, oder das Issue schließen.
+%Durch die Einteilung in Issues wurde somit sichergestellt, dass sämtliche Funktionalitäten getestet und auch vollständig umgesetzt wurden, da zu einem Zeitpunkt sämtliche Issues, bezüglich des Abrechnungsmechanismus, als abgeschlossen eingestuft wurden.
 
 %\begin{itemize}
 %	\item Durch diese Realisierung ist es möglich das zu tun was in den Anforderungen beschrieben wurde
 %	\item D.h. durch die Rationalisierung kann durchgeführt werden
-%\end{itemize}
+%\end{itemize} 
