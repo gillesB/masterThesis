@@ -518,10 +518,10 @@ Diese Benutzergruppen sind "`Unternehmen"', "`Behörde"', "`ÖbVI - gesetzlich"'
 Diese haben die Rechte erhalten, so dass sie ihren eigenen Kundenrenderer, wie im \autoref{subsubsec:ansicht_externe_benutzer} beschrieben, betrachten können.
 
 \subsubsection{Rechte der Klassen}
-Sämtliche Cids"=Klassen mit dem Präfix "`Billing\_"' haben das Standardverhalten "`Secure"' erhalten. Damit wird sichergestellt, dass niemand auf diese Klassen Zugriff erhält, dem die Rechte nicht explizit zugewiesen wurden.
+Sämtliche Cids"=Klassen mit dem Präfix "`Billing\_"' haben die Policy "`Secure"' erhalten. Damit wird sichergestellt, dass niemand auf diese Klassen Zugriff erhält, dem die Rechte nicht explizit zugewiesen wurden.
 In einem nächsten Schritt haben die Administratoren und die Benutzer der Benutzergruppe "`Billing Intern"' auf diesen Klassen Lese- und Schreibrechte erhalten.
 Anschließend haben die verschiedenen Benutzergruppen der Kunden ihre benötigten Rechte erhalten.
-Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:klassenrechte} entnommen werden.
+Eine Übersicht zu den vergebenen Rechten kann der \autoref{tab:klassenrechte} entnommen werden.
 In dieser Tabelle sind die Administratoren und die Billing Intern Gruppe aus Gründen der Vollständigkeit ebenfalls aufgelistet.
 
 \begin{minipage}{\linewidth}
@@ -563,11 +563,11 @@ In dieser Tabelle sind die Administratoren und die Billing Intern Gruppe aus Gr�
  
 \subsubsection{Rechte des Kataloges}
 Damit die angelegten Katalog-Knoten nur von den gewünschten Benutzergruppen ausgewählt und benutzt werden können, mussten für die Knoten ebenfalls Rechte gesetzt werden.
-Eine Übersicht zu den vergebenen Rechten kann der \mytab{tab:katalogrechte} entnommen werden.
-In dieser Tabelle wird das gesetzte Standardverhalten der Knoten ebenfalls aufgelistet.
-Das Standardverhalten "`Secure"' funktioniert auf die gleiche Art und Weise wie dies auch bei den Cids"=Klassen der Fall ist.
+Eine Übersicht zu den vergebenen Rechten kann der \autoref{tab:katalogrechte} entnommen werden.
+In dieser Tabelle wird die gesetzte Policy der Knoten ebenfalls aufgelistet.
+Die Policy "`Secure"' funktioniert auf die gleiche Art und Weise wie dies auch bei den Cids"=Klassen der Fall ist.
 Einem Knoten kann zusätzlich eine Cids"=Klasse zugewiesen werden, auf die er sich bezieht.
-Daraufhin kann als Standardverhalten festgelegt werden, dass der Knoten die Rechte seiner Klasse übernimmt.
+Daraufhin kann als Policy festgelegt werden, dass der Knoten die Rechte seiner Klasse übernimmt.
 In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu verdeutlichen dass diese übernommen wurden.
 
 \begin{minipage}{\linewidth}
@@ -576,15 +576,15 @@ In diesen Fällen wurde in der Tabelle Klammern um die Rechte gesetzt, um zu ver
 \begin{tabulary}{\textwidth}{|l|L|C|c|}
  \hline
  	 \rowcolor{gray} 
-  & \head{Standardverhalten} & \head{Administratoren und Billing Intern} & \head{Kunden} \tabularnewline
+  & \head{Policy} & \head{Administratoren und Billing Intern} & \head{Kunden} \tabularnewline
  \hline 
  Buchungen & Secure & r & r \\ 
  \hline 
  Administration & Secure &r & - \\ 
  \hline 
- Kundengruppe & Verhalten von "`Kundengruppen"' & (r/w) & (-) \\ 
+ Kundengruppe & Policy von "`Kundengruppen"' & (r/w) & (-) \\ 
  \hline 
- meine Buchungen & Verhalten von "`Kunde"' & (r/w) & (r) \\ 
+ meine Buchungen & Policy von "`Kunde"' & (r/w) & (r) \\ 
  \hline 
  \end{tabulary}
  \par

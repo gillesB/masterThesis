@@ -162,8 +162,6 @@ Ein weiterer Anwendungszweck, wäre das Anzeigen dieser Entfernung in einem Beri
 \subsubsection{Anzeigen des Baujahres}
 Ein weiterer Kartenlayer der im Gespräch aufkam war, das Anzeigen des Baujahres in Zehnjahres-Gruppen.
 Dadurch ist sofort ersichtlich wann eine Gegend entstanden ist und wann die letzten Investitionen in ihr getätigt wurden.
-\todo{evt. noch erweitern}
-
 
 \section{Beleuchtung einiger Features}
 
@@ -261,20 +259,36 @@ Diese präzisere Daten könnten dann auch für andere Berechnungen herangezogen 
 Das Freigeben der Dachhöhen für die Projektentwickler und ihre Dienstleister sollte keine Probleme darstellen, allerdings müsste in einem ersten Schritt überprüft werden, wie die Daten zurückgeführt werden könnten.
 
 \chapter{Fazit und Ausblick}
+Der Abschluss dieser Arbeit bildet ein Fazit sowie ein Ausblick auf zukünftige Funktionalitäten der Abrechnungskomponente.
 
 \section{Fazit}
+Das Hauptthema dieser Arbeit war die anstehende Rationalisierung  im Ressort 102.
+In einem ersten Teil wurde die Automatisierung der Abrechnungskomponente in \ac{WuNDa} erläutert.
+Aus diesem Grund wurden die fachlichen Aspekte der Abrechnungskomponente beleuchtet und deren derzeitigen Stand in \ac{WuNDa} beschrieben.
+Dabei ergab sich, dass durch diese Automatisierung tatsächlich Beamten des Ressorts 102 zeitlich entlastet werden, was der Rationalisierung entgegenkommt.
+Anschließend wurden die neuen Anforderungen an die Abrechnungskomponente spezifiziert.
+Die wichtigsten Anforderungen, hierbei sind das Anzeigen der Buchungen der einzelnen Kunden, das Erstellen des Berichtes \enquote{Rechnungsanlage} sowie die Suche nach einzelnen Buchungen.
+Anschließend wurde beschrieben wie diese Anforderungen umgesetzt wurden.
+Insbesondere sind hier der Kundenrenderer, zum Anzeigen der Buchungen eines Kundens und zum Erstellen des Berichte sowie der Buchungen-Suchdialog, zum Suchen der Buchungen zu erwähnen, mit denen die Hauptanforderungen abgedeckt sind.
+
+In dem zweiten Teil der Arbeit wurde die Kundengruppe der Projektentwickler vorgestellt und es wurden potentielle Funktionalitäten für \ac{WuNDa} vorgestellt, die deren Arbeitsalltag erleichtern könnten.
+Dabei wurde detaillierter erläutert wie ein berechtigtes Interesse in \ac{WuNDa} abgefragt werden könnte, und wie dort die Dachhöhen aus Wuppertal angezeigt und rückgeführt werden könnten.
+
+Die vorliegende Arbeit kann als Erfolg betrachtet werden, da die Anforderungen an die Abrechnungskomponente gänzlich umgesetzt wurden.
+Dies wird durch die positiven Resonanzen vom Ressort 102 bestätigt, welches die Abrechnungskomponente auch für den internen Gebrauch einsetzen will, wie dies dem nächsten Abschnitt zu entnehmen ist.
+
 %sagen dass die Spezifikation ganz umgesetzt wurde
 
 \section{Ausblick}
 Neben den potentiellen Funktionalitäten für die externen Benutzer, existiert bereits eine konkrete Planung die Abrechnungskomponente für interne Zwecke zu benutzen.
-Die Beamten des Geodatenzentrum müssen im Augenblick bei einem Beziehen eines Produktes für einen Kunden am Schalter zwei Systeme bedienen.
+Die Beamten des Geodatenzentrum müssen im Augenblick bei dem Beziehen eines Produktes für einen Kunden am Schalter zwei Systeme bedienen.
 In einem ersten Schritt beziehen sie ein oder mehrere Produkte für den Kunden in \ac{WuNDa}.
-In einem zweiten Schritt wählen sie die gleichen Produkte ein weiteres Mal in der Geschäftsbuchlösung GEORG der Firma GEOSOFT, die ebenfalls vom R102 benutzt wird, aus, dieses erstellt dann die Quittung für den Kunden.
-Der zweite Schritt ist im Grunde unnötig und könnte automatisiert werden.
+In einem zweiten Schritt wählen sie die gleichen Produkte ein weiteres Mal in der Geschäftsbuchlösung GEORG der Firma GEOSOFT, die ebenfalls vom R102 benutzt wird, aus, diese erstellt dann die Quittung für den Kunden.
+Dieses erneute Auswählen ist im Grunde unnötig und könnte automatisiert werden.
 Dies ist prinzipiell möglich da die Preise der Produkte, aufgrund der Abrechnungskomponente auch in \ac{WuNDa} verwaltet werden und dem System dadurch bekannt sind.
-Somit ist geplant die Abrechnungskomponente auch für diese Beamten einzuführen und wie folgt umgebaut werden.
-Nachdem bestätigen des Download-Dialogs wird der Preis und die ausgewählten Produkte, z.\,B. in Form des \enquote{Buchungbelegs}, zusätzlich auch an GEORG übermittelt, welcher dann die Rechnung erstellt.
-Wie diese Kommunikation zwischen den beiden Systemen genau von Statten geht, muss noch definiert werden, allerdings würde eine solche automatische Kommunikation weitere Zeitersparnisse bringen, da dieser Fall häufig eintritt und zusätzliche Arbeit beim Erstellen der Rechnung wegfällt.
+Somit ist geplant die Abrechnungskomponente auch für diese Beamten einzuführen, welche jedoch wie folgt umgebaut werden muss.
+Nachdem Bestätigen des Download-Dialogs wird der Preis und die ausgewählten Produkte, z.\,B. in Form des \enquote{Buchungsbelegs}, zusätzlich auch an GEORG übermittelt, welcher aus diesen Informationen die Rechnung erstellt und ins Geschäftsbuch einträgt.
+Wie diese Kommunikation zwischen den beiden Systemen genau von Statten geht, muss noch definiert werden, allerdings würde eine solche automatische Kommunikation weitere Zeitersparnisse bringen, da dieser Fall häufig eintritt und somit zusätzliche Arbeit beim Erstellen der Rechnung wegfällt.
 
 
 
