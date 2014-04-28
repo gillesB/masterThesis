@@ -20,7 +20,7 @@ Anschließend können sie wieder in die Datenbank zurückgeführt werden.
 \item[Editor] Eine Cids-Klasse besitzt außerdem einen Editor, dieser ermöglicht es dem Benutzer eine CidsBean zu verändern.
 \end{description}
 
-Um die Spezifikation umzusetzen muss mit solchen Cids"=Klassen gearbeitet werden, dabei sind die drei neu eingeführten Klassen Kunden, Kunden-Logins und Kundenguppe sowie die bereits bestehende Klasse Buchungen am relevantesten für das automatische Erstellen der Abrechnungen und werden im \autoref{sec:spezifikation} stärker beleuchtet. 
+Um die Spezifikation umzusetzen muss mit solchen Cids"=Klassen gearbeitet werden, dabei sind die drei neu eingeführten Klassen Kunden, Kunden-Logins und Kundengruppe sowie die bereits bestehende Klasse Buchungen am relevantesten für das automatische Erstellen der Abrechnungen und werden im \autoref{sec:spezifikation} stärker beleuchtet. 
 Die restlichen neuen Klassen werden gesondert im \autoref{subsec:neue_klassen} aufgeführt und beschrieben.
 
 %Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
@@ -45,7 +45,7 @@ So befinden sich unter den Kategorien die neuen Cids"=Klassen Kunde und Kundengr
 	\end{itemize}
 	\item Buchungen
 	\begin{itemize}
-		\item Buchungrenderer und Editor
+		\item Buchungsrenderer und Editor
 		\item Stornieren und Ändern einzelner Buchungen
 		\item Suchdialog zu den Buchungen
 	\end{itemize}
@@ -83,7 +83,7 @@ Für die Cids"=Klasse Kunde sollen folgende Felder bereitstehen:
 \item[Vermessungsstellennummer] Dieses Feld enthält die Zulassungsnummer einer Vermessungsstelle. Eine Vermessungsstelle ist eine Behörde oder Person, die berechtigt ist Liegenschaftsvermessungen durchzuführen und Abmarkungen vorzunehmen. Zu den Vermessungsstellen zählen z.\,B. das Katasteramt oder ÖbVI \autocite[vgl.][]{recklinghausen-vermessungsstelle}.
 \item[Vertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden die Benutzung von \ac{WuNDa} erlaubt.
 \item[Vertragsende] Das Auslaufdatum des Vertrages.
-\item[Abrechnungsturnus] Der zeitliche Abstand wann ein Kunde seine Abrechnung erhält. (z.\,B.. quartalsweise, jährlich)
+\item[Abrechnungsturnus] Der zeitliche Abstand wann ein Kunde seine Abrechnung erhält. (z.\,B. quartalsweise, jährlich)
 \item[Direktkontakt] Eine E-Mail-Adresse mit der, der Kunde sofort erreicht werden kann. Dies kann zum Beispiel die Adresse des Geschäftsleiters sein.
 \item[Weiterverkaufsvertragskennzeichen] Das Kennzeichen des Vertrages der dem Kunden das Weiterverkaufen von bezogenen Produkten erlaubt.
 \item[Weiterverkaufsvertragsende] Das Auslaufdatum des Weiterverkaufsvertrags.
@@ -167,7 +167,7 @@ Kurzum eine Kundengruppe soll eine Gruppe von Kunden sein, die manuell erstellt 
 \end{itemize}
  
 \subsubsection{Kundengruppenrenderer}
-Der Kundengruppenrenderer soll die Buchungen eines jeden Kundens einer Kundengruppe aggregieren und tabellarisch darstellen.
+Der Kundengruppenrenderer soll die Buchungen eines jeden Kunden einer Kundengruppe aggregieren und tabellarisch darstellen.
 Seine Funktionsweise ist ähnlich dem des Kundenrenderers und besitzt deshalb auch einen ähnlichen Aufbau.
 Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} können erstellt werden. Zusätzlich steht hier auch der Bericht \enquote{Geschäftsstatistik} zur Auswahl.
 
@@ -223,7 +223,7 @@ Der prinzipielle Aufbau des Suchdialogs kann dem Mock-up in \autoref{fig:mockup-
 \begin{figure}[htbp]
 	\centering
 	\incgraph{width=0.95\textwidth}{./rimg/gui-buchung_suchdialog.png}
-	\caption{Mockup des Buchungssuchdialog}
+	\caption{Mock-up des Buchungssuchdialog}
 	\label{fig:mockup-buchungssuchdialog}
 \end{figure}
 
@@ -234,7 +234,7 @@ Es soll im Buchungseditor nur möglich sein die Geschäftsbuchnummer und die Pro
 Außerdem soll eine Buchung storniert werden können, weitere Informationen hierzu befinden sich in den zwei folgenden Abschnitten.
 
 \subsubsection{Änderung von einzelnen Buchungen} \label{subsubsec:aendern_buchung}
-Im Buchungseditor dürfen, wie bereits erwähnt, nicht alle Werte einer Buchung verändert werden, sonders nur die Werte \enquote{Geschäftsbuchnummer} und \enquote{Projektbezeichnung}. Da die beiden letztgenannten Werte manuell vom externen Benutzer eingegeben werden, kann es zu Fehleingaben kommen, die die Beamten des Katasteramts verbessern können.
+Im Buchungseditor dürfen, wie bereits erwähnt, nicht alle Werte einer Buchung verändert werden, sondern nur die Werte \enquote{Geschäftsbuchnummer} und \enquote{Projektbezeichnung}. Da die beiden letztgenannten Werte manuell vom externen Benutzer eingegeben werden, kann es zu Fehleingaben kommen, die die Beamten des Katasteramtes verbessern können.
 
 Für jede Buchung wird die jeweils letzte Änderung protokolliert und somit wird auf eine Historie von den Änderungen bewusst verzichtet. Wird eine Buchung also zwei oder mehrmals verändert, wird das Protokoll der vorherigen Änderung überschrieben.
 In dieser Protokollierung sollen folgende Werte erfasst werden:

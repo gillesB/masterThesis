@@ -71,7 +71,7 @@ Mit Hilfe von den Queries auf den verschiedenen Ebenen kann der Baum dynamisch g
 Bei der Suche handelt es sich um eine Schnittstelle zum Kernel, die das Suchen von Objekten ermöglicht.
 Diese Suche kann an verschiedene Anwendungsfälle angepasst werden.
 Eine Suche kann aus der Eingabe von Suchkriterien in einer Maske bestehen, woraufhin nach passenden Objekten gesucht wird.
-Weiterhin kann die Karte (cismap) auch als Suckriterium miteinbezogen werden, indem der Benutzer dort einen Bereich festlegt, woraufhin nach sämtlichen Objekten, einer bestimmten Cids"=Klasse, gesucht wird, die sich in diesem Bereich befinden.
+Weiterhin kann die Karte (cismap) auch als Suchkriterium miteinbezogen werden, indem der Benutzer dort einen Bereich festlegt, woraufhin nach sämtlichen Objekten, einer bestimmten Cids"=Klasse, gesucht wird, die sich in diesem Bereich befinden.
 
 \subsubsection{Renderer und Editor}
 Die Renderer und Editoren wurden bereits in \autoref{sec:gewuenschte-erweiterungen} beschrieben und werden deshalb hier nicht weiter erläutert.
@@ -109,8 +109,8 @@ Wiki & \checkmark & \checkmark \\
 \end{tabular} 
 \end{minipage}
 
-Um zu vermeiden, dass für jedes Objekt eine Policy explizit gesetzt werden muss, wurde die Fallback Strategie eingeführt.
-Diese Strategie ermöglicht es z.\,B. eine Policy als Standard-Server-Policy festzulegen, woraufhin jede Cids"=Klasse auf diese zurückgreift.
+Um zu vermeiden, dass für jedes Objekt eine Policy explizit gesetzt werden muss, wurde die Fallback"=Strategie eingeführt.
+Diese Strategie ermöglicht es z.\,B. eine Policy als Standard"=Server"=Policy festzulegen, woraufhin jede Cids"=Klasse auf diese zurückgreift.
 Wird für eine Klasse eine andere Policy benötigt, so kann diese explizit gesetzt werden.
 
 Für jedes Objekt können diese Rechte für verschiedene Benutzergruppen erweitert oder eingeschränkt werden.
@@ -507,7 +507,7 @@ So kann mittels des Kontextmenüs der verschiedenen Unterknoten ausgewählt werd
 Das gleiche gilt für den Unterknoten "`Kundengruppe"', dieser steht nicht unterhalb der "`Administration"' da dieser vor allem benutzt wird um die Kunden- und Kundengruppenrenderer aufzurufen. Mit ihm können aber auch die Kundengruppen verwaltet werden.
 Ein besonderer Fall stellt der Unterknoten "`meine Buchungen"' dar, der für die Administratoren leer ist.
 An dieser Stelle können die Kunden ihren eigenen Renderer öffnen.
-Dies kann der \autoref{fig:kundenkatalog} entnommen werden, dort ist der Katalog eines Benutzer abgebildet, der für Testzwecke benutzt wird und die gleiche Berechtigungen wie ein \ac{ÖbVI} besitzt. Über den Knoten \enquote{Muster ÖbVI gesetzlich} kann er seinen eigenen Kundenrenderer öffnen, und zwar nur seinen eigenen.
+Dies kann der \autoref{fig:kundenkatalog} entnommen werden, dort ist der Katalog eines Benutzers abgebildet, der für Testzwecke benutzt wird und die gleiche Berechtigungen wie ein \ac{ÖbVI} besitzt. Über den Knoten \enquote{Muster ÖbVI gesetzlich} kann er seinen eigenen Kundenrenderer öffnen, und zwar nur seinen eigenen.
 \begin{figure}[htb]
   \centering
     \incgraph{scale=0.7}{./rimg/gui-kundenkatalog.png}
