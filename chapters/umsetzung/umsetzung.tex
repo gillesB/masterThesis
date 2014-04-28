@@ -169,8 +169,10 @@ Nach dem Analysieren der Ausgangslage wurde in einem weiteren Schritt die \inlin
 Bis zu dem Zeitpunkt war die Gebühr einer Buchung in dem einzelnen Feld "`gebuehr"' gespeichert.
 Durch das Einführen der MwSt. reicht dies allerdings nicht mehr aus, um die benötigten Funktionalitäten darzustellen.
 Aus diesem Grund wurde das Feld  "`gebuehr"' durch die drei Felder "`netto\_summe"', "`brutto\_summe"' und "`mwst\_satz"' ersetzt.
-Weiterhin muss eine Buchung storniert werden können, deshalb wurden die folgenden zusätzlichen Felder eingeführt:
+Weiterhin muss eine Buchung storniert werden können, deshalb wurden die Felder, die der \autoref{tab:storno} zu entnehmen sind, eingeführt:
 
+\begin{minipage}{\linewidth}
+\captionof{table}[Storno-Felder der BILLING-Klasse]{Storno-Felder der \inline{BILLING}"=Klasse} \label{tab:storno} 
 \begin{tabulary}{\textwidth}{|L|L|}
 \hline 
 \rowcolor{gray} 
@@ -184,10 +186,14 @@ Weiterhin muss eine Buchung storniert werden können, deshalb wurden die folgend
 \hline
 \mbox{storno\_datum} & Das Datum, wann die Buchung storniert wurde. \\ 
 \hline
-\end{tabulary} 
+\end{tabulary}
+\end{minipage}
 
-Des Weiteren muss eine Änderung protokolliert werden können, für diese Funktionalität wurden die folgenden Felder eingeführt:
+Des Weiteren muss eine Änderung protokolliert werden können, für diese Funktionalität wurden die Felder aus der \autoref{tab:aenderung} eingeführt.
 
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}[Änderungs-Felder der BILLING-Klasse]{Änderungs-Felder der \inline{BILLING}"=Klasse} \label{tab:aenderung} 
 \begin{tabulary}{\textwidth}{|L|L|}
 \hline 
 \rowcolor{gray} 
@@ -203,10 +209,14 @@ Des Weiteren muss eine Änderung protokolliert werden können, für diese Funkti
 \hline
 \mbox{aenderung\_neuer\_wert \hspace{8pt}} & Der Wert der nach der Änderung in der Buchung steht. \\ 
 \hline
-\end{tabulary} 
+\end{tabulary}
+\end{minipage}
 
-Außerdem wurde das Feld "`abgerechnet"' hinzugefügt:
+Außerdem wurde das Feld "`abgerechnet"', welches der \autoref{tab:abgerechnet} zu entnehmen ist.
 
+\begin{minipage}{\linewidth}
+\centering
+\captionof{table}[Abrechnungs-Feld der BILLING-Klasse]{Abrechnungs-Feld der \inline{BILLING}"=Klasse} \label{tab:abgerechnet} 
 \begin{tabulary}{\textwidth}{|L|L|}
 \hline 
 \rowcolor{gray} 
@@ -214,7 +224,8 @@ Außerdem wurde das Feld "`abgerechnet"' hinzugefügt:
 \hline 
 \mbox{abgerechnet \hspace{8pt}} & Ein Boolean, der angibt, ob die Buchung bereits abgerechnet wurde, oder nicht. \\ 
 \hline
-\end{tabulary} 
+\end{tabulary}
+\end{minipage}
 
 Des Weiteren wurden die in \autoref{ch:spezi} aufgelisteten Cids"=Klassen in das Datenmodell übernommen. Ihre Felder wurden dort ebenfalls bereits aufgelistet und erläutert, aus diesem Grund wird dies hier nicht wiederholt.
 
