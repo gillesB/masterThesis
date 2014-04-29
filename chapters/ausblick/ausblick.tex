@@ -194,7 +194,7 @@ Die fertiggestellte Funktionalität wird es den Beamten des Katasteramtes ermög
 Leicht modifiziert bieten sich diese Funktionalitäten demnach auch für die Projektentwickler an, allerdings wird hierzu zusätzlich eine Abfrage für das berechtigte Interesse benötigt.
 Der Ablauf des Beziehens einer Baulast für die externen Benutzer könnte wie folgt aussehen:
 \subsubsection{Suche nach Baulasten}
-In einem ersten Schritt muss der Benutzer die Grundstücke angeben, von denen er die Baulasten haben will.
+In einem ersten Schritt muss der Benutzer die Grundstücke angeben, von denen er die Baulasten benötigt.
 Dies kann über die Baulast-Suche erfolgen, diese müsste allerdings soweit eingeschränkt sein, dass sie nur die Angaben der Grundstücke entgegen nimmt, wie es der Abbildung \ref{fig:baulast-suche} zu entnehmen ist.
 Die dort angegeben Flurstückskennzeichen können z.\,B. über die Flurstücks-Suche ermittelt werden.
 Die Suche kann daraufhin über den Knopf \enquote{Suchen} gestartet werden.
@@ -214,12 +214,12 @@ Die Abfrage des berechtigten Interesses kann prinzipiell mittels drei Angaben er
 \item diese müssen in einem Kommentarfeld näher spezifiziert werden
 \item und in einigen Fällen müssen Dokumente hinterlegt werden.
 \end{itemize}
-Demnach könnte die Abfrage des berechtigten Interesses ähnlich realisiert werden, wie dies der Fall bei der Abrechnungskomponente realisiert ist, also mit einem vorgeschalteten Dialog.
-Demnach wird ein Dialog benötigt, der anzeigt für welche Flurstücke das berechtigte Interesse gelten soll, eine Auswahl für den Grund, ein Kommentarfeld sowie eine Möglichkeit um ein Dokument hochzuladen.
+Die Abfrage des berechtigten Interesses könnte ähnlich wie die Abrechnungskomponente mit einem vorgeschalteten Dialog realisiert werden.
+Demnach wird ein Dialog benötigt, der anzeigt für welche Flurstücke das berechtigte Interesse gelten soll, eine Auswahlmöglichkeit für den Grund, ein Kommentarfeld sowie eine Möglichkeit um ein oder mehrere Dokumente hochzuladen.
 Je nach Benutzergruppe kann sich dabei die Auswahl der Gründe ändern und die anschließend auszufüllende Angaben könnten vom Grund abhängig gemacht werden.
 Beim Bestätigen des Dialoges werden die angegebenen Daten protokolliert, so dass später nachvollzogen werden kann, welcher Benutzer für welche Grundstücke die Baulasten angefragt hat.
 
-Bei einer solchen automatischen Abfrage stellt sich die Frage, wie die getätigten Eingaben kontrolliert werden, um einen unberechtigten Zugang zu verhindern, hierzu folgen nun einige Vorschläge.
+Bei einer solchen automatischen Abfrage stellt sich die Frage, wie die getätigten Eingaben kontrolliert werden, um einen unberechtigten Zugang zu verhindern, hierzu folgen einige Vorschläge.
 Eine denkbare Kontrolle wäre das regelmäßige, stichprobenartige Prüfen der Interesse-Protokolle durch einen Beamten.
 Durch diese Maßnahme wird zwar ein Beamte an diese Aufgabe gebunden, da jedoch nicht sämtliche Interessen bearbeitet werden müssen, wird dennoch Zeit gespart.
 Diese Arbeit könnte von \ac{WuNDa} zusätzlich unterstützt werden, indem es versucht Unregelmäßigkeiten in den getätigten Eingaben zu finden.
@@ -227,32 +227,40 @@ So könnte z.\,B. überprüft werden ob ein Benutzer ungewöhnlich viele Anfrage
 Weiterhin könnte überprüft werden, ob nicht versucht wird möglichst viele Baulasten mit einer Anfrage zu erhalten.
 Zu diesem Zweck könnte überprüft werden, ob die ausgewählten Flurstücke örtlich zusammenhängen oder ob die Fläche der Flurstücke in einer Anfrage ungewöhnlich groß ist.
 In den Fällen, bei denen ein Dokument hochgeladen werden muss, besteht jeweils die Möglichkeit eine Plausibilitätsprüfung durchzuführen.
-So könnte überprüft werden, ob die Dateien nicht leer sind und ob es sich jeweils um eine PDF-Datei handelt.
+So könnte überprüft werden, ob die Dateien nicht leer sind und ob es sich um den erwarteten Dateityp, z.\,B. eine PDF-Datei, handelt.
 Weiterhin könnte über Checksummen geprüft werden, ob nicht immer die gleiche Datei hochgeladen wurde.
-Je nach angegeben Grund könnte auch überprüft werden, ob die Datei ein typisches Wort für das erwartete Dokument enthält.
+Je nach angegebenen Grund könnte auch überprüft werden, ob die Datei ein typisches Wort für das erwartete Dokument enthält.
 
 \subsubsection{Einsicht und Beziehen der Dokumente}
-Nachdem das berechtigte Interesse abgefragt und protokolliert wurde, kann dem externen Benutzer die gefundenen Baulasten für die angegebenen Grundstücke in \ac{WuNDa} angezeigt werden.
+Nachdem das berechtigte Interesse abgefragt und protokolliert wurde, können dem externen Benutzer die gefundenen Baulasten für die angegebenen Grundstücke in \ac{WuNDa} angezeigt werden.
 Da die Einsicht auch im Katasteramt kostenlos ist, müssen hier keinen weiteren Änderungen vorgenommen oder bestimmte Maßnahmen getroffen werden.
 
-Durch die Einsicht, also über die Renderer der Baulasten wird es dann möglich die entsprechenden kostenpflichtigen Dokumente über die Abrechnungskomponente herunterzuladen, was dem schriftlichen Auszug gleichkommt.
+Durch die Einsicht, also über die Renderer der Baulasten, wird es möglich sein die entsprechenden kostenpflichtigen Dokumente über die Abrechnungskomponente herunterzuladen, was dem schriftlichen Auszug gleichkommt.
+
+\subsubsection{Abwesenheit einer Baulast}
+Der einzige Fall der somit noch nicht abgedeckt wäre, ist das Beziehen der schriftlichen Bescheinigung, falls keine Baulast auf einem Grundstück vorliegt.
+Dieser Fall ist schwieriger in die bereits bestehenden Funktionalitäten einzubinden, da die Abwesenheit einer Baulast bislang nicht dargestellt wird.
+Die einfachste Möglichkeit dies umzusetzen wäre ein Dialog, der sich öffnet falls bei der Suche keine Baulasten gefunden wurden.
+Hierdurch würde dem Benutzer explizit mitgeteilt, dass für die gesuchten Grundstücke keine Baulasten vorhanden sind.
+Weiterhin könnte dieser Dialog eine Optionen anbieten, die es ermöglicht die Bescheinigung über die Abrechnungskomponente zu erstellen.
+Somit wären die zwei Fälle der Einsicht und der kostenpflichtigen schriftlichen Auskunft abgedeckt.
 
 \subsubsection{Zusammenfassung}
-Mit der Möglichkeit das berechtigte Interesse über \ac{WuNDa} abzufragen, wird es den Projektentwicklern und anderen externen Benutzern möglich eine kostenlose Einsicht in das Baulastenverzeichnis zu erhalten.
-Weiterhin können kostenpflichtige Dokumente zu den Baulasten über, den bereits an anderer Stelle verwendeten, Abrechnungsmechanismus heruntergeladen werden, so dass auch die schriftliche Auskunft ermöglicht wird.
-Der einzige Fall der somit noch nicht abgedeckt wäre, ist das Beziehen der schriftliche Bescheinigung, falls keine Baulast auf einem Grundstück vorliegt.
+Mit der Möglichkeit das berechtigte Interesse über \ac{WuNDa} abzufragen, wäre es den Projektentwicklern und anderen externen Benutzern möglich eine kostenlose Einsicht in das Baulastenverzeichnis zu erhalten.
+Weiterhin könnten kostenpflichtige Dokumente zu den Baulasten über den bereits an anderer Stelle verwendeten Abrechnungsmechanismus heruntergeladen werden, welches der schriftlichen Auskunft gleichkäme.
+Außerdem wurde eine Möglichkeit vorgeschlagen, wie bei der Abwesenheit einer Baulast auf einem Grundstück vorgegangen werden könnte.
 
-Weiterhin muss vor einer Realisierung abgewogen werden, ob der Datenschutz mit der vom Autor vorgeschlagenen Vorsichtsmaßnahme gewährleistet ist und ob dieser nicht gegebenenfalls noch ausgebaut werden muss.
+Allerdings muss vor einer Realisierung abgewogen werden, ob der Datenschutz mit der vom Autor vorgeschlagenen Vorsichtsmaßnahme gewährleistet ist und ob diese nicht gegebenenfalls noch ausgebaut werden muss.
 
 \subsection{Abfrage der Dachhöhen}
 \label{subsec:dachhoehen}
 Den Beamten des Katasteramtes ist es möglich die Höhenpunkte der Dachlandschaften von Wuppertal über \ac{WuNDa} zu beziehen.
-Diese, circa zehn Jahre alten, Daten wurde mittels eines fotogrametrischen\footnote{\enquote{Verfahren zum Herstellen von Messbildern, Grund- und Aufrissen aus fotografischen Bildern} \autocite{duden-foto}}
+Diese circa zehn Jahre alten Daten wurde mittels eines fotogrametrischen\footnote{\enquote{Verfahren zum Herstellen von Messbildern, Grund- und Aufrissen aus fotografischen Bildern} \autocite{duden-foto}}
 Verfahrens erstellt und sind aus diesem Grund nur bis auf den Dezimeter genau.
 Die Dachhöhen können somit benutzt werden, um neue Immobilien in das bestehende Stadtbild einzupassen und werden während der Planung eines Projektes von verschiedenen Ämtern angefordert.
-Da der, in \ac{WuNDa} benutzte, Datenbestand nicht aktualisiert wird, in Wuppertal aber neue Gebäude entstehen, enthält der Bestand mittlerweile Lücken.
+Da der in \ac{WuNDa} benutzte Datenbestand nicht aktualisiert wird, in Wuppertal aber neue Gebäude entstehen, enthält der Bestand mittlerweile Lücken.
 Dadurch, dass die Dachhöhen beim Bau eines neuen Gebäudes gemessen werden müssen, wäre eine Rückführung der Daten sinnvoll, da diese von anderen Stellen wiederverwendet werden könnten.
-Im Augenblick werden die Dachhöhen für jeden Gebrauch wieder gemessen.
+Im Augenblick werden die Dachhöhen für jeden Gebrauch wieder gemessen, somit könnte durch Vermeidung dieses Arbeitsschrittes Zeitersparnisse bei den externen Benutzern, aber auch beim Katasteramt selbst erzielt werden.
 Diese präzisere Daten könnten dann auch für andere Berechnungen herangezogen werden, wie etwa bei der Berechnung von Abstandsflächen.
 
 Das Freigeben der Dachhöhen für die Projektentwickler und ihre Dienstleister sollte keine Probleme darstellen, allerdings müsste in einem ersten Schritt überprüft werden, wie die Daten zurückgeführt werden könnten.
@@ -264,7 +272,8 @@ Der Abschluss dieser Arbeit bildet ein Ausblick auf zukünftige Funktionalitäte
 Neben den potentiellen Funktionalitäten für die externen Benutzer, existiert bereits eine konkrete Planung die Abrechnungskomponente für interne Zwecke zu benutzen.
 Im Augenblick müssen die Beamten des Geodatenzentrum, um ein Produkt für einen Kunden am Schalter zu beziehen, zwei verschiedene Systeme bedienen.
 In einem ersten Schritt beziehen sie ein oder mehrere Produkte für den Kunden in \ac{WuNDa}.
-In einem zweiten Schritt wählen sie die gleichen Produkte ein weiteres Mal aus, nur in der Geschäftsbuchlösung GEORG der Firma GEOSOFT, die ebenfalls vom R102 benutzt wird um dort die Quittung für den Kunden zu erstellen.
+In einem zweiten Schritt wählen sie die gleichen Produkte ein weiteres Mal in der Geschäftsbuchlösung GEORG der Firma GEOSOFT aus.
+Diese Softwarelösung wird  vom R102 benutzt um die Quittung für den Kunden zu erstellen.
 Dieses erneute Auswählen ist im Grunde unnötig und könnte automatisiert werden.
 Diese Automatisierung ist prinzipiell möglich, da die Preise der Produkte aufgrund der Abrechnungskomponente bereits in \ac{WuNDa} verwaltet werden und dem System dadurch bekannt sind.
 Somit ist geplant, die Abrechnungskomponente auch für die Schalterbeamten einzuführen, welche jedoch wie folgt umgebaut werden muss.
@@ -274,11 +283,11 @@ Wie diese Kommunikation zwischen den beiden Systemen genau von Statten geht, mus
 \section{Fazit}
 Das Hauptthema dieser Arbeit war die anstehende Rationalisierung  im Ressort 102.
 In einem ersten Teil wurde die Automatisierung der Abrechnungskomponente in \ac{WuNDa} erläutert, weshalb die fachlichen Aspekte der Abrechnungskomponente beleuchtet und deren derzeitigen Stand beschrieben wurde.
-Dies hat zur Folge, dass Beamten des Ressorts 102 zeitlich entlastet werden können, was der Rationalisierung entgegenkommt.
+Dies hat zur Folge, dass Beamte des Ressorts 102 zeitlich entlastet werden können, was der Rationalisierung entgegenkommt.
 Anschließend wurden die neuen Anforderungen an die Abrechnungskomponente spezifiziert.
 Die wichtigsten Anforderungen hierbei sind das Anzeigen der Buchungen von einzelnen Kunden, das Erstellen des Berichtes \enquote{Rechnungsanlage}, sowie die Suche nach einzelnen Buchungen.
 Nachfolgend wurde beschrieben, wie diese Anforderungen umgesetzt wurden.
-Insbesondere sind hier die Hauptanforderungen zu erwähnen, bestehend aus dem Kundenrenderer, zum Anzeigen der Buchungen eines Kunden und zum Erstellen der Berichte, sowie dem Buchungen-Suchdialog, zum Suchen der Buchungen.
+Insbesondere ist hier die Umsetzung der Hauptanforderungen zu erwähnen, bestehend aus dem Kundenrenderer, zum Anzeigen der Buchungen eines Kunden und zum Erstellen der Berichte, sowie dem Buchungen-Suchdialog, zum Suchen der Buchungen.
 
 In dem zweiten Teil der Arbeit wurde die Kundengruppe der Projektentwickler vorgestellt und die potentielle Funktionalitäten für \ac{WuNDa} vorgestellt, welche deren Arbeitsalltag erleichtern könnten.
 Dabei wurde detaillierter erläutert, wie ein berechtigtes Interesse in \ac{WuNDa} abgefragt werden könnte, und wie mit Hilfe des Programms die Dachhöhen aus Wuppertal angezeigt und rückgeführt werden könnten.
