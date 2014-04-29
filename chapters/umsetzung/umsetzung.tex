@@ -150,7 +150,7 @@ Zum anderen müssen aus den Daten die im Client benötigt werden CidsBeans (sieh
 Dies ist notwendig, da die verschiedenen Erweiterungen auf den Funktionalitäten der CidsBeans aufbauen.
 
 \subsubsection{Ausgangslage}
-In einem ersten Schritt wurden die bereits vorhandenen, benötigten Cids"=Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Cids"=Klasse der Buchungen, die \inline{BILLING}"=Klasse vorhanden ist. Diese Klasse ist in der \myfig{fig:db-billing} abgebildet.
+In einem ersten Schritt wurden die bereits vorhandenen, benötigten Cids"=Klassen betrachtet. Hierbei wurde festgestellt, dass einzig die Cids"=Klasse der Buchungen, die \inline{BILLING}"=Klasse vorhanden ist. Diese Klasse ist in der \autoref{fig:db-billing} abgebildet.
 \begin{figure}[htb]
 	\centering
 	\incgraph{scale=0.618}{./rimg/db_model_billing.png}
@@ -356,7 +356,7 @@ Bei Betätigen des Knopfes wird ein Objekt der Java"=Klasse \inline{Cids\-Billin
 Die Ergebnisse dieser Suche werden dann in der Tabelle angezeigt und eine entsprechende Zusammenfassung der Suchergebnisse wird über der Tabelle ausgegeben.
 Weiterhin können die beiden Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} erstellt werden, wobei die im \autoref{subsec:berichte} aufgeführten Bedingungen gelten.
 So dürfen externe Benutzer die \enquote{Rechnungsanlage} nicht erstellen und es kann ausgewählt werden, ob kostenfreie Buchungen in den Berichten angezeigt werden sollen oder nicht.
-Ein Screenshot des Kundenrenderers kann in \myfig{fig:kundenrenderer} eingesehen werden.
+Ein Screenshot des Kundenrenderers kann in \autoref{fig:kundenrenderer} eingesehen werden.
 
 \begin{figure}[htb]
 	\centering
@@ -386,7 +386,7 @@ Wie bereits beschrieben bietet der Kundengruppenrenderer einige Filterkriterien,
 Im Gegensatz zum Kundenrenderer werden die einzelnen Buchungen nicht angezeigt, sondern diese werden für den jeweiligen Kunden zusammengefasst und diese Zusammenfassung wird in der Tabelle dargestellt.
 Zum Erstellen der \enquote{Rechnungsanlage} und des \enquote{Buchungsbeleges} stehen die gleichen Optionen zur Verfügung, wie im Kundenrenderer.
 Zusätzlich kann die \enquote{Geschäftsstatistik} als Bericht erstellt werden.
-Ein Screenshot des Kundengruppenrenderer kann in der \myfig{fig:gui-kundengruppenrenderer} gefunden werden.
+Ein Screenshot des Kundengruppenrenderer kann in der \autoref{fig:gui-kundengruppenrenderer} gefunden werden.
 \begin{figure}[htb]
 	\centering
 	\incgraph{width=1\textwidth}{./rimg/gui-kundengruppenrenderer-real.png}
@@ -406,7 +406,7 @@ Mit dem Kundengruppeneditor kann eine neue Kundengruppe erstellt oder eine alte 
 \subsubsection{E-Mail an Kundengruppe erstellen}
 
 Wird im Katalog das Kontextmenü einer Kundengruppe geöffnet, dann erscheinen die zwei zusätzlichen Auswahlmöglichkeiten "`E-Mail an Ansprechpartner"' und "`E-Mail an Nutzer"'.
-Siehe hierzu auch die \myfig{fig:gui-kundengruppe-context}.
+Siehe hierzu auch die \autoref{fig:gui-kundengruppe-context}.
 \begin{figure}[htb]
 	\centering
 	\incgraph{width=0.618\textwidth}{./rimg/gui-kundengruppen-context-real.png}
@@ -441,7 +441,7 @@ Für die Buchungen musste ein Renderer, ein Editor und ein Suchdialog erstellt w
 Beim Buchungseditor und -renderer handelt es sich um die gleiche graphische Oberfläche, wobei beim Buchungseditor eine Buchung verändert werden kann.
 Die veränderbaren Werte sind die Geschäftsbuchnummer und die Projektbezeichnung, wobei die letzte Änderung jeweils protokolliert werden muss.
 Weiterhin kann im Editor eine Buchung, unter Angabe eines Stornogrundes, storniert werden.
-Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:buchungen} und kann unter \myfig{fig:buchungseditor} betrachtet werden.
+Die genauere Beschreibung dieser Oberflächen findet sich unter \autoref{subsec:buchungen} und kann unter \autoref{fig:buchungseditor} betrachtet werden.
 
 \begin{figure}[htbp]
 	\centering
@@ -469,7 +469,7 @@ Ein Beispiel der Suchergebnisse kann in der Abbildung \ref{fig:suchergebnisse} b
 Über dieses Menü kann der Editor der ausgewählten Buchung geöffnet werden.
 Da es sich bei dem Kontextmenü um eine Standardkomponente der Cids-Umgebung handelt, befindet sich hier auch die Option "`Objekt löschen"'.
 Diese wurde jedoch so eingestellt, dass ein Löschen nicht möglich ist.
-Ein Screenshot des Suchdialog selbst kann in \myfig{fig:gui-suchdialog} gefunden werden.
+Ein Screenshot des Suchdialog selbst kann in \autoref{fig:gui-suchdialog} gefunden werden.
 
 \begin{figure}[htbp]
 	\centering
@@ -490,7 +490,7 @@ Somit mussten die Daten in \ac{WuNDa} aufbereitet werden und als Parameter über
 
 \subsection{Buchungen-Knoten im Katalog}
 Um die Navigation innerhalb des Buchungsthemas zu gewährleisten wurde der Katalog um einen Buchungen-Knoten erweitert.
-Dessen Aufbau ist, aus Sicht eines Administrators, in \myfig{fig:katalog} dargestellt.
+Dessen Aufbau ist, aus Sicht eines Administrators, in \autoref{fig:katalog} dargestellt.
 Diese Erweiterung wurde mit Hilfe des \ac{ABF} durchgeführt.
 Dies war insbesondere deshalb nützlich, da es sich bei den Unterknoten, die sich direkt unter dem Knoten \enquote{Buchungen} befinden, um dynamische Knoten handelt.
 Somit konnte im \ac{ABF} direkt überprüft werden, ob die Query richtig angegeben wurde, da dort die automatisch erstellten Unterknoten als Vorschau angezeigt werden.

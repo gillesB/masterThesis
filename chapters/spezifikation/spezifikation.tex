@@ -24,7 +24,7 @@ Um die Spezifikation umzusetzen muss mit solchen Cids"=Klassen gearbeitet werden
 Die restlichen neuen Klassen werden gesondert im \autoref{subsec:neue_klassen} aufgeführt und beschrieben.
 
 %Damit im nächsten Abschnitt die Zusammenhänge der Erweiterungen aufgeführt werden können, ohne dass sämtliche Erweiterungen bereits erläutert wurden, werden diese hier aufgelistet.
-Die Liste ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordnung der Erweiterung darstellt.
+Die folgende Übersicht ist in Kategorien eingeteilt, wobei eine Kategorie die logische Zuordnung der Erweiterung darstellt.
 So befinden sich unter den Kategorien die neuen Cids"=Klassen Kunde und Kundengruppe, aber auch die bereits bestehende Cids"=Klasse Buchung. 
 \begin{itemize}
 	\item Allgemeines
@@ -67,10 +67,10 @@ Aus diesem Grund dürfen nur einige ausgewählte Benutzer Zugriff auf diese Erwe
 Bei den Benutzern handelt es sich um die \ac{WuNDa}"=Administratoren und einige Beamten, die für die Kundenverwaltung zuständig sind.
 Die einzige Ausnahme hiervon bildet die Ansicht der Kunden auf ihren eigenen Kundenrenderer, mehr Informationen hierzu befinden sich im Unterabschnitt \autoref{subsubsec:ansicht_externe_benutzer}. 
 
-Demnach sollen nur die \ac{WuNDa}"=Administratoren und einige Beamten der Kundenverwaltung Zugriff auf die gewünschte Erweiterungen erhalten. Wie bereits erwähnt, soll es hiervon nur eine einzige Ausnahme geben.
-
 \subsection{Hinzufügen des Mehrwertsteuer-Satzes bei Gebühren}
-Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert. Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll. Für diese Erstellung ist der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten. Weiterhin soll aus Gründen der Nachvollziehbarkeit ebenfalls der Brutto-Preis mit gespeichert werden.
+Bei der bisherigen Implementierung wurde bei den Buchungen jeweils nur der Brutto-Preis abgespeichert.
+Dies ist nach der Umstellung nicht mehr ausreichend, da die Abrechnung mittels \ac{WuNDa} erstellt werden soll, was bislang über ein anderes System erfolgte.
+Für diese Erstellung ist der Netto-Preis und der Mehrwertsteuer-Satz eines Produktes von Nöten. Weiterhin soll aus Gründen der Nachvollziehbarkeit ebenfalls der Brutto-Preis mit gespeichert werden.
 
 Demnach soll für eine Buchung der Netto-Preis, der Mehrwertsteuer-Satz sowie der Brutto-Preis gespeichert werden. Diese neuen Daten sollen ebenfalls im Downloadprotokoll-Dialog angezeigt werden.
 \subsection{Kunde}
@@ -129,8 +129,7 @@ Die einzelnen Filtermöglichkeiten und der Aufbau der Tabelle kann dem Mock-up d
 \end{figure}
 
 \subsubsection{Ansicht der eigenen Buchungen durch externe Benutzer} \label{subsubsec:ansicht_externe_benutzer}
-Die Funktionalität des Kundenrenderers soll dem Kunden selbst nicht vorenthalten werden.
-Aus diesem Grund soll es für die externen Benutzer eines Kunden möglich sein auf den eigenen Kundenrenderer zuzugreifen.
+Für die externen Benutzer eines Kunden soll es möglich sein auf den eigenen Kundenrenderer zuzugreifen.
 Hierbei muss sichergestellt werden, dass die externen Benutzer nur den Kundenrenderer des eigenen Kunden öffnen können und somit keine Einsicht in die Buchungen der anderen Kunden erhalten. 
 Zudem dürfen sie den Bericht \enquote{Rechnungsanlage} nicht erstellen können, da es sich bei diesem um einen Teil der Abrechnung handelt.
 
@@ -140,12 +139,12 @@ Demnach sollen externe Benutzer nur den eigenen Kundenrenderer öffnen können u
 Die Produkte, die über den ALKIS-Druckdialog erzeugt werden, werden von einem externen Server bezogen.
 Durch dessen längere Initialisierungsphase passiert es häufiger, dass Produkte fehlerhaft heruntergeladen werden.
 Da der Download dieser Produkte trotzdem protokolliert wird, wie im Abschnitt \ref{subsec:beschaffung-download} bereits erwähnt wurde, muss der externe Benutzer diese Buchung stornieren lassen und den Download erneut durchführen.
-Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein ein Download nochmals anzufordern, ohne dass er eine Buchung stornieren lassen muss.
+Zwar gehört eine vereinfachte Stornierung auch zu den gewünschten Erweiterungen, trotzdem soll es für den Benutzer möglich sein einen Download nochmals anzufordern, ohne dass er eine Buchung stornieren lassen muss.
 Weiterhin soll durch diesen Vorgang keine neue Buchung entstehen.
 Aus diesem Grund soll es für den Benutzer möglich sein, Produkte die bereits heruntergeladen wurden, erneut herunterzuladen. Einschränkend soll dies nur für Produkte möglich sein, die am selben Tag und über den ALKIS"=Druckdialog bezogen wurden. 
 
 Dieses erneute Herunterladen soll wie folgt umgesetzt werden. Bei einer Buchung, die am selben Tag erfolgte, soll in der Tabelle im Kundenrenderer das Datumsfeld eine zusätzliche Funktion als Auslöser zum erneuten Herunterladen des Produkts erhalten.
-Wenn das Datumsfeld ebenfalls als Auslöser dient, dann soll es blau unterstrichen sein, wie dies der \myfig{fig:mockup-kunderenderer} zu entnehmen ist.
+Wenn das Datumsfeld ebenfalls als Auslöser dient, dann soll es blau unterstrichen sein, wie dies der \autoref{fig:mockup-kunderenderer} zu entnehmen ist.
 Bei einem Klick auf ein solches Datumsfeld soll das bereits protokollierte Produkt erneut heruntergeladen werden, ohne dass eine neue Buchung erstellt wird.
 
 \subsubsection{Kundeneditor}
@@ -171,12 +170,12 @@ Der Kundengruppenrenderer soll die Buchungen eines jeden Kunden einer Kundengrup
 Seine Funktionsweise ist ähnlich dem des Kundenrenderers und besitzt deshalb auch einen ähnlichen Aufbau.
 Demnach können wieder verschiedene Filtermöglichkeiten angegeben werden und die Berichte \enquote{Rechnungsanlage} und \enquote{Buchungsbeleg} können erstellt werden. Zusätzlich steht hier auch der Bericht \enquote{Geschäftsstatistik} zur Auswahl.
 
-Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird, sondern mehrere, werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
+Da im Vergleich zu dem Kundenrenderer nicht ein einzelner Kunde dargestellt wird sondern mehrere werden hier nicht sämtliche Buchungen angezeigt. Deshalb werden die Buchungen für die einzelnen Kunden zusammengefasst und somit in aggregierter Form in der Tabelle dargestellt.
 Die in der Tabelle angezeigten Informationen sind die Kundennamen, die aggregierten Brutto-Preise und die Anzahl der kostenpflichtigen Downloads. Weiterhin soll jeder Eintrag in der Tabelle ein Auswahlfeld besitzen, mit dem der Benutzer auswählen kann, ob die Buchungen eines Kunden beim Erstellen eines Berichtes benutzt werden sollen, oder nicht.
 
 Die Buchungen können genau wie im Kundenrenderer zeitlich und nach Verwendungszweck gefiltert werden. Weiterhin kann nach dem Abrechnungsturnus der Kunden gefiltert werden und kostenfreie Buchungen können ausgeblendet werden.
 
-Eine Mock-up des Kundengruppenrenderer kann in \myfig{fig:mockup-kundengruppenrenderer} betrachtet werden.
+Einen Mock-up des Kundengruppenrenderer kann in \autoref{fig:mockup-kundengruppenrenderer} betrachtet werden.
 \begin{figure}[htb]
 	\centering
 	\incgraph{width=\textwidth}{./rimg/gui-kundengruppenrenderer.png}
@@ -192,14 +191,15 @@ In verschiedenen Fällen müssen Benachrichtigung-E-Mails an alle oder verschied
 Dies muss u.\,a. bei geplanten Systemausfällen, die durch Wartungsarbeiten verursacht werden, beim Einführen von neuen Funktionen oder sonstigen neuen Funktionalitäten wie z.\,B. neue Kartenthemen erfolgen.
 Im aktuellen Stand besitzt jeder Beamte, der solche E-Mails versenden soll, einen eigenen Verteiler, den er manuell aktuell halten muss.
 Nach dem Hinzufügen/Entfernen eines Kunden oder dem Ändern einer E-Mail-Adresse kann es somit zu Unvollständigkeiten in den einzelnen Verteiler kommen, da diese noch nicht aktualisiert wurden.
-Mittels der Kundengruppen können diese, von den Beamten einzeln verwalteten, Verteiler durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
+Mittels der Kundengruppen können diese von den Beamten einzeln verwalteten Verteiler durch eine zentrale Lösung ersetzt werden, die für jeden Beamten den gleichen Stand besitzt.
 
 Der gewünschte Lösungsansatz ist die Möglichkeit für eine Kundengruppe auszuwählen, ob eine E-Mail an die jeweiligen Direktkontakte oder an jeden Kunden-Login der Kunden innerhalb der Gruppe erstellt werden soll.
 Nach dieser Auswahl soll eine E-Mail Vorlage gewählt werden können, welche den Betreff und den Text der E-Mail enthält.
 Weiterhin soll sie zusätzlich die To-Adressaten enthalten, dies sind in der Regel Adressen von Mitarbeiter aus dem Katasteramt.
 Diese Mitarbeiter sollen die später versendete E-Mail als Kontrolle erhalten. 
-Nach der Auswahl der Vorlage soll ein E-Mail-Erstellungsfenster des Standard-E-Mail-Programms des Benutzers geöffnet werden.
-In diesem Erstellungsfenster sollen die Daten der Vorlage eingesetzt werden. Weiterhin sollen die ausgewählten E-Mail-Adressen (sprich die Direktkontakte bzw. die Adressen aller Kunden-Logins) als BCC-Adressen hinzugefügt werden.
+Nach der Auswahl der Vorlage soll das Standard-E-Mail-Programms des Benutzers geöffnet werden, so dass eine neue E-Mail erstellt werden kann.
+In diesem Erstellungsfenster der E-Mail sollen die Daten der Vorlage eingesetzt werden.
+Weiterhin sollen die ausgewählten E-Mail-Adressen (sprich die Direktkontakte bzw. die Adressen aller Kunden-Logins) aus Datenschutzgründen als BCC-Adressen hinzugefügt werden.
 
 Daraufhin kann der Benutzer die E-Mail wie gewohnt bearbeiten und z.\,B. den bereits eingesetzten Text beliebig verändern und schlussendlich die E-Mail an sämtlich eingetragene Kontakte versenden.
 
@@ -248,12 +248,14 @@ In dieser Protokollierung sollen folgende Werte erfasst werden:
 Diese Felder werden der Cids"=Klasse Buchung hinzugefügt, so dass jede Buchung sein eigenes Änderungsprotokoll mit speichert.
 
 \subsubsection{Stornierung von einzelnen Buchungen} \label{subsubsec:storno_buchung}
-Über den Buchungseditor, wie vorher bereits erwähnt, soll es möglich sein Buchungen zu stornieren, bei diesem Vorgang soll jedoch ein Grund ausgewählt werden, weshalb es zu der Stornierung kommt. Um diese Auswahl darzustellen wird die Cids"=Klasse Storno-Grund eingeführt, diese ist in Kapitel \ref{subsec:neue_klassen} beschrieben.
+Wie bereits vorher erwähnt soll es über den Buchungseditor möglich sein Buchungen zu stornieren.
+Bei dem Stornovorgang soll ein Grund ausgewählt werden, weshalb es zu der Stornierung kommt.
+Um diese Auswahl darzustellen wird die Cids"=Klasse Storno-Grund eingeführt, diese ist in Kapitel \ref{subsec:neue_klassen} beschrieben.
 
 Nachdem ein Beamte ein Storno-Grund ausgewählt hat und somit den Vorgang der Stornierung angestoßen hat, soll die Buchung als storniert markiert werden und mit dem Datum der Stornierung, sowie dem Storno-Grund und dem Benutzer abgespeichert werden.
 
 \subsection{Berichte} \label{subsec:berichte}
-Wie bereits erwähnt sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.
+Wie bereits beschrieben sollen im Kundenrenderer und im Kundengruppenrenderer verschiedene Berichte bezüglich den dargestellten Kunden und Buchungen erstellt werden. In diesem Abschnitt werden diese drei Berichte beleuchtet.
 
 \subsubsection{Buchungsbeleg}
 Der \enquote{Buchungsbeleg} soll die im Renderer angezeigten Buchungen tabellarisch darstellen.
@@ -285,7 +287,7 @@ Zudem ist die \enquote{Rechnungsanlage} ein Teil der Abrechnung, sodass die ange
 Was auch der Grund ist, weshalb der Bericht im Kundenrenderer nicht von den externen Benutzern erstellt werden darf.
 Eine Vorlage eines solchen Berichts kann der Abbildung \vref{fig:vorlage_rechnungsanlage} entnommen werden.
 
-In den Renderern soll es möglich sein auszuwählen, ob im Bericht kostenlose Downloads angezeigt werden und ob die Buchungen tatsächlich als abgerechnet markiert werden.
+In den Renderern soll ausgewählt werden können, ob im Bericht kostenlose Downloads angezeigt werden und ob die Buchungen tatsächlich als abgerechnet markiert werden.
 
 \subsubsection{Geschäftsstatistik}
 Die \enquote{Geschäftsstatistik} ist ein Bericht der Statistiken der Downloads von den verschiedenen Kunden.
@@ -305,7 +307,7 @@ Zum Einführen der Cids"=Klasse Kunde und zum Erweitern der Buchungen werden fol
 \begin{description}
 \item[Abrechnungsturnus] Der Abrechnungsturnus gibt an wie häufig ein Kunde eine Abrechnung erhält. Sein einziges Feld ist die Bezeichnung des Abrechnungsturnus (z.\,B. Jahr, Quartal)
 \item[Client] Das einzige Feld eines Clients ist seine Bezeichnung.
-\item[Produkt] Ein Produkt repräsentiert die verschiedenen Softwareprodukte, die ein Kunde benutzen kann. Seine Felder sind eine Bezeichung des Produktes, eine Beschreibung sowie der konkrete Client, mit dem sich der Benutzer anmelden kann.
+\item[Produkt] Ein Produkt repräsentiert die verschiedenen Softwareprodukte, die ein Kunde benutzen kann. Seine Felder sind eine Bezeichnung des Produktes, eine Beschreibung sowie der konkrete Client, mit dem sich der Benutzer anmelden kann.
 \item[Stornogrund] Ein Stornogrund ist der Grund, warum eine Buchung storniert wurde. Sein einziges Feld ist die Bezeichnung des Grundes.
 \end{description}
 
